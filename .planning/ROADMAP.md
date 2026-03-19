@@ -32,6 +32,12 @@ Plans:
 
 **Requirements:** LAND-01, LAND-02, LAND-03, LAND-04, LAND-05
 
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Foundation (theme, font, layout) + Hero section + Model cards with i18n
+- [ ] 02-02-PLAN.md — Impact, Docs teaser, Bottom CTA sections + Playwright e2e tests + visual verification
+
 **Success Criteria:**
 1. Hero section visible with mission text and key model numbers (50M->600M)
 2. Model highlight cards show top 3 models with params and type
