@@ -81,8 +81,8 @@
 
 ### Infrastructure
 
-- [ ] **INFR-01**: Site deployed on Cloudflare Pages via @opennextjs/cloudflare
-- [ ] **INFR-02**: Cloudflare DNS configured for saken.tukenov.kz
+- [x] **INFR-01**: Site deployed on Cloudflare Pages via @opennextjs/cloudflare
+- [x] **INFR-02**: Cloudflare DNS configured for saken.tukenov.kz
 - [x] **INFR-03**: i18n routing with next-intl (/kk/, /ru/, /en/)
 - [x] **INFR-04**: SEO fundamentals (sitemap.xml, robots.txt, meta tags, OG images)
 
@@ -166,8 +166,8 @@
 | BLOG-05 | Phase 11 | Pending |
 | CONT-01 | Phase 12 | Pending |
 | CONT-02 | Phase 12 | Pending |
-| INFR-01 | Phase 1 | Pending |
-| INFR-02 | Phase 1 | Pending |
+| INFR-01 | Phase 1 | Complete |
+| INFR-02 | Phase 1 | Complete |
 | INFR-03 | Phase 1 | Complete |
 | INFR-04 | Phase 1 | Complete |
 
