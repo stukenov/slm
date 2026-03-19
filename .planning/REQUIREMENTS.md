@@ -7,11 +7,11 @@
 
 ### Landing
 
-- [ ] **LAND-01**: User sees hero section with clear value proposition and key model numbers
-- [ ] **LAND-02**: User sees highlighted models (600M, 300M, 150M) with params and task type
+- [x] **LAND-01**: User sees hero section with clear value proposition and key model numbers
+- [x] **LAND-02**: User sees highlighted models (600M, 300M, 150M) with params and task type
 - [ ] **LAND-03**: User sees social proof section (Tilqazyna integration, partners)
-- [ ] **LAND-04**: User can navigate to Playground, Docs, Models, GitHub via CTA buttons
-- [ ] **LAND-05**: Landing is trilingual (kk/ru/en) with language switcher
+- [x] **LAND-04**: User can navigate to Playground, Docs, Models, GitHub via CTA buttons
+- [x] **LAND-05**: Landing is trilingual (kk/ru/en) with language switcher
 
 ### Models
 
@@ -122,11 +122,11 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| LAND-01 | Phase 2 | Pending |
-| LAND-02 | Phase 2 | Pending |
+| LAND-01 | Phase 2 | Complete |
+| LAND-02 | Phase 2 | Complete |
 | LAND-03 | Phase 2 | Pending |
-| LAND-04 | Phase 2 | Pending |
-| LAND-05 | Phase 2 | Pending |
+| LAND-04 | Phase 2 | Complete |
+| LAND-05 | Phase 2 | Complete |
 | MODL-01 | Phase 3 | Pending |
 | MODL-02 | Phase 3 | Pending |
 | MODL-03 | Phase 3 | Pending |

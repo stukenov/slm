@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-19T20:34:40.976Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-20T21:06:04Z"
 progress:
   total_phases: 12
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
-  percent: 100
+  total_plans: 5
+  completed_plans: 4
+  percent: 80
 ---
 
 # Project State
@@ -20,20 +20,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-19)
 
 **Core value:** Become the authoritative center of the Kazakh NLP ecosystem
-**Current focus:** Phase 01 complete — ready for Phase 02
+**Current focus:** Phase 02 — landing-page
 
 ## Current Phase
 
-**Phase 1: Project Setup & Infrastructure**
-Status: Executing Phase 01
-Goal: Next.js app deployed on Cloudflare Pages with i18n routing
+**Phase 2: Landing Page**
+Status: Executing Phase 02 (Plan 1/2 complete)
+Goal: Marketing landing page with hero, model cards, impact, docs teaser, CTA
 
 ## Phase Status
 
 | # | Phase | Status |
 |---|-------|--------|
 | 1 | Project Setup & Infrastructure | ● Complete (3/3 plans) |
-| 2 | Landing Page | ○ Pending |
+| 2 | Landing Page | ◐ In Progress (1/2 plans) |
 | 3 | Model Catalog & Cards | ○ Pending |
 | 4 | Playground | ○ Pending |
 | 5 | Documentation | ○ Pending |
@@ -58,12 +58,14 @@ Goal: Next.js app deployed on Cloudflare Pages with i18n routing
 | Next.js Metadata API for sitemap/robots | 2026-03-19 | Dynamic generation, no static files to maintain |
 | Cloudflare Workers (not Pages) via opennextjs-cloudflare | 2026-03-20 | opennextjs-cloudflare outputs a Worker, not Pages project |
 | Custom domain via Workers Domains API | 2026-03-20 | Simpler than DNS CNAME for Workers deployments |
+| CTAs disabled with coming-soon state | 2026-03-20 | Playground and Models pages not built yet |
+| Model cards as non-interactive divs | 2026-03-20 | Model detail routes do not exist yet |
 
 ## Session
 
-**Last session:** 2026-03-19T20:34:40.967Z
-**Stopped at:** Phase 2 context gathered
-**Progress:** [██████████] 100%
+**Last session:** 2026-03-20T21:06:04Z
+**Stopped at:** Completed 02-01-PLAN.md
+**Progress:** [████████░░] 80%
 
 ---
-*Last updated: 2026-03-20 after completing 01-03-PLAN.md — Phase 01 complete*
+*Last updated: 2026-03-20 after completing 02-01-PLAN.md — Phase 02 plan 1/2 done*
