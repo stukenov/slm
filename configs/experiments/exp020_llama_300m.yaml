@@ -1,0 +1,62 @@
+# ============================================================================
+# exp020: Llama 325M on 9B Kazakh tokens (4×/8× RTX 4090)
+# Architecture: Llama ~325M (1024h, 18L, 16heads, SwiGLU), vocab 50257
+# Tokenizer: sozkz-core-gpt2-50k-kk-base-v1
+# Dataset: sozkz-corpus-tokenized-kk-llama50k-v3 (9B tokens, 1 epoch)
+# Chinchilla ratio: 9B / 325M = 27.7:1 (slightly overtrained, acceptable)
+# Cost estimate: ~$14-17 on 8×RTX 4090 (~6.6h)
+# Goal: Best quality/cost model — 2× larger than exp014 (150M)
+# ============================================================================
+inherits: base
+experiment_name: exp020_llama_300m
+
+model_name: custom-llama-325m
+from_scratch: true
+
+model_config:
+  model_type: llama
+  vocab_size: 50257
+  hidden_size: 1024
+  intermediate_size: 3584       # 3.5 × hidden
+  num_hidden_layers: 18
+  num_attention_heads: 16
+  num_key_value_heads: 16
+  max_position_embeddings: 2048
+  tie_word_embeddings: true
+  bos_token_id: 0
+  eos_token_id: 0
+  pad_token_id: 1
+
+# Pre-tokenized dataset (9B tokens, 8.79M blocks × 1024)
+pretokenized_dataset: stukenov/sozkz-corpus-tokenized-kk-llama50k-v3
+
+# Tokenizer
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Training hyperparameters
+learning_rate: 6e-4
+weight_decay: 0.1
+num_train_epochs: 1
+per_device_train_batch_size: 32
+gradient_accumulation_steps: 4
+# effective batch per GPU = 32 × 4 = 128 blocks = 131K tokens/step
+# with 8 GPUs: 128 × 8 = 1024 blocks = 1.05M tokens/step
+# total steps (8 GPU): 8.79M / 1024 ≈ 8,584 steps
+
+# Schedule
+warmup_steps: 500
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+eval_steps: 1000
+save_steps: 1000
+logging_steps: 25
+save_total_limit: 3
+block_size: 1024
+
+# Performance
+bf16: true
+dataloader_num_workers: 4
+torch_compile: true

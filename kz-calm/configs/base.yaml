@@ -1,0 +1,74 @@
+# KZ-CALM Base Config
+
+# Audio
+sample_rate: 24000
+audio_channels: 1
+
+# Codec
+codec:
+  type: "mimi"  # "mimi" or "mel"
+  name: "kyutai/mimi"
+  frozen: true
+  latent_dim: 512
+  frame_rate: 12.5  # Hz (frames per second)
+  # Mel params (used when type=mel)
+  n_mels: 80
+  n_fft: 1024
+  hop_length: 256
+
+# Tokenizer
+tokenizer:
+  type: "sentencepiece"
+  vocab_size: 4096
+  model_path: null  # set after training tokenizer
+
+# Text normalization
+normalizer:
+  expand_numbers: true
+  expand_dates: true
+  expand_abbreviations: true
+  script: "cyrillic"
+
+# Model (Backbone Transformer)
+model:
+  num_layers: 16
+  d_model: 1024
+  num_heads: 16
+  d_ff: 4096
+  dropout: 0.1
+  max_text_len: 512
+  max_audio_frames: 1500  # ~120 sec at 12.5 Hz
+
+# Flow/Consistency Head
+flow:
+  num_sampling_steps: 8
+  sigma_min: 0.001
+  loss_type: "huber"  # huber or mse
+
+# Training
+training:
+  batch_size: 16
+  gradient_accumulation_steps: 4
+  learning_rate: 1.0e-4
+  warmup_steps: 1000
+  max_steps: 200000
+  weight_decay: 0.01
+  bf16: true
+  max_audio_duration: 30.0  # seconds
+  min_audio_duration: 1.0
+  num_workers: 4
+  save_steps: 5000
+  eval_steps: 2500
+  logging_steps: 100
+
+# Data
+data:
+  train_manifest: null  # path to train manifest (jsonl)
+  val_manifest: null
+  segment_min_sec: 5.0
+  segment_max_sec: 30.0
+  snr_threshold: 15.0
+
+# Output
+output_dir: "outputs"
+experiment_name: "base"

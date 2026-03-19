@@ -1,0 +1,51 @@
+# ============================================================================
+# exp011b: T5-50M seq2seq from scratch (span corruption pretraining)
+# Architecture: T5 ~50M (512d, 8L enc + 8L dec, 8heads), encoder-decoder
+# Tokenizer: sozkz-vocab-sp-32k-kk-t5-v1 (SentencePiece 32K + 128 sentinels)
+# Dataset: sozkz-seq-t5-50m-kk-base-v1-tokenized (pretokenized)
+# Goal: First seq2seq model — T5-style pretraining for downstream tasks
+# ============================================================================
+inherits: base
+experiment_name: exp011_t5_50m
+model_name: sozkz-seq-t5-50m-kk-base-v1
+from_scratch: true
+
+model_config:
+  model_type: t5
+  vocab_size: 32128            # 32000 SP + 128 sentinels
+  d_model: 512
+  d_kv: 64
+  d_ff: 2048
+  num_layers: 8
+  num_decoder_layers: 8
+  num_heads: 8
+  dense_act_fn: gelu_new
+  is_encoder_decoder: true
+  tie_word_embeddings: true
+  decoder_start_token_id: 1
+
+tokenizer_path: saken-tukenov/sozkz-vocab-sp-32k-kk-t5-v1
+tokenizer_mode: pretrained
+dataset_name: saken-tukenov/sozkz-seq-t5-50m-kk-base-v1-tokenized
+pretokenized: true
+
+# T5 span corruption
+mask_prob: 0.15
+mean_noise_span_length: 3
+block_size: 512
+
+# Training (~50M params, 1B tokens, 1 epoch)
+learning_rate: 1e-4
+weight_decay: 0.01
+num_train_epochs: 1
+per_device_train_batch_size: 32
+gradient_accumulation_steps: 4
+
+warmup_steps: 1000
+max_grad_norm: 1.0
+lr_scheduler_type: inverse_sqrt
+
+eval_steps: 2000
+save_steps: 2000
+save_total_limit: 3
+logging_steps: 25

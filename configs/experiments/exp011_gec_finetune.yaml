@@ -1,0 +1,30 @@
+# ============================================================================
+# exp011a: GEC fine-tuning of Llama 50M v2
+# Architecture: Llama 50M (from exp007b), task=gec
+# Init: sozkz-core-llama-50m-kk-base-v2
+# Dataset: sozkz-corpus-synthetic-kk-gec-v1 (synthetic GEC pairs)
+# Goal: Grammatical error correction for Kazakh text
+# ============================================================================
+inherits: base
+experiment_name: exp011_gec_finetune
+model_name: saken-tukenov/sozkz-core-llama-50m-kk-base-v2
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+dataset_name: saken-tukenov/sozkz-corpus-synthetic-kk-gec-v1
+init_from: saken-tukenov/sozkz-core-llama-50m-kk-base-v2
+
+# GEC-specific
+task: gec
+max_seq_length: 512
+
+# Training
+num_train_epochs: 1
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 4
+learning_rate: 2e-5
+warmup_ratio: 0.05
+lr_scheduler_type: cosine
+max_grad_norm: 1.0
+save_steps: 1000
+eval_steps: 1000
+logging_steps: 50
+bf16: true

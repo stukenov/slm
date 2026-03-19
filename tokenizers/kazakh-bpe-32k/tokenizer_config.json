@@ -1,0 +1,9 @@
+{
+  "tokenizer_class": "PreTrainedTokenizerFast",
+  "model_max_length": 1024,
+  "bos_token": "<|endoftext|>",
+  "eos_token": "<|endoftext|>",
+  "pad_token": "<|padding|>",
+  "unk_token": null,
+  "clean_up_tokenization_spaces": false
+}

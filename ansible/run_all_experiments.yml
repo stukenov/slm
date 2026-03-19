@@ -1,0 +1,31 @@
+---
+- name: Run all experiments sequentially (detached)
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    session_name: "slm_all"
+    experiments: "exp001_dapt_pythia14m exp002_dapt_pythia31m exp003_custom_tok_14m exp004_scratch_14m"
+
+  tasks:
+    - name: Kill existing screen session if any
+      shell: "screen -X -S {{ session_name }} quit || true"
+
+    - name: Start all experiments in detached screen
+      shell: |
+        screen -dmS {{ session_name }} bash -c '
+          cd {{ project_dir }} && \
+          source {{ venv_path }}/bin/activate && \
+          bash scripts/run_all.sh {{ experiments }} \
+            2>&1 | tee logs/all_experiments.log; \
+          echo "=== ALL DONE at $(date) ===" >> logs/all_experiments.log
+        '
+
+    - name: Verify screen session is running
+      shell: "screen -ls | grep {{ session_name }}"
+
+    - name: Report
+      debug:
+        msg: |
+          All experiments queued in screen session: {{ session_name }}
+          Monitor:  ssh kaznu -t 'screen -r {{ session_name }}'
+          Tail log: ssh kaznu 'tail -f {{ project_dir }}/logs/all_experiments.log'

@@ -1,0 +1,21 @@
+# Stage 0: Sanity check — verify pipeline works end-to-end
+inherits: base
+
+experiment_name: exp001_sanity
+
+model:
+  num_layers: 4
+  d_model: 256
+  num_heads: 4
+  d_ff: 1024
+
+flow:
+  num_sampling_steps: 4
+
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 1
+  max_steps: 500
+  save_steps: 100
+  eval_steps: 100
+  logging_steps: 10

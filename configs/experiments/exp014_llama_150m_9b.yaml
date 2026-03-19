@@ -1,0 +1,52 @@
+# ============================================================================
+# exp014: Llama 150M on full 9B-token corpus (definitive 150M run)
+# Architecture: Llama ~152M (768h, 16L, 12heads), vocab 50257
+# Tokenizer: sozkz-core-gpt2-50k-kk-base-v1
+# Dataset: sozkz-corpus-tokenized-kk-llama50k-v3 (9B tokens, 1 epoch)
+# Goal: Best 150M model — flagship base model for SFT/downstream
+# ============================================================================
+inherits: base
+experiment_name: exp014_llama_150m_9b
+
+# Custom Llama ~152M from scratch
+model_name: custom-llama-150m
+from_scratch: true
+
+model_config:
+  model_type: llama
+  vocab_size: 50257
+  hidden_size: 768
+  intermediate_size: 2048
+  num_hidden_layers: 16
+  num_attention_heads: 12
+  num_key_value_heads: 12
+  max_position_embeddings: 1024
+  tie_word_embeddings: true
+  bos_token_id: 0
+  eos_token_id: 0
+  pad_token_id: 1
+
+# Pre-tokenized dataset (9B tokens, 8.79M blocks x 1024)
+pretokenized_dataset: saken-tukenov/sozkz-corpus-tokenized-kk-llama50k-v3
+
+# Tokenizer
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Training hyperparameters
+learning_rate: 3e-4
+weight_decay: 0.1
+num_train_epochs: 1
+per_device_train_batch_size: 12
+gradient_accumulation_steps: 10
+
+# Schedule (~36,625 steps at effective bs=240, 1 epoch)
+warmup_steps: 750
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+eval_steps: 2000
+save_steps: 2000
+logging_steps: 50
+save_total_limit: 3

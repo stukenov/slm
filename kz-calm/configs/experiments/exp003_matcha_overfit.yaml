@@ -1,0 +1,47 @@
+inherits: base
+experiment_name: exp003_matcha_overfit
+
+data:
+  hf_audio_dataset: stukenov/kzcalm-tts-kk-v1
+  split: "train"
+  max_samples: 50
+  streaming: true
+
+codec:
+  type: mel
+  latent_dim: 100
+  n_mels: 100
+  hop_length: 256
+  n_fft: 1024
+
+tokenizer:
+  hf_repo: "stukenov/kzcalm-sp-tokenizer-4k-kk-v1"
+
+model:
+  type: matcha
+  encoder_layers: 4
+  encoder_dim: 256
+  encoder_heads: 4
+  encoder_ff: 1024
+  unet_channels: [256, 256, 512]
+  dropout: 0.0
+  max_text_len: 512
+  duration_loss_weight: 1.0
+
+flow:
+  num_sampling_steps: 8
+  sigma_min: 0.001
+  loss_type: mse
+
+training:
+  batch_size: 8
+  gradient_accumulation_steps: 1
+  max_steps: 1000
+  learning_rate: 1.0e-4
+  warmup_steps: 100
+  weight_decay: 0.01
+  grad_clip: 1.0
+  bf16: true
+  num_workers: 0
+  save_steps: 500
+  logging_steps: 10

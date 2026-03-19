@@ -1,0 +1,40 @@
+[project]
+name = "kz-calm"
+version = "0.1.0"
+description = "Kazakh Consistency-Latent TTS based on Mimi codec + flow/consistency matching"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Saken Tukenov"}]
+
+dependencies = [
+    "torch>=2.1",
+    "torchaudio>=2.1",
+    "transformers>=4.40",
+    "accelerate>=0.28",
+    "moshi>=0.2",
+    "sentencepiece>=0.2",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "datasets>=2.18",
+    "huggingface-hub>=0.22",
+    "pyyaml>=6.0",
+    "tensorboard>=2.16",
+    "jiwer>=3.0",
+    "vocos>=0.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kzcalm"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+]

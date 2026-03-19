@@ -1,0 +1,40 @@
+# ============================================================================
+# exp021: SFT of Llama 300M with Alpaca format (Kazakh instructions)
+# Architecture: Llama 325M, task=sft, Kazakh Alpaca template
+# Init: stukenov/sozkz-core-llama-300m-kk-base-v1
+# Dataset: AmanMussa/kazakh-instruction-v2 (52K examples, clean Kazakh)
+# Goal: Instruction-following 300M model for Kazakh
+# ============================================================================
+inherits: base
+
+experiment_name: exp021_sft_alpaca_300m
+task: sft
+
+init_from: stukenov/sozkz-core-llama-300m-kk-base-v1
+tokenizer_path: stukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+sft_dataset: AmanMussa/kazakh-instruction-v2
+sft_format: alpaca
+max_length: 1024
+
+# 1x RTX 4090 (24GB), 325M model
+# Effective batch: 8 × 1 × 8 = 64
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 8
+dataloader_num_workers: 4
+
+learning_rate: 2e-5
+weight_decay: 0.01
+num_train_epochs: 3
+warmup_ratio: 0.03
+lr_scheduler_type: cosine
+max_grad_norm: 1.0
+
+eval_steps: 200
+save_steps: 200
+logging_steps: 10
+save_total_limit: 3
+
+# HF publish
+hf_repo: stukenov/sozkz-core-llama-300m-kk-instruct-v1

@@ -1,0 +1,49 @@
+---
+- name: Deploy SLM project to GPU server
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+
+  tasks:
+    - name: Ensure system packages are installed
+      apt:
+        name:
+          - python3-pip
+          - python3-venv
+          - screen
+        state: present
+        update_cache: true
+
+    - name: Sync project files to server
+      synchronize:
+        src: "{{ playbook_dir }}/../"
+        dest: "{{ project_dir }}/"
+        rsync_opts:
+          - "--exclude=.git"
+          - "--exclude=.venv"
+          - "--exclude=outputs"
+          - "--exclude=logs"
+          - "--exclude=__pycache__"
+          - "--exclude=*.egg-info"
+        delete: false
+
+    - name: Create virtual environment
+      command: python3 -m venv {{ venv_path }}
+      args:
+        creates: "{{ venv_path }}/bin/activate"
+
+    - name: Upgrade pip in venv
+      command: "{{ venv_path }}/bin/pip install --upgrade pip"
+
+    - name: Install project in editable mode
+      command: "{{ venv_path }}/bin/pip install -e ."
+      args:
+        chdir: "{{ project_dir }}"
+
+    - name: Create output directories
+      file:
+        path: "{{ project_dir }}/{{ item }}"
+        state: directory
+      loop:
+        - outputs
+        - logs

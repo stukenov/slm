@@ -1,0 +1,14 @@
+# Configuration for Kazakh text collection pipeline
+# Usage: python -m slm.collect --config configs/collect.yaml
+
+output_dir: data/collected
+
+# Uncomment to auto-push merged dataset to HF Hub
+# push_to_hub: saken-tukenov/sozkz-corpus-merged-kk-v1
+
+# Cleaning parameters
+cleaning:
+  min_text_len: 50
+  max_chars: 500000
+  max_url_density: 5.0
+  max_html_tags: 5

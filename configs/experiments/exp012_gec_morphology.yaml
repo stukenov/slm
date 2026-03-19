@@ -1,0 +1,29 @@
+# ============================================================================
+# exp012: GEC morphology fine-tuning (continued from GEC v1)
+# Architecture: Llama 50M, task=gec (continued from exp011a)
+# Init: sozkz-fix-mt5-50m-kk-gec-v1 (GEC checkpoint)
+# Dataset: sozkz-corpus-tokenized-kk-morph-v1 (morphological errors)
+# Goal: Improve GEC with morphology-focused training data
+# ============================================================================
+inherits: base
+experiment_name: exp012_gec_morphology
+model_name: saken-tukenov/sozkz-core-llama-50m-kk-base-v2
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+pretokenized_dataset: saken-tukenov/sozkz-corpus-tokenized-kk-morph-v1
+init_from: saken-tukenov/sozkz-fix-mt5-50m-kk-gec-v1
+
+task: gec
+max_seq_length: 512
+
+# Training — 3 epochs on filtered data
+num_train_epochs: 3
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 4
+learning_rate: 1e-5
+warmup_ratio: 0.05
+lr_scheduler_type: cosine
+max_grad_norm: 1.0
+save_steps: 500
+eval_steps: 500
+logging_steps: 50
+bf16: true

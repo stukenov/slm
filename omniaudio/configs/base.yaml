@@ -1,0 +1,26 @@
+seed: 42
+output_dir: ./outputs
+logging_dir: ./logs
+n_mels: 80
+sample_rate: 16000
+max_audio_len: 30.0
+max_text_len: 256
+tokenizer_path: saken-tukenov/kazakh-bpe-32k
+
+# Audio encoder
+audio_d_model: 384
+audio_n_heads: 6
+audio_n_layers: 4
+
+# LLM decoder
+llm_vocab_size: 32000
+llm_d_model: 576
+llm_n_heads: 8
+llm_n_layers: 8
+llm_intermediate_size: 1536
+
+# Training defaults
+bf16: true
+dataloader_num_workers: 4
+report_to: tensorboard
+max_grad_norm: 1.0

@@ -1,0 +1,53 @@
+# ============================================================================
+# exp007b: Llama 50M v2 on clean corpus (GPT2-50K tokenizer)
+# Architecture: Llama ~50M (512h, 8L, 8heads), smaller hidden than exp005c
+# Tokenizer: sozkz-core-gpt2-50k-kk-base-v1
+# Dataset: sozkz-corpus-clean-kk-pretrain-v2 (~1B tokens, 1 epoch)
+# Goal: Llama 50M on cleaner data with GPT2-50K tok, Chinchilla-optimal
+# ============================================================================
+inherits: base
+
+experiment_name: exp007_llama_50m_v2
+
+# Custom Llama ~50M from scratch on clean v2 data
+model_name: sozkz-core-llama-50m-kk-base-v2
+from_scratch: true
+
+model_config:
+  model_type: llama
+  vocab_size: 50257
+  hidden_size: 512
+  intermediate_size: 1344
+  num_hidden_layers: 8
+  num_attention_heads: 8
+  num_key_value_heads: 8
+  max_position_embeddings: 1024
+  tie_word_embeddings: true
+  bos_token_id: 0
+  eos_token_id: 0
+  pad_token_id: 1
+
+# Pre-tokenized dataset (1.04B tokens, sozkz-core-gpt2-50k-kk-base-v1 tokenizer)
+pretokenized_dataset: saken-tukenov/sozkz-corpus-clean-kk-pretrain-v2
+block_size: 1024
+
+# Tokenizer
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Training hyperparameters — Chinchilla-optimal (1 epoch, ~1B tokens)
+learning_rate: 6e-4
+weight_decay: 0.1
+num_train_epochs: 1
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 2
+
+# Schedule
+warmup_steps: 500
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+eval_steps: 1000
+save_steps: 1000
+logging_steps: 25

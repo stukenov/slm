@@ -1,0 +1,42 @@
+[project]
+name = "slm"
+version = "0.1.0"
+description = "Small Language Model for Kazakh language via DAPT"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Saken Tukenov"},
+]
+
+dependencies = [
+    "torch>=2.1",
+    "transformers>=4.40",
+    "datasets>=2.18",
+    "accelerate>=0.28",
+    "tokenizers>=0.15",
+    "pyyaml>=6.0",
+    "tensorboard>=2.16",
+    "huggingface-hub>=0.22",
+    "sentencepiece>=0.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4",
+    "pytest>=8.0",
+]
+cloud = [
+    "vastai>=0.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/slm"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120

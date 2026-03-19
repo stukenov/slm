@@ -1,0 +1,5510 @@
+{
+  "results": {
+    "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+    "avg_tokens": 298.968,
+    "avg_tokens_std": null,
+    "model_type": "sft"
+  },
+  "judges": [
+    {
+      "task_id": 28,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f416aae3-fb98-4cdc-b63b-37e3451ad344",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 37,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "173388ed-ede9-4f84-9359-c33356ac8a9e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 20,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f2270412-b237-4a41-8302-43b4b5ea4c8a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 22,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "34fd56c2-095f-4aa0-ad62-f6ff1a283486",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 19,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "cf617d3a-4801-41db-92dc-effc88e1a97b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 17,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "bf8374df-c153-465b-8363-9cd7a154931d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 26,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "87eff79a-1d12-4d2d-8767-80810c370ab7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 3,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ec36d73c-0501-43ca-b1a5-553058c91b30",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 1,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d6be2e2d-1e9d-4887-95ba-8ac9e9e1e3ea",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 13,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "05a054f1-3253-446a-87f5-9d9cf75d89eb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 44,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6276905d-9fe4-4402-8800-7db7c5c26f4f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 18,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6de25ca5-e6e4-4280-a5c0-3c96f48c17b3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 34,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "da2f45e9-e6d3-4f0f-be0a-6e486e72b11b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 7,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "618c3a2d-6ca3-471e-a175-32235c0b6089",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 21,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e9a1e4e9-6422-4d6f-83e0-00689309a04c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 42,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f9b1301f-1afa-4b6b-a0be-7cb442b47114",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 36,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "bc90c82c-8063-4dbf-a1e6-6bda9cc3b507",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 0,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f9405414-8ac3-44a2-99a4-dce27d4c29a4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 31,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ec920dec-ea37-4a8d-b65b-266887cfad11",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 4,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9fd69bc2-cf65-4f0b-82ee-43b3c61e8729",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 12,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "fd11a898-1d60-46ea-8c3d-243b2ad05829",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 41,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3fc16834-f643-4c92-875c-e4f8be79bae2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 48,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "aae4059a-fef4-4781-9084-a2c4fc57efab",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 25,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ec340a47-6ff5-469c-8434-d21bfec78971",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 32,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5629e2f1-c0c4-483a-98d3-2a6420972276",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 6,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b8a6ac23-66e4-4aa9-85c4-89bf98c982d6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 24,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2f8cedc0-3325-4cf3-a3e7-557527aa9169",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 11,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f93b5353-2904-4248-a78f-40618acd7376",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 14,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "67c09f20-f117-4c44-b871-a357f8bc58a6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 39,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6e1416b4-2010-4199-974f-7a76cc263ffc",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 27,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b6ae21ce-4be2-4455-be4a-d073a9239299",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 33,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a8d97887-2b01-4ce6-b76f-43ff3c453af3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 16,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8ca121dd-d587-4f15-b805-aa7f0c1b7c35",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 47,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "efe43ed1-8cdf-4a65-bd8b-2b80853ac3a3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 43,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "176ca9bf-4ba8-4213-92b9-aa3187aecfe6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 40,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "39636131-7145-4d37-8bb5-9d0574850df4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 29,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5a563a36-f2f6-4392-a31e-b5c92c35a76d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 2,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "17870f0e-c39e-484d-b1ce-c1d1c95476e2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 30,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ff3f2455-d6bd-4973-ad99-fd1b0e33a44c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 35,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9dbd12f4-ba40-4566-8d27-3bab4dd79e51",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 23,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e2fe89ee-9944-4473-bb9d-db96c95c20e1",
+      "judge": {
+        "explanation": "N/A",
+        "score": 7
+      },
+      "success": true
+    },
+    {
+      "task_id": 45,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "913b32c9-c5d0-4e5a-8028-d5dd7ac975d5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 49,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f0bd93bd-9e84-46f8-88e3-192a0d179e93",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 5,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b0de3998-0213-444c-a783-48d1b8827b49",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 10,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6da6a9eb-152c-4bb2-9a99-2a76d17d86fc",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 46,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "754f5b60-e742-4b5f-891d-56a50d6a05ba",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 9,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c80c7321-40e3-443d-8d41-be43f8659baa",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 15,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2602ecb7-2fe2-4434-88a1-bd4bc509b421",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 38,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6e55ab39-985d-4af0-9e3b-958d075e4836",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 79,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "28de5183-fe8e-4d04-81a6-57c86d7edacb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 53,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "aa6d7df2-8df2-4604-91f5-443ae9b48ed5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 8,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2d6b1ec0-f304-4fd6-804a-1fedfee4f046",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 72,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "39eb8bbe-3621-4c84-ab84-9cb40d6588c0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 70,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "517ef5ec-6d1b-4e4e-bef0-b64ca5b7cfaf",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 50,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "45975b7d-c9e6-41ef-b4ae-340055540d2e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 52,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d4c93f73-7352-4cf9-a674-7ba147b9c0cb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 60,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "93e869fc-6862-462e-bfec-efd6f14507fe",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 54,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "47717a1e-bf82-4e0c-acf6-62765fd364d4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 84,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3d1f19ad-3a27-43cf-8b5a-21acc2a46c37",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 76,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9f74c9fc-4742-4f1c-869b-75c16d49f58e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 71,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "725f5ec2-4027-4c79-9b74-20fa7190df11",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 82,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9a11d602-ad69-465c-aa50-b34a5811320b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 56,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9eebff60-e0e9-4e7d-b9ae-c8a54c82f1d9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 87,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9118afc8-ca75-4b45-b64d-2934a5207371",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 66,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e4c64572-879f-4323-a2cc-c452c41fd5f6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 69,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a782036c-68a4-4501-972d-596abe65467e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 63,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "574df0e5-5d64-4e42-83d9-4d71ba5e5ad2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 88,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c98bd3fb-a307-443c-9dab-50ade6b147ad",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 86,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "cc226bc5-1c26-4c97-a63a-84588aa3c382",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 67,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d6608e71-7b37-4060-abef-1f4ffe9a25de",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 61,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1fceef0a-d71b-4185-856c-40e40b7b7cb9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 64,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a25c4536-2ae0-403d-80d7-0bcdc209947e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 58,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7e9bee6c-3c99-4103-b8e6-7ab6ad392098",
+      "judge": {
+        "explanation": "N/A",
+        "score": 7
+      },
+      "success": true
+    },
+    {
+      "task_id": 95,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "db5eb331-2899-4e63-91cc-bd77c8d71a7d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 65,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b227c752-a4dc-47b0-9332-55ac027caea2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 55,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "07d22595-02db-4c63-a6f0-9db624692524",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 74,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "397d8388-6177-4b35-bedb-da60853f75c8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 77,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "74c00b1b-9766-46e4-a5a7-7ae484a16861",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 73,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c6bebe68-0f3e-45f7-8db4-953772f02ec4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 101,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "797eb439-1f12-4634-a928-7cbd5c4d82c3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 94,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "004c0fac-1ae3-4ea5-b891-69de1569b52a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 99,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "164591c0-d5cf-40b2-8193-3a8d6d56aaa2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 75,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b49fe3a4-4f4a-4bbd-a445-62913cf9803f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 85,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d8bd4984-f6b9-44e9-a25c-aaa4128335cc",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 90,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c7e7112f-e5ba-4751-b240-6d5d0da0f046",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 57,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "fa147987-cc65-4ef4-8890-3b52fec702a7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 89,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "13b6f4aa-08bf-4f75-a30b-b63527c7fc9f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 100,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9d1a0e1b-e872-4d3f-b91a-afacb6501b28",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 51,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e53ba630-0d82-4d94-8baa-8a2b807aeb38",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 78,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "35f09afd-67da-43d9-9d97-2ace7a482bf5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 62,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "bddd16ad-3ae7-4af2-af74-43065ba748a9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 68,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d3adc469-6e40-4da8-948c-29726a1bcd2a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 91,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8bf4faf2-20cc-4859-9971-53e673dbd63e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 80,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f263267b-bf28-4358-a3b5-d19db7bc9fe9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 93,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e5fe5770-3e49-41db-be8b-fb30f4944a65",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 81,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d75587e1-c4a8-40fd-a52b-bfb5e2578184",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 110,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6587e9ee-3a03-4928-8db9-c846efc8b61f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 97,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "43e16386-6e75-428d-8281-b18122eb7e50",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 83,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c9e455b4-3ced-4093-a521-39784999e6e0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 109,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4b7296c4-761c-4911-9fc6-ac2dd2168672",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 107,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4ecd612f-1a1a-4b09-a6d7-c1cc6cacf7f9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 59,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e7d318e5-928b-41d0-ad00-98e5b8300d04",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 118,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d5b8efb0-a8c9-4233-9e87-3df774bf607b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 92,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7333cc7d-08a3-4300-b73b-a993944dff2a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 98,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ec1db61c-a1d9-44a0-96f8-6fc67ce1bdc4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 129,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6883bd51-ccf9-4312-97fe-6015bf50c680",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 115,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b256d924-e87f-4c19-bb72-252c1fcfd447",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 131,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a3f12bf5-34fe-431c-b5cf-af29bd4ab131",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 122,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "609d341f-1063-4d39-b3dd-fd7f9f68aefb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 112,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d40ceaa9-7ff2-4e22-b38f-748953507295",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 111,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "86710666-5b33-40a7-9b83-3fb317ffd8af",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 103,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1ccaf335-ed5f-46f4-a9a2-964fa4747cad",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 105,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6908f045-2bde-4568-8f7e-48481295607a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 128,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a45f568e-e84d-4ea0-936e-2b503dc461da",
+      "judge": {
+        "explanation": "N/A",
+        "score": 5
+      },
+      "success": true
+    },
+    {
+      "task_id": 113,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "385787d2-83af-47c4-9211-99a0be21c10b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 102,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ce5397ae-44ec-41d3-8acf-1e49da125ec8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 106,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "31d6db3f-2a81-4da1-8a9b-9cf9a4ae4613",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 142,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c04d9b6a-e3e5-47f3-9912-5e6b2a0f0000",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 117,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ddbe7ec8-9d40-472f-b1f1-c20092a182a9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 104,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8809c2fd-7298-4dea-8a5d-56228f31bf2b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 132,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ca984597-fce3-4526-a1cd-c62e1258b08c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 119,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "285c18bf-6bcf-42ce-88c9-610f71635da1",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 121,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "94951242-67a2-483c-aae0-f6bf12b67294",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 108,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b711e47f-ece8-47b9-8390-160acd567ab1",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 116,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0c8bf170-8ea5-4022-9435-f54643c438a7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 137,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "85582b97-2b1c-49af-88f5-a34e74dbed9c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 125,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "207cbeec-1a91-4772-a7f2-3e7d2f8b9ccb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 143,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4a999d73-ce98-4518-9a93-e802c20bfeca",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 141,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a4a407c5-2e5c-4498-862b-79ffde905976",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 127,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2388a498-5ded-4e17-9454-96b28ac910ef",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 130,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0e9b0935-5539-4afa-8e39-27baf51f3aee",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 140,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "108d0ba5-f473-4cd2-b4ad-31b61d170219",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 123,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b224f3ef-b553-4d52-a2ef-f8781077feef",
+      "judge": {
+        "explanation": "N/A",
+        "score": 8
+      },
+      "success": true
+    },
+    {
+      "task_id": 139,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "93357af0-ea12-4448-96be-a218df4dfdda",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 134,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f0d84879-6f7a-4552-835e-73a1090d53b5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 135,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "bdea4420-fb31-42a2-8c64-4431817da925",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 138,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a7f396a0-000e-4bde-ad48-388fa7563d62",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 124,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5ce38451-0477-4e4b-92f6-41dc5bafbc86",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 120,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0ced7e56-d039-481c-ae0b-e97e729b126c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 151,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6b5d7292-64ca-4b68-bc31-946665f06db2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 133,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a365f61c-6aa9-4a63-84cd-b84c6c5e75e4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 156,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "87e21702-6696-4830-bcbe-cb1a5fdabc97",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 158,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "de041e2f-69fe-4dea-99d4-7411bd7f62ff",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 136,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0a32cef8-a128-4329-a46d-8803f263eb2e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 159,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c2b73aaa-d4d2-4644-8fec-8d0f7de754f9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 150,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6b06322b-8cbe-4625-873b-4a1118e9f8de",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 148,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "afb44f06-549a-4a45-a6f6-d64db54bb3de",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 126,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7a46a72d-09c3-483b-b920-12405c591f32",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 165,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b59dfb30-193d-482d-90b3-7da3d078e3a4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 144,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "40badfca-efa0-4dd8-be2f-aba4fdbe6b6d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 157,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "eb32fee0-25a2-4032-9f1e-a8f509b6dbe8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 154,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "fad3a70e-2558-464e-bce5-e3ea1dd8b173",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 177,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "268045c1-a4d4-4943-aefd-03bff98cd758",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 169,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "889de806-bba9-4c52-af6e-3e6fbcc6b989",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 164,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "355b0d21-4eed-4c5f-9a90-bb473913983c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 161,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "aceab5f1-9505-4031-8481-a7fb0999a55b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 172,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "09a8419f-a5da-4247-b76e-f3b98c1b40db",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 160,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b0134ada-cea3-472c-999f-d14ca522b720",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 149,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "609fb008-aaa8-418d-8395-9a7584fbed27",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 153,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4eef07f3-ca60-4205-89be-abbbdd685db6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 96,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4ec7114f-f582-4e6f-99af-31c4790bdaeb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 174,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f8281baa-3ebf-493b-af47-e6eb8f747dc4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 168,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8b862eec-1888-4ba4-b435-ea0d75c1af7f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 145,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8dd84cdc-2921-40ea-9de6-a2475afc41ec",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 163,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "52cdfe05-9270-401d-bddc-674f6bff4f7e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 199,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7d6e0e31-6519-4952-a492-ed682eac5529",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 155,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ba824655-16fd-4554-b0ef-f0da7fccdcc1",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 146,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8b69fbd8-0457-4331-bea6-cfe21302050b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 176,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3b9e38ae-aad8-4399-855f-055884149619",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 167,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b0ae3494-b37b-41f8-b713-9363e5587660",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 201,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2bfea195-5f69-4bbb-8e2d-4d664d4ee72f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 173,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "db150122-5fbd-43da-bece-01766396df04",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 170,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "fffe7c20-b443-4d00-a32f-c6a710d03318",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 178,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0ae50a63-1dcd-462d-b036-bff87be857cf",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 212,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4da267d9-7987-4b23-acc6-451d0acf0f67",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 162,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "940447bf-fe2c-4395-94c7-c2461c00769c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 182,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a36dc45f-ba1e-4ab0-8b18-b3229e1dce6b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 208,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e107a514-4542-4915-8a00-a833ee9a6059",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 213,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a0fbf5e8-4b9a-409a-9d31-2055a19ee98c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 181,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "bf32b001-77c2-4931-8a6a-0ecefef9e396",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 203,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9c497440-40ef-4604-ab70-de9ebc65573d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 171,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f20213f0-4095-457e-8265-e5ad147bc541",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 186,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b43b85b2-32ff-4df9-bbc0-962d2ca9bc8a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 179,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b3e425a8-f5af-4b81-a46d-7e113f7ed57a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 198,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c6d2378e-d194-4cad-8c92-4dcc8bf5d936",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 215,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "61702150-8a53-4953-b801-f7c04e5f392e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 152,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5126f394-b855-487f-8db7-81f1466ea66e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 5
+      },
+      "success": true
+    },
+    {
+      "task_id": 204,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "76c6a23d-270f-438a-a5d6-3799a784388e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 191,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6d0a3c74-7289-498d-b373-1c7e8ee34854",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 210,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0f1afdc5-b948-4acf-a0a3-cf6ae47d454b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 192,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ceb47fda-247c-4c8a-9bc7-2186bf9253ae",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 214,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d8bcfd1e-f8a7-4ed7-83a2-d43e86c84347",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 228,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "588b3be8-9535-42f8-a47e-2bf4ba034cbd",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 196,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b873e8ad-08f0-48cd-ba28-abb6eed54bdc",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 216,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c56c37fd-5a08-486d-8c38-0ee0a0f33231",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 193,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4ede7a5c-037d-4ed7-b40b-a41dc54cec1c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 218,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e24d23ac-fdce-4387-83d7-a4350f93e1ca",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 180,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2d9e8cf9-24d2-4749-b0de-f64f2730f1de",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 234,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b86ad2cf-c550-4bd9-a2e4-4a1f5dadda61",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 190,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e6a2551a-8b62-44cb-be0f-2654db90bd6b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 188,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "16e72679-e5a9-4d8a-9702-802a48f1a2ae",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 189,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c9b880dd-4e4b-4dd4-85d3-c7db0867e9ea",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 175,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "83e5e468-a2d9-4b5b-91c4-7c2395a0e28d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 147,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "91921711-d53d-4ef2-b022-e817f6b80d3d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 184,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "98086d68-1e47-4db6-9954-6e51216087f0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 183,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ead1ced0-ba28-44eb-ae63-7b1b95dd2ca8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 206,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1dabeefc-dd54-45b7-910a-ec7faf908fb0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 202,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "abe279a7-0863-4dd4-a48f-cf89339dff3d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 217,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c6d3616d-1bc1-4202-a357-c6c6a367bb4f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 223,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "81b68c7b-04b8-4526-94a7-c9d7c747f05f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 200,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "382f6324-44d0-4f0f-b2c9-bd9e4e465b73",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 225,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a3f20a0e-ccf2-4887-8487-54ae3db36f4d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 205,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6eb60c03-6ef4-472a-a937-3c099c9edda9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 231,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "471f002f-079d-4256-9f34-74a116006232",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 166,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "32de8181-c2c2-4ab3-b759-6083a2546e32",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 254,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d2837d97-d395-4bfc-82d6-c3fc8e02511d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 220,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ced02d76-e58b-4068-8cc5-9da346c79557",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 194,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "783789fa-6a77-4725-bc7b-0421ac4bdc13",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 246,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a5b98113-47b4-41c5-9958-d519424bb9e8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 242,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "502bfeb8-d293-4f8f-9012-b83282ad9693",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 229,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "cb8c594c-432d-4643-8edb-7232bd62ff27",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 251,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ee4ef329-fe9a-4bf2-b77d-fd8ec2edc263",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 232,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4fd2e5ee-a500-49a2-9815-3cf9b8642ae5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 230,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "05ce98d3-9539-49c7-b5bf-52e7be7735c4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 236,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2c236a2b-30d9-407c-9226-03c747c1856e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 247,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d67dee2f-421b-4057-8854-a51c8773f7c5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 233,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "94aff65e-c213-4354-ab09-a1d4f92616d7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 187,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f1129b73-7806-4dbb-9d19-0dc407f93de2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 250,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c324e656-3e7d-420e-809d-5a71408556f0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 195,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7fb5d952-f093-4d37-81fe-8a1ae1e9eabb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 237,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "dc7d0de1-6d7e-4a9e-945f-e91020193295",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 197,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "12b0ba3e-ecdd-4658-a552-944c6167ce0f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 252,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d4ab60f0-9d34-420e-bef5-26cfe261bde3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 255,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7ff73367-d110-4e8d-ad69-575c5f8d97de",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 219,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "782ec27f-fc2e-4fc5-b9f3-6cff5d180b87",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 240,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1a76682c-3391-443c-bebd-2736d7f722c6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 207,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e0ab3e40-e432-43b2-a689-310b6d706e1c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 235,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "35ef3f48-0611-4aea-894e-166ab17eee5e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 265,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c08585fd-d50b-4460-b2c8-76dccaf46e55",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 260,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "754ff836-d2dc-434a-a7ec-7ef73b09cce3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 268,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7ff767ea-d7c1-441e-9895-ce10d2f8b794",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 211,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4292f490-ca6e-4a73-ae38-e4839e44e6d5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 262,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2ec958fd-3a15-4a1f-9243-9da253063f69",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 274,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "fa741100-0872-4d82-bca4-8e79ce713e78",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 253,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d200faa3-2116-420f-8471-f4c193037a8c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 258,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "20aa1b63-ea05-4067-ba91-7d89fc6f0661",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 276,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "08d9fe6a-aae8-4183-8ccb-a53d995ea802",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 264,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9851a0c9-4e64-4123-b002-a67b4bf2fc79",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 284,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e95446f9-d3fc-46bc-b3ba-4ea2323e1933",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 249,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "534d3bba-9aae-48ef-8fb4-853a053867b6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 277,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "aa20e5f2-5ebf-40e8-bafd-074e89d97941",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 238,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ddef77be-40e9-4ac4-bd67-5177d5bd0537",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 185,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4a460d36-e6ea-4e96-a796-e79d1834d889",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 224,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3f52ab90-3319-4e02-be2e-cb3e704e22e2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 278,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c96ca11b-83ea-48dd-ad51-5556afc72e9f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 227,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7e189a21-88f5-4746-9ce6-62ff65362673",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 209,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "32c925c8-e07d-45d3-845f-66accf753b2f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 263,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2c7a4e87-0d41-4952-9b7e-ffeeaac3fac4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 221,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1d20c172-6194-44d4-9f81-3d11eff2d166",
+      "judge": {
+        "explanation": "N/A",
+        "score": 6
+      },
+      "success": true
+    },
+    {
+      "task_id": 270,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "243b37f4-98f4-4e30-b14c-ed64b4c83d13",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 275,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0611aed0-37c0-4a2c-ad55-89ae843dc9db",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 283,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "dafa8853-d6e3-4713-a215-5cca4e21a8e1",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 297,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "39d00ea7-3120-4ff4-8bd4-e1eedadfbadb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 291,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b4efd018-a1fc-4b0a-a837-17079be3dd62",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 285,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d70743ad-7697-4913-ba74-47388e13b89f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 282,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6e56e7fa-ddc7-4fbb-9b64-e6e8bec93e9b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 241,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "57eff2ad-1052-4ea3-8f75-0a0e33e96115",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 271,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "936e756f-3bef-43e3-9a4e-f12b117c8b6d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 286,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "72c715f0-7a75-485a-84ac-df387b254ef1",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 259,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "cb6d2324-f4b5-4e03-8808-b00e14bb50b7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 280,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9112ac0c-bec2-4f5a-9efc-f14107bc99a8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 298,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8d004178-94c2-4afc-98d9-68812c97045f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 294,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "552a91bb-b930-4fdd-a42d-1c7355120c0b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 295,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5cad152b-c7b8-42c2-b690-e02736e96696",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 226,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b3ca3ad5-1470-4385-9e03-fadd5bf50402",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 256,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7a41bff7-b4ba-43b4-8762-d7efd460a085",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 279,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7c92cd6f-05af-4685-af73-21a60f8091ea",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 273,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "28f9bbd2-50d4-4022-84a1-071caadecb99",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 304,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f0e3be68-c351-43bc-bd8c-0890e5e94cf7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 114,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7a124dbe-df7d-4788-8365-a5db595899b8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 261,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "747040af-73b2-43a2-a9ad-a95abf606c93",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 299,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "35b1ec12-22eb-44d4-a616-cd12a3d11b0c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 301,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4c33c262-9d03-434a-92fa-cc5f56405e76",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 287,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4cbe4025-7164-4c14-abcd-3975a32e3c5b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 309,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1c039ecf-a95f-4fbb-b434-e7e80e03b72a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 267,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "93668812-c341-4154-ae1d-7a0153876da2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 257,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2b4ed44a-902f-47eb-95f8-3d44ddd414a0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 311,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7042ef2a-ec1e-4262-bbb2-0c771021cc9d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 307,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "696d7883-5014-4843-bf3a-a92d8166c1a7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 305,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8dd3296b-2cc3-4b72-839f-d0e43198a122",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 289,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "52470355-7c0f-4a7d-bbdb-e4796052d40a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 313,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "eb982c42-81fe-49b0-af58-9c72c5b097e4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 315,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d484f9ea-9901-4fd7-9e8b-a91a70182046",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 248,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "978a5e1c-60e9-4ef7-a098-e52afdb18cf2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 302,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f832d8cc-c3b1-444f-b67e-bf3e028ebf4b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 318,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2d15d1ed-ec46-4c42-943e-32930bc87cfa",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 245,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "eac9569b-22d8-42d9-aee2-bab4d06aaa1b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 319,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "366ff5ac-ecec-4eba-9da2-2cec7b9666e9",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 327,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "05255c72-1d41-4c79-b4c0-46d8d1f6b7b4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 335,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "540f6247-48b5-475b-a630-95b0ce6d93d5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 293,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a5ec89b9-3968-4b10-bd05-0bcd7b99493d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 222,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1d8aa944-c933-4687-ad1c-a66feff7358a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 320,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "274a485f-2542-4cf7-abca-5d6225d52d41",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 239,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "95f3d34b-8512-4d41-8964-1b6c3eb37698",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 330,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "96065ecf-832e-44b0-8cc6-49d68dea6ae0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 322,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0b76fc26-03cb-4b8e-a7fe-9e0292979b19",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 272,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c456495e-b14f-40be-b26d-8940a368f42c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 324,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8e17b6c4-5ae3-4273-b922-cd9814e3bd9d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 338,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a78daf12-693b-43b0-a2a0-1d136266d20d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 339,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "abd20a1f-ed17-40b4-9312-9a20446ae69b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 303,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "be700a09-7250-4237-bd5b-2fb4540f60d3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 336,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "31bd29a8-3c5a-497b-b69b-ccf2602712de",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 269,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9d9688c6-6845-46b8-8198-3c6efc9d7d16",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 312,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9b369acd-8311-4b88-8e57-c6efe6b4224e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 331,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d4208956-d468-4ea0-9bfb-20e8ff3f934b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 328,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b8b93c8c-a063-4c9c-b85c-979062eab879",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 300,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "74d46a73-4a94-4797-9766-efb26487f054",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 296,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e22a3cd6-91fe-48d0-981a-ab3e9045e604",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 243,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7d178566-b278-45d0-aea7-be8e164ee416",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 347,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4b0e3f90-3e06-4a27-9711-1f31c5feed5e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 266,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3cbd217d-4bd7-4c78-9c5e-59e8a8a566ec",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 323,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "693fa40a-a56a-4f62-9ab3-c04f3a964909",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 340,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "68b784d6-99ac-4ab6-b4c9-f20988603730",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 334,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b06d3a8f-6196-4a66-b48a-bade9b3fe23d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 344,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2d54997e-e187-44f6-8f65-97ef0c487993",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 352,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "cff0747c-332c-47c9-a408-9331d69b9b7c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 351,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c68ebcf0-082a-403d-8e8e-440f53914d14",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 361,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "061af11b-77d2-4ec8-a636-259de1c56989",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 355,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e2e9cc04-c4be-43d3-a6a3-9e157809d296",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 359,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "409ac35c-d0eb-4baa-8724-8eaa0a206952",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 244,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3f3d52b4-b4dc-410a-ab9f-81b0234e233a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 358,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2c0a336f-5c9f-42f8-9e66-ba4a06a19d55",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 316,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "294086fa-80a9-4a25-a469-990f388ebb8f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 354,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "fc64385b-7c74-4a4b-a2d0-69f77d12ebcd",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 362,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5b4b0cbc-b0c0-4499-9572-2b4f07ec0fc8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 343,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7c55d384-b3df-4e18-ba95-bad190614435",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 332,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "25f9b88e-291e-417a-9cb3-4b0f7be0f51f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 363,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8779e38c-3b64-4635-998f-e52ee2ab9ceb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 342,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "077d467c-3b1a-424b-b7c2-5cac827c7c53",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 369,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c5429ed6-a377-4438-8658-effbd7b081a3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 288,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ad39beaf-b352-4564-bc85-5eb9480bc0db",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 306,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "743ed430-fe21-422d-acb5-576dc335e610",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 368,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "cf4f8d59-9c16-4672-bfcd-8dd49a22971f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 348,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0be3f170-44af-4aba-bf62-acd6ca469202",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 346,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0adef9b6-f849-4d83-8cf8-6951c2452871",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 290,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "57089730-f817-4637-81b5-a8cd962ae55e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 350,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b30f6906-1253-4f06-be89-a89590e18360",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 382,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "03e7d67f-3d00-47bf-83ed-f349f3ffedbc",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 310,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4804b72b-1a25-4164-84b3-fbb702b42f1e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 379,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5f4f48ed-0f94-4c2a-aadb-3ae4a40e50a6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 292,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7a978894-e9b0-434c-92ca-dce50c5a3fb6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 387,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e4202aeb-20e4-43a2-b267-50be0b0f0ea2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 380,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "de314044-60de-4943-8673-c44d53ca866d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 383,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "dab5ac5b-dc2b-4155-b50a-526e31821b4e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 325,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "28037532-4122-4887-b2f1-2cadec59f267",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 370,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "26f4db68-484d-4d61-b63e-5574ceda7cb0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 365,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "fd773a21-7374-47a2-b724-7c02412a037c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 386,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "15b44b3c-e344-4f22-b645-33fe73fdb2d8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 349,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5cc652fe-30ac-43d8-91ef-8ceefe8b8069",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 329,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "eb413371-9f9c-418b-9483-803f79f39d70",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 337,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8bd8088d-700d-49a9-ba72-0775ee74632c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 373,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b2bfa815-8ed7-48e3-995e-f76c2dea9d26",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 341,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "898c9a80-7dbb-4a61-91a4-0c2c30199702",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 372,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "50d67a0d-9443-4439-ad93-0a9bfac4dd90",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 321,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5bcfb562-dfae-4bff-8cd8-69a1c1ab9429",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 314,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "533c3676-a8af-4b0d-a88e-de8e961e77c0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 356,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "db100f9d-fad6-4881-9ca9-b816ccb96de8",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 388,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "184448e8-b33e-48f2-b421-0640e21695bf",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 378,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "727fb3c6-66ed-46a8-a133-bb4da1488128",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 385,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5ce1ee13-bdec-450f-ba39-d7df5cce382a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 389,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "667f2e5f-045e-42a9-b298-6fdd6be84eda",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 375,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a737834b-82ea-4210-aa8a-768d119fd0e4",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 384,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "77056b4d-faf3-4213-8068-de8d6fa203a2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 411,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "bdc0c718-c743-426f-ae23-f3c3554d138f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 333,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "290bcc51-5433-4d96-a5c6-4f38772a3d98",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 409,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "50d8cf83-7a4a-4322-af1a-a08b5c99302f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 403,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "11821d0e-a86a-4a7e-a679-f97486f2139c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 399,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e2523e80-9f0c-430f-8f92-c0340a4830e3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 401,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ae5911a5-15b0-4051-b5ef-202177beca1a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 353,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "64411ccb-1b59-47ed-9193-7316a11ff024",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 345,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "87db508a-abc6-407d-9201-545a6e02e023",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 402,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2d7cb3bd-9aac-4c9c-b11b-627c91e1deba",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 390,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a7eb6f33-2ab9-43e0-9981-0562ae0b0c9e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 416,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "381a69a3-553e-4273-b760-222e81d87e4c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 408,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ee7b6930-6828-4d8b-95f6-be9930a12c9b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 376,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "46a2cc88-4028-4dc9-9961-31f3fc5d2466",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 410,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2fc831f6-4697-4e78-868a-5dd7222182a7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 419,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "43b74eed-1f06-4191-9061-0b9d50608702",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 407,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f408890c-ae9b-4e61-8c0b-5cd4cddb0c27",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 281,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "9ccb068a-22e6-4d31-87b4-adb3407b2220",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 367,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "013d4367-2951-4fcc-a88e-0de6fc6df469",
+      "judge": {
+        "explanation": "N/A",
+        "score": 5
+      },
+      "success": true
+    },
+    {
+      "task_id": 400,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "927685c4-1ce3-47e5-a3c2-338f4be0166f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 420,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d02f0aff-f670-4f58-97e7-6df7f50d610a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 421,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f4443e95-8449-447b-a883-344784203234",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 391,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e3edbe86-8f59-4441-a101-d3fe31e26554",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 404,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c4f91495-1092-44ac-b7c7-83b55fb919d6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 422,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8d125348-2a44-4b7e-913c-44f55b95ce09",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 381,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4297128b-6b4e-4327-a042-fa6332b4e233",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 395,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f31b6eb1-5c2b-44a4-8ed5-52252927c276",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 364,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2c00e11f-370c-4163-afae-c669044da782",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 428,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "cb9c31f6-0841-4f8e-adc9-bbb112ee274c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 406,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d5620fc2-6bbe-40da-8c4b-3188bb799150",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 366,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "72acc44c-443e-49aa-ad79-5e5c434a953a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 371,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6d19ddb4-1b10-4933-b6a1-f31dd5a57a12",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 326,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c6d9cef9-3284-4f2c-8287-ceddbe673ea2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 377,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3f327978-2df9-4d2d-86ad-56639dbe8969",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 424,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "12f31677-34da-4efb-abd9-156264f0d895",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 430,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "94801767-8e10-4501-b263-8b857682fdeb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 439,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8ef3ebdd-5209-4ad6-b6a1-4140ed41d804",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 427,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f6787664-d3e0-4b8a-abbc-13cfe502ac21",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 435,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "cb368ca4-672a-40a1-ab71-381990c047aa",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 415,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "85d9a72a-ecb0-4733-a5e5-c1912505a77b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 445,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ede6d616-d9e5-4d4a-b3a7-72ceff37efec",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 396,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3b930a5e-df62-4726-ba52-6ed86e3a10c2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 392,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d34d737f-b35b-4f36-8fbf-f7aa7addcbbf",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 397,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4859b0f7-857b-41ac-a67a-0c76ed74ed0d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 431,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f8db5357-13ba-458d-a53f-fac9dd569060",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 446,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ed224907-23cc-4a19-86b0-3a97c36ffe3b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 317,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "950f6cc7-e272-45b9-ba6a-e8a86f454a25",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 425,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f3be27e6-390b-409a-b514-70bae6511f3a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 444,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7991d4d0-3614-4502-b615-185e14e10b81",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 429,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ca83f357-8263-4d7c-9940-3bec07a8fd58",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 418,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "fe035eec-7c0e-4989-ad14-7f1ddb22a037",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 357,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0e613030-7371-4e08-bdf6-f40dc78b888a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 453,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b85cd1c7-971e-41a6-867b-053e5e5247a3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 451,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3d08c451-96dc-49e5-a728-4c67614ef332",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 426,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2a58006d-620a-44a9-954f-2e42e9c16cde",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 452,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7bbc23eb-836f-471b-9a5c-10016a3840ef",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 433,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7396c498-ed3b-4e3d-bf50-6be38811be81",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 374,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f786d583-9f2e-4181-bfc4-3fecb40da992",
+      "judge": {
+        "explanation": "N/A",
+        "score": 5
+      },
+      "success": true
+    },
+    {
+      "task_id": 398,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "578f1a39-3c34-46be-8d7e-110fe0811f0e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 394,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d713560d-f0b8-4dd8-baff-c44a64c8e892",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 449,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "30c0e912-0875-471d-b385-8630461199bb",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 459,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "282a9dd4-c042-4df3-a483-d0c7a36dda12",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 448,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "473ab5d7-0758-4486-9c86-0db445c9dd26",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 405,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ba156634-d717-4267-b201-4630b7e86cbd",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 393,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "61e055ef-ce41-4534-8408-103bb64cf0b5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 470,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "00426b2d-79cd-4ac9-8ad1-9deac48c2399",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 447,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ab252f20-09f9-48de-be12-fecdecb94711",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 476,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e0d47fb6-47bc-4b12-a806-d1bc80a577d2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 461,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f9df02b8-5241-410a-b6c9-f28e70ccc8d0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 483,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4573442c-a5ce-419d-8feb-30961135700d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 474,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "29b41d06-c6fd-421f-a22b-d0c346e1145d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 467,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2fc117e5-e722-4941-982b-b4e83833ea71",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 478,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "71a0c1da-6463-4af0-b2ea-a65f9e03bd4a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 463,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1054a477-80bd-4d06-b5e6-051287351401",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 481,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ffd09e7d-d868-4553-b1cb-d3bf0ac7ea2f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 465,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b944a506-22b6-4e7f-b8b7-5162a06be642",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 480,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5dd2456f-e88f-4008-851a-8a57944c12d3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 458,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "00de6f1e-891d-4c76-8584-6914c292c6f0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 457,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "96021ab5-b338-41d5-af2f-3b20d7e5ba4b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 413,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "f3a99bbb-e117-4078-8a05-dae0c815b2ed",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 455,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4582af48-5bf6-4334-94af-9fe7922353ef",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 432,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "20733ad4-b3d3-4749-a5a5-ec232df65e90",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 475,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1d9fa115-30e1-4337-906c-132723a83403",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 477,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c0a6d58d-a8c7-4398-9cb7-dc59960b9945",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 460,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "3f75d9bc-0b4c-4b83-9d85-4fb1b74a5e26",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 360,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "112feed9-bfc4-4769-805a-99eef38ec760",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 485,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "8a13a207-9a1a-4c33-8737-266bdf0c3041",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 462,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "76b49d55-8513-4479-9f08-0b31439863d3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 484,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "328fdd90-d2ba-4ffd-9520-bb76b138791f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 468,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ee929dfc-9e64-4199-90b1-cbfb9de84c85",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 412,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "514cd78b-8517-400b-8570-244406aa223b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 414,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a4017a92-9faf-49e4-be2a-4afadff67c7b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 498,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c529bb77-acc5-40eb-baec-063e7423960e",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 308,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "dec168b2-2615-49cb-a601-b6612ff50333",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 472,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "6ebaafd2-98e5-48a9-8347-4d10e35726c0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 438,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "56bfbe59-72c7-43ea-90c5-e8054687f388",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 473,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "03a36c44-fa9b-4ab5-944b-f7e016939e59",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 486,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "48357d98-e79e-4533-b370-fb2d2fc3fdcf",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 479,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "77d0f106-c09f-404d-98ba-d760a01b23fe",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 464,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a6a66f66-f48e-47b0-86c1-4c88e8d24249",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 491,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e962808b-264d-400d-9530-622550b77443",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 482,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1d477d89-9291-44fa-a7da-17f5450416de",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 456,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "c66289a8-a2b4-4b80-8d6f-eea8aab8cfa5",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 450,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "5563fa64-c863-467a-9cb5-7896fce872df",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 423,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "430ad63f-9615-4144-bd54-7d2b1d557db1",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 442,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2d18650a-d308-48c5-84b8-77797ce8c199",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 454,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "e61a2319-78ac-494d-9cb9-2cd1f97c86d6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 494,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "267ea510-934f-4b97-a461-0497332cd7e0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 489,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "67d2c319-58ee-4cbd-8445-648b8dbd6029",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": false
+    },
+    {
+      "task_id": 469,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "2bee55d8-8929-4f06-a70d-930ead1b4060",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 417,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0cf001c2-25cb-48b0-b282-3b5b71151fe0",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 488,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "4cb3a655-b779-447d-b22a-f2f186a61a2d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 437,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "dcec6071-6992-4c2b-8711-340fe4948fac",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 495,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "888cd6f5-f599-4f56-80d1-8edb6a3b576b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 443,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b5488e4e-4395-4b27-995e-92965cc610d6",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 434,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "ed7030ee-c9c4-4ecd-a70e-3e67dc66b035",
+      "judge": {
+        "explanation": "N/A",
+        "score": 6
+      },
+      "success": true
+    },
+    {
+      "task_id": 471,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "d6e30b56-1107-4612-91bd-7380792c0b07",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 492,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "0ec8acd4-9541-4653-9d72-b437da15a26d",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 440,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "1c1a1d55-bf03-4603-8d99-e5d76db2ba20",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 497,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7187e8a5-6258-4afa-a79b-37cdef6dea1f",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 436,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "b6f4e97c-53fb-4c57-a8bf-82700b63b4e3",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 466,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "bd46910c-8ddc-43cc-a610-b9e286aaa6b2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 499,
+      "question_type": "ANALYZE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "818766fa-fe6c-4fe4-bad9-53243aadb1e7",
+      "judge": {
+        "explanation": "N/A",
+        "score": 4
+      },
+      "success": true
+    },
+    {
+      "task_id": 441,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "a3b6874f-1f82-4d83-b8fb-b5028dc15af2",
+      "judge": {
+        "explanation": "N/A",
+        "score": 0
+      },
+      "success": true
+    },
+    {
+      "task_id": 493,
+      "question_type": "DESCRIBE_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "24951342-ba5a-4481-8b78-6de41aec2c13",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    },
+    {
+      "task_id": 496,
+      "question_type": "WHAT_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "7b23f855-e7d3-4f66-8430-2a423b5df31c",
+      "judge": {
+        "explanation": "N/A",
+        "score": 2
+      },
+      "success": true
+    },
+    {
+      "task_id": 487,
+      "question_type": "HOW_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "63e0d001-bb3f-4f45-8e68-33d4c1ddf72b",
+      "judge": {
+        "explanation": "N/A",
+        "score": 3
+      },
+      "success": true
+    },
+    {
+      "task_id": 490,
+      "question_type": "WHY_QS",
+      "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+      "generation_id": "de73e413-53fb-4012-b0c7-530ea718d64a",
+      "judge": {
+        "explanation": "N/A",
+        "score": 1
+      },
+      "success": true
+    }
+  ]
+}

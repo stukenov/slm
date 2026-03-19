@@ -1,0 +1,47 @@
+# ============================================================================
+# exp017: MoE 3B with shared router (largest model)
+# Architecture: Mixtral-style MoE ~3B (128 experts, shared gate across layers)
+# Init: sozkz-moe-mix-3b-kk-base-v1-init (upcycled from dense)
+# Dataset: sozkz-corpus-tokenized-kk-llama50k-v3 + fineweb-edu-v1 (combined)
+# Goal: Largest MoE experiment — shared router for parameter efficiency
+# ============================================================================
+inherits: base
+
+experiment_name: exp017_moe_shared_router_3b
+model_name: sozkz-moe-mix-3b-kk-base-v1
+
+# Init from upcycled MoE (created by moe_upcycle.py)
+init_from: stukenov/sozkz-moe-mix-3b-kk-base-v1-init
+
+# Datasets (combined)
+pretokenized_dataset: stukenov/sozkz-corpus-tokenized-kk-llama50k-v3
+extra_pretokenized_datasets:
+  - stukenov/sozkz-corpus-tokenized-enkk-fineweb-edu-v1
+
+# Tokenizer
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Shared router (all MoE layers share one gate module)
+shared_router: true
+
+# Training — large batch for 128 experts coverage
+learning_rate: 1e-4
+weight_decay: 0.1
+num_train_epochs: 1
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 128
+warmup_steps: 1000
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+eval_steps: 2000
+save_steps: 2000
+logging_steps: 50
+save_total_limit: 3
+
+# Performance
+bf16: true
+dataloader_num_workers: 4
+torch_compile: true

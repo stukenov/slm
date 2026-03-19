@@ -1,0 +1,30 @@
+# ============================================================================
+# exp010b: MoE 160M instruction SFT (supervised fine-tuning)
+# Architecture: MoE ~160M (A50M active), from domain-pretrained MoE
+# Init: sozkz-moe-mix-160m-kk-domain-v1 (from exp009b)
+# Dataset: sozkz-corpus-synthetic-kk-moe-sft-v1 (synthetic instructions)
+# Goal: Instruct-tune the domain-pretrained MoE for chat/QA
+# ============================================================================
+inherits: base
+
+experiment_name: exp010_moe_instruction_sft
+model_name: kazakh-moe-160M-A50M-instruct
+
+init_from: saken-tukenov/sozkz-moe-mix-160m-kk-domain-v1
+pretokenized_dataset: saken-tukenov/sozkz-corpus-synthetic-kk-moe-sft-v1
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+block_size: 1024
+
+learning_rate: 5e-5
+weight_decay: 0.01
+max_steps: 3000
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+warmup_ratio: 0.1
+lr_scheduler_type: cosine
+max_grad_norm: 0.5
+
+eval_steps: 100
+save_steps: 500
+logging_steps: 25

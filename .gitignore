@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project outputs
+outputs/
+logs/
+wandb/
+*.ckpt
+*.pt
+*.bin
+
+# HuggingFace cache
+.cache/
+
+# Secrets
+.env
+*.pem
+*.key
+
+# Ansible
+ansible/*.retry
+
+# vast.ai
+.vast_api_key
+.venv-cloud/
+
+# Additional venvs
+.venv-*/
+
+# Claude Code / AI tooling
+.claude/
+CLAUDE.md
+.playwright-mcp/
+
+# Translation demo model weights
+translation-demo/model_cache/
+translation-demo/model_ct2/
+
+# Generated audio results
+results/cosyvoice_kk/
+results/mms_tts_kk/

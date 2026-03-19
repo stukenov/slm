@@ -1,0 +1,18 @@
+# ============================================================================
+# exp003: Pythia-14M DAPT with extended Kazakh tokenizer (+5K tokens)
+# Architecture: Pythia-14M with vocabulary extension
+# Dataset: kz-transformers/multidomain-kazakh-dataset
+# Goal: Test if adding Kazakh-specific BPE tokens improves DAPT quality
+# ============================================================================
+inherits: base
+experiment_name: exp003_custom_tok_14m
+model_name: EleutherAI/pythia-14m
+dataset_name: kz-transformers/multidomain-kazakh-dataset
+tokenizer_path: ./tokenizers/extended
+tokenizer_mode: extend
+tokenizer_num_new_tokens: 5000
+learning_rate: 1e-4
+max_steps: 10000
+per_device_train_batch_size: 32
+eval_steps: 1000
+save_steps: 1000

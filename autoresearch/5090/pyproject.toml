@@ -1,0 +1,15 @@
+[project]
+name = "autoresearch-kazakh-5090"
+version = "0.1.0"
+description = "300M Kazakh Llama training on RTX 5090 (Blackwell)"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.6",
+    "numpy>=2.0",
+    "pyarrow>=15.0",
+    "datasets>=2.18",
+    "huggingface-hub>=0.22",
+    "tokenizers>=0.15",
+    "setuptools",
+    "triton>=3.0",
+]

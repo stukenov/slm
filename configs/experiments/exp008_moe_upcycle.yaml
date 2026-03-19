@@ -1,0 +1,34 @@
+# ============================================================================
+# exp008b: MoE 200M upcycled from dense, continued pretraining
+# Architecture: MoE ~200M (upcycled from dense Llama 50M → Mixtral-style)
+# Init: sozkz-moe-mix-200m-kk-base-v1-init (created by moe_upcycle.py)
+# Dataset: sozkz-corpus-clean-kk-pretrain-v2
+# Goal: First MoE experiment — verify upcycling pipeline works
+# ============================================================================
+inherits: base
+
+experiment_name: exp008_moe_upcycle
+model_name: sozkz-moe-mix-200m-kk-base-v1
+
+init_from: saken-tukenov/sozkz-moe-mix-200m-kk-base-v1-init
+pretokenized_dataset: saken-tukenov/sozkz-corpus-clean-kk-pretrain-v2
+block_size: 1024
+
+# Tokenizer
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Fine-tuning hyperparameters (lower LR than from-scratch)
+learning_rate: 1e-4
+weight_decay: 0.1
+max_steps: 1000
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 4
+warmup_steps: 100
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+eval_steps: 200
+save_steps: 200
+logging_steps: 25

@@ -1,0 +1,61 @@
+# ============================================================================
+# exp007a: GPT-2 8M Chinchilla-optimal (scaling law experiment)
+# Architecture: GPT-2 ~8M (128h, 6L, 4heads), with dropout 0.1
+# Tokenizer: sozkz-core-gpt2-50k-kk-base-v1
+# Dataset: sozkz-corpus-clean-kk-pretrain-v2 (~80M tokens, 2 epochs = 160M)
+# Goal: Smallest Chinchilla-optimal model, establish scaling baseline
+# ============================================================================
+inherits: base
+experiment_name: exp007_chinchilla_8m
+
+# GPT-2 ~8M from scratch, Chinchilla-optimal for ~80M token corpus
+model_name: custom-gpt2-8m
+from_scratch: true
+
+model_config:
+  model_type: gpt2
+  vocab_size: 50257
+  n_positions: 1024
+  n_embd: 128
+  n_layer: 6
+  n_head: 4
+  n_inner: 512          # 4 * n_embd
+  activation_function: gelu_new
+  resid_pdrop: 0.1
+  embd_pdrop: 0.1
+  attn_pdrop: 0.1
+  bos_token_id: 2       # <|startoftext|>
+  eos_token_id: 0       # <|endoftext|>
+  pad_token_id: 1       # <|padding|>
+
+# Pre-tokenized dataset
+dataset_name: saken-tukenov/sozkz-corpus-clean-kk-text-v2
+pretokenized_dataset: saken-tukenov/sozkz-corpus-clean-kk-pretrain-v2
+
+# Tokenizer
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Training — 2 epochs ≈ 160M tokens, Chinchilla ratio ~20:1
+learning_rate: 6e-4
+weight_decay: 0.1
+num_train_epochs: 2
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 4
+# effective batch = 16 * 4 = 64 blocks = 65,536 tokens
+# ~77,879 train / 64 = ~1,217 steps/epoch, ~2,434 total
+
+# Schedule
+warmup_steps: 250
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+per_device_eval_batch_size: 16
+eval_steps: 500
+save_steps: 500
+save_total_limit: 3
+logging_steps: 10
+
+# Block size (already tokenized at 1024)
+block_size: 1024

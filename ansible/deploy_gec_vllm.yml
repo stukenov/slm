@@ -1,0 +1,79 @@
+---
+- name: Deploy GEC servers with vLLM backend
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+
+  tasks:
+    - name: Sync inference scripts to server
+      synchronize:
+        src: "{{ playbook_dir }}/../scripts/inference/"
+        dest: "{{ project_dir }}/scripts/inference/"
+        delete: false
+
+    - name: Install vllm in venv
+      command: "{{ venv_path }}/bin/pip install vllm"
+      register: vllm_install
+      changed_when: "'Successfully installed' in vllm_install.stdout"
+
+    - name: Stop existing GEC screen sessions
+      shell: |
+        screen -X -S gec_600m quit 2>/dev/null || true
+        screen -X -S gec_300m quit 2>/dev/null || true
+        sleep 2
+
+    - name: Start 600M server (GPU 0, port 15128)
+      shell: |
+        screen -dmS gec_600m bash -c '
+          cd {{ project_dir }} &&
+          CUDA_VISIBLE_DEVICES=0 {{ venv_path }}/bin/python scripts/inference/serve_gec_600m.py --port 15128 \
+            2>&1 | tee logs/gec_600m_vllm.log
+          exec bash
+        '
+
+    - name: Start 300M server (GPU 1, port 15129)
+      shell: |
+        screen -dmS gec_300m bash -c '
+          cd {{ project_dir }} &&
+          CUDA_VISIBLE_DEVICES=1 {{ venv_path }}/bin/python scripts/inference/serve_gec.py --port 15129 \
+            2>&1 | tee logs/gec_300m_vllm.log
+          exec bash
+        '
+
+    - name: Wait for servers to load
+      pause:
+        seconds: 30
+        prompt: "Waiting for vLLM engines to initialize..."
+
+    - name: Check 600M server health
+      uri:
+        url: "http://localhost:15128/health"
+        return_content: true
+      register: health_600m
+      retries: 6
+      delay: 10
+      until: health_600m.status == 200
+
+    - name: Check 300M server health
+      uri:
+        url: "http://localhost:15129/health"
+        return_content: true
+      register: health_300m
+      retries: 6
+      delay: 10
+      until: health_300m.status == 200
+
+    - name: Show health status
+      debug:
+        msg:
+          - "600M: {{ health_600m.json }}"
+          - "300M: {{ health_300m.json }}"
+
+    - name: Check nginx config for port update
+      shell: grep -r "15128\|15129" /etc/nginx/ 2>/dev/null || echo "No nginx config found"
+      register: nginx_check
+      changed_when: false
+
+    - name: Show nginx status
+      debug:
+        msg: "{{ nginx_check.stdout_lines }}"

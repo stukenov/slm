@@ -1,0 +1,60 @@
+# ============================================================================
+# exp008a: GPT-2 30M Chinchilla scaling (4 epochs, 320M tokens)
+# Architecture: GPT-2 ~30M (384h, 8L, 6heads), with dropout 0.1
+# Tokenizer: sozkz-core-gpt2-50k-kk-base-v1
+# Dataset: sozkz-corpus-clean-kk-pretrain-v2 (~80M tokens × 4 epochs)
+# Goal: Mid-point in Chinchilla scaling curve (8M → 30M → 60M)
+# ============================================================================
+inherits: base
+experiment_name: exp008_chinchilla_30m
+
+# GPT-2 ~30M from scratch, 4 epochs on ~80M tokens
+model_name: custom-gpt2-30m
+from_scratch: true
+
+model_config:
+  model_type: gpt2
+  vocab_size: 50257
+  n_positions: 1024
+  n_embd: 384
+  n_layer: 8
+  n_head: 6
+  n_inner: 1536
+  activation_function: gelu_new
+  resid_pdrop: 0.1
+  embd_pdrop: 0.1
+  attn_pdrop: 0.1
+  bos_token_id: 2
+  eos_token_id: 0
+  pad_token_id: 1
+
+# Pre-tokenized dataset
+dataset_name: saken-tukenov/sozkz-corpus-clean-kk-text-v2
+pretokenized_dataset: saken-tukenov/sozkz-corpus-clean-kk-pretrain-v2
+
+# Tokenizer
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Training — 4 epochs ≈ 320M tokens
+learning_rate: 6e-4
+weight_decay: 0.1
+num_train_epochs: 4
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 4
+# effective batch = 16 * 4 = 64 blocks = 65,536 tokens
+# ~77,879 train / 64 = ~1,217 steps/epoch, ~4,868 total
+
+# Schedule
+warmup_steps: 500
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+per_device_eval_batch_size: 16
+eval_steps: 1000
+save_steps: 1000
+save_total_limit: 3
+logging_steps: 10
+
+block_size: 1024

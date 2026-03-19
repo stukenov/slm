@@ -1,0 +1,45 @@
+---
+- name: Fetch experiment results from GPU server
+  hosts: gpu_servers
+  vars:
+    experiment_name: "exp001_dapt_pythia14m"
+    local_results_dir: "./results"
+
+  tasks:
+    - name: Create local results directory
+      local_action:
+        module: file
+        path: "{{ local_results_dir }}/{{ experiment_name }}"
+        state: directory
+
+    - name: Fetch training logs
+      fetch:
+        src: "{{ project_dir }}/logs/{{ experiment_name }}.log"
+        dest: "{{ local_results_dir }}/{{ experiment_name }}/"
+        flat: true
+      ignore_errors: true
+
+    - name: Fetch eval results
+      fetch:
+        src: "{{ project_dir }}/outputs/{{ experiment_name }}/eval_results.json"
+        dest: "{{ local_results_dir }}/{{ experiment_name }}/"
+        flat: true
+      ignore_errors: true
+
+    - name: Fetch final model
+      synchronize:
+        mode: pull
+        src: "{{ project_dir }}/outputs/{{ experiment_name }}/final/"
+        dest: "{{ local_results_dir }}/{{ experiment_name }}/final/"
+      ignore_errors: true
+
+    - name: Fetch TensorBoard logs
+      synchronize:
+        mode: pull
+        src: "{{ project_dir }}/logs/{{ experiment_name }}/"
+        dest: "{{ local_results_dir }}/{{ experiment_name }}/tensorboard/"
+      ignore_errors: true
+
+    - name: Report fetched files
+      debug:
+        msg: "Results saved to {{ local_results_dir }}/{{ experiment_name }}/"

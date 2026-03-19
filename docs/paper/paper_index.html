@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SozKZ: Small Language Models for Kazakh Trained from Scratch</title>
+<style>
+:root {
+  --text: #1a1a2e;
+  --bg: #fafafa;
+  --accent: #2563eb;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --table-header: #f8fafc;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.75;
+  font-size: 17px;
+}
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+}
+h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.authors {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.date {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.tag {
+  background: var(--code-bg);
+  color: var(--accent);
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-family: system-ui, sans-serif;
+}
+.abstract {
+  background: var(--code-bg);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2.5rem;
+  border-left: 4px solid var(--accent);
+}
+.abstract h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  font-family: system-ui, sans-serif;
+}
+.abstract p { font-size: 0.95rem; }
+h2 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+h3 {
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+p { margin-bottom: 1rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.92rem;
+  font-family: system-ui, sans-serif;
+}
+th, td {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: var(--table-header);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+tr:hover { background: #f8fafc; }
+code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1.2rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background: var(--code-bg);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+}
+ul, ol {
+  margin: 0.5rem 0 1rem 1.5rem;
+}
+li { margin-bottom: 0.4rem; }
+.artifacts {
+  background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+.artifacts h2 {
+  border: none;
+  margin-top: 0;
+}
+.citation {
+  background: var(--code-bg);
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-family: 'SF Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+}
+strong { font-weight: 700; }
+.gen-example {
+  margin: 0.5rem 0;
+  padding: 0.8rem 1rem;
+  background: #fffbeb;
+  border-radius: 6px;
+  border-left: 3px solid #f59e0b;
+  font-size: 0.93rem;
+}
+.gen-example .prompt { font-weight: 700; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.3rem; }
+.gen-example .output { font-style: italic; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<h1>SozKZ: Small Language Models for Kazakh Trained from Scratch</h1>
+<div class="authors">Saken Tukenov</div>
+<div class="date">Independent Researcher &mdash; <a href="mailto:saken@tukenov.kz">saken@tukenov.kz</a><br>February 2026</div>
+<div class="tags">
+  <span class="tag">kazakh</span>
+  <span class="tag">small-language-model</span>
+  <span class="tag">llama</span>
+  <span class="tag">low-resource-nlp</span>
+  <span class="tag">from-scratch</span>
+  <span class="tag">chinchilla-optimal</span>
+</div>
+</header>
+
+<div class="abstract">
+<h2>Abstract</h2>
+<p>We present <strong>SozKZ</strong>, a family of small language models (50M and 150M parameters) trained from scratch for Kazakh &mdash; a low-resource Turkic language with approximately 13 million speakers. Unlike existing approaches that rely on multilingual models or domain adaptation of English-centric models, SozKZ builds dedicated infrastructure from the ground up: custom ByteLevel BPE tokenizers optimized for Kazakh Cyrillic text, multi-stage data cleaning pipelines, and Chinchilla-optimal training schedules. We show that standard multilingual tokenizers exhibit fertility rates of 4.9&ndash;6.6 tokens per word on Kazakh text, while our dedicated tokenizers achieve 1.3&ndash;1.4, a 3.6&ndash;4.9&times; improvement in encoding efficiency. Our 150M model achieves a perplexity of ~20 on a held-out Kazakh evaluation set and generates coherent, topically relevant Kazakh text across multiple domains. We release all models, tokenizers, datasets, and training code as open-source artifacts on Hugging Face Hub.</p>
+</div>
+
+<h2>1. Introduction</h2>
+<p>Kazakh is the official language of Kazakhstan and is spoken by approximately 13 million people worldwide. Written in Cyrillic script (with an ongoing transition to Latin), Kazakh is an agglutinative Turkic language with rich morphology, vowel harmony, and flexible word order. Despite growing digital presence, Kazakh remains underrepresented in NLP resources.</p>
+<p>Existing multilingual models such as BLOOM [1], mGPT [2], and XLM-RoBERTa [3] include Kazakh data but allocate minimal vocabulary entries to Kazakh tokens. This leads to poor tokenization efficiency &mdash; common Kazakh words are split into many subword pieces or even individual bytes. We quantify this problem: the GPT-NeoX tokenizer [4] produces 6.58 tokens per Kazakh word on average, compared to 1.34 for our dedicated Kazakh tokenizer &mdash; a 4.9&times; difference.</p>
+<p>We hypothesize that for a low-resource language like Kazakh, dedicated small models with language-specific tokenizers can be more practical and efficient than relying on large multilingual models. Our contributions are:</p>
+<ol>
+<li><strong>Custom Kazakh tokenizers</strong> (32K and 50K vocabulary) with 3.6&ndash;4.9&times; better encoding efficiency than multilingual alternatives</li>
+<li><strong>Curated training data</strong>: a 9-stage cleaning pipeline applied to ~28M raw texts, yielding high-quality Kazakh corpora totaling ~22M unique documents</li>
+<li><strong>Two language models</strong> trained from scratch: 50M and 150M parameter LlamaForCausalLM [5] architectures with Chinchilla-optimal [6] training</li>
+<li><strong>Quantitative tokenizer analysis</strong>: fertility measurements comparing dedicated vs. multilingual tokenizers on Kazakh text</li>
+<li><strong>Complete reproducibility</strong>: all code, configs, data, tokenizers, and models are open-source</li>
+</ol>
+
+<h2>2. Related Work</h2>
+<p><strong>Multilingual Models for Kazakh.</strong> BLOOM [1] and mGPT [2] are large multilingual models that include Kazakh in their training data but with limited vocabulary coverage. XLM-RoBERTa [3] provides multilingual representations but is not designed for text generation.</p>
+<p><strong>Tokenization for Low-Resource Languages.</strong> Sennrich et al. [7] introduced BPE for neural machine translation. Rust et al. [8] demonstrated that language-specific tokenizers are crucial for downstream task performance in low-resource settings. Ahia et al. [9] showed that multilingual tokenizers produce highly fragmented representations for underrepresented languages, directly impacting training efficiency and model quality.</p>
+<p><strong>Small Language Models.</strong> Pythia [4] provides a suite of models from 14M to 12B parameters. TinyLlama [10] demonstrated that 1.1B-parameter models can be competitive when trained on large token counts. Eldan &amp; Li [11] showed that very small models can exhibit emergent abilities with high-quality data.</p>
+<p><strong>Chinchilla Scaling.</strong> Hoffmann et al. [6] established that compute-optimal training requires ~20 tokens per parameter. We follow this guideline.</p>
+<p><strong>Data Cleaning.</strong> Penedo et al. [12] introduced comprehensive pipelines for web data cleaning. Lee et al. [13] showed that deduplication significantly improves language model quality. We adapt these approaches with Kazakh-specific filters including fastText [14] language identification.</p>
+
+<h2>3. Data</h2>
+
+<h3>3.1 Source Corpora</h3>
+<p>We aggregate Kazakh text from six major public datasets on Hugging Face:</p>
+<table>
+<tr><th>Source</th><th>Raw Samples</th><th>Unique (after dedup)</th></tr>
+<tr><td>CulturaX (kk)</td><td>2,731,934</td><td>2,705,991</td></tr>
+<tr><td>HPLT 2.0 (kaz_Cyrl)</td><td>2,637,330</td><td>2,246,264</td></tr>
+<tr><td>C4 (kk)</td><td>2,371,528</td><td>2,230,795</td></tr>
+<tr><td>MADLAD-400 (kk)</td><td>1,807,996</td><td>1,807,827</td></tr>
+<tr><td>mOSCAR (kaz_Cyrl)</td><td>245,869</td><td>245,869</td></tr>
+<tr><td>Wikipedia (kk)</td><td>238,356</td><td>238,343</td></tr>
+<tr><td><strong>Total new</strong></td><td><strong>10,033,013</strong></td><td><strong>9,475,089</strong></td></tr>
+</table>
+<p>Combined with the kz-transformers multidomain dataset (12.4M unique texts), this yields approximately 21.9M unique Kazakh text documents.</p>
+
+<h3>3.2 Cleaning Pipeline</h3>
+<p>Our 9-stage pipeline processes raw text into training-ready data:</p>
+<ol>
+<li>Unicode NFC normalization</li>
+<li>Kazakh character filtering</li>
+<li>Script profiling &mdash; Cyrillic character ratio &ge; 60%</li>
+<li>FastText language identification</li>
+<li>Junk/boilerplate removal (URL density, HTML tags, control characters)</li>
+<li>Repetition filtering</li>
+<li>Length filtering &mdash; minimum 50 characters</li>
+<li>Exact deduplication (MD5 hash-based, cross-source)</li>
+<li>Near deduplication (MinHash LSH)</li>
+</ol>
+<p>The pipeline reduces 28.4M raw texts to 13.7M clean texts (48.2% pass rate).</p>
+
+<h3>3.3 Tokenization</h3>
+<table>
+<tr><th>Tokenizer</th><th>Vocab Size</th><th>Training Data</th></tr>
+<tr><td>BPE-32K</td><td>32,000</td><td>23.6M Kazakh texts</td></tr>
+<tr><td>GPT2-50K</td><td>50,257</td><td>78K clean v2 texts</td></tr>
+</table>
+<p>Both tokenizers use ByteLevel pre-tokenization with special tokens <code>&lt;|endoftext|&gt;</code> (BOS/EOS) and <code>&lt;|padding|&gt;</code> (PAD).</p>
+
+<h3>Tokenizer Fertility Analysis</h3>
+<p>We measure fertility (tokens per word) across four tokenizers on 10 diverse Kazakh sentences covering news, science, literature, and conversational domains:</p>
+<table>
+<tr><th>Tokenizer</th><th>Vocab Size</th><th style="text-align:right">Avg Tokens/Sent</th><th style="text-align:right">Chars/Token</th><th style="text-align:right">Fertility</th></tr>
+<tr><td>GPT-NeoX (Pythia) [4]</td><td>50,304</td><td style="text-align:right">52.6</td><td style="text-align:right">1.22</td><td style="text-align:right"><strong>6.58</strong></td></tr>
+<tr><td>LLaMA-2 [19]</td><td>32,000</td><td style="text-align:right">39.2</td><td style="text-align:right">1.64</td><td style="text-align:right"><strong>4.90</strong></td></tr>
+<tr><td>SozKZ BPE-32K (ours)</td><td>32,000</td><td style="text-align:right">11.5</td><td style="text-align:right">5.59</td><td style="text-align:right"><strong>1.44</strong></td></tr>
+<tr><td>SozKZ GPT2-50K (ours)</td><td>50,257</td><td style="text-align:right">10.7</td><td style="text-align:right">6.01</td><td style="text-align:right"><strong>1.34</strong></td></tr>
+</table>
+<p>The GPT-NeoX tokenizer effectively decomposes Kazakh text into individual bytes (1.22 chars/token), while our tokenizers capture whole words and common morphemes. This 3.6&ndash;4.9&times; reduction in sequence length directly translates to faster training, lower memory usage, and richer contextual representation within the same context window. A 1,024-token context covers ~760 Kazakh words with our tokenizer versus only ~156 with GPT-NeoX.</p>
+
+<h2>4. Models</h2>
+
+<h3>4.1 Architecture</h3>
+<table>
+<tr><th>Parameter</th><th>50M Model</th><th>150M Model</th></tr>
+<tr><td>Parameters</td><td>50.29M</td><td>149.8M</td></tr>
+<tr><td>Hidden size</td><td>512</td><td>896</td></tr>
+<tr><td>Layers</td><td>8</td><td>12</td></tr>
+<tr><td>Attention heads</td><td>8</td><td>16</td></tr>
+<tr><td>Intermediate (SwiGLU)</td><td>1,344</td><td>2,560</td></tr>
+<tr><td>Context length</td><td>1,024</td><td>1,024</td></tr>
+<tr><td>Vocab size</td><td>50,257</td><td>32,000</td></tr>
+<tr><td>Positional encoding</td><td>RoPE</td><td>RoPE</td></tr>
+</table>
+
+<h3>4.2 Training</h3>
+<table>
+<tr><th>Parameter</th><th>50M Model</th><th>150M Model</th></tr>
+<tr><td>Training tokens</td><td>~1.04B</td><td>~2.88B</td></tr>
+<tr><td>Learning rate</td><td>6e-4</td><td>3e-4</td></tr>
+<tr><td>LR schedule</td><td>Cosine</td><td>Cosine</td></tr>
+<tr><td>Precision</td><td>bfloat16</td><td>bfloat16</td></tr>
+<tr><td>Hardware</td><td>1&times; A100</td><td>8&times; H200</td></tr>
+<tr><td>Training time</td><td>~6-8 hours</td><td>~36 minutes</td></tr>
+</table>
+
+<h3>4.3 Training Curve (150M)</h3>
+<table>
+<tr><th>Step</th><th>Train Loss</th><th>Epoch</th></tr>
+<tr><td>500</td><td>~5.5</td><td>0.046</td></tr>
+<tr><td>2,500</td><td>~3.5</td><td>0.228</td></tr>
+<tr><td>5,000</td><td>~3.2</td><td>0.456</td></tr>
+<tr><td>7,500</td><td>~3.0</td><td>0.683</td></tr>
+<tr><td>10,000</td><td>~2.9</td><td>0.911</td></tr>
+<tr><td>10,972 (final)</td><td>~2.9</td><td>1.000</td></tr>
+</table>
+<p><strong>Final eval loss: ~3.0 | Perplexity: ~20</strong></p>
+
+<h2>5. Evaluation</h2>
+
+<h3>5.1 Perplexity</h3>
+<table>
+<tr><th>Model</th><th>Eval Loss</th><th>Perplexity</th></tr>
+<tr><td>50M (exp004, step 24K)</td><td>3.39</td><td>~30</td></tr>
+<tr><td>150M (final)</td><td>~3.0</td><td>~20</td></tr>
+</table>
+
+<h3>5.2 Generation Examples (150M Model)</h3>
+
+<div class="gen-example">
+<div class="prompt">Prompt: &laquo;&#1178;&#1072;&#1079;&#1072;&#1179;&#1089;&#1090;&#1072;&#1085; &mdash; &#1073;&#1201;&#1083;&raquo;</div>
+<div class="output">&#1178;&#1072;&#1079;&#1072;&#1179;&#1089;&#1090;&#1072;&#1085; &mdash; &#1073;&#1201;&#1083; &#1072;&#1076;&#1072;&#1084;&#1085;&#1099;&#1187; &#1257;&#1084;&#1110;&#1088; &#1089;&#1199;&#1088;&#1091;&#1110;&#1085;&#1077; &#1179;&#1072;&#1078;&#1077;&#1090;&#1090;&#1110; &#1078;&#1072;&#1171;&#1076;&#1072;&#1081; &#1078;&#1072;&#1089;&#1072;&#1081;&#1090;&#1099;&#1085; &#1179;&#1201;&#1088;&#1072;&#1083;. &#1041;&#1110;&#1079;&#1076;&#1110;&#1187; &#1179;&#1086;&#1171;&#1072;&#1084;&#1099;&#1084;&#1099;&#1079;&#1076;&#1072; &#1086;&#1089;&#1099; &#1084;&#1241;&#1089;&#1077;&#1083;&#1077;&#1085;&#1110; &#1096;&#1077;&#1096;&#1091;&#1076;&#1077; &#1084;&#1077;&#1084;&#1083;&#1077;&#1082;&#1077;&#1090;&#1090;&#1110;&#1187; &#1088;&#1257;&#1083;&#1110; &#1078;&#1086;&#1171;&#1072;&#1088;&#1099;...</div>
+</div>
+
+<div class="gen-example">
+<div class="prompt">Prompt: &laquo;&#1041;&#1199;&#1075;&#1110;&#1085; &#1072;&#1091;&#1072; &#1088;&#1072;&#1081;&#1099;&raquo;</div>
+<div class="output">&#1041;&#1199;&#1075;&#1110;&#1085; &#1072;&#1091;&#1072; &#1088;&#1072;&#1081;&#1099; &#1073;&#1086;&#1083;&#1078;&#1072;&#1084;&#1099; &laquo;&#1178;&#1072;&#1079;&#1075;&#1080;&#1076;&#1088;&#1086;&#1084;&#1077;&#1090;&raquo; &#1056;&#1052;&#1050; 25 &#1179;&#1099;&#1088;&#1082;&#1199;&#1081;&#1077;&#1082;&#1082;&#1077; &#1072;&#1088;&#1085;&#1072;&#1083;&#1171;&#1072;&#1085; &#1072;&#1091;&#1072; &#1088;&#1072;&#1081;&#1099; &#1073;&#1086;&#1083;&#1078;&#1072;&#1084;&#1099;&#1085; &#1078;&#1072;&#1088;&#1080;&#1103;&#1083;&#1072;&#1076;&#1099;...</div>
+</div>
+
+<div class="gen-example">
+<div class="prompt">Prompt: &laquo;&#1040;&#1083;&#1099;&#1089;&#1090;&#1072;&#1171;&#1099; &#1072;&#1091;&#1099;&#1083;&#1076;&#1072; &#1073;&#1110;&#1088; &#1082;&#1241;&#1088;&#1110; &#1096;&#1072;&#1083; &#1090;&#1201;&#1088;&#1072;&#1090;&#1099;&#1085;,&raquo;</div>
+<div class="output">&#1040;&#1083;&#1099;&#1089;&#1090;&#1072;&#1171;&#1099; &#1072;&#1091;&#1099;&#1083;&#1076;&#1072; &#1073;&#1110;&#1088; &#1082;&#1241;&#1088;&#1110; &#1096;&#1072;&#1083; &#1090;&#1201;&#1088;&#1072;&#1090;&#1099;&#1085;, &#1082;&#1257;&#1087;&#1179;&#1072;&#1073;&#1072;&#1090;&#1090;&#1099; &#1199;&#1081;&#1076;&#1110;&#1187; &#1073;&#1072;&#1083;&#1072;&#1089;&#1099;&#1085;&#1076;&#1072;&#1081; &#1257;&#1089;&#1110;&#1087;-&#1257;&#1085;&#1075;&#1077;&#1085;...</div>
+</div>
+
+<h3>5.3 Qualitative Analysis</h3>
+<p>Through incremental evaluation during training, we observe clear quality progression:</p>
+<ul>
+<li><strong>Step 2,000</strong> (perplexity ~70): Basic Kazakh words emerge, heavy repetition, frequent Russian code-switching</li>
+<li><strong>Step 8,000</strong> (perplexity ~39): Improved coherence, less language mixing, domain-specific content</li>
+<li><strong>Step 22,000</strong> (perplexity ~30): Complex academic vocabulary, better narrative structure, longer coherent spans</li>
+</ul>
+
+<h2>6. Discussion</h2>
+
+<h3>6.1 Domain-Adaptive Pre-Training vs. From-Scratch</h3>
+<p>Our initial experiments (exp001&ndash;003) attempted domain-adaptive pre-training on English-centric Pythia [4] models. The GPT-NeoX tokenizer fragments Kazakh text into near-byte-level representations (fertility 6.58), meaning the model must learn Kazakh character composition in addition to language modeling. Training from scratch with a dedicated tokenizer proved far more effective.</p>
+
+<h3>6.2 Tokenizer Design for Agglutinative Languages</h3>
+<p>Our fertility analysis demonstrates that tokenizer choice has dramatic impact for agglutinative languages. A 1,024-token context window effectively covers ~760 Kazakh words with our tokenizer versus only ~156 words with GPT-NeoX &mdash; a 4.9&times; difference in effective context length, with direct implications for generation coherence and long-range dependencies.</p>
+
+<h3>6.3 Data Quality and Scale</h3>
+<p>The 48.2% pass rate of our cleaning pipeline reveals that web-crawled &ldquo;Kazakh&rdquo; data contains substantial noise: Russian-Kazakh mixed content, boilerplate, and near-duplicate content across sources. The cross-source deduplication step alone removed 524K documents. We recommend aggressive quality filtering for any low-resource language data pipeline.</p>
+
+<h3>6.4 Scaling Laws for Low-Resource Languages</h3>
+<p>Following Chinchilla-optimal ratios [6], the 150M model (perplexity ~20) substantially outperforms the 50M model (perplexity ~30), confirming that scaling laws hold for low-resource languages when sufficient data is available. Our 22M unique documents provide enough tokens for models up to ~500M parameters at Chinchilla-optimal ratios.</p>
+
+<h2>7. Limitations</h2>
+<ul>
+<li><strong>Factual accuracy</strong>: Models generate plausible but often factually incorrect text</li>
+<li><strong>Domain bias</strong>: Heavy bias toward news and government press release style</li>
+<li><strong>Language mixing</strong>: Occasional Russian words mid-sentence</li>
+<li><strong>Repetition</strong>: Tendency toward repetitive patterns in longer generations</li>
+<li><strong>Context length</strong>: Limited to 1,024 tokens</li>
+<li><strong>No instruction tuning</strong>: Base models only; not aligned for dialogue or instruction following</li>
+<li><strong>Evaluation scope</strong>: We report perplexity and qualitative generation analysis but do not evaluate on downstream tasks due to the lack of standardized Kazakh benchmarks for generative models of this scale</li>
+</ul>
+
+<h2>8. Conclusion</h2>
+<p>We demonstrate that small, dedicated language models trained from scratch can be a practical and effective approach for low-resource languages. The core insight is that tokenizer quality is the single most impactful factor: a 4.9&times; improvement in encoding efficiency translates directly to better training efficiency and generation quality.</p>
+<p>The SozKZ project provides the Kazakh NLP community with two pre-trained language models (50M, 150M), two custom Kazakh tokenizers (32K, 50K), large-scale cleaned Kazakh corpora (~22M texts), and complete, reproducible training pipelines. All artifacts are released under open licenses on Hugging Face Hub.</p>
+<p>Future work includes: (1) instruction tuning for dialogue capabilities, (2) extending to the new Latin-script Kazakh orthography, (3) scaling to larger model sizes, and (4) evaluation on emerging Kazakh NLP benchmarks.</p>
+
+<div class="artifacts">
+<h2>Released Artifacts</h2>
+<h3>Models</h3>
+<table>
+<tr><th>Name</th><th>Parameters</th></tr>
+<tr><td><a href="https://huggingface.co/saken-tukenov/sozkz-core-llama-50m-kk-base-v2">sozkz-core-llama-50m-kk-base-v2</a></td><td>50.29M</td></tr>
+<tr><td><a href="https://huggingface.co/saken-tukenov/sozkz-core-llama-150m-kk-base-v1">sozkz-core-llama-150m-kk-base-v1</a></td><td>149.8M</td></tr>
+</table>
+<h3>Tokenizers</h3>
+<table>
+<tr><th>Name</th><th>Vocab</th></tr>
+<tr><td><a href="https://huggingface.co/saken-tukenov/sozkz-vocab-bpe-32k-kk-base-v1">sozkz-vocab-bpe-32k-kk-base-v1</a></td><td>32K</td></tr>
+<tr><td><a href="https://huggingface.co/saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1">sozkz-core-gpt2-50k-kk-base-v1</a></td><td>50K</td></tr>
+</table>
+<h3>Datasets</h3>
+<table>
+<tr><th>Name</th><th>Size</th></tr>
+<tr><td><a href="https://huggingface.co/datasets/saken-tukenov/sozkz-corpus-dedup-kk-web-v1">sozkz-corpus-dedup-kk-web-v1</a></td><td>9.5M texts</td></tr>
+<tr><td><a href="https://huggingface.co/datasets/saken-tukenov/sozkz-corpus-clean-kk-text-v2">sozkz-corpus-clean-kk-text-v2</a></td><td>78K docs</td></tr>
+<tr><td><a href="https://huggingface.co/datasets/saken-tukenov/sozkz-corpus-clean-kk-pretrain-v2">sozkz-corpus-clean-kk-pretrain-v2</a></td><td>1.04B tokens</td></tr>
+</table>
+<h3>Code</h3>
+<p><a href="https://github.com/sakentukenov/slm">github.com/sakentukenov/slm</a> &mdash; Training pipeline and standalone recipe</p>
+</div>
+
+<h2>Citation</h2>
+<div class="citation">@misc{tukenov2026sozkz,
+  title={SozKZ: Small Language Models for Kazakh Trained from Scratch},
+  author={Saken Tukenov},
+  year={2026},
+  url={https://huggingface.co/collections/saken-tukenov/sozkz}
+}</div>
+
+<h2>References</h2>
+<ol>
+<li>Workshop, B. et al. (2023). BLOOM: A 176B-Parameter Open-Access Multilingual Language Model. arXiv:2211.05100</li>
+<li>Shliazhko, O. et al. (2022). mGPT: Few-Shot Learners Go Multilingual. arXiv:2204.07580</li>
+<li>Conneau, A. et al. (2020). Unsupervised Cross-lingual Representation Learning at Scale. ACL 2020. arXiv:1911.02116</li>
+<li>Biderman, S. et al. (2023). Pythia: A Suite for Analyzing Large Language Models. ICML 2023. arXiv:2304.01373</li>
+<li>Touvron, H. et al. (2023). LLaMA: Open and Efficient Foundation Language Models. arXiv:2302.13971</li>
+<li>Hoffmann, J. et al. (2022). Training Compute-Optimal Large Language Models. NeurIPS 2022. arXiv:2203.15556</li>
+<li>Sennrich, R. et al. (2016). Neural Machine Translation of Rare Words with Subword Units. ACL 2016. arXiv:1508.07909</li>
+<li>Rust, P. et al. (2021). How Good is Your Tokenizer? On the Monolingual Performance of Multilingual Language Models. ACL 2021. arXiv:2012.15613</li>
+<li>Ahia, O. et al. (2023). Do All Languages Cost the Same? Tokenization in the Era of Commercial Language Models. EMNLP 2023. arXiv:2305.13707</li>
+<li>Zhang, P. et al. (2024). TinyLlama: An Open-Source Small Language Model. arXiv:2401.02385</li>
+<li>Eldan, R. &amp; Li, Y. (2023). TinyStories: How Small Can Language Models Be and Still Speak Coherent English? arXiv:2305.07759</li>
+<li>Penedo, G. et al. (2023). The RefinedWeb Dataset for Falcon LLM. NeurIPS 2023. arXiv:2306.01116</li>
+<li>Lee, K. et al. (2022). Deduplicating Training Data Makes Language Models Better. ACL 2022. arXiv:2107.06499</li>
+<li>Joulin, A. et al. (2017). Bag of Tricks for Efficient Text Classification. EACL 2017. arXiv:1607.01759</li>
+<li>Nguyen, T. et al. (2024). CulturaX: A Cleaned, Enormous, and Multilingual Dataset. ACL 2024. arXiv:2309.09400</li>
+<li>de Gibert, O. et al. (2024). A New Massive Multilingual Dataset for High-Performance Language Technologies. LREC-COLING 2024. arXiv:2403.14009</li>
+<li>Raffel, C. et al. (2020). Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer. JMLR 2020. arXiv:1910.10683</li>
+<li>Kudugunta, S. et al. (2024). MADLAD-400: A Multilingual and Document-Level Large Audited Dataset. AAAI 2024. arXiv:2309.04662</li>
+<li>Touvron, H. et al. (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv:2307.09288</li>
+<li>Shazeer, N. (2020). GLU Variants Improve Transformer. arXiv:2002.05202</li>
+<li>Su, J. et al. (2021). RoFormer: Enhanced Transformer with Rotary Position Embedding. arXiv:2104.09864</li>
+<li>Zhang, B. &amp; Sennrich, R. (2019). Root Mean Square Layer Normalization. NeurIPS 2019. arXiv:1910.07467</li>
+<li>Loshchilov, I. &amp; Hutter, F. (2019). Decoupled Weight Decay Regularization. ICLR 2019. arXiv:1711.05101</li>
+</ol>
+
+<footer>
+<p>SozKZ Project &bull; <a href="https://huggingface.co/saken-tukenov">Saken Tukenov</a> &bull; February 2026</p>
+<p>Licensed under MIT. All models, data, and code are open-source.</p>
+</footer>
+
+</div>
+</body>
+</html>

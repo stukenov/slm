@@ -1,0 +1,31 @@
+# ============================================================================
+# exp015: SFT of Llama 150M base (instruction tuning, first attempt)
+# Architecture: Llama 150M (from exp014), task=sft
+# Init: sozkz-core-llama-150m-kk-base-v1
+# Dataset: sozkz-corpus-synthetic-kk-instruct-v1 (synthetic instructions)
+# Goal: First instruction-tuned 150M model for Kazakh chat
+# ============================================================================
+inherits: base
+
+experiment_name: exp015_sft_llama_150m
+task: sft
+
+init_from: saken-tukenov/sozkz-core-llama-150m-kk-base-v1
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+sft_dataset: saken-tukenov/sozkz-corpus-synthetic-kk-instruct-v1
+max_length: 512
+
+learning_rate: 2e-5
+weight_decay: 0.01
+num_train_epochs: 3
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 4
+warmup_ratio: 0.03
+lr_scheduler_type: cosine
+
+eval_steps: 500
+save_steps: 500
+logging_steps: 10
+save_total_limit: 3

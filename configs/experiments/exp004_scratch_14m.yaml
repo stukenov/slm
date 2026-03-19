@@ -1,0 +1,17 @@
+# ============================================================================
+# exp004a: Pythia-14M from scratch with Kazakh BPE tokenizer
+# Architecture: Pythia-14M (from scratch, not pretrained)
+# Tokenizer: Custom Kazakh BPE 32K (trained from corpus)
+# Dataset: kz-transformers/multidomain-kazakh-dataset
+# Goal: Compare from-scratch training vs DAPT (exp001/003)
+# ============================================================================
+inherits: base
+experiment_name: exp004_scratch_14m
+model_name: EleutherAI/pythia-14m
+dataset_name: kz-transformers/multidomain-kazakh-dataset
+tokenizer_path: ./tokenizers/kazakh-bpe
+tokenizer_mode: train
+tokenizer_vocab_size: 32000
+from_scratch: true
+learning_rate: 3e-4
+num_train_epochs: 10

@@ -1,0 +1,56 @@
+# ============================================================================
+# exp018: Llama 500M with 200K vocabulary (largest dense model)
+# Architecture: Llama ~500M (1024h, 24L, 16heads), vocab 200019, ctx 2048
+# Tokenizer: sozkz-core-gpt2-200k-kk-base-v1 (200K vocab)
+# Dataset: 3 pretokenized corpora combined (~10B+ tokens, Chinchilla-optimal)
+# Goal: Largest dense model — test large vocab + multi-corpus training
+# ============================================================================
+inherits: base
+experiment_name: exp018_llama_500m_200k
+
+# Custom Llama ~500M from scratch with 200K vocab
+model_name: custom-llama-500m-200k
+from_scratch: true
+
+model_config:
+  model_type: llama
+  vocab_size: 200019
+  hidden_size: 1024
+  intermediate_size: 4096
+  num_hidden_layers: 24
+  num_attention_heads: 16
+  num_key_value_heads: 16
+  max_position_embeddings: 2048
+  tie_word_embeddings: true
+  bos_token_id: 2
+  eos_token_id: 0
+  pad_token_id: 1
+
+# Pre-tokenized datasets (200K tokenizer, block_size=2048)
+pretokenized_dataset: stukenov/sozkz-corpus-tokenized-kk-200k-v1
+extra_pretokenized_datasets:
+  - stukenov/sozkz-corpus-tokenized-kk-multidomain-200k-v1
+  - stukenov/sozkz-corpus-tokenized-enkk-200k-v1
+
+# Tokenizer
+tokenizer_path: stukenov/sozkz-core-gpt2-200k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Training hyperparameters (Chinchilla-optimal for ~10B tokens)
+learning_rate: 3e-4
+weight_decay: 0.1
+num_train_epochs: 1
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 64
+
+# Schedule
+warmup_steps: 1000
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+eval_steps: 2000
+save_steps: 2000
+logging_steps: 50
+save_total_limit: 3
+block_size: 2048

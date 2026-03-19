@@ -1,0 +1,3210 @@
+{
+  "model": "stukenov/sozkz-core-llama-150m-kk-instruct-v2",
+  "avg_score": 0.75,
+  "avg_tokens": 299.0,
+  "by_type": {
+    "DESCRIBE_QS": 0.91,
+    "HOW_QS": 0.78,
+    "WHY_QS": 0.53,
+    "ANALYZE_QS": 0.92,
+    "WHAT_QS": 0.64
+  },
+  "judges": [
+    {
+      "task_id": 28,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 37,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 20,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 22,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 19,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 17,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 26,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 3,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 1,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 13,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 44,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 18,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 34,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 7,
+      "question_type": "HOW_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 21,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 42,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 36,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 0,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 31,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 4,
+      "question_type": "ANALYZE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 12,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 41,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 48,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 25,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 32,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 6,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 24,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 11,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 14,
+      "question_type": "ANALYZE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 39,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 27,
+      "question_type": "HOW_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 33,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 16,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 47,
+      "question_type": "HOW_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 43,
+      "question_type": "DESCRIBE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 40,
+      "question_type": "WHY_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 29,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 2,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 30,
+      "question_type": "WHY_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 35,
+      "question_type": "WHY_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 23,
+      "question_type": "DESCRIBE_QS",
+      "score": 7,
+      "success": true
+    },
+    {
+      "task_id": 45,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 49,
+      "question_type": "ANALYZE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 5,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 10,
+      "question_type": "WHY_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 46,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 9,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 15,
+      "question_type": "WHY_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 38,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 79,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 53,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 8,
+      "question_type": "DESCRIBE_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 72,
+      "question_type": "HOW_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 70,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 50,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 52,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 60,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 54,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 84,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 76,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 71,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 82,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 56,
+      "question_type": "WHAT_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 87,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 66,
+      "question_type": "WHAT_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 69,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 63,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 88,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 86,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 67,
+      "question_type": "HOW_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 61,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 64,
+      "question_type": "ANALYZE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 58,
+      "question_type": "DESCRIBE_QS",
+      "score": 7,
+      "success": true
+    },
+    {
+      "task_id": 95,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 65,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 55,
+      "question_type": "WHY_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 74,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 77,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 73,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 101,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 94,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 99,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 75,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 85,
+      "question_type": "WHY_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 90,
+      "question_type": "WHY_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 57,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 89,
+      "question_type": "ANALYZE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 100,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 51,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 78,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 62,
+      "question_type": "HOW_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 68,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 91,
+      "question_type": "WHAT_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 80,
+      "question_type": "WHY_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 93,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 81,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 110,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 97,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 83,
+      "question_type": "DESCRIBE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 109,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 107,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 59,
+      "question_type": "ANALYZE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 118,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 92,
+      "question_type": "HOW_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 98,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 129,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 115,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 131,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 122,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 112,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 111,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 103,
+      "question_type": "DESCRIBE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 105,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 128,
+      "question_type": "DESCRIBE_QS",
+      "score": 5,
+      "success": true
+    },
+    {
+      "task_id": 113,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 102,
+      "question_type": "HOW_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 106,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 142,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 117,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 104,
+      "question_type": "ANALYZE_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 132,
+      "question_type": "HOW_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 119,
+      "question_type": "ANALYZE_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 121,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 108,
+      "question_type": "DESCRIBE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 116,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 137,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 125,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 143,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 141,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 127,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 130,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 140,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 123,
+      "question_type": "DESCRIBE_QS",
+      "score": 8,
+      "success": true
+    },
+    {
+      "task_id": 139,
+      "question_type": "ANALYZE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 134,
+      "question_type": "ANALYZE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 135,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 138,
+      "question_type": "DESCRIBE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 124,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 120,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 151,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 133,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 156,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 158,
+      "question_type": "DESCRIBE_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 136,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 159,
+      "question_type": "ANALYZE_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 150,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 148,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 126,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 165,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 144,
+      "question_type": "ANALYZE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 157,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 154,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 177,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 169,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 164,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 161,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 172,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 160,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 149,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 153,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 96,
+      "question_type": "WHAT_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 174,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 168,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 145,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 163,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 199,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1675. Please try again in 223ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 155,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 146,
+      "question_type": "WHAT_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 176,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 167,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 201,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2926. Please try again in 390ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 173,
+      "question_type": "DESCRIBE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 170,
+      "question_type": "WHY_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 178,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 212,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1288. Please try again in 171ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 162,
+      "question_type": "HOW_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 182,
+      "question_type": "HOW_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 208,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2405. Please try again in 320ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 213,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1425. Please try again in 190ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 181,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 203,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4151. Please try again in 553ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 171,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 186,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 179,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 198,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 215,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1598. Please try again in 213ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 152,
+      "question_type": "HOW_QS",
+      "score": 5,
+      "success": true
+    },
+    {
+      "task_id": 204,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4290. Please try again in 572ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 191,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 210,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3740. Please try again in 498ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 192,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 214,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3580. Please try again in 477ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 228,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1818. Please try again in 242ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 196,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 216,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3771. Please try again in 502ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 193,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 218,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3775. Please try again in 503ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 180,
+      "question_type": "WHY_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 234,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1798. Please try again in 239ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 190,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 188,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 189,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 175,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 147,
+      "question_type": "HOW_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 184,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 183,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 206,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 202,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 217,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5252. Please try again in 700ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 223,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3926. Please try again in 523ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 200,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 225,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4454. Please try again in 593ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 205,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 231,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4400. Please try again in 586ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 166,
+      "question_type": "WHAT_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 254,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 828. Please try again in 110ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 220,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 6041. Please try again in 805ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 194,
+      "question_type": "ANALYZE_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 246,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2326. Please try again in 310ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 242,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2598. Please try again in 346ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 229,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 251,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1681. Please try again in 224ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 232,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5596. Please try again in 746ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 230,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 6020. Please try again in 802ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 236,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5505. Please try again in 734ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 247,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2507. Please try again in 334ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 233,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5609. Please try again in 747ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 187,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 250,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2466. Please try again in 328ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 195,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 237,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5368. Please try again in 715ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 197,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 252,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2913. Please try again in 388ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 255,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1689. Please try again in 225ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 219,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 240,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5413. Please try again in 721ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 207,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 235,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 265,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2639. Please try again in 351ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 260,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3532. Please try again in 470ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 268,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2307. Please try again in 307ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 211,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 262,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3788. Please try again in 505ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 274,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1943. Please try again in 259ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 253,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5252. Please try again in 700ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 258,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 276,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2007. Please try again in 267ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 264,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3479. Please try again in 463ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 284,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1915. Please try again in 255ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 249,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5628. Please try again in 750ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 277,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3016. Please try again in 402ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 238,
+      "question_type": "DESCRIBE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 185,
+      "question_type": "WHY_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 224,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 278,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3494. Please try again in 465ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 227,
+      "question_type": "HOW_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 209,
+      "question_type": "ANALYZE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 263,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5766. Please try again in 768ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 221,
+      "question_type": "WHAT_QS",
+      "score": 6,
+      "success": true
+    },
+    {
+      "task_id": 270,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4962. Please try again in 661ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 275,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4377. Please try again in 583ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 283,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3769. Please try again in 502ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 297,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1022. Please try again in 136ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 291,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1741. Please try again in 232ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 285,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3472. Please try again in 462ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 282,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4273. Please try again in 569ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 241,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 271,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5778. Please try again in 770ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 286,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2984. Please try again in 397ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 259,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 280,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5239. Please try again in 698ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 298,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1807. Please try again in 240ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 294,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2657. Please try again in 354ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 295,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2309. Please try again in 307ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 226,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 256,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 279,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5813. Please try again in 775ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 273,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 304,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1369. Please try again in 182ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 114,
+      "question_type": "ANALYZE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 261,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 299,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2508. Please try again in 334ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 301,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2145. Please try again in 286ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 287,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4287. Please try again in 571ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 309,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1157. Please try again in 154ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 267,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 257,
+      "question_type": "HOW_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 311,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1874. Please try again in 249ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 307,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2374. Please try again in 316ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 305,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2689. Please try again in 358ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 289,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5141. Please try again in 685ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 313,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1986. Please try again in 264ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 315,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1772. Please try again in 236ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 248,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 302,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3513. Please try again in 468ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 318,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1725. Please try again in 230ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 245,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 319,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2340. Please try again in 312ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 327,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1622. Please try again in 216ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 335,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 981. Please try again in 130ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 293,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5674. Please try again in 756ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 222,
+      "question_type": "HOW_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 320,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2723. Please try again in 363ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 239,
+      "question_type": "ANALYZE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 330,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2471. Please try again in 329ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 322,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3505. Please try again in 467ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 272,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 324,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3418. Please try again in 455ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 338,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1775. Please try again in 236ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 339,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1787. Please try again in 238ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 303,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 6039. Please try again in 805ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 336,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2354. Please try again in 313ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 269,
+      "question_type": "ANALYZE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 312,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5554. Please try again in 740ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 331,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3856. Please try again in 514ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 328,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4125. Please try again in 550ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 300,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 296,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 243,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 347,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1694. Please try again in 225ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 266,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 323,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5035. Please try again in 671ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 340,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3662. Please try again in 488ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 334,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4734. Please try again in 631ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 344,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3551. Please try again in 473ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 352,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2250. Please try again in 300ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 351,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2413. Please try again in 321ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 361,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1017. Please try again in 135ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 355,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1720. Please try again in 229ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 359,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1713. Please try again in 228ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 244,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 358,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1965. Please try again in 262ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 316,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 354,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2520. Please try again in 336ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 362,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1676. Please try again in 223ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 343,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4597. Please try again in 612ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 332,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 6099. Please try again in 813ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 363,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1830. Please try again in 243ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 342,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5284. Please try again in 704ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 369,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1429. Please try again in 190ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 288,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 306,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 368,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1817. Please try again in 242ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 348,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5094. Please try again in 679ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 346,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5465. Please try again in 728ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 290,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 350,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5495. Please try again in 732ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 382,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1213. Please try again in 161ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 310,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 379,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1742. Please try again in 232ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 292,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 387,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1208. Please try again in 161ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 380,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1947. Please try again in 259ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 383,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2227. Please try again in 296ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 325,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 370,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4026. Please try again in 536ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 365,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4342. Please try again in 578ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 386,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2185. Please try again in 291ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 349,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 329,
+      "question_type": "ANALYZE_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 337,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 373,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4112. Please try again in 548ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 341,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 372,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4603. Please try again in 613ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 321,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 314,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 356,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 388,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3382. Please try again in 450ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 378,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4484. Please try again in 597ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 385,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4212. Please try again in 561ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 389,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3887. Please try again in 518ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 375,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5581. Please try again in 744ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 384,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5010. Please try again in 668ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 411,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 899. Please try again in 119ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 333,
+      "question_type": "DESCRIBE_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 409,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1435. Please try again in 191ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 403,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2204. Please try again in 293ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 399,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3049. Please try again in 406ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 401,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2832. Please try again in 377ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 353,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 345,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 402,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3146. Please try again in 419ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 390,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5584. Please try again in 744ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 416,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1830. Please try again in 243ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 408,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2768. Please try again in 369ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 376,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 410,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2483. Please try again in 331ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 419,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1413. Please try again in 188ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 407,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2377. Please try again in 316ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 281,
+      "question_type": "WHAT_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 367,
+      "question_type": "HOW_QS",
+      "score": 5,
+      "success": true
+    },
+    {
+      "task_id": 400,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4399. Please try again in 586ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 420,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1518. Please try again in 202ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 421,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1612. Please try again in 214ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 391,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 404,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4315. Please try again in 575ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 422,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1373. Please try again in 183ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 381,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 395,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 6295. Please try again in 839ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 364,
+      "question_type": "ANALYZE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 428,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1878. Please try again in 250ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 406,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 366,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 371,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 326,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 377,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 424,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3072. Please try again in 409ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 430,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2518. Please try again in 335ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 439,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1640. Please try again in 218ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 427,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3005. Please try again in 400ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 435,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1934. Please try again in 257ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 415,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5134. Please try again in 684ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 445,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1168. Please try again in 155ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 396,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 392,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 397,
+      "question_type": "HOW_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 431,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3460. Please try again in 461ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 446,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2016. Please try again in 268ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 317,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 425,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4484. Please try again in 597ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 444,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2646. Please try again in 352ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 429,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4202. Please try again in 560ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 418,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 357,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 453,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1542. Please try again in 205ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 451,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1711. Please try again in 228ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 426,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4931. Please try again in 657ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 452,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1795. Please try again in 239ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 433,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3931. Please try again in 524ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 374,
+      "question_type": "ANALYZE_QS",
+      "score": 5,
+      "success": true
+    },
+    {
+      "task_id": 398,
+      "question_type": "DESCRIBE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 394,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 449,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2498. Please try again in 333ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 459,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1413. Please try again in 188ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 448,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2941. Please try again in 392ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 405,
+      "question_type": "WHY_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 393,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 470,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1432. Please try again in 190ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 447,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4578. Please try again in 610ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 476,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1221. Please try again in 162ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 461,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3088. Please try again in 411ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 483,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1057. Please try again in 140ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 474,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1601. Please try again in 213ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 467,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2567. Please try again in 342ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 478,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1739. Please try again in 231ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 463,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3053. Please try again in 407ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 481,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1435. Please try again in 191ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 465,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2797. Please try again in 372ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 480,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1658. Please try again in 221ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 458,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4022. Please try again in 536ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 457,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3999. Please try again in 533ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 413,
+      "question_type": "DESCRIBE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 455,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4634. Please try again in 617ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 432,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 475,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1734. Please try again in 231ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 477,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3002. Please try again in 400ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 460,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4981. Please try again in 664ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 360,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 485,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1621. Please try again in 216ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 462,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5430. Please try again in 724ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 484,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 2895. Please try again in 386ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 468,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4798. Please try again in 639ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 412,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 414,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 498,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 1816. Please try again in 242ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 308,
+      "question_type": "DESCRIBE_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 472,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3849. Please try again in 513ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 438,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 473,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5800. Please try again in 773ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 486,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3911. Please try again in 521ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 479,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5495. Please try again in 732ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 464,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 491,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 3124. Please try again in 416ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 482,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 5379. Please try again in 717ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 456,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 450,
+      "question_type": "WHY_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 423,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 442,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 454,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 494,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 4702. Please try again in 626ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 489,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": false,
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o in organization org-2IqycyDhNfpE4SJLb0eqNTqH on tokens per min (TPM): Limit 450000, Used 450000, Requested 6076. Please try again in 810ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "task_id": 469,
+      "question_type": "ANALYZE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 417,
+      "question_type": "HOW_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 488,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 437,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 495,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 443,
+      "question_type": "DESCRIBE_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 434,
+      "question_type": "ANALYZE_QS",
+      "score": 6,
+      "success": true
+    },
+    {
+      "task_id": 471,
+      "question_type": "WHAT_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 492,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 440,
+      "question_type": "WHY_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 497,
+      "question_type": "HOW_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 436,
+      "question_type": "WHAT_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 466,
+      "question_type": "WHAT_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 499,
+      "question_type": "ANALYZE_QS",
+      "score": 4,
+      "success": true
+    },
+    {
+      "task_id": 441,
+      "question_type": "WHAT_QS",
+      "score": 0,
+      "success": true
+    },
+    {
+      "task_id": 493,
+      "question_type": "DESCRIBE_QS",
+      "score": 1,
+      "success": true
+    },
+    {
+      "task_id": 496,
+      "question_type": "WHAT_QS",
+      "score": 2,
+      "success": true
+    },
+    {
+      "task_id": 487,
+      "question_type": "HOW_QS",
+      "score": 3,
+      "success": true
+    },
+    {
+      "task_id": 490,
+      "question_type": "WHY_QS",
+      "score": 1,
+      "success": true
+    }
+  ]
+}

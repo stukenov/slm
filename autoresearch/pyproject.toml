@@ -1,0 +1,26 @@
+[project]
+name = "autoresearch-kazakh"
+version = "0.1.0"
+description = "Autonomous research for Kazakh LLM pretraining (adapted from karpathy/autoresearch)"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.4",
+    "numpy>=2.0",
+    "pyarrow>=15.0",
+    "datasets>=2.18",
+    "huggingface-hub>=0.22",
+    "tokenizers>=0.15",
+    "transformers>=5.0",
+    "safetensors>=0.4",
+    "requests>=2.31",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu124" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true

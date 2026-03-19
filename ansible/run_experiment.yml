@@ -1,0 +1,46 @@
+---
+- name: Run experiment on GPU server (detached)
+  hosts: gpu_servers
+  vars:
+    experiment_config: "exp001_dapt_pythia14m"
+    venv_path: "{{ project_dir }}/.venv"
+    num_gpus: 2
+    session_name: "slm_{{ experiment_config }}"
+
+  tasks:
+    - name: Check config exists
+      stat:
+        path: "{{ project_dir }}/configs/experiments/{{ experiment_config }}.yaml"
+      register: config_file
+
+    - name: Fail if config not found
+      fail:
+        msg: "Config not found: configs/experiments/{{ experiment_config }}.yaml"
+      when: not config_file.stat.exists
+
+    - name: Kill existing screen session if any
+      shell: "screen -X -S {{ session_name }} quit || true"
+
+    - name: Start training in detached screen session
+      shell: |
+        screen -dmS {{ session_name }} bash -c '
+          cd {{ project_dir }} && \
+          source {{ venv_path }}/bin/activate && \
+          torchrun --nproc_per_node={{ num_gpus }} \
+            -m slm.train \
+            --config configs/experiments/{{ experiment_config }}.yaml \
+            2>&1 | tee logs/{{ experiment_config }}.log; \
+          echo "=== TRAINING FINISHED at $(date) ===" >> logs/{{ experiment_config }}.log
+        '
+
+    - name: Verify screen session is running
+      shell: "screen -ls | grep {{ session_name }}"
+      register: screen_check
+
+    - name: Report
+      debug:
+        msg: |
+          Training started in detached screen session: {{ session_name }}
+          Monitor:  ssh kaznu -t 'screen -r {{ session_name }}'
+          Tail log: ssh kaznu 'tail -f {{ project_dir }}/logs/{{ experiment_config }}.log'
+          List:     ssh kaznu 'screen -ls'

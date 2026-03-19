@@ -1,0 +1,12 @@
+# ============================================================================
+# exp002: DAPT of Pythia-31M on Kazakh text
+# Architecture: Pythia-31M (EleutherAI), original tokenizer
+# Dataset: kz-transformers/multidomain-kazakh-dataset
+# Goal: Scale up from exp001 — larger Pythia, same DAPT approach
+# ============================================================================
+inherits: base
+experiment_name: exp002_dapt_pythia31m
+model_name: EleutherAI/pythia-31m
+dataset_name: kz-transformers/multidomain-kazakh-dataset
+learning_rate: 5e-5
+num_train_epochs: 5

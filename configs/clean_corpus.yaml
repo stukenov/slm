@@ -1,0 +1,79 @@
+# Deep cleaning pipeline config for Kazakh pretrain corpus
+# Usage: python scripts/clean_corpus.py --config configs/clean_corpus.yaml
+
+seed: 42
+
+# --- Data source ---
+hf_raw_url: "https://huggingface.co/datasets/kz-transformers/multidomain-kazakh-dataset/resolve/main"
+domain_files:
+  oscar.csv: oscar
+  kazakhNews.csv: kazakhNews
+  kazakhBooks.csv: kazakhBooks
+  leipzig.csv: leipzig
+  cc100-monolingual-crawled-data.csv: cc100
+
+target_proportions:
+  oscar: 0.47
+  kazakhNews: 0.25
+  kazakhBooks: 0.20
+  leipzig: 0.05
+  cc100: 0.03
+
+# --- Normalization (§4.1) ---
+max_chars: 100000
+min_text_len: 30
+
+# --- Script profile (§4.2) ---
+script_thresholds:
+  min_cyrillic: 0.60
+  max_latin: 0.25
+  max_arabic: 0.05
+  max_other: 0.10
+
+# --- Language ID (§4.3) ---
+lid:
+  model_path: "/root/slm/models/lid.176.bin"
+  min_confidence: 0.5
+  min_gap: 0.1    # gap vs second-best (ru/en)
+
+# --- Technical junk (§4.4) ---
+junk:
+  max_url_density: 3.0       # per 1000 chars
+  max_special_char_ratio: 0.15
+  min_underscore_run: 10     # consecutive underscores
+  boilerplate_patterns:
+    - "Теги:"
+    - "Tags:"
+    - "kz.kz"
+    - "Читайте также"
+    - "Поделиться в"
+    - "©"
+    - "Все права защищены"
+
+# --- Repetition / templating (§4.5) ---
+repetition:
+  ngram_size: 10
+  max_repeated_ngram_ratio: 0.30
+  min_compression_ratio: 0.20
+
+# --- Dedup (§4.6) ---
+dedup:
+  minhash_threshold: 0.80
+  minhash_num_perm: 128
+  minhash_ngram_size: 5
+
+# --- PPL filter (§4.7) — disabled for first iteration ---
+ppl:
+  enabled: false
+  # kenlm_model_path: "/root/slm/models/kazakh_5gram.bin"
+  # max_ppl: 10000
+
+# --- Tokenization + packing (§4.8) ---
+tokenizer_path: "./tokenizers/kazakh-bpe-32k"
+block_size: 1024
+
+# --- Output ---
+output_dir: "/root/slm/data/clean_corpus"
+hub_repo: "saken-tukenov/sozkz-corpus-clean-kk-pretrain-v2"
+push_to_hub: true
+num_proc: 8

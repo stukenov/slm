@@ -1,0 +1,75 @@
+# Expanded cleaning pipeline — relaxed thresholds for more data
+# Target: 300-500M tokens (vs 80M in v1)
+
+seed: 42
+
+# --- Data sources ---
+hf_raw_url: "https://huggingface.co/datasets/kz-transformers/multidomain-kazakh-dataset/resolve/main"
+domain_files:
+  oscar.csv: oscar
+  kazakhNews.csv: kazakhNews
+  kazakhBooks.csv: kazakhBooks
+  leipzig.csv: leipzig
+  cc100-monolingual-crawled-data.csv: cc100
+
+# Additional HF datasets (loaded via load_dataset)
+extra_datasets:
+  - name: wikimedia/wikipedia
+    subset: "20231101.kk"
+    domain: wikipedia
+    text_field: text
+
+# NO domain balancing — use everything
+target_proportions: null
+
+# --- Normalization ---
+max_chars: 100000
+min_text_len: 30
+
+# --- Script profile (RELAXED) ---
+script_thresholds:
+  min_cyrillic: 0.40      # was 0.60
+  max_latin: 0.35          # was 0.25
+  max_arabic: 0.05
+  max_other: 0.15          # was 0.10
+
+# --- Language ID (RELAXED) ---
+lid:
+  model_path: "/root/slm/models/lid.176.bin"
+  min_confidence: 0.3      # was 0.5
+  min_gap: 0.05            # was 0.1
+
+# --- Technical junk ---
+junk:
+  max_url_density: 5.0     # was 3.0
+  max_special_char_ratio: 0.20   # was 0.15
+  min_underscore_run: 10
+  boilerplate_patterns:
+    - "Теги:"
+    - "Tags:"
+    - "Читайте также"
+    - "Поделиться в"
+    - "©"
+    - "Все права защищены"
+
+# --- Repetition (RELAXED) ---
+repetition:
+  ngram_size: 10
+  max_repeated_ngram_ratio: 0.40   # was 0.30
+  min_compression_ratio: 0.15      # was 0.20
+
+# --- Dedup (RELAXED) ---
+dedup:
+  minhash_threshold: 0.90     # was 0.80 — less aggressive
+  minhash_num_perm: 128
+  minhash_ngram_size: 5
+
+# --- PPL filter ---
+ppl:
+  enabled: false
+
+# --- Output ---
+output_dir: "/root/slm/data/clean_corpus_v2"
+hub_repo: "saken-tukenov/sozkz-corpus-clean-kk-text-v2"
+push_to_hub: true
+num_proc: 8

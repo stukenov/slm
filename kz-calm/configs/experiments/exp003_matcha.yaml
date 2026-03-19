@@ -1,0 +1,48 @@
+inherits: base
+experiment_name: exp003_matcha_v2
+
+data:
+  hf_audio_dataset: stukenov/kzcalm-tts-kk-v1
+  mel_dir: /root/slm/kz-calm/data/mels_char
+  split: "train"
+  streaming: true
+
+codec:
+  type: mel
+  latent_dim: 100
+  n_mels: 100
+  hop_length: 256
+  n_fft: 1024
+
+tokenizer:
+  type: char
+
+model:
+  type: matcha
+  encoder_layers: 6
+  encoder_dim: 384
+  encoder_heads: 6
+  encoder_ff: 1536
+  unet_channels: [384, 384, 768]
+  dropout: 0.1
+  max_text_len: 512
+  duration_loss_weight: 1.0
+
+flow:
+  num_sampling_steps: 8
+  sigma_min: 0.001
+  loss_type: mse
+
+training:
+  batch_size: 16
+  gradient_accumulation_steps: 1
+  max_steps: 200000
+  learning_rate: 1.0e-4
+  warmup_steps: 4000
+  weight_decay: 0.01
+  grad_clip: 1.0
+  bf16: true
+  num_workers: 4
+  save_steps: 5000
+  logging_steps: 100
+  compile: false
