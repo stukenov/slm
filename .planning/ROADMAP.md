@@ -32,7 +32,7 @@ Plans:
 
 **Requirements:** LAND-01, LAND-02, LAND-03, LAND-04, LAND-05
 
-**Plans:** 1/2 plans complete
+**Plans:** 2/2 plans complete
 
 Plans:
 - [x] 02-01-PLAN.md — Foundation (theme, font, layout) + Hero section + Model cards with i18n
@@ -185,7 +185,7 @@ Plans:
 | # | Phase | Requirements | Success Criteria |
 |---|-------|-------------|-----------------|
 | 1 | 3/3 | Complete   | 2026-03-19 |
-| 2 | Landing Page | LAND-01–05 | 5 |
+| 2 | 2/2 | Complete   | 2026-03-19 |
 | 3 | Model Catalog & Cards | MODL-01–05 | 5 |
 | 4 | Playground | PLAY-01–06 | 5 |
 | 5 | Documentation | DOCS-01–05 | 5 |

@@ -9,7 +9,7 @@
 
 - [x] **LAND-01**: User sees hero section with clear value proposition and key model numbers
 - [x] **LAND-02**: User sees highlighted models (600M, 300M, 150M) with params and task type
-- [ ] **LAND-03**: User sees social proof section (Tilqazyna integration, partners)
+- [x] **LAND-03**: User sees social proof section (Tilqazyna integration, partners)
 - [x] **LAND-04**: User can navigate to Playground, Docs, Models, GitHub via CTA buttons
 - [x] **LAND-05**: Landing is trilingual (kk/ru/en) with language switcher
 
@@ -124,7 +124,7 @@
 |-------------|-------|--------|
 | LAND-01 | Phase 2 | Complete |
 | LAND-02 | Phase 2 | Complete |
-| LAND-03 | Phase 2 | Pending |
+| LAND-03 | Phase 2 | Complete |
 | LAND-04 | Phase 2 | Complete |
 | LAND-05 | Phase 2 | Complete |
 | MODL-01 | Phase 3 | Pending |
