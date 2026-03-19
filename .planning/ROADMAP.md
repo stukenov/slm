@@ -11,7 +11,7 @@
 
 **Requirements:** INFR-01, INFR-02, INFR-03, INFR-04
 
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 01-01-PLAN.md — Scaffold Next.js project with i18n routing and layout shell
@@ -178,7 +178,7 @@ Plans:
 
 | # | Phase | Requirements | Success Criteria |
 |---|-------|-------------|-----------------|
-| 1 | 1/3 | In Progress|  |
+| 1 | 2/3 | In Progress|  |
 | 2 | Landing Page | LAND-01–05 | 5 |
 | 3 | Model Catalog & Cards | MODL-01–05 | 5 |
 | 4 | Playground | PLAY-01–06 | 5 |
