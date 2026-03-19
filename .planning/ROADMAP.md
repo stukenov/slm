@@ -11,6 +11,13 @@
 
 **Requirements:** INFR-01, INFR-02, INFR-03, INFR-04
 
+**Plans:** 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold Next.js project with i18n routing and layout shell
+- [ ] 01-02-PLAN.md — SEO fundamentals (sitemap, robots, meta tags) and Playwright e2e tests
+- [ ] 01-03-PLAN.md — Deploy to Cloudflare Pages and configure DNS
+
 **Success Criteria:**
 1. `saken.tukenov.kz` resolves and shows a placeholder page
 2. Routes work in all three locales (`/kk/`, `/ru/`, `/en/`)
@@ -26,7 +33,7 @@
 **Requirements:** LAND-01, LAND-02, LAND-03, LAND-04, LAND-05
 
 **Success Criteria:**
-1. Hero section visible with mission text and key model numbers (50M→600M)
+1. Hero section visible with mission text and key model numbers (50M->600M)
 2. Model highlight cards show top 3 models with params and type
 3. Social proof section mentions Tilqazyna and use cases
 4. CTA buttons navigate to Playground, Models, Docs, GitHub
@@ -184,7 +191,7 @@
 | 11 | SEO Content Pipeline | BLOG-05 | 5 |
 | 12 | Content Pages | CONT-01–02 | 3 |
 
-**12 phases** | **44 requirements mapped** | **53 success criteria** | All v1 requirements covered ✓
+**12 phases** | **44 requirements mapped** | **53 success criteria** | All v1 requirements covered
 
 ---
 *Created: 2026-03-19*
