@@ -1,0 +1,167 @@
+"""Tokenizer fertility analysis for Kazakh text.
+
+Computes characters-per-token (fertility) for each tokenizer family
+using FLORES-200 Kazakh devtest set, generates horizontal bar chart
+and LaTeX table for the paper.
+"""
+
+from __future__ import annotations
+
+import os
+
+import matplotlib.pyplot as plt
+import pandas as pd
+from datasets import load_dataset
+from transformers import AutoTokenizer
+
+from scripts.analysis.config import FAMILY_COLORS, TOKENIZER_MAP, setup_academic_style
+
+# Module-level cache for FLORES text
+_fertility_text_cache: str | None = None
+
+
+def compute_fertility(tokenizer_id: str, text: str) -> float:
+    """Compute characters per token for a given tokenizer on text.
+
+    Args:
+        tokenizer_id: HuggingFace tokenizer identifier.
+        text: Input text to tokenize.
+
+    Returns:
+        Characters per token (higher = less efficient for the language).
+    """
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_id)
+    token_ids = tokenizer.encode(text, add_special_tokens=False)
+    if len(token_ids) == 0:
+        return float("inf")
+    return len(text) / len(token_ids)
+
+
+def get_fertility_text() -> str:
+    """Load FLORES-200 Kazakh devtest text for fertility measurement.
+
+    Returns:
+        Concatenated sentences from FLORES-200 kaz_Cyrl devtest split.
+    """
+    global _fertility_text_cache
+    if _fertility_text_cache is not None:
+        return _fertility_text_cache
+    ds = load_dataset("facebook/flores", "kaz_Cyrl", split="devtest")
+    _fertility_text_cache = " ".join(row["sentence"] for row in ds)
+    return _fertility_text_cache
+
+
+def compute_all_fertilities(text: str | None = None) -> dict[str, float]:
+    """Compute fertility for all tokenizer families in TOKENIZER_MAP.
+
+    Args:
+        text: Input text. If None, loads FLORES-200 Kazakh devtest.
+
+    Returns:
+        Dict mapping family name to characters per token.
+    """
+    if text is None:
+        text = get_fertility_text()
+    results: dict[str, float] = {}
+    for name, tok_id in TOKENIZER_MAP.items():
+        print(f"Computing fertility for {name}...")
+        results[name] = compute_fertility(tok_id, text)
+    return results
+
+
+def generate_fertility_chart(
+    fertilities: dict[str, float], output_dir: str = "paper/figures"
+) -> str:
+    """Generate horizontal bar chart of tokenizer fertility.
+
+    SozKZ bar is highlighted in blue, all others in grey.
+
+    Args:
+        fertilities: Dict of {family_name: chars_per_token}.
+        output_dir: Directory to save output files.
+
+    Returns:
+        Path to saved PDF file.
+    """
+    setup_academic_style()
+
+    # Sort by fertility (highest at top)
+    sorted_items = sorted(fertilities.items(), key=lambda x: x[1])
+    names = [item[0] for item in sorted_items]
+    values = [item[1] for item in sorted_items]
+    colors = [
+        FAMILY_COLORS["sozkz"] if "SozKZ" in name else "#999999" for name in names
+    ]
+
+    fig, ax = plt.subplots(figsize=(5.0, 2.5))
+    bars = ax.barh(names, values, color=colors, edgecolor="white", linewidth=0.5)
+
+    # Add value labels at end of each bar
+    for bar, val in zip(bars, values):
+        ax.text(
+            bar.get_width() + 0.05,
+            bar.get_y() + bar.get_height() / 2,
+            f"{val:.1f}",
+            va="center",
+            ha="left",
+            fontsize=8,
+        )
+
+    ax.set_xlabel("Characters per token")
+    ax.set_title("Tokenizer Fertility on Kazakh Text (FLORES-200)")
+    ax.set_xlim(0, max(values) * 1.15)
+
+    os.makedirs(output_dir, exist_ok=True)
+    pdf_path = os.path.join(output_dir, "fertility.pdf")
+    png_path = os.path.join(output_dir, "fertility.png")
+    fig.savefig(pdf_path)
+    fig.savefig(png_path)
+    plt.close(fig)
+
+    return pdf_path
+
+
+def generate_fertility_table(
+    fertilities: dict[str, float], output_dir: str = "paper/tables"
+) -> str:
+    """Generate LaTeX table of tokenizer fertility with vocab sizes.
+
+    Args:
+        fertilities: Dict of {family_name: chars_per_token}.
+        output_dir: Directory to save output files.
+
+    Returns:
+        Path to saved TeX file.
+    """
+    vocab_sizes: dict[str, str] = {
+        "SozKZ (50K)": "50,000",
+        "Gemma": "256,000",
+        "Llama 3": "128,256",
+        "Qwen 2.5": "151,936",
+        "Mistral": "32,768",
+    }
+
+    rows = []
+    for name in fertilities:
+        rows.append(
+            {
+                "Tokenizer": name,
+                "Vocab Size": vocab_sizes.get(name, "--"),
+                "Chars/Token": f"{fertilities[name]:.2f}",
+            }
+        )
+
+    df = pd.DataFrame(rows)
+    # Sort by chars/token ascending (most efficient first)
+    df["_sort"] = df["Chars/Token"].astype(float)
+    df = df.sort_values("_sort").drop(columns=["_sort"])
+
+    latex = df.to_latex(index=False, escape=False, column_format="lrr", booktabs=True)
+    content = f"% Auto-generated by scripts/analysis/fertility.py\n{latex}"
+
+    os.makedirs(output_dir, exist_ok=True)
+    tex_path = os.path.join(output_dir, "fertility.tex")
+    with open(tex_path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    return tex_path
