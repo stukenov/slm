@@ -1,203 +1,94 @@
-# Roadmap: SozKZ Platform
+# Roadmap: SozKZ arXiv Paper
 
-**Created:** 2026-03-19
-**Granularity:** Fine (8-12 phases)
-**Core Value:** Become the authoritative center of the Kazakh NLP ecosystem
+## Overview
+
+This roadmap delivers an arXiv paper proving that small, dedicated Kazakh language models (50M-600M params) can approach larger multilingual models at a fraction of the cost. The critical path flows through evaluation (numbers first), analysis (figures and tables from numbers), paper writing (prose consuming figures), and submission (final PDF to arXiv). Every claim in the paper depends on benchmark results, so the evaluation pipeline is Phase 1.
 
 ## Phases
 
-### Phase 1: Project Setup & Infrastructure
-**Goal:** Next.js app deployed on Cloudflare Pages with i18n routing, ready for content.
+**Phase Numbering:**
+- Integer phases (1, 2, 3): Planned milestone work
+- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-**Requirements:** INFR-01, INFR-02, INFR-03, INFR-04
+Decimal phases appear between their surrounding integers in numeric order.
 
-**Plans:** 3/3 plans complete
+- [ ] **Phase 1: Evaluation Pipeline** - Build benchmark infrastructure and run all models on all tasks
+- [ ] **Phase 2: Analysis and Figures** - Transform raw results into publication-ready tables, charts, and LaTeX macros
+- [ ] **Phase 3: Paper Writing** - Write complete LaTeX draft consuming upstream assets
+- [ ] **Phase 4: Polish and Submission** - Final revision, abstract rewrite, arXiv submission
 
-Plans:
-- [ ] 01-01-PLAN.md — Scaffold Next.js project with i18n routing and layout shell
-- [ ] 01-02-PLAN.md — SEO fundamentals (sitemap, robots, meta tags) and Playwright e2e tests
-- [ ] 01-03-PLAN.md — Deploy to Cloudflare Pages and configure DNS
+## Phase Details
 
-**Success Criteria:**
-1. `saken.tukenov.kz` resolves and shows a placeholder page
-2. Routes work in all three locales (`/kk/`, `/ru/`, `/en/`)
-3. Language switcher toggles between kk/ru/en
-4. sitemap.xml, robots.txt, and OG meta tags present
-5. Cloudflare Pages deploys automatically on git push
-
----
-
-### Phase 2: Landing Page
-**Goal:** Marketing landing page that communicates SozKZ value proposition and drives visitors to key sections.
-
-**Requirements:** LAND-01, LAND-02, LAND-03, LAND-04, LAND-05
-
-**Plans:** 2/2 plans complete
+### Phase 1: Evaluation Pipeline
+**Goal**: All benchmark numbers exist as structured JSON/CSV files, covering every own model and every competitor on every task
+**Depends on**: Nothing (first phase)
+**Requirements**: EVAL-01, EVAL-02, EVAL-03, EVAL-04, EVAL-05, EVAL-06, EVAL-07
+**Success Criteria** (what must be TRUE):
+  1. A model registry config lists all own models (50M, 150M, 300M, 600M) and all competitors (Gemma-2B, Gemma-7B, Llama-3-1B, Llama-3-3B, Llama-3-8B, Qwen-2.5-0.5B, Qwen-2.5-1.5B, Qwen-2.5-7B, GPT-OSS-120B, Mistral-7B) with HF model IDs
+  2. Running a single command produces BPB scores for any model on held-out Kazakh text
+  3. MC QA benchmark returns accuracy above the 25% random baseline for models with known Kazakh capability (MC scoring bug is fixed)
+  4. All six benchmark tasks (BPB, MC QA, sentiment, Belebele, NER, topic classification) produce JSON results for every model in the registry
+  5. A contamination check report exists showing n-gram overlap between training data and each benchmark test set
+**Plans**: 3 plans
 
 Plans:
-- [x] 02-01-PLAN.md — Foundation (theme, font, layout) + Hero section + Model cards with i18n
-- [ ] 02-02-PLAN.md — Impact, Docs teaser, Bottom CTA sections + Playwright e2e tests + visual verification
+- [ ] 01-01-PLAN.md — Model registry, MC QA bug fix, BPB computation
+- [ ] 01-02-PLAN.md — Sentiment, Belebele, SIB-200 evaluation scripts
+- [ ] 01-03-PLAN.md — NER evaluation, results aggregation, run_all.sh
 
-**Success Criteria:**
-1. Hero section visible with mission text and key model numbers (50M->600M)
-2. Model highlight cards show top 3 models with params and type
-3. Social proof section mentions Tilqazyna and use cases
-4. CTA buttons navigate to Playground, Models, Docs, GitHub
-5. Landing renders correctly in kk, ru, and en
+### Phase 2: Analysis and Figures
+**Goal**: All numbers are transformed into publication-ready assets -- comparison tables, scaling curves, efficiency metrics, and auto-generated LaTeX macros with no hardcoded values
+**Depends on**: Phase 1
+**Requirements**: ANLS-01, ANLS-02, ANLS-03, ANLS-04, ANLS-05
+**Success Criteria** (what must be TRUE):
+  1. A tokenizer fertility comparison table shows chars/token for every model's tokenizer on the same Kazakh text sample
+  2. Scaling curve plots (PDF/PNG) show performance vs parameter count for own models across all benchmarks
+  3. An efficiency table reports inference latency, throughput (tok/s), and peak GPU memory for every model measured on the same hardware
+  4. Running a single script regenerates all figures and a macros.tex file from the raw results JSON -- no manual number entry
+**Plans**: TBD
 
----
+Plans:
+- [ ] 02-01: TBD
+- [ ] 02-02: TBD
 
-### Phase 3: Model Catalog & Cards
-**Goal:** Users can browse all SozKZ models and see detailed info per model.
+### Phase 3: Paper Writing
+**Goal**: A complete LaTeX draft exists with all sections written, all figures included, and all numbers pulled from auto-generated macros
+**Depends on**: Phase 2
+**Requirements**: PAPR-01, PAPR-02, PAPR-03, PAPR-04, PAPR-05, PAPR-06
+**Success Criteria** (what must be TRUE):
+  1. The paper compiles to a valid PDF with sections: abstract, introduction, related work, methodology, experiments, results, conclusion
+  2. The methodology section documents the full training pipeline (data sources, tokenizer design decisions, architecture choices, hyperparameters) with enough detail to reproduce
+  3. Results section contains comparison tables showing own models vs all competitors across all benchmarks, with wins and losses both reported
+  4. Tokenizer analysis section demonstrates fertility advantage of dedicated Kazakh BPE over multilingual tokenizers with supporting figures
+  5. Scaling analysis section includes fitted curves showing performance trends across 50M/150M/300M/600M with discussion of diminishing returns
+**Plans**: TBD
 
-**Requirements:** MODL-01, MODL-02, MODL-03, MODL-04, MODL-05
+Plans:
+- [ ] 03-01: TBD
+- [ ] 03-02: TBD
+- [ ] 03-03: TBD
 
-**Success Criteria:**
-1. `/models` page lists all SozKZ models with key info
-2. User can filter by size, type (base/instruct/GEC), task
-3. Each model has a dedicated card page with architecture, metrics, training details
-4. Code snippet on each card shows pip install + 3-line inference example
-5. HuggingFace download link works on each model card
+### Phase 4: Polish and Submission
+**Goal**: The paper is finalized and published on arXiv as a preprint
+**Depends on**: Phase 3
+**Requirements**: PAPR-07
+**Success Criteria** (what must be TRUE):
+  1. Abstract is rewritten to reflect final results (not placeholder claims)
+  2. The paper PDF meets arXiv formatting requirements and compiles without errors
+  3. Paper is submitted to arXiv and a preprint URL exists
+**Plans**: TBD
 
----
+Plans:
+- [ ] 04-01: TBD
 
-### Phase 4: Playground
-**Goal:** Users can try GEC and text generation directly in browser, connected to kaznu inference API.
+## Progress
 
-**Requirements:** PLAY-01, PLAY-02, PLAY-03, PLAY-04, PLAY-05, PLAY-06
+**Execution Order:**
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
-**Success Criteria:**
-1. User inputs text and gets GEC correction back
-2. User inputs prompt and gets generated text with streaming tokens
-3. Model selector allows choosing between available models
-4. When kaznu is down, user sees friendly error with HF download fallback
-5. Browser devtools shows requests go to saken.tukenov.kz (not kaznu IP directly)
-
----
-
-### Phase 5: Documentation
-**Goal:** Developers can go from zero to inference in 5 minutes following documentation.
-
-**Requirements:** DOCS-01, DOCS-02, DOCS-03, DOCS-04, DOCS-05
-
-**Success Criteria:**
-1. Quickstart guide walks user from pip install to first inference result
-2. API reference documents all endpoints with request/response examples
-3. Fine-tuning guide shows how to fine-tune a SozKZ model on custom data
-4. SDK reference covers all public methods with type signatures
-5. All docs pages render in kk, ru, and en
-
----
-
-### Phase 6: Python SDK
-**Goal:** Developers can pip install sozkz and run inference with 3 lines of code.
-
-**Requirements:** SDK-01, SDK-02, SDK-03, SDK-04, SDK-05
-
-**Success Criteria:**
-1. `pip install sozkz` succeeds from PyPI
-2. User loads a model and runs inference in ≤3 lines of code
-3. GEC correction works via SDK
-4. Text generation works via SDK
-5. Package has README with quickstart on PyPI page
-
----
-
-### Phase 7: Hosted API
-**Goal:** Users can integrate Kazakh NLP via REST API without running models locally.
-
-**Requirements:** API-01, API-02, API-03, API-04
-
-**Success Criteria:**
-1. POST to `/v1/chat/completions` with GEC text returns corrected text
-2. POST to `/v1/chat/completions` with generation prompt returns generated text
-3. Response format matches OpenAI chat completions schema
-4. Requests beyond rate limit return 429 with retry-after header
-
----
-
-### Phase 8: Leaderboard
-**Goal:** Users can compare Kazakh LLMs across benchmarks in a transparent ranked table.
-
-**Requirements:** LEAD-01, LEAD-02, LEAD-03, LEAD-04
-
-**Success Criteria:**
-1. `/leaderboard` shows ranked table of Kazakh LLMs
-2. Table includes at least 2 third-party models alongside SozKZ models
-3. Methodology page explains eval scripts, prompts, and scoring
-4. Multiple benchmark columns visible (perplexity, GEC accuracy, generation quality)
-
----
-
-### Phase 9: People & Company Ratings
-**Goal:** Users can discover who works on Kazakh NLP — researchers and companies.
-
-**Requirements:** RATE-01, RATE-02, RATE-03
-
-**Success Criteria:**
-1. `/people` shows curated directory of KZ NLP researchers
-2. `/companies` shows curated directory of companies using Kazakh NLP
-3. Each card has name, affiliation/product, focus area, and external links
-
----
-
-### Phase 10: Blog Engine
-**Goal:** Blog infrastructure ready for content — manual and automated posts.
-
-**Requirements:** BLOG-01, BLOG-02, BLOG-03, BLOG-04
-
-**Success Criteria:**
-1. `/blog` lists published posts with pagination
-2. Blog posts render correctly in kk, ru, and en
-3. Posts have categories (tutorials, benchmarks, news, case studies)
-4. Each post has meta tags, OG image, and structured data for SEO
-
----
-
-### Phase 11: SEO Content Pipeline
-**Goal:** Automated generation of ~10 blog posts/day across 3 languages.
-
-**Requirements:** BLOG-05
-
-**Success Criteria:**
-1. Script generates MDX blog posts via AI API (Claude/GPT)
-2. Generated posts commit to repo and trigger Cloudflare rebuild
-3. Pipeline produces posts in kk, ru, and en for each topic
-4. Posts contain real SozKZ data (model names, benchmark numbers, code examples)
-5. Pipeline can run as cron job or GitHub Action
-
----
-
-### Phase 12: Content Pages (Journey & Stories)
-**Goal:** Narrative pages that tell the SozKZ story and showcase real-world use.
-
-**Requirements:** CONT-01, CONT-02
-
-**Success Criteria:**
-1. Journey page tells the story from 14M to 600M with experiment timeline
-2. Success stories page features Tilqazyna GEC integration with details
-3. Both pages are trilingual
-
----
-
-## Summary
-
-| # | Phase | Requirements | Success Criteria |
-|---|-------|-------------|-----------------|
-| 1 | 3/3 | Complete   | 2026-03-19 |
-| 2 | 2/2 | Complete   | 2026-03-19 |
-| 3 | Model Catalog & Cards | MODL-01–05 | 5 |
-| 4 | Playground | PLAY-01–06 | 5 |
-| 5 | Documentation | DOCS-01–05 | 5 |
-| 6 | Python SDK | SDK-01–05 | 5 |
-| 7 | Hosted API | API-01–04 | 4 |
-| 8 | Leaderboard | LEAD-01–04 | 4 |
-| 9 | People & Company Ratings | RATE-01–03 | 3 |
-| 10 | Blog Engine | BLOG-01–04 | 4 |
-| 11 | SEO Content Pipeline | BLOG-05 | 5 |
-| 12 | Content Pages | CONT-01–02 | 3 |
-
-**12 phases** | **44 requirements mapped** | **53 success criteria** | All v1 requirements covered
-
----
-*Created: 2026-03-19*
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 1. Evaluation Pipeline | 0/3 | Not started | - |
+| 2. Analysis and Figures | 0/2 | Not started | - |
+| 3. Paper Writing | 0/3 | Not started | - |
+| 4. Polish and Submission | 0/1 | Not started | - |
