@@ -32,9 +32,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Model registry, MC QA bug fix, BPB computation
-- [ ] 01-02-PLAN.md — Sentiment, Belebele, SIB-200 evaluation scripts
-- [ ] 01-03-PLAN.md — NER evaluation, results aggregation, run_all.sh
+- [x] 01-01-PLAN.md — Model registry, MC QA bug fix, BPB computation
+- [x] 01-02-PLAN.md — Sentiment, Belebele, SIB-200 evaluation scripts
+- [x] 01-03-PLAN.md — NER evaluation, results aggregation, run_all.sh
 
 ### Phase 2: Analysis and Figures
 **Goal**: All numbers are transformed into publication-ready assets -- comparison tables, scaling curves, efficiency metrics, and auto-generated LaTeX macros with no hardcoded values
@@ -45,11 +45,13 @@ Plans:
   2. Scaling curve plots (PDF/PNG) show performance vs parameter count for own models across all benchmarks
   3. An efficiency table reports inference latency, throughput (tok/s), and peak GPU memory for every model measured on the same hardware
   4. Running a single script regenerates all figures and a macros.tex file from the raw results JSON -- no manual number entry
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Config, tokenizer fertility analysis, comparison bar chart, comparison table
+- [ ] 02-02-PLAN.md — Scaling curves, LaTeX macros, generate_all.py orchestrator
+- [ ] 02-03-PLAN.md — Contamination check (n-gram overlap)
+- [ ] 02-04-PLAN.md — Efficiency benchmarking (inference latency/throughput/memory on A10)
 
 ### Phase 3: Paper Writing
 **Goal**: A complete LaTeX draft exists with all sections written, all figures included, and all numbers pulled from auto-generated macros
@@ -89,6 +91,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Evaluation Pipeline | 3/3 | Complete   | 2026-03-20 |
-| 2. Analysis and Figures | 0/2 | Not started | - |
+| 2. Analysis and Figures | 0/4 | Not started | - |
 | 3. Paper Writing | 0/3 | Not started | - |
 | 4. Polish and Submission | 0/1 | Not started | - |
