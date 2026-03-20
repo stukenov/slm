@@ -1,79 +1,63 @@
-# SozKZ Platform — saken.tukenov.kz
+# SozKZ arXiv Paper: Efficient Small Language Model for Kazakh
 
 ## What This Is
 
-A marketing-oriented platform and media hub for Kazakh NLP, built around the SozKZ model family. The site serves as a one-stop destination for anyone who wants to use, evaluate, or contribute to Kazakh language models — from ML engineers who need an SDK to journalists who want to understand what's happening in Kazakh AI. Hosted at saken.tukenov.kz (Cloudflare).
+An arXiv paper demonstrating that a small, purpose-built language model (≤600M parameters) trained from scratch on Kazakh can match or approach the performance of general-purpose models 10-100x larger on core Kazakh language tasks. The paper serves both as a technical contribution (full pipeline for low-resource language LM training) and as a portfolio piece showcasing end-to-end ML engineering capabilities.
 
 ## Core Value
 
-Become the authoritative center of the Kazakh NLP ecosystem — the place people go to find models, try them, learn from them, and see who's building what.
+Prove with benchmarks that a small specialized model is a viable and efficient alternative to large multilingual models for Kazakh language tasks.
 
 ## Requirements
 
 ### Validated
 
-- ✓ 7 trained models published on HuggingFace (50M–600M) — existing
-- ✓ GEC inference API running on kaznu server — existing
-- ✓ Qazgramma-turbo playground (Next.js) — existing
-- ✓ Experiment documentation in WHITEPAPER.md — existing
-- ✓ GitHub repo stukenov/slm published — existing
+(None yet — ship to validate)
 
 ### Active
 
-- [ ] Marketing landing page with Linear/Stripe-style minimalism
-- [ ] Model catalog page — all SozKZ models with sizes, metrics, HF links, download/try
-- [ ] Playground — GEC correction and text generation in-browser (connects to kaznu API)
-- [ ] Documentation — quickstart, SDK usage, fine-tuning guide, API reference
-- [ ] Python SDK (pip install) for local model inference
-- [ ] Hosted REST API (OpenAI-compatible) for quick integration
-- [ ] Whitepaper/journey page — the story from 14M to 600M, experiments, lessons
-- [ ] Success stories — Tilqazyna GEC integration and others
-- [ ] Leaderboard — benchmark results for Kazakh LLMs (own and third-party)
-- [ ] People rating — curated directory of KZ NLP/ML researchers and contributors
-- [ ] Company rating — who uses NLP for Kazakh, what they build, comparisons
-- [ ] SEO blog engine — automated AI-generated content, ~10 posts/day on Kazakh NLP topics
-- [ ] Trilingual (kk/ru/en) — full i18n across the site
+- [ ] Identify and select Kazakh language benchmarks covering multiple task types (generation, understanding, classification, translation)
+- [ ] Build an evaluation pipeline that runs reproducibly across all models
+- [ ] Evaluate own models (50M, 150M, 300M, 600M) on selected benchmarks
+- [ ] Evaluate competitor models (Gemma, GPT-OSS-120B, Llama-3, Mistral, Qwen) on same benchmarks
+- [ ] Produce comparison tables and analysis (params vs performance, cost efficiency)
+- [ ] Determine the "hero model" based on evaluation results
+- [ ] Write arXiv paper in LaTeX: abstract, intro, related work, methodology, experiments, results, conclusion
+- [ ] Create figures: scaling curves, comparison charts, architecture diagrams
+- [ ] Document full training pipeline (data, tokenizer, architecture, hyperparams) in the paper
+- [ ] Publish paper to arXiv
 
 ### Out of Scope
 
-- User accounts / login system — not needed for v1, curator-driven content
-- Community forum / comments — defer to Telegram/Discord
-- Model hosting / inference marketplace — use HuggingFace for distribution
-- Paid features / monetization — free platform for ecosystem growth
+- Training new models for the paper — use existing trained models
+- Fine-tuning competitors — compare base/instruct checkpoints as-is
+- Peer review / journal submission — arXiv preprint is the goal
+- GEC-specific paper — GEC is one benchmark, not the focus
 
 ## Context
 
-The SLM project has produced 26 experiments and 7+ published models for Kazakh, from 14M Pythia DAPT pilots to a 600M Llama trained on 9B tokens. The results are scattered across HuggingFace repos, WHITEPAPER.md, and private server logs. There's no single place where someone can discover this work, try the models, or start using them.
-
-The Kazakh NLP ecosystem is small — KZ-Transformers, Tilqazyna, a few university groups. By creating the definitive platform with ratings, content, and tools, SozKZ can become the center of gravity that attracts researchers, developers, and organizations.
-
-Existing infrastructure:
-- GPU server (kaznu) at 164.138.46.36 — runs inference API (GEC models, POS tagger)
-- Web server at 91.224.74.233 — hosts qazgramma-turbo, 1tv-wp
-- Cloudflare — DNS for saken.tukenov.kz (already configured)
-- qazgramma-turbo — existing Next.js playground that can be integrated/reused
-
-The SEO content strategy targets long-tail Kazakh NLP queries — tutorials, comparisons, use cases — to build organic traffic and establish domain authority. AI-generated posts in three languages maximize coverage.
+- **Existing models**: 26 experiments (exp001–exp026), models from 50M to 600M, including MoE 3B, GEC fine-tunes, SFT variants
+- **Tokenizer**: Custom kazakh-bpe-32k (ByteLevel BPE, 32K vocab)
+- **Training data**: kz-transformers/multidomain-kazakh-dataset (23.6M samples), plus tokenized variants
+- **Known results**: GEC fine-tune was weak; generation quality subjectively good; no formal benchmarks yet
+- **Competitors observed**: Gemma = decent on Kazakh, GPT-OSS-120B = best, most large models = weak
+- **Infrastructure**: 2xA10 (kaznu server), vast.ai for larger runs (up to 8xH100)
+- **Naming**: All HF repos follow SozKZ naming convention under saken-tukenov/
 
 ## Constraints
 
-- **Hosting**: Cloudflare (Vercel for Next.js, or Cloudflare Pages)
-- **Design**: Linear/Stripe-style minimalism — generous whitespace, strong typography, no clutter
-- **Backend API**: Must proxy to kaznu inference server (164.138.46.36:15127)
-- **Languages**: Trilingual kk/ru/en from day one
-- **Content volume**: SEO blog needs CMS-like infrastructure for ~10 AI-generated posts/day
-- **Ratings**: Curator-driven (Saken maintains), not crowd-sourced
+- **Models**: Use already-trained checkpoints — no new training runs for the paper
+- **Compute**: Evaluation must run on available hardware (2xA10 or vast.ai)
+- **Format**: Standard arXiv ML paper (LaTeX, 8-12 pages)
+- **Honesty**: Report results truthfully — if the model loses on some tasks, acknowledge it and frame as efficiency tradeoff
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| saken.tukenov.kz (not s.tukenov.kz) | Already in Cloudflare, personal brand | — Pending |
-| Linear/Stripe minimalism (not brutalist) | Accessible to non-technical audience while staying clean | — Pending |
-| Cloudflare/Vercel hosting | Managed, CDN, free tier, no server maintenance | — Pending |
-| AI-generated SEO content | Scale to 10 posts/day without manual writing | — Pending |
-| Curator-driven ratings (not crowd-sourced) | Small ecosystem, quality over quantity | — Pending |
-| SDK + hosted API (both) | Low barrier (API) + full control (SDK) for different users | — Pending |
+| Efficiency angle (option 1) | "Small model matches big ones" is compelling narrative + honest framing | — Pending |
+| Hero model TBD | Let benchmarks decide which model to highlight | — Pending |
+| arXiv preprint, not journal | Speed to publish, broader reach, portfolio value | — Pending |
 
 ---
-*Last updated: 2026-03-19 after initialization*
+*Last updated: 2026-03-20 after initialization*
