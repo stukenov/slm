@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-03-PLAN.md
-last_updated: "2026-03-20T17:39:45.307Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-20T18:23:49.415Z"
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 7
+  completed_plans: 4
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-20)
 
 **Core value:** Prove with benchmarks that a small specialized Kazakh model is a viable and efficient alternative to large multilingual models.
-**Current focus:** Phase 01 — evaluation-pipeline
+**Current focus:** Phase 02 — analysis-and-figures
 
 ## Current Position
 
-Phase: 01 (evaluation-pipeline) — EXECUTING
-Plan: 3 of 3
+Phase: 02 (analysis-and-figures) — EXECUTING
+Plan: 2 of 4
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Plan: 3 of 3
 | Phase 01 P01 | 6min | 3 tasks | 3 files |
 | Phase 01 P02 | 3min | 3 tasks | 3 files |
 | Phase 01 P03 | 4min | 2 tasks | 3 files |
+| Phase 02 P01 | 4min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -63,6 +64,7 @@ Recent decisions affecting current work:
 - [Phase 01]: UTF-8 byte counting for BPB (Kazakh Cyrillic = 2 bytes per char)
 - [Phase 01]: Kazakh words as score_choices targets for logit scoring (not English labels)
 - [Phase 01]: Collapsed KazNERD 25 entity classes into 6 simplified categories for tractable scoring
+- [Phase 02]: Comparison bar chart uses x-axis=tasks, bars=models for clarity with 14 models
 
 ### Pending Todos
 
@@ -76,6 +78,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T17:39:45.304Z
-Stopped at: Completed 01-03-PLAN.md
+Last session: 2026-03-20T18:23:49.413Z
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None

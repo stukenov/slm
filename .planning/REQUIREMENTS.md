@@ -19,11 +19,11 @@ Requirements for the paper. Each maps to roadmap phases.
 
 ### Analysis
 
-- [ ] **ANLS-01**: Tokenizer fertility comparison (chars/token) across all model tokenizers on Kazakh text
+- [x] **ANLS-01**: Tokenizer fertility comparison (chars/token) across all model tokenizers on Kazakh text
 - [ ] **ANLS-02**: Scaling curves -- performance vs parameter count for own models (50M/150M/300M/600M)
 - [ ] **ANLS-03**: Efficiency metrics -- inference latency, throughput (tok/s), peak memory per model
 - [ ] **ANLS-04**: Contamination check -- n-gram overlap between training data and all benchmark datasets
-- [ ] **ANLS-05**: Auto-generated comparison tables and charts (matplotlib PDF/PNG export)
+- [x] **ANLS-05**: Auto-generated comparison tables and charts (matplotlib PDF/PNG export)
 
 ### Paper
 
@@ -73,11 +73,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EVAL-05 | Phase 1 | Complete |
 | EVAL-06 | Phase 1 | Complete |
 | EVAL-07 | Phase 1 | Complete |
-| ANLS-01 | Phase 2 | Pending |
+| ANLS-01 | Phase 2 | Complete |
 | ANLS-02 | Phase 2 | Pending |
 | ANLS-03 | Phase 2 | Pending |
 | ANLS-04 | Phase 2 | Pending |
-| ANLS-05 | Phase 2 | Pending |
+| ANLS-05 | Phase 2 | Complete |
 | PAPR-01 | Phase 3 | Pending |
 | PAPR-02 | Phase 3 | Pending |
 | PAPR-03 | Phase 3 | Pending |
