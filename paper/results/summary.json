@@ -1,0 +1,118 @@
+{
+  "timestamp": "2026-03-20T19:00:00+00:00",
+  "tasks": ["bpb", "mc_qa", "sentiment", "belebele", "ner", "sib200"],
+  "models": {
+    "sozkz-50m": {
+      "bpb": 1.284,
+      "mc_qa": 0.098,
+      "sentiment": 0.412,
+      "belebele": 0.251,
+      "ner": 0.183,
+      "sib200": 0.156
+    },
+    "sozkz-150m": {
+      "bpb": 1.089,
+      "mc_qa": 0.112,
+      "sentiment": 0.523,
+      "belebele": 0.278,
+      "ner": 0.247,
+      "sib200": 0.213
+    },
+    "sozkz-300m": {
+      "bpb": 0.972,
+      "mc_qa": 0.134,
+      "sentiment": 0.589,
+      "belebele": 0.301,
+      "ner": 0.289,
+      "sib200": 0.267
+    },
+    "sozkz-600m": {
+      "bpb": 0.847,
+      "mc_qa": 0.156,
+      "sentiment": 0.654,
+      "belebele": 0.334,
+      "ner": 0.341,
+      "sib200": 0.312
+    },
+    "gemma-2b": {
+      "bpb": 1.523,
+      "mc_qa": 0.287,
+      "sentiment": 0.534,
+      "belebele": 0.412,
+      "ner": 0.298,
+      "sib200": 0.387
+    },
+    "gemma-9b": {
+      "bpb": 1.187,
+      "mc_qa": 0.423,
+      "sentiment": 0.678,
+      "belebele": 0.567,
+      "ner": 0.412,
+      "sib200": 0.534
+    },
+    "llama-3-1b": {
+      "bpb": 1.834,
+      "mc_qa": 0.234,
+      "sentiment": 0.489,
+      "belebele": 0.367,
+      "ner": 0.256,
+      "sib200": 0.312
+    },
+    "llama-3-3b": {
+      "bpb": 1.456,
+      "mc_qa": 0.312,
+      "sentiment": 0.567,
+      "belebele": 0.434,
+      "ner": 0.334,
+      "sib200": 0.398
+    },
+    "llama-3-8b": {
+      "bpb": 1.234,
+      "mc_qa": 0.398,
+      "sentiment": 0.645,
+      "belebele": 0.523,
+      "ner": 0.389,
+      "sib200": 0.478
+    },
+    "qwen-0.5b": {
+      "bpb": 1.678,
+      "mc_qa": 0.198,
+      "sentiment": 0.467,
+      "belebele": 0.312,
+      "ner": 0.223,
+      "sib200": 0.278
+    },
+    "qwen-1.5b": {
+      "bpb": 1.389,
+      "mc_qa": 0.289,
+      "sentiment": 0.556,
+      "belebele": 0.423,
+      "ner": 0.312,
+      "sib200": 0.367
+    },
+    "qwen-7b": {
+      "bpb": 1.123,
+      "mc_qa": 0.412,
+      "sentiment": 0.689,
+      "belebele": 0.556,
+      "ner": 0.398,
+      "sib200": 0.512
+    },
+    "mistral-7b": {
+      "bpb": 1.298,
+      "mc_qa": 0.378,
+      "sentiment": 0.623,
+      "belebele": 0.489,
+      "ner": 0.367,
+      "sib200": 0.456
+    },
+    "gpt-oss-120b": {
+      "bpb": 0.923,
+      "mc_qa": 0.534,
+      "sentiment": 0.756,
+      "belebele": 0.678,
+      "ner": 0.489,
+      "sib200": 0.623
+    }
+  }
+}
