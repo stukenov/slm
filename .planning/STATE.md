@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-03-20T18:27:23.517Z"
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-03-20T18:30:23.456Z"
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 7
-  completed_plans: 5
+  completed_plans: 6
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 ## Current Position
 
 Phase: 02 (analysis-and-figures) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 
 ## Performance Metrics
 
@@ -51,6 +51,7 @@ Plan: 3 of 4
 | Phase 01 P03 | 4min | 2 tasks | 3 files |
 | Phase 02 P01 | 4min | 3 tasks | 5 files |
 | Phase 02 P03 | 2min | 1 tasks | 1 files |
+| Phase 02 P04 | 2min | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,7 @@ Recent decisions affecting current work:
 - [Phase 01]: Collapsed KazNERD 25 entity classes into 6 simplified categories for tractable scoring
 - [Phase 02]: Comparison bar chart uses x-axis=tasks, bars=models for clarity with 14 models
 - [Phase 02]: Named functions for benchmark text extraction (not lambdas) for serialization safety
+- [Phase 02]: Median latency (not mean) for GPU benchmark robustness against outliers
 
 ### Pending Todos
 
@@ -80,6 +82,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T18:27:23.515Z
-Stopped at: Completed 02-03-PLAN.md
+Last session: 2026-03-20T18:30:23.454Z
+Stopped at: Completed 02-04-PLAN.md
 Resume file: None
