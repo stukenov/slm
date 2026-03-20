@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Evaluation Pipeline** - Build benchmark infrastructure and run all models on all tasks (completed 2026-03-20)
 - [ ] **Phase 2: Analysis and Figures** - Transform raw results into publication-ready tables, charts, and LaTeX macros
-- [ ] **Phase 3: Paper Writing** - Write complete LaTeX draft consuming upstream assets
+- [x] **Phase 3: Paper Writing** - Write complete LaTeX draft consuming upstream assets (completed 2026-03-20)
 - [ ] **Phase 4: Polish and Submission** - Final revision, abstract rewrite, arXiv submission
 
 ## Phase Details
@@ -92,5 +92,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Evaluation Pipeline | 3/3 | Complete   | 2026-03-20 |
 | 2. Analysis and Figures | 0/4 | Not started | - |
-| 3. Paper Writing | 1/3 | In progress | - |
+| 3. Paper Writing | 3/3 | Complete   | 2026-03-20 |
 | 4. Polish and Submission | 0/1 | Not started | - |
