@@ -27,12 +27,12 @@ Requirements for the paper. Each maps to roadmap phases.
 
 ### Paper
 
-- [ ] **PAPR-01**: LaTeX paper with sections: abstract, introduction, related work, methodology, experiments, results, conclusion
+- [x] **PAPR-01**: LaTeX paper with sections: abstract, introduction, related work, methodology, experiments, results, conclusion
 - [ ] **PAPR-02**: Training methodology section documenting data pipeline, tokenizer design, architecture choices, hyperparameters
 - [ ] **PAPR-03**: Results section with comparison tables (own models vs competitors across all benchmarks)
 - [ ] **PAPR-04**: Tokenizer analysis section showing fertility advantage of dedicated Kazakh tokenizer
 - [ ] **PAPR-05**: Scaling analysis section with curves showing diminishing returns / sweet spot
-- [ ] **PAPR-06**: Figures -- scaling curves, radar/bar comparison charts, architecture diagram, tokenizer fertility plot
+- [x] **PAPR-06**: Figures -- scaling curves, radar/bar comparison charts, architecture diagram, tokenizer fertility plot
 - [ ] **PAPR-07**: Submit final PDF to arXiv
 
 ## v2 Requirements
@@ -78,12 +78,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ANLS-03 | Phase 2 | Complete |
 | ANLS-04 | Phase 2 | Complete |
 | ANLS-05 | Phase 2 | Complete |
-| PAPR-01 | Phase 3 | Pending |
+| PAPR-01 | Phase 3 | Complete |
 | PAPR-02 | Phase 3 | Pending |
 | PAPR-03 | Phase 3 | Pending |
 | PAPR-04 | Phase 3 | Pending |
 | PAPR-05 | Phase 3 | Pending |
-| PAPR-06 | Phase 3 | Pending |
+| PAPR-06 | Phase 3 | Complete |
 | PAPR-07 | Phase 4 | Pending |
 
 **Coverage:**

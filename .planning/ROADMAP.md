@@ -63,12 +63,12 @@ Plans:
   3. Results section contains comparison tables showing own models vs all competitors across all benchmarks, with wins and losses both reported
   4. Tokenizer analysis section demonstrates fertility advantage of dedicated Kazakh BPE over multilingual tokenizers with supporting figures
   5. Scaling analysis section includes fitted curves showing performance trends across 50M/150M/300M/600M with discussion of diminishing returns
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [x] 03-01-PLAN.md — Paper scaffold, Phase 2 asset generation, introduction, related work, conclusion, references.bib
+- [ ] 03-02-PLAN.md — Methodology section (data, tokenizer, architecture, training) and experiments section
+- [ ] 03-03-PLAN.md — Results section with comparison tables, tokenizer analysis, scaling analysis, efficiency
 
 ### Phase 4: Polish and Submission
 **Goal**: The paper is finalized and published on arXiv as a preprint
@@ -92,5 +92,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Evaluation Pipeline | 3/3 | Complete   | 2026-03-20 |
 | 2. Analysis and Figures | 0/4 | Not started | - |
-| 3. Paper Writing | 0/3 | Not started | - |
+| 3. Paper Writing | 1/3 | In progress | - |
 | 4. Polish and Submission | 0/1 | Not started | - |
