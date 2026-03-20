@@ -2,73 +2,76 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Phase 3 UI-SPEC created (checker skipped - rate limit)
-last_updated: "2026-03-20T07:56:36.676Z"
+status: unknown
+stopped_at: Completed 01-01-PLAN.md
+last_updated: "2026-03-20T17:28:59.944Z"
 progress:
-  total_phases: 12
-  completed_phases: 2
-  total_plans: 5
-  completed_plans: 5
-  percent: 100
+  total_phases: 4
+  completed_phases: 0
+  total_plans: 3
+  completed_plans: 1
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-19)
+See: .planning/PROJECT.md (updated 2026-03-20)
 
-**Core value:** Become the authoritative center of the Kazakh NLP ecosystem
-**Current focus:** Phase 02 — landing-page
+**Core value:** Prove with benchmarks that a small specialized Kazakh model is a viable and efficient alternative to large multilingual models.
+**Current focus:** Phase 01 — evaluation-pipeline
 
-## Current Phase
+## Current Position
 
-**Phase 2: Landing Page**
-Status: Executing Phase 02 (Plan 2/2 complete, pending visual verification)
-Goal: Marketing landing page with hero, model cards, impact, docs teaser, CTA
+Phase: 01 (evaluation-pipeline) — EXECUTING
+Plan: 2 of 3
 
-## Phase Status
+## Performance Metrics
 
-| # | Phase | Status |
-|---|-------|--------|
-| 1 | Project Setup & Infrastructure | ● Complete (3/3 plans) |
-| 2 | Landing Page | ◐ In Progress (2/2 plans, pending visual verify) |
-| 3 | Model Catalog & Cards | ○ Pending |
-| 4 | Playground | ○ Pending |
-| 5 | Documentation | ○ Pending |
-| 6 | Python SDK | ○ Pending |
-| 7 | Hosted API | ○ Pending |
-| 8 | Leaderboard | ○ Pending |
-| 9 | People & Company Ratings | ○ Pending |
-| 10 | Blog Engine | ○ Pending |
-| 11 | SEO Content Pipeline | ○ Pending |
-| 12 | Content Pages | ○ Pending |
+**Velocity:**
 
-## Key Decisions Log
+- Total plans completed: 0
+- Average duration: -
+- Total execution time: 0 hours
 
-| Decision | Date | Rationale |
-|----------|------|-----------|
-| Cloudflare Pages + @opennextjs/cloudflare | 2026-03-19 | User preference, already in Cloudflare |
-| Linear/Stripe minimalism | 2026-03-19 | Accessible to non-technical audience |
-| Content as code (MDX/JSON in git) | 2026-03-19 | Single curator, automatable, version controlled |
-| AI-generated SEO content | 2026-03-19 | Scale to 10 posts/day without manual writing |
-| Curator-driven ratings | 2026-03-19 | Small ecosystem, quality over quantity |
-| Pinned next to exact 15.5.14 | 2026-03-19 | @opennextjs/cloudflare compat requires ~15.5.10 range |
-| Next.js Metadata API for sitemap/robots | 2026-03-19 | Dynamic generation, no static files to maintain |
-| Cloudflare Workers (not Pages) via opennextjs-cloudflare | 2026-03-20 | opennextjs-cloudflare outputs a Worker, not Pages project |
-| Custom domain via Workers Domains API | 2026-03-20 | Simpler than DNS CNAME for Workers deployments |
-| CTAs disabled with coming-soon state | 2026-03-20 | Playground and Models pages not built yet |
-| Model cards as non-interactive divs | 2026-03-20 | Model detail routes do not exist yet |
-| Tilqazyna card non-interactive | 2026-03-20 | No URL to Tilqazyna product yet |
-| Docs teaser link disabled with Coming soon | 2026-03-20 | Phase 5 dependency |
-| Bottom CTA inline gradient matching hero | 2026-03-20 | Visual consistency |
+**By Phase:**
 
-## Session
+| Phase | Plans | Total | Avg/Plan |
+|-------|-------|-------|----------|
+| - | - | - | - |
 
-**Last session:** 2026-03-20T07:56:36.674Z
-**Stopped at:** Phase 3 UI-SPEC created (checker skipped - rate limit)
-**Progress:** [██████████] 100%
+**Recent Trend:**
 
----
-*Last updated: 2026-03-20 after completing 02-02-PLAN.md — Phase 02 plan 2/2 done (pending visual verification)*
+- Last 5 plans: -
+- Trend: -
+
+*Updated after each plan completion*
+| Phase 01 P01 | 6min | 3 tasks | 3 files |
+
+## Accumulated Context
+
+### Decisions
+
+Decisions are logged in PROJECT.md Key Decisions table.
+Recent decisions affecting current work:
+
+- Roadmap: 4 phases (coarse granularity) -- eval pipeline is critical path, everything flows from benchmark numbers
+- Roadmap: MC scoring bug fix is highest priority within Phase 1 -- blocks all downstream analysis
+- [Phase 01]: Full answer text likelihood scoring replaces single-token logit comparison for MC QA
+- [Phase 01]: UTF-8 byte counting for BPB (Kazakh Cyrillic = 2 bytes per char)
+
+### Pending Todos
+
+None yet.
+
+### Blockers/Concerns
+
+- MC benchmark scoring bug (10% on 4-choice MC, below 25% random) must be debugged before results are trustworthy
+- Kazakh benchmark dataset formats need direct HF inspection before writing lm-eval YAML configs
+- Contamination detection tooling maturity for Cyrillic/agglutinative text is uncertain
+
+## Session Continuity
+
+Last session: 2026-03-20T17:28:59.942Z
+Stopped at: Completed 01-01-PLAN.md
+Resume file: None
