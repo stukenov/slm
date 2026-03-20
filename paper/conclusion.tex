@@ -1,2 +1,46 @@
 \section{Conclusion}
-%TODO: Task 2 will write full conclusion content.
+\label{sec:conclusion}
+
+We have presented \sozkz{}, a family of small language models trained
+from scratch exclusively on Kazakh text at four parameter scales
+(50M, 150M, 300M, and 600M).  Our results demonstrate that dedicated
+monolingual models, paired with a purpose-built tokenizer, can achieve
+competitive performance on core Kazakh NLP tasks while requiring
+orders-of-magnitude fewer parameters than multilingual alternatives.
+The \sozkz{}-600M model achieves a BPB of \bpbSozKZSixHundredM{} on
+held-out Kazakh text, substantially outperforming all multilingual
+models including those with 10$\times$ or more parameters, and reaches
+\accSentimentSozKZSixHundredM{} on sentiment classification---competitive
+with models many times its size.
+
+\paragraph{Limitations.}
+Our models exhibit clear limitations on knowledge-intensive tasks.
+On multiple-choice question answering, even the largest \sozkz{} model
+scores \accMcQaSozKZSixHundredM{}, well below the performance of
+7B+ multilingual models that benefit from extensive world knowledge
+absorbed during training on much larger corpora.  Similarly, on
+Belebele reading comprehension, the gap between our 600M model
+(\accBelebeleSozKZSixHundredM{}) and larger multilingual models
+remains substantial.  These results underscore that model
+specialization provides efficiency gains on language-centric tasks
+but cannot substitute for the parametric knowledge stored in larger
+models.  Additionally, our training data is limited to publicly
+available Kazakh web text, which constrains both the domain coverage
+and the factual knowledge our models can acquire.
+
+\paragraph{Future Work.}
+Several directions merit further investigation.  First, scaling
+beyond 600M parameters---particularly to the 1--3B range---would test
+whether the efficiency advantages of dedicated models persist at
+larger scales.  Second, instruction tuning and alignment of the base
+models could unlock practical applications in dialogue and
+task-following scenarios.  Third, fine-tuning on downstream tasks such
+as named entity recognition and question answering may close the gap
+with larger models on knowledge-intensive benchmarks.  Finally,
+extending our approach to other Turkic languages (Turkish, Uzbek,
+Kyrgyz) could leverage shared morphological structure through
+multilingual dedicated models at modest scale.
+
+We release all \sozkz{} models, the tokenizer, and the training
+pipeline under open licenses to support further research on efficient
+language modeling for underserved languages.
