@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-02-PLAN.md
-last_updated: "2026-03-20T17:34:48.633Z"
+stopped_at: Completed 01-03-PLAN.md
+last_updated: "2026-03-20T17:39:45.307Z"
 progress:
   total_phases: 4
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
+  completed_plans: 3
 ---
 
 # Project State
@@ -48,6 +48,7 @@ Plan: 3 of 3
 *Updated after each plan completion*
 | Phase 01 P01 | 6min | 3 tasks | 3 files |
 | Phase 01 P02 | 3min | 3 tasks | 3 files |
+| Phase 01 P03 | 4min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -61,6 +62,7 @@ Recent decisions affecting current work:
 - [Phase 01]: Full answer text likelihood scoring replaces single-token logit comparison for MC QA
 - [Phase 01]: UTF-8 byte counting for BPB (Kazakh Cyrillic = 2 bytes per char)
 - [Phase 01]: Kazakh words as score_choices targets for logit scoring (not English labels)
+- [Phase 01]: Collapsed KazNERD 25 entity classes into 6 simplified categories for tractable scoring
 
 ### Pending Todos
 
@@ -74,6 +76,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T17:33:48Z
-Stopped at: Completed 01-02-PLAN.md
+Last session: 2026-03-20T17:39:45.304Z
+Stopped at: Completed 01-03-PLAN.md
 Resume file: None
