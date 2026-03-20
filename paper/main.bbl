@@ -1,0 +1,176 @@
+\begin{thebibliography}{28}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[\'Acs(2019)]{acs2019fertility}
+Judit \'Acs.
+\newblock Exploring the role of subword segmentation in morphologically rich
+  languages.
+\newblock \emph{arXiv preprint arXiv:1907.12775}, 2019.
+
+\bibitem[Adelani et~al.(2024)]{adelani2024sib200}
+David~Ifeoluwa Adelani et~al.
+\newblock {SIB-200}: A simple, inclusive, and big evaluation dataset for topic
+  classification in 200+ languages and dialects.
+\newblock \emph{arXiv preprint arXiv:2309.07445}, 2024.
+
+\bibitem[{AI Singapore}(2023)]{sealion2023}
+{AI Singapore}.
+\newblock {SEA-LION}: {S}outheast {A}sian languages in one network.
+\newblock \url{https://github.com/aisingapore/sealion}, 2023.
+\newblock Multilingual LLM for Southeast Asian languages.
+
+\bibitem[Bai et~al.(2023)Bai, Bai, Chu, et~al.]{bai2023qwen}
+Jinze Bai, Shuai Bai, Yunfei Chu, et~al.
+\newblock Qwen technical report.
+\newblock \emph{arXiv preprint arXiv:2309.16609}, 2023.
+
+\bibitem[Bandarkar et~al.(2023)Bandarkar, Liang, Muller,
+  et~al.]{bandarkar2023belebele}
+Lucas Bandarkar, Davis Liang, Benjamin Muller, et~al.
+\newblock The belebele benchmark: a parallel reading comprehension dataset in
+  122 language variants.
+\newblock \emph{arXiv preprint arXiv:2308.16884}, 2023.
+
+\bibitem[{BigScience Workshop}(2022)]{bigscience2022bloom}
+{BigScience Workshop}.
+\newblock {BLOOM}: A 176{B}-parameter open-access multilingual language model.
+\newblock \emph{arXiv preprint arXiv:2211.05100}, 2022.
+
+\bibitem[Conneau et~al.(2020)Conneau, Kartchner, Lample,
+  et~al.]{conneau2020xlmr}
+Alexis Conneau, Kartik Kartchner, Guillaume Lample, et~al.
+\newblock Unsupervised cross-lingual representation learning at scale.
+\newblock \emph{arXiv preprint arXiv:1911.02116}, 2020.
+
+\bibitem[Devlin et~al.(2019)Devlin, Chang, Lee, and Toutanova]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+\newblock {BERT}: Pre-training of deep bidirectional transformers for language
+  understanding.
+\newblock \emph{arXiv preprint arXiv:1810.04805}, 2019.
+
+\bibitem[{Gemma Team}(2024)]{team2024gemma}
+{Gemma Team}.
+\newblock Gemma: Open models based on {G}emini research and technology.
+\newblock \emph{arXiv preprint arXiv:2403.08295}, 2024.
+
+\bibitem[Hoffmann et~al.(2022)Hoffmann, Borgeaud, Mensch,
+  et~al.]{hoffmann2022chinchilla}
+Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et~al.
+\newblock Training compute-optimal large language models.
+\newblock \emph{arXiv preprint arXiv:2203.15556}, 2022.
+
+\bibitem[Jiang et~al.(2023)Jiang, Sablayrolles, Mensch,
+  et~al.]{jiang2023mistral}
+Albert~Q. Jiang, Alexandre Sablayrolles, Arthur Mensch, et~al.
+\newblock Mistral 7{B}.
+\newblock \emph{arXiv preprint arXiv:2310.06825}, 2023.
+
+\bibitem[Kaplan et~al.(2020)Kaplan, McCandlish, Henighan,
+  et~al.]{kaplan2020scaling}
+Jared Kaplan, Sam McCandlish, Tom Henighan, et~al.
+\newblock Scaling laws for neural language models.
+\newblock \emph{arXiv preprint arXiv:2001.08361}, 2020.
+
+\bibitem[Kudo and Richardson(2018)]{kudo2018sentencepiece}
+Taku Kudo and John Richardson.
+\newblock {SentencePiece}: A simple and language independent subword tokenizer
+  and detokenizer for neural text processing.
+\newblock In \emph{Proceedings of the 2018 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP): System Demonstrations}, pages 66--71,
+  2018.
+
+\bibitem[Loshchilov and Hutter(2016)]{loshchilov2016cosine}
+Ilya Loshchilov and Frank Hutter.
+\newblock {SGDR}: Stochastic gradient descent with warm restarts.
+\newblock \emph{arXiv preprint arXiv:1608.03983}, 2016.
+
+\bibitem[Loshchilov and Hutter(2019)]{loshchilov2017adamw}
+Ilya Loshchilov and Frank Hutter.
+\newblock Decoupled weight decay regularization.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem[Ogueji et~al.(2021)Ogueji, Zhu, and Lin]{ogueji2021afriberta}
+Kelechi Ogueji, Yuxin Zhu, and Jimmy Lin.
+\newblock Small data? no problem! exploring the viability of pretrained
+  multilingual language models for low-resourced languages.
+\newblock \emph{arXiv preprint arXiv:2010.12596}, 2021.
+
+\bibitem[Rust et~al.(2021)Rust, Pfeiffer, Vulic, Ruder, and
+  Gurevych]{rust2021tokenizer}
+Phillip Rust, Jonas Pfeiffer, Ivan Vulic, Sebastian Ruder, and Iryna Gurevych.
+\newblock How good is your tokenizer? on the monolingual performance of
+  multilingual language models.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 3118--3135, 2021.
+
+\bibitem[Sengupta et~al.(2023)Sengupta, Sahu, Jia, et~al.]{sengupta2023jais}
+Neha Sengupta, Sunil~Kumar Sahu, Bokang Jia, et~al.
+\newblock Jais and jais-chat: {A}rabic-centric foundation and instruction-tuned
+  open generative large language models.
+\newblock \emph{arXiv preprint arXiv:2308.16149}, 2023.
+
+\bibitem[Sennrich et~al.(2016)Sennrich, Haddow, and Birch]{sennrich2016bpe}
+Rico Sennrich, Barry Haddow, and Alexandra Birch.
+\newblock Neural machine translation of rare words with subword units.
+\newblock In \emph{Proceedings of the 54th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 1715--1725, 2016.
+
+\bibitem[Shazeer(2020)]{shazeer2020glu}
+Noam Shazeer.
+\newblock {GLU} variants improve transformer.
+\newblock \emph{arXiv preprint arXiv:2002.05202}, 2020.
+
+\bibitem[Su et~al.(2021)Su, Lu, Pan, Murtadha, Wen, and Liu]{su2021rope}
+Jianlin Su, Yu~Lu, Shengfeng Pan, Ahmed Murtadha, Bo~Wen, and Yunfeng Liu.
+\newblock {RoFormer}: Enhanced transformer with rotary position embedding.
+\newblock \emph{arXiv preprint arXiv:2104.09864}, 2021.
+
+\bibitem[Toraman et~al.(2023)Toraman, Yilmaz, et~al.]{toraman2023turkic}
+Cagri Toraman, Eyup~Halit Yilmaz, et~al.
+\newblock Impact of tokenization on language models: An analysis for {T}urkic
+  languages.
+\newblock \emph{arXiv preprint arXiv:2305.13080}, 2023.
+
+\bibitem[Touvron et~al.(2023{\natexlab{a}})Touvron, Lavril, Izacard,
+  et~al.]{touvron2023llama}
+Hugo Touvron, Thibaut Lavril, Gautier Izacard, et~al.
+\newblock {LLaMA}: Open and efficient foundation language models.
+\newblock \emph{arXiv preprint arXiv:2302.13971}, 2023{\natexlab{a}}.
+
+\bibitem[Touvron et~al.(2023{\natexlab{b}})Touvron, Martin, Stone,
+  et~al.]{touvron2023llama2}
+Hugo Touvron, Louis Martin, Kevin Stone, et~al.
+\newblock {Llama} 2: Open foundation and fine-tuned chat models.
+\newblock \emph{arXiv preprint arXiv:2307.09288}, 2023{\natexlab{b}}.
+
+\bibitem[Yeshpanov et~al.(2022)Yeshpanov, Khassanov, and
+  Varol]{yeshpanov2022kaznerd}
+Rustem Yeshpanov, Yerbolat Khassanov, and Huseyin~Atakan Varol.
+\newblock {KazNERD}: {K}azakh named entity recognition dataset.
+\newblock In \emph{Proceedings of the Thirteenth Language Resources and
+  Evaluation Conference (LREC)}, pages 417--426, 2022.
+
+\bibitem[Yeshpanov et~al.(2024)Yeshpanov, Efimov, and
+  Varol]{yeshpanov2024kazqad}
+Rustem Yeshpanov, Pavel Efimov, and Huseyin~Atakan Varol.
+\newblock {KazQAD}: {K}azakh open-domain question answering dataset.
+\newblock \emph{arXiv preprint arXiv:2404.00370}, 2024.
+
+\bibitem[Zhang and Sennrich(2019)]{zhang2019rmsnorm}
+Biao Zhang and Rico Sennrich.
+\newblock Root mean square layer normalization.
+\newblock \emph{arXiv preprint arXiv:1910.07467}, 2019.
+
+\bibitem[Zholdybayeva et~al.(2024)]{kazllm2024}
+Gulmira Zholdybayeva et~al.
+\newblock Kazllm: Advancing {K}azakh language modeling through large language
+  models.
+\newblock \emph{arXiv preprint}, 2024.
+\newblock Kazakh-specific LLM via continued pre-training.
+
+\end{thebibliography}
