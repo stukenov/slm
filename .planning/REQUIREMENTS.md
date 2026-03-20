@@ -11,10 +11,10 @@ Requirements for the paper. Each maps to roadmap phases.
 
 - [x] **EVAL-01**: BPB (bits-per-byte) computation pipeline for any HF model on held-out Kazakh text
 - [x] **EVAL-02**: MC QA scoring on kk-socio-cultural-bench-mc (fix existing 10% accuracy bug)
-- [ ] **EVAL-03**: Sentiment classification evaluation on Kazakh dataset
-- [ ] **EVAL-04**: Belebele reading comprehension evaluation on Kazakh subset (kaz_Cyrl)
+- [x] **EVAL-03**: Sentiment classification evaluation on Kazakh dataset
+- [x] **EVAL-04**: Belebele reading comprehension evaluation on Kazakh subset (kaz_Cyrl)
 - [ ] **EVAL-05**: NER evaluation on KazNERD dataset
-- [ ] **EVAL-06**: Topic classification evaluation on SIB-200 Kazakh subset
+- [x] **EVAL-06**: Topic classification evaluation on SIB-200 Kazakh subset
 - [x] **EVAL-07**: Model registry covering own models (50M, 150M, 300M, 600M) and competitors (Gemma-2B, Gemma-7B, Llama-3-1B, Llama-3-3B, Llama-3-8B, Qwen-2.5-0.5B, Qwen-2.5-1.5B, Qwen-2.5-7B, GPT-OSS-120B, Mistral-7B)
 
 ### Analysis
@@ -68,10 +68,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | EVAL-01 | Phase 1 | Complete |
 | EVAL-02 | Phase 1 | Complete |
-| EVAL-03 | Phase 1 | Pending |
-| EVAL-04 | Phase 1 | Pending |
+| EVAL-03 | Phase 1 | Complete |
+| EVAL-04 | Phase 1 | Complete |
 | EVAL-05 | Phase 1 | Pending |
-| EVAL-06 | Phase 1 | Pending |
+| EVAL-06 | Phase 1 | Complete |
 | EVAL-07 | Phase 1 | Complete |
 | ANLS-01 | Phase 2 | Pending |
 | ANLS-02 | Phase 2 | Pending |

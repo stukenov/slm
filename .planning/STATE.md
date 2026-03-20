@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-20T17:28:59.944Z"
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-03-20T17:34:48.633Z"
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-03-20)
 ## Current Position
 
 Phase: 01 (evaluation-pipeline) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -47,6 +47,7 @@ Plan: 2 of 3
 
 *Updated after each plan completion*
 | Phase 01 P01 | 6min | 3 tasks | 3 files |
+| Phase 01 P02 | 3min | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -59,6 +60,7 @@ Recent decisions affecting current work:
 - Roadmap: MC scoring bug fix is highest priority within Phase 1 -- blocks all downstream analysis
 - [Phase 01]: Full answer text likelihood scoring replaces single-token logit comparison for MC QA
 - [Phase 01]: UTF-8 byte counting for BPB (Kazakh Cyrillic = 2 bytes per char)
+- [Phase 01]: Kazakh words as score_choices targets for logit scoring (not English labels)
 
 ### Pending Todos
 
@@ -72,6 +74,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T17:28:59.942Z
-Stopped at: Completed 01-01-PLAN.md
+Last session: 2026-03-20T17:33:48Z
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None
