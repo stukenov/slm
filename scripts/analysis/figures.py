@@ -40,7 +40,7 @@ def generate_comparison_bar(
     models_data = summary["models"]
 
     # Accuracy tasks only (exclude BPB -- inverse scale)
-    acc_tasks = ["mc_qa", "sentiment", "belebele", "ner", "sib200"]
+    acc_tasks = ["mc_qa", "belebele", "sib200"]
 
     # Filter to models present in summary, ordered by MODEL_ORDER
     ordered_models = [m for m in MODEL_ORDER if m in models_data]
