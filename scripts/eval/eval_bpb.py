@@ -161,7 +161,7 @@ def load_flores_kazakh() -> str:
     from datasets import load_dataset
 
     logger.info("Loading FLORES-200 kaz_Cyrl devtest...")
-    ds = load_dataset("facebook/flores", "kaz_Cyrl", split="devtest")
+    ds = load_dataset("facebook/flores", "kaz_Cyrl", split="devtest", trust_remote_code=True)
     text = "\n".join(row["sentence"] for row in ds)
     logger.info(
         "FLORES loaded: %d sentences, %d chars, %d UTF-8 bytes",

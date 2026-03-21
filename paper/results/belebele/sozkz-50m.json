@@ -1,0 +1,13 @@
+{
+  "model": "sozkz-50m",
+  "model_short": "sozkz-50m",
+  "task": "belebele",
+  "dataset": "facebook/belebele",
+  "config": "kaz_Cyrl",
+  "timestamp": "2026-03-20T20:53:19.166617+00:00",
+  "metrics": {
+    "accuracy": 0.27,
+    "total": 900,
+    "correct": 243
+  }
+}

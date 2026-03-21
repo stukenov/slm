@@ -16,28 +16,28 @@ MODEL_REGISTRY: dict[str, dict] = {
     # === Own models (type="hf", quantize=False) ===
     "sozkz-50m": {
         "hf_id": "saken-tukenov/sozkz-core-llama-50m-kk-base-v4",
-        "tokenizer": "saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1",
+        "tokenizer": "./tokenizers/kazakh-bpe-32k",
         "params": "50M",
         "type": "hf",
         "quantize": False,
     },
     "sozkz-150m": {
         "hf_id": "saken-tukenov/sozkz-core-llama-150m-kk-base-v1",
-        "tokenizer": "saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1",
+        "tokenizer": "./tokenizers/kazakh-bpe-32k",
         "params": "150M",
         "type": "hf",
         "quantize": False,
     },
     "sozkz-300m": {
         "hf_id": "stukenov/sozkz-core-llama-300m-kk-base-v1",
-        "tokenizer": "saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1",
+        "tokenizer": "./tokenizers/kazakh-bpe-32k",
         "params": "300M",
         "type": "hf",
         "quantize": False,
     },
     "sozkz-600m": {
         "hf_id": "stukenov/sozkz-core-llama-600m-kk-base-v1",
-        "tokenizer": "saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1",
+        "tokenizer": "./tokenizers/kazakh-bpe-32k",
         "params": "600M",
         "type": "hf",
         "quantize": False,
@@ -143,7 +143,7 @@ def load_model(
     hf_id = entry["hf_id"]
 
     # Quantization config for large models
-    load_kwargs: dict = {"torch_dtype": torch.bfloat16}
+    load_kwargs: dict = {"dtype": torch.bfloat16}
     if entry.get("quantize"):
         from transformers import BitsAndBytesConfig
 

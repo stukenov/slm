@@ -1,0 +1,104 @@
+{
+  "model": "sozkz-150m",
+  "model_short": "sozkz-150m",
+  "task": "mc_qa",
+  "dataset": "kz-transformers/kk-socio-cultural-bench-mc",
+  "timestamp": "2026-03-20T21:48:14.632224+00:00",
+  "metrics": {
+    "accuracy": 0.2471,
+    "total": 7111,
+    "correct": 1757
+  },
+  "per_category": {
+    "Agriculture and Animal Husbandry": {
+      "correct": 149,
+      "total": 579,
+      "accuracy": 0.2573
+    },
+    "Architecture and Housing Elements": {
+      "correct": 58,
+      "total": 249,
+      "accuracy": 0.2329
+    },
+    "Arts and Crafts, Performing Arts": {
+      "correct": 89,
+      "total": 370,
+      "accuracy": 0.2405
+    },
+    "Cinema": {
+      "correct": 26,
+      "total": 112,
+      "accuracy": 0.2321
+    },
+    "Cuisine and Beverages": {
+      "correct": 63,
+      "total": 286,
+      "accuracy": 0.2203
+    },
+    "History": {
+      "correct": 288,
+      "total": 1103,
+      "accuracy": 0.2611
+    },
+    "Humor": {
+      "correct": 59,
+      "total": 196,
+      "accuracy": 0.301
+    },
+    "Literature: Poetry and Prose": {
+      "correct": 110,
+      "total": 501,
+      "accuracy": 0.2196
+    },
+    "Musical Instruments": {
+      "correct": 62,
+      "total": 283,
+      "accuracy": 0.2191
+    },
+    "Onomatopoeia and Naming": {
+      "correct": 144,
+      "total": 621,
+      "accuracy": 0.2319
+    },
+    "Politics and Social Stratification": {
+      "correct": 123,
+      "total": 453,
+      "accuracy": 0.2715
+    },
+    "Proverbs, Sayings, Spiritual Formulas, Mythology": {
+      "correct": 117,
+      "total": 499,
+      "accuracy": 0.2345
+    },
+    "Social Relationships": {
+      "correct": 104,
+      "total": 406,
+      "accuracy": 0.2562
+    },
+    "Song Lyrics": {
+      "correct": 146,
+      "total": 521,
+      "accuracy": 0.2802
+    },
+    "Sports and Games": {
+      "correct": 53,
+      "total": 212,
+      "accuracy": 0.25
+    },
+    "Swearing and Offensive Expressions": {
+      "correct": 18,
+      "total": 57,
+      "accuracy": 0.3158
+    },
+    "Traditional Clothing": {
+      "correct": 50,
+      "total": 224,
+      "accuracy": 0.2232
+    },
+    "Traditions": {
+      "correct": 98,
+      "total": 439,
+      "accuracy": 0.2232
+    }
+  }
+}

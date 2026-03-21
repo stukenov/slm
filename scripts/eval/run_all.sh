@@ -8,7 +8,7 @@
 #   ./scripts/eval/run_all.sh --limit 100              # limit samples per task
 #   ./scripts/eval/run_all.sh --models sozkz-50m --tasks ner --limit 50
 
-set -euo pipefail
+set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

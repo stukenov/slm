@@ -1,0 +1,50 @@
+{
+  "model": "qwen-1.5b",
+  "model_short": "qwen-1.5b",
+  "task": "sib200",
+  "dataset": "Davlan/sib200",
+  "config": "kaz_Cyrl",
+  "timestamp": "2026-03-21T10:24:17.193051+00:00",
+  "metrics": {
+    "accuracy": 0.1176,
+    "total": 204,
+    "correct": 24
+  },
+  "per_topic": {
+    "entertainment": {
+      "correct": 0,
+      "total": 19,
+      "accuracy": 0.0
+    },
+    "geography": {
+      "correct": 0,
+      "total": 17,
+      "accuracy": 0.0
+    },
+    "health": {
+      "correct": 22,
+      "total": 22,
+      "accuracy": 1.0
+    },
+    "politics": {
+      "correct": 0,
+      "total": 30,
+      "accuracy": 0.0
+    },
+    "science/technology": {
+      "correct": 0,
+      "total": 51,
+      "accuracy": 0.0
+    },
+    "sports": {
+      "correct": 0,
+      "total": 25,
+      "accuracy": 0.0
+    },
+    "travel": {
+      "correct": 2,
+      "total": 40,
+      "accuracy": 0.05
+    }
+  }
+}

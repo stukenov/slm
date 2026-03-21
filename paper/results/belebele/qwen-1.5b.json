@@ -1,0 +1,13 @@
+{
+  "model": "qwen-1.5b",
+  "model_short": "qwen-1.5b",
+  "task": "belebele",
+  "dataset": "facebook/belebele",
+  "config": "kaz_Cyrl",
+  "timestamp": "2026-03-21T10:28:34.173656+00:00",
+  "metrics": {
+    "accuracy": 0.2989,
+    "total": 900,
+    "correct": 269
+  }
+}

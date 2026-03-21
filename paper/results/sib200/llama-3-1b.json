@@ -1,0 +1,50 @@
+{
+  "model": "llama-3-1b",
+  "model_short": "llama-3-1b",
+  "task": "sib200",
+  "dataset": "Davlan/sib200",
+  "config": "kaz_Cyrl",
+  "timestamp": "2026-03-21T04:36:04.113090+00:00",
+  "metrics": {
+    "accuracy": 0.201,
+    "total": 204,
+    "correct": 41
+  },
+  "per_topic": {
+    "entertainment": {
+      "correct": 0,
+      "total": 19,
+      "accuracy": 0.0
+    },
+    "geography": {
+      "correct": 0,
+      "total": 17,
+      "accuracy": 0.0
+    },
+    "health": {
+      "correct": 18,
+      "total": 22,
+      "accuracy": 0.8182
+    },
+    "politics": {
+      "correct": 0,
+      "total": 30,
+      "accuracy": 0.0
+    },
+    "science/technology": {
+      "correct": 0,
+      "total": 51,
+      "accuracy": 0.0
+    },
+    "sports": {
+      "correct": 20,
+      "total": 25,
+      "accuracy": 0.8
+    },
+    "travel": {
+      "correct": 3,
+      "total": 40,
+      "accuracy": 0.075
+    }
+  }
+}

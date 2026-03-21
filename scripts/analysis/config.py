@@ -56,25 +56,17 @@ MODEL_ORDER: list[str] = [
     "qwen-1.5b",
     "gemma-2b",
     "llama-3-3b",
-    "mistral-7b",
-    "qwen-7b",
-    "llama-3-8b",
-    "gemma-9b",
-    "gpt-oss-120b",
 ]
 
 # ---------------------------------------------------------------------------
 # Tasks
 # ---------------------------------------------------------------------------
 
-TASKS: list[str] = ["bpb", "mc_qa", "sentiment", "belebele", "ner", "sib200"]
+TASKS: list[str] = ["mc_qa", "belebele", "sib200"]
 
 TASK_DISPLAY_NAMES: dict[str, str] = {
-    "bpb": "BPB",
     "mc_qa": "MC QA",
-    "sentiment": "Sentiment",
     "belebele": "Belebele",
-    "ner": "NER",
     "sib200": "SIB-200",
 }
 
@@ -92,11 +84,6 @@ PARAM_SIZES: dict[str, int] = {
     "qwen-1.5b": 1500,
     "gemma-2b": 2000,
     "llama-3-3b": 3000,
-    "mistral-7b": 7000,
-    "qwen-7b": 7000,
-    "llama-3-8b": 8000,
-    "gemma-9b": 9000,
-    "gpt-oss-120b": 120000,
 }
 
 # ---------------------------------------------------------------------------

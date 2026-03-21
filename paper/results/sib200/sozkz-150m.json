@@ -1,0 +1,50 @@
+{
+  "model": "sozkz-150m",
+  "model_short": "sozkz-150m",
+  "task": "sib200",
+  "dataset": "Davlan/sib200",
+  "config": "kaz_Cyrl",
+  "timestamp": "2026-03-20T21:36:34.922965+00:00",
+  "metrics": {
+    "accuracy": 0.2549,
+    "total": 204,
+    "correct": 52
+  },
+  "per_topic": {
+    "entertainment": {
+      "correct": 1,
+      "total": 19,
+      "accuracy": 0.0526
+    },
+    "geography": {
+      "correct": 0,
+      "total": 17,
+      "accuracy": 0.0
+    },
+    "health": {
+      "correct": 0,
+      "total": 22,
+      "accuracy": 0.0
+    },
+    "politics": {
+      "correct": 0,
+      "total": 30,
+      "accuracy": 0.0
+    },
+    "science/technology": {
+      "correct": 51,
+      "total": 51,
+      "accuracy": 1.0
+    },
+    "sports": {
+      "correct": 0,
+      "total": 25,
+      "accuracy": 0.0
+    },
+    "travel": {
+      "correct": 0,
+      "total": 40,
+      "accuracy": 0.0
+    }
+  }
+}

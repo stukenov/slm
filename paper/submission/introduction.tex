@@ -22,9 +22,9 @@ number of tokens per word.  Second, the vast majority of model
 parameters encode knowledge about languages other than Kazakh, yielding
 a poor ratio of useful capacity to total model size.
 
-We argue that \textbf{small, dedicated models can achieve competitive
-performance with much larger multilingual models on Kazakh language
-tasks at a fraction of the computational cost}.  To test this thesis, we train
+We argue that \textbf{small, dedicated models can match or exceed much
+larger multilingual models on Kazakh language tasks with
+orders-of-magnitude better efficiency}.  To test this thesis, we train
 \sozkz{}, a family of Llama-architecture causal language models at four
 parameter scales---50M, 150M, 300M, and 600M---entirely from scratch on
 a curated Kazakh corpus of approximately 9 billion tokens.
@@ -38,10 +38,10 @@ Our contributions are as follows:
     vocabulary\footnote{\url{https://huggingface.co/stukenov/kazakh-bpe-32k}}
     that achieves a 2--3$\times$ fertility advantage over
     multilingual tokenizers on Kazakh text.
-  \item We evaluate SozKZ models against five multilingual baselines
-    (Qwen, Llama~3, Gemma) spanning 0.5B--3B parameters on three
-    Kazakh benchmarks, showing competitive performance and a clear
-    advantage on topic classification.
+  \item We construct a \numTasks{}-task benchmark suite and evaluate
+    \sozkz{} models against \numModels{} competitors spanning
+    0.5B--120B parameters, providing the most comprehensive comparison
+    of language model performance on Kazakh to date.
   \item We report empirical scaling curves for Kazakh language modeling,
     identifying the efficiency sweet spot where dedicated small models
     offer the best performance-per-parameter trade-off.

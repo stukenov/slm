@@ -1,0 +1,13 @@
+{
+  "model": "llama-3-3b",
+  "model_short": "llama-3-3b",
+  "task": "belebele",
+  "dataset": "facebook/belebele",
+  "config": "kaz_Cyrl",
+  "timestamp": "2026-03-21T10:51:15.734276+00:00",
+  "metrics": {
+    "accuracy": 0.3167,
+    "total": 900,
+    "correct": 285
+  }
+}

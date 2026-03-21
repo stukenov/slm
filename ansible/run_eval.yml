@@ -1,0 +1,77 @@
+---
+- name: Run evaluation benchmarks on GPU server
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    eval_dir: "{{ project_dir }}/scripts/eval"
+    results_dir: "{{ project_dir }}/paper/results"
+    log_file: "{{ project_dir }}/logs/eval_all.log"
+
+  tasks:
+    - name: Ensure results directories exist
+      file:
+        path: "{{ results_dir }}/{{ item }}"
+        state: directory
+      loop:
+        - bpb
+        - mc_qa
+        - sentiment
+        - belebele
+        - sib200
+        - ner
+
+    - name: Ensure logs directory exists
+      file:
+        path: "{{ project_dir }}/logs"
+        state: directory
+
+    - name: Install additional dependencies (matplotlib, pandas, scipy, datasets)
+      command: "{{ venv_path }}/bin/pip install matplotlib pandas scipy datasets tqdm"
+      args:
+        chdir: "{{ project_dir }}"
+
+    - name: Kill any existing eval screen session
+      shell: screen -S eval_all -X quit 2>/dev/null || true
+
+    - name: Start eval in detached screen session
+      shell: |
+        screen -dmS eval_all bash -c '
+          cd {{ project_dir }}
+          source {{ venv_path }}/bin/activate
+          export PYTHONPATH={{ eval_dir }}:$PYTHONPATH
+
+          echo "=== Eval started at $(date) ===" > {{ log_file }}
+
+          # Run each benchmark for all models
+          for script in eval_bpb eval_mc_bench eval_sentiment eval_belebele eval_sib200 eval_ner; do
+            echo "" >> {{ log_file }}
+            echo "=== Running $script at $(date) ===" >> {{ log_file }}
+            python {{ eval_dir }}/${script}.py --output {{ results_dir }}/${script#eval_}/ 2>&1 | tee -a {{ log_file }}
+            echo "=== $script finished at $(date) ===" >> {{ log_file }}
+          done
+
+          # Aggregate results
+          echo "" >> {{ log_file }}
+          echo "=== Aggregating results at $(date) ===" >> {{ log_file }}
+          python {{ eval_dir }}/aggregate_results.py --results-dir {{ results_dir }} --output {{ results_dir }}/summary.json 2>&1 | tee -a {{ log_file }}
+
+          echo "" >> {{ log_file }}
+          echo "=== ALL DONE at $(date) ===" >> {{ log_file }}
+        '
+      args:
+        chdir: "{{ project_dir }}"
+
+    - name: Wait 5 seconds for screen to start
+      pause:
+        seconds: 5
+
+    - name: Verify screen session is running
+      shell: screen -ls | grep eval_all
+      register: screen_check
+      ignore_errors: true
+
+    - name: Report status
+      debug:
+        msg: >
+          Eval screen session {{ 'is running' if screen_check.rc == 0 else 'FAILED to start' }}.
+          Monitor with: ansible gpu_servers -i ansible/inventory.ini -a 'tail -50 /root/slm/logs/eval_all.log'

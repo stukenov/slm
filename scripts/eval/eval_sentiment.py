@@ -114,6 +114,9 @@ def main():
         ds = full.select(range(start, n))
 
     # Validate columns
+    # KazSAnDRA uses "label" column instead of "sentiment"
+    if "label" in ds.column_names and "sentiment" not in ds.column_names:
+        ds = ds.rename_column("label", "sentiment")
     required_cols = {"text", "sentiment"}
     actual_cols = set(ds.column_names)
     if not required_cols.issubset(actual_cols):

@@ -1,0 +1,22 @@
+\begin{abstract}
+Kazakh, spoken by 22 million people, lacks dedicated language models.
+Existing multilingual LLMs allocate minimal capacity to low-resource
+languages and suffer from tokenizer inefficiency on agglutinative
+morphology.  We present \sozkz{}, a family of Llama-architecture
+models (50M--600M parameters) trained from scratch on 9 billion tokens
+of Kazakh text with a purpose-built 32K BPE tokenizer.  On held-out
+Kazakh text, our 600M model achieves \bpbSozKZSixHundredM{} bits per
+byte, outperforming all evaluated multilingual models including those
+with over 100$\times$ more parameters.  On sentiment classification,
+\sozkz{}-600M reaches \accSentimentSozKZSixHundredM{}, competitive
+with 8B-parameter multilingual models.  We observe clear limitations
+on knowledge-intensive tasks: multiple-choice QA
+(\accMcQaSozKZSixHundredM{}) and reading comprehension
+(\accBelebeleSozKZSixHundredM{}) remain below larger models that
+benefit from extensive world knowledge encoded during training on
+much larger corpora.  These results demonstrate that small dedicated
+models offer a compelling efficiency--performance trade-off for
+language-centric tasks, while knowledge-intensive benchmarks still
+require larger-scale training.  We release all models, tokenizer,
+and training pipeline under open licenses.
+\end{abstract}
