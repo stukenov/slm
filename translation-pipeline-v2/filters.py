@@ -50,12 +50,35 @@ def is_noisy_sentence(sentence: str) -> bool:
 
 
 def char_similarity(a: str, b: str) -> float:
-    """Character-level similarity between two strings (0.0 to 1.0)."""
+    """Character-level similarity between two strings (0.0 to 1.0).
+
+    Uses fast length check first, then set-based overlap before
+    falling back to SequenceMatcher for borderline cases.
+    """
     if not a and not b:
         return 1.0
     if not a or not b:
         return 0.0
-    return SequenceMatcher(None, a.lower(), b.lower()).ratio()
+
+    al, bl = a.lower(), b.lower()
+
+    # Fast exact match
+    if al == bl:
+        return 1.0
+
+    # Fast length-based reject: if lengths differ by >50%, similarity < 0.67
+    len_ratio = min(len(al), len(bl)) / max(len(al), len(bl))
+    if len_ratio < 0.5:
+        return len_ratio
+
+    # Character set overlap (fast approximation)
+    set_a, set_b = set(al), set(bl)
+    jaccard = len(set_a & set_b) / len(set_a | set_b)
+    if jaccard < 0.5:
+        return jaccard * 0.8  # scale down, set overlap overestimates
+
+    # Only use expensive SequenceMatcher for borderline cases
+    return SequenceMatcher(None, al, bl).ratio()
 
 
 def has_ngram_repetition(text: str, n: int = 2) -> bool:

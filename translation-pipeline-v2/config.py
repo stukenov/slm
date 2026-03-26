@@ -2,7 +2,7 @@
 
 # Translation model
 CT2_MODEL_NAME = "HPLT/translate-en-kk-v2.0-hplt_opus"
-COMPUTE_TYPE = "float16"
+COMPUTE_TYPE = "int8_float16"
 BATCH_SIZE = 4096
 BEAM_SIZE = 1
 MAX_INPUT_LENGTH = 128
