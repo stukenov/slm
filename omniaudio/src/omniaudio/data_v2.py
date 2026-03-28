@@ -14,11 +14,22 @@ def load_speech_dataset(name="fleurs", split="train", max_samples=None):
     """Load a Kazakh speech dataset. Supports 'fleurs' and 'common_voice'."""
     if name == "fleurs":
         ds = load_dataset("google/fleurs", "kk_kz", split=split, trust_remote_code=True)
-        # Normalize column names: FLEURS uses 'transcription', we need 'sentence'
         ds = ds.rename_column("transcription", "sentence")
     elif name == "common_voice":
         ds = load_dataset("mozilla-foundation/common_voice_17_0", "kk",
                           split=split, trust_remote_code=True)
+    elif name == "kzcalm":
+        # stukenov/kzcalm-tts-kk-v1: 232K samples, 439h, columns: audio, text
+        # No predefined val/test split — use last 5% as val, last 1% as test
+        ds = load_dataset("stukenov/kzcalm-tts-kk-v1", split="train", trust_remote_code=True)
+        n = len(ds)
+        if split == "train":
+            ds = ds.select(range(int(n * 0.94)))
+        elif split == "validation":
+            ds = ds.select(range(int(n * 0.94), int(n * 0.99)))
+        elif split == "test":
+            ds = ds.select(range(int(n * 0.99), n))
+        ds = ds.rename_column("text", "sentence")
     else:
         ds = load_dataset(name, split=split, trust_remote_code=True)
     if max_samples:

@@ -1,0 +1,22 @@
+# OmniAudio scratch + kzcalm (439h): CTC pretrain
+inherits: v2_base
+experiment_name: omniaudio_v2_scratch_kzcalm_s1_ctc
+model_type: scratch
+stage: ctc_pretrain
+dataset_name: kzcalm
+audio_d_model: 256
+audio_n_heads: 4
+audio_n_layers: 6
+audio_n_conv: 2
+decoder_d_model: 512
+decoder_n_heads: 8
+decoder_n_layers: 8
+augment: false
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 2
+learning_rate: 1e-3
+warmup_ratio: 0.05
+weight_decay: 0.01
+num_train_epochs: 5
+save_steps: 2000
+logging_steps: 100
