@@ -47,6 +47,19 @@ def get_trainable_params(model, config):
             p.requires_grad = True
         for p in model.ctc_head.parameters():
             p.requires_grad = True
+        # Unfreeze last N layers of LLM decoder
+        unfreeze_layers = config.get("unfreeze_llm_layers", 0)
+        if unfreeze_layers > 0 and model.llm is not None:
+            total_layers = len(model.llm.model.layers)
+            for i in range(total_layers - unfreeze_layers, total_layers):
+                for p in model.llm.model.layers[i].parameters():
+                    p.requires_grad = True
+            # Also unfreeze final norm and lm_head
+            for p in model.llm.model.norm.parameters():
+                p.requires_grad = True
+            for p in model.llm.lm_head.parameters():
+                p.requires_grad = True
+            logger.info("Unfroze last %d/%d LLM layers + norm + lm_head", unfreeze_layers, total_layers)
 
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
     total = sum(p.numel() for p in model.parameters())
@@ -199,7 +212,8 @@ def _run_validation(model, val_loader, device, stage, use_bf16, ctc_weight):
 def _save_checkpoint(model, output_dir, step):
     ckpt_dir = output_dir / f"checkpoint-{step}"
     ckpt_dir.mkdir(exist_ok=True)
-    state = {name: param.data for name, param in model.named_parameters() if not name.startswith("llm.")}
+    # Save all trainable params (encoder+projector+ctc + any unfrozen LLM layers)
+    state = {name: param.data for name, param in model.named_parameters() if param.requires_grad or not name.startswith("llm.")}
     torch.save(state, ckpt_dir / "model.pt")
     logger.info("Saved checkpoint-%s", step)
 
