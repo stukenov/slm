@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader
 from transformers import get_linear_schedule_with_warmup
 
 from omniaudio.data_v2 import AudioCollatorV2, load_speech_dataset
-from omniaudio.model_v2 import OmniAudioV2Model
+from omniaudio.model_v2 import OmniAudioV2Model, OmniAudioScratchModel
 
 logger = logging.getLogger(__name__)
 
@@ -29,6 +29,25 @@ def load_config(path):
 
 def get_trainable_params(model, config):
     stage = config["stage"]
+    model_type = config.get("model_type", "pretrained")
+
+    if model_type == "scratch":
+        # Scratch model: everything trainable (or just encoder+ctc for CTC stage)
+        if stage == "ctc_pretrain":
+            for p in model.parameters():
+                p.requires_grad = False
+            for p in model.encoder.parameters():
+                p.requires_grad = True
+            for p in model.ctc_head.parameters():
+                p.requires_grad = True
+        else:
+            for p in model.parameters():
+                p.requires_grad = True
+        trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        total = sum(p.numel() for p in model.parameters())
+        logger.info("Stage: %s | Params: %.2fM total, %.2fM trainable", stage, total / 1e6, trainable / 1e6)
+        return
+
     for p in model.parameters():
         p.requires_grad = False
 
@@ -83,11 +102,23 @@ def train(config):
         "n_conv": config["audio_n_conv"],
     }
 
-    llm_name = config.get("llm_name") if stage != "ctc_pretrain" else None
-    model = OmniAudioV2Model(
-        encoder_config=encoder_config, llm_name=llm_name,
-        vocab_size=config["vocab_size"], llm_dim=config.get("llm_dim", 768),
-    )
+    model_type = config.get("model_type", "pretrained")
+    if model_type == "scratch":
+        decoder_config = {
+            "d_model": config["decoder_d_model"],
+            "n_heads": config["decoder_n_heads"],
+            "n_layers": config["decoder_n_layers"],
+        }
+        model = OmniAudioScratchModel(
+            encoder_config=encoder_config, decoder_config=decoder_config,
+            vocab_size=config["vocab_size"],
+        )
+    else:
+        llm_name = config.get("llm_name") if stage != "ctc_pretrain" else None
+        model = OmniAudioV2Model(
+            encoder_config=encoder_config, llm_name=llm_name,
+            vocab_size=config["vocab_size"], llm_dim=config.get("llm_dim", 768),
+        )
 
     init_from = config.get("init_from")
     if init_from:
@@ -145,6 +176,12 @@ def train(config):
                 if stage == "ctc_pretrain":
                     loss = model.forward_ctc(mel, batch["ctc_targets"].to(device),
                                              batch["ctc_target_lengths"].to(device))
+                elif model_type == "scratch":
+                    text_ids = batch["text_ids"].to(device)
+                    ctc_t = batch["ctc_targets"].to(device) if ctc_weight > 0 else None
+                    ctc_l = batch["ctc_target_lengths"].to(device) if ctc_weight > 0 else None
+                    loss = model(mel, text_ids, ctc_weight=ctc_weight,
+                                 ctc_targets=ctc_t, ctc_target_lengths=ctc_l)
                 else:
                     text_ids = batch["text_ids"].to(device)
                     ctc_t = batch["ctc_targets"].to(device) if ctc_weight > 0 else None
@@ -176,7 +213,7 @@ def train(config):
         avg_train = epoch_loss / max(num_batches, 1)
         logger.info("Epoch %d/%d | Train loss: %.4f", epoch + 1, num_epochs, avg_train)
 
-        val_loss = _run_validation(model, val_loader, device, stage, use_bf16, ctc_weight)
+        val_loss = _run_validation(model, val_loader, device, stage, use_bf16, ctc_weight, model_type)
         logger.info("Epoch %d/%d | Val loss: %.4f", epoch + 1, num_epochs, val_loss)
 
         if val_loss < best_val_loss:
@@ -188,7 +225,7 @@ def train(config):
     logger.info("Done: %s", experiment_name)
 
 
-def _run_validation(model, val_loader, device, stage, use_bf16, ctc_weight):
+def _run_validation(model, val_loader, device, stage, use_bf16, ctc_weight, model_type="pretrained"):
     model.train(False)
     total_loss, n = 0.0, 0
     with torch.no_grad():
@@ -198,6 +235,12 @@ def _run_validation(model, val_loader, device, stage, use_bf16, ctc_weight):
                 if stage == "ctc_pretrain":
                     loss = model.forward_ctc(mel, batch["ctc_targets"].to(device),
                                              batch["ctc_target_lengths"].to(device))
+                elif model_type == "scratch":
+                    text_ids = batch["text_ids"].to(device)
+                    ctc_t = batch["ctc_targets"].to(device) if ctc_weight > 0 else None
+                    ctc_l = batch["ctc_target_lengths"].to(device) if ctc_weight > 0 else None
+                    loss = model(mel, text_ids, ctc_weight=ctc_weight,
+                                 ctc_targets=ctc_t, ctc_target_lengths=ctc_l)
                 else:
                     text_ids = batch["text_ids"].to(device)
                     ctc_t = batch["ctc_targets"].to(device) if ctc_weight > 0 else None

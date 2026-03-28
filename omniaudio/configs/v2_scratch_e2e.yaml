@@ -1,0 +1,23 @@
+# OmniAudio v2 scratch: E2E training (encoder + decoder from scratch)
+inherits: v2_base
+experiment_name: omniaudio_v2_scratch_e2e
+model_type: scratch
+stage: e2e
+audio_d_model: 256
+audio_n_heads: 4
+audio_n_layers: 6
+audio_n_conv: 2
+decoder_d_model: 512
+decoder_n_heads: 8
+decoder_n_layers: 8
+ctc_weight: 0.3
+init_from: ./outputs/omniaudio_v2_scratch_s1_ctc/checkpoint-best
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 4
+learning_rate: 3e-4
+warmup_ratio: 0.05
+weight_decay: 0.01
+num_train_epochs: 30
+save_steps: 500
+eval_steps: 500
+logging_steps: 50
