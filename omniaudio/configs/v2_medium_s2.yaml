@@ -5,7 +5,7 @@ audio_d_model: 384
 audio_n_heads: 6
 audio_n_layers: 8
 audio_n_conv: 3
-init_from: ./outputs/omniaudio_v2_medium_s1_ctc/final
+init_from: ./outputs/omniaudio_v2_medium_s1_ctc/checkpoint-best
 per_device_train_batch_size: 32
 gradient_accumulation_steps: 1
 learning_rate: 1e-3

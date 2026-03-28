@@ -6,7 +6,7 @@ audio_n_heads: 6
 audio_n_layers: 8
 audio_n_conv: 3
 ctc_weight: 0.3
-init_from: ./outputs/omniaudio_v2_medium_s2_align/final
+init_from: ./outputs/omniaudio_v2_medium_s2_align/checkpoint-best
 per_device_train_batch_size: 16
 gradient_accumulation_steps: 2
 learning_rate: 2e-5
