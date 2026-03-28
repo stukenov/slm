@@ -9,7 +9,7 @@ from jiwer import cer, wer
 from transformers import AutoTokenizer, PreTrainedTokenizerFast
 
 from omniaudio.data_v2 import AudioCollatorV2, load_speech_dataset
-from omniaudio.model_v2 import OmniAudioV2Model
+from omniaudio.model_v2 import OmniAudioV2Model, OmniAudioScratchModel
 from omniaudio.train_v2 import load_config
 
 logger = logging.getLogger(__name__)
@@ -24,10 +24,22 @@ def run_assessment(config, model_path, max_samples=None):
         "n_conv": config["audio_n_conv"],
     }
 
-    model = OmniAudioV2Model(
-        encoder_config=encoder_config, llm_name=config["llm_name"],
-        vocab_size=config["vocab_size"], llm_dim=config.get("llm_dim", 768),
-    )
+    model_type = config.get("model_type", "pretrained")
+    if model_type == "scratch":
+        decoder_config = {
+            "d_model": config["decoder_d_model"],
+            "n_heads": config["decoder_n_heads"],
+            "n_layers": config["decoder_n_layers"],
+        }
+        model = OmniAudioScratchModel(
+            encoder_config=encoder_config, decoder_config=decoder_config,
+            vocab_size=config["vocab_size"],
+        )
+    else:
+        model = OmniAudioV2Model(
+            encoder_config=encoder_config, llm_name=config["llm_name"],
+            vocab_size=config["vocab_size"], llm_dim=config.get("llm_dim", 768),
+        )
     state = torch.load(model_path, map_location="cpu", weights_only=True)
     model.load_state_dict(state, strict=False)
     model = model.to(device)
