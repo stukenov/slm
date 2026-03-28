@@ -41,7 +41,7 @@
       shell: |
         screen -dmS {{ screen_name }} bash -c '
           cd {{ work_dir }} &&
-          {{ venv }}/bin/python -m omniaudio.train_v2 \
+          CUDA_VISIBLE_DEVICES=1 {{ venv }}/bin/python -m omniaudio.train_v2 \
             --config omniaudio/configs/{{ config }}.yaml \
             2>&1 | tee logs/{{ screen_name }}.log
         '
