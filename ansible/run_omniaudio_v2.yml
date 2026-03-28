@@ -1,0 +1,73 @@
+# ansible/run_omniaudio_v2.yml
+# Deploy and run OmniAudio v2 training on kaznu
+#
+# Usage:
+#   ansible-playbook ansible/run_omniaudio_v2.yml -i ansible/inventory.ini \
+#     -e config=v2_small_s1 -e screen_name=omniaudio_v2_small_s1
+#   ansible-playbook ansible/run_omniaudio_v2.yml -i ansible/inventory.ini \
+#     -e action=logs -e screen_name=omniaudio_v2_small_s1
+---
+- hosts: kaznu
+  vars:
+    work_dir: /root/slm
+    venv: /root/slm/.venv
+    config: v2_small_s1
+    screen_name: "omniaudio_v2_{{ config }}"
+    action: train
+  tasks:
+    - name: Sync omniaudio code
+      ansible.posix.synchronize:
+        src: "{{ playbook_dir }}/../omniaudio/"
+        dest: "{{ work_dir }}/omniaudio/"
+        rsync_opts:
+          - "--exclude=.venv"
+          - "--exclude=__pycache__"
+          - "--exclude=outputs"
+          - "--exclude=logs"
+          - "--exclude=*.pyc"
+      when: action == "train"
+
+    - name: Install omniaudio
+      shell: "cd {{ work_dir }} && {{ venv }}/bin/pip install -e omniaudio/ --quiet 2>&1 | tail -3"
+      when: action == "train"
+
+    - name: Create logs dir
+      file:
+        path: "{{ work_dir }}/logs"
+        state: directory
+      when: action == "train"
+
+    - name: Start training in screen
+      shell: |
+        screen -dmS {{ screen_name }} bash -c '
+          cd {{ work_dir }} &&
+          {{ venv }}/bin/python -m omniaudio.train_v2 \
+            --config omniaudio/configs/{{ config }}.yaml \
+            2>&1 | tee logs/{{ screen_name }}.log
+        '
+      when: action == "train"
+
+    - name: Training started
+      debug:
+        msg: "Screen '{{ screen_name }}' launched. Monitor: ssh kaznu 'tail -f {{ work_dir }}/logs/{{ screen_name }}.log'"
+      when: action == "train"
+
+    - name: Show logs
+      shell: "tail -30 {{ work_dir }}/logs/{{ screen_name }}.log 2>/dev/null || echo 'No log yet'"
+      register: log_out
+      when: action == "logs"
+
+    - name: Display
+      debug:
+        msg: "{{ log_out.stdout_lines }}"
+      when: action == "logs"
+
+    - name: Check status
+      shell: "screen -ls | grep {{ screen_name }} || echo 'No session'"
+      register: status_out
+      when: action == "status"
+
+    - name: Show status
+      debug:
+        msg: "{{ status_out.stdout }}"
+      when: action == "status"
