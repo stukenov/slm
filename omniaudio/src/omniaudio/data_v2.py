@@ -10,7 +10,7 @@ from transformers import AutoTokenizer, PreTrainedTokenizerFast
 from omniaudio.augment import spec_augment, speed_perturb
 
 
-def load_speech_dataset(name="fleurs", split="train", max_samples=None):
+def load_speech_dataset(name="fleurs", split="train", max_samples=None, **kwargs):
     """Load a Kazakh speech dataset. Supports 'fleurs' and 'common_voice'."""
     if name == "fleurs":
         ds = load_dataset("google/fleurs", "kk_kz", split=split, trust_remote_code=True)
@@ -19,9 +19,18 @@ def load_speech_dataset(name="fleurs", split="train", max_samples=None):
         ds = load_dataset("mozilla-foundation/common_voice_17_0", "kk",
                           split=split, trust_remote_code=True)
     elif name == "kzcalm":
-        # stukenov/kzcalm-tts-kk-v1: 232K samples, 439h, columns: audio, text
-        # No predefined val/test split — use last 5% as val, last 1% as test
+        # stukenov/kzcalm-tts-kk-v1: filter neutral emotion, deduplicate by text
+        speaker = kwargs.get("speaker", "M1")
         ds = load_dataset("stukenov/kzcalm-tts-kk-v1", split="train", trust_remote_code=True)
+        ds = ds.filter(lambda x: x["emotion"] == "neutral" and x["speaker_id"] == speaker)
+        # Deduplicate by text (keep first occurrence)
+        seen = set()
+        keep_idx = []
+        for i, sample in enumerate(ds):
+            if sample["text"] not in seen:
+                seen.add(sample["text"])
+                keep_idx.append(i)
+        ds = ds.select(keep_idx)
         n = len(ds)
         if split == "train":
             ds = ds.select(range(int(n * 0.94)))
