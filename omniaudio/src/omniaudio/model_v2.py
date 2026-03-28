@@ -178,7 +178,10 @@ class OmniAudioV2Model(nn.Module):
         enc_out = self.encoder(mel)  # (B, T_audio, d_model)
         audio_embeds = self.projector(enc_out)  # (B, T_audio, llm_dim)
 
-        text_embeds = self.llm.model.embed_tokens(text_ids)  # (B, T_text, llm_dim)
+        # Replace -100 padding with 0 for embedding lookup (keep -100 only in labels)
+        text_ids_safe = text_ids.clone()
+        text_ids_safe[text_ids_safe < 0] = 0
+        text_embeds = self.llm.model.embed_tokens(text_ids_safe)  # (B, T_text, llm_dim)
 
         # Concat [audio, text]
         inputs_embeds = torch.cat([audio_embeds, text_embeds], dim=1)
