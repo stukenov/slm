@@ -8,7 +8,8 @@ max_text_len: 256
 llm_name: saken-tukenov/sozkz-core-llama-150m-kk-base-v1
 llm_dim: 768
 vocab_size: 50257
-tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+# Use local path on server (transformers 5.1 can't load tokenizers from HF)
+tokenizer_path: ./tokenizers/kazakh-gpt2-50k
 bf16: true
 dataloader_num_workers: 4
 max_grad_norm: 1.0

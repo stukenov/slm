@@ -1,0 +1,4 @@
+# Base config overrides for kaznu server
+# Use local paths (transformers 5.1 can't load tokenizers from HF)
+inherits: v2_base
+tokenizer_path: ./tokenizers/kazakh-gpt2-50k

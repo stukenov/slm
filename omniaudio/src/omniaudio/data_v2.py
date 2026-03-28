@@ -5,7 +5,7 @@ import random
 import torch
 import torchaudio
 from datasets import load_dataset
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, PreTrainedTokenizerFast
 
 from omniaudio.augment import spec_augment, speed_perturb
 
@@ -25,7 +25,11 @@ class AudioCollatorV2:
 
     def __init__(self, tokenizer_path: str, n_mels: int = 80, sample_rate: int = 16000,
                  max_audio_len: float = 15.0, max_text_len: int = 256, augment: bool = True):
-        self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
+        except (ValueError, OSError):
+            # Fallback for transformers 5.1 where AutoTokenizer fails on some configs
+            self.tokenizer = PreTrainedTokenizerFast.from_pretrained(tokenizer_path)
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
         self.sample_rate = sample_rate

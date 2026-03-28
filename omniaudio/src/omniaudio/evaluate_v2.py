@@ -6,7 +6,7 @@ import random
 
 import torch
 from jiwer import cer, wer
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, PreTrainedTokenizerFast
 
 from omniaudio.data_v2 import AudioCollatorV2, load_commonvoice_kk
 from omniaudio.model_v2 import OmniAudioV2Model
@@ -33,7 +33,10 @@ def run_assessment(config, model_path, max_samples=None):
     model = model.to(device)
     model.train(False)
 
-    tokenizer = AutoTokenizer.from_pretrained(config["tokenizer_path"])
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(config["tokenizer_path"])
+    except (ValueError, OSError):
+        tokenizer = PreTrainedTokenizerFast.from_pretrained(config["tokenizer_path"])
     test_ds = load_commonvoice_kk("test", max_samples=max_samples)
     collator = AudioCollatorV2(
         tokenizer_path=config["tokenizer_path"], n_mels=config["n_mels"],
