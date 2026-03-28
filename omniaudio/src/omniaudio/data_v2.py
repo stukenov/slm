@@ -10,12 +10,25 @@ from transformers import AutoTokenizer, PreTrainedTokenizerFast
 from omniaudio.augment import spec_augment, speed_perturb
 
 
-def load_commonvoice_kk(split="train", max_samples=None):
-    ds = load_dataset("mozilla-foundation/common_voice_17_0", "kk",
-                      split=split, trust_remote_code=True)
+def load_speech_dataset(name="fleurs", split="train", max_samples=None):
+    """Load a Kazakh speech dataset. Supports 'fleurs' and 'common_voice'."""
+    if name == "fleurs":
+        ds = load_dataset("google/fleurs", "kk_kz", split=split, trust_remote_code=True)
+        # Normalize column names: FLEURS uses 'transcription', we need 'sentence'
+        ds = ds.rename_column("transcription", "sentence")
+    elif name == "common_voice":
+        ds = load_dataset("mozilla-foundation/common_voice_17_0", "kk",
+                          split=split, trust_remote_code=True)
+    else:
+        ds = load_dataset(name, split=split, trust_remote_code=True)
     if max_samples:
         ds = ds.select(range(min(max_samples, len(ds))))
     return ds
+
+
+# Backward compat alias
+def load_commonvoice_kk(split="train", max_samples=None):
+    return load_speech_dataset("common_voice", split=split, max_samples=max_samples)
 
 
 class AudioCollatorV2:

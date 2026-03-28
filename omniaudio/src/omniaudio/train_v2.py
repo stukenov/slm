@@ -9,7 +9,7 @@ import yaml
 from torch.utils.data import DataLoader
 from transformers import get_linear_schedule_with_warmup
 
-from omniaudio.data_v2 import AudioCollatorV2, load_commonvoice_kk
+from omniaudio.data_v2 import AudioCollatorV2, load_speech_dataset
 from omniaudio.model_v2 import OmniAudioV2Model
 
 logger = logging.getLogger(__name__)
@@ -94,8 +94,9 @@ def train(config):
         sample_rate=config["sample_rate"], max_audio_len=config["max_audio_len"],
         max_text_len=config["max_text_len"], augment=augment,
     )
-    train_ds = load_commonvoice_kk("train", max_samples=config.get("max_train_samples"))
-    val_ds = load_commonvoice_kk("validation", max_samples=config.get("max_eval_samples"))
+    dataset_name = config.get("dataset_name", "fleurs")
+    train_ds = load_speech_dataset(dataset_name, "train", max_samples=config.get("max_train_samples"))
+    val_ds = load_speech_dataset(dataset_name, "validation", max_samples=config.get("max_eval_samples"))
     logger.info("Train: %d | Val: %d", len(train_ds), len(val_ds))
 
     batch_size = config["per_device_train_batch_size"]
