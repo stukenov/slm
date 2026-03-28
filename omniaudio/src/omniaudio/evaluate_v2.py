@@ -8,7 +8,7 @@ import torch
 from jiwer import cer, wer
 from transformers import AutoTokenizer, PreTrainedTokenizerFast
 
-from omniaudio.data_v2 import AudioCollatorV2, load_commonvoice_kk
+from omniaudio.data_v2 import AudioCollatorV2, load_speech_dataset
 from omniaudio.model_v2 import OmniAudioV2Model
 from omniaudio.train_v2 import load_config
 
@@ -37,7 +37,8 @@ def run_assessment(config, model_path, max_samples=None):
         tokenizer = AutoTokenizer.from_pretrained(config["tokenizer_path"])
     except (ValueError, OSError):
         tokenizer = PreTrainedTokenizerFast.from_pretrained(config["tokenizer_path"])
-    test_ds = load_commonvoice_kk("test", max_samples=max_samples)
+    dataset_name = config.get("dataset_name", "fleurs")
+    test_ds = load_speech_dataset(dataset_name, "test", max_samples=max_samples)
     collator = AudioCollatorV2(
         tokenizer_path=config["tokenizer_path"], n_mels=config["n_mels"],
         sample_rate=config["sample_rate"], max_audio_len=config["max_audio_len"],
