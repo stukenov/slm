@@ -19,18 +19,8 @@ def load_speech_dataset(name="fleurs", split="train", max_samples=None, **kwargs
         ds = load_dataset("mozilla-foundation/common_voice_17_0", "kk",
                           split=split, trust_remote_code=True)
     elif name == "kzcalm":
-        # stukenov/kzcalm-tts-kk-v1: filter neutral emotion, deduplicate by text
-        speaker = kwargs.get("speaker", "M1")
+        # stukenov/kzcalm-tts-kk-v1: 232K samples, 439h, all speakers and emotions
         ds = load_dataset("stukenov/kzcalm-tts-kk-v1", split="train", trust_remote_code=True)
-        ds = ds.filter(lambda x: x["emotion"] == "neutral" and x["speaker_id"] == speaker)
-        # Deduplicate by text (keep first occurrence)
-        seen = set()
-        keep_idx = []
-        for i, sample in enumerate(ds):
-            if sample["text"] not in seen:
-                seen.add(sample["text"])
-                keep_idx.append(i)
-        ds = ds.select(keep_idx)
         n = len(ds)
         if split == "train":
             ds = ds.select(range(int(n * 0.94)))

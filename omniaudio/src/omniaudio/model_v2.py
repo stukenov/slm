@@ -353,7 +353,7 @@ class OmniAudioScratchModel(nn.Module):
 
     @torch.no_grad()
     def generate(self, mel: torch.Tensor, max_new_tokens: int = 200,
-                 eos_token_id: int = 0) -> list[int]:
+                 eos_token_id: int = 0, repetition_penalty: float = 1.2) -> list[int]:
         self.eval()
         enc_out = self.encoder(mel)
         audio_embeds = self.projector(enc_out)  # (1, T_audio, dec_dim)
@@ -367,7 +367,16 @@ class OmniAudioScratchModel(nn.Module):
             for layer in self.decoder_layers:
                 x = layer(x, cos, sin)
             x = self.decoder_norm(x)
-            logits = self.lm_head(x[:, -1:])
+            logits = self.lm_head(x[:, -1:]).squeeze(0).squeeze(0)  # (vocab,)
+
+            # Repetition penalty
+            if repetition_penalty != 1.0 and generated:
+                for prev_token in set(generated):
+                    if logits[prev_token] > 0:
+                        logits[prev_token] /= repetition_penalty
+                    else:
+                        logits[prev_token] *= repetition_penalty
+
             next_token = logits.argmax(dim=-1).item()
             if next_token == eos_token_id:
                 break
