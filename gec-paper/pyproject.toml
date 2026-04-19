@@ -1,0 +1,22 @@
+[project]
+name = "gecpaper"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.40",
+    "datasets>=2.18",
+    "openai>=1.0",
+    "tqdm",
+    "huggingface-hub>=0.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+morph = ["apertium-streamparser"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,9 @@
+data/
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+.venv/
+outputs/
+logs/
+wandb/

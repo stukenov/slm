@@ -1,0 +1,15 @@
+model_name: facebook/nllb-200-distilled-600M
+data_path: data/synthetic.jsonl
+output_dir: outputs/round1_nllb_baseline
+num_train_epochs: 3
+batch_size: 16
+gradient_accumulation_steps: 2
+learning_rate: 3e-5
+warmup_ratio: 0.05
+weight_decay: 0.01
+bf16: true
+max_source_length: 256
+max_target_length: 256
+logging_steps: 50
+save_steps: 500
+report_to: none

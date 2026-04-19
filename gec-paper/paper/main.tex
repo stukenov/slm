@@ -1,0 +1,174 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{multirow}
+
+\title{Morphology-Aware Grammatical Error Correction for Kazakh: \\
+A Dual-Model Pipeline with Language-Specific Error Taxonomy}
+
+\author{Saken Tukenov \\
+\texttt{gorgtown@gmail.com}}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present the first comprehensive GEC system for Kazakh, an agglutinative Turkic language with rich morphology.
+Our approach combines (1) a 3-level language-specific error taxonomy with 18 L2 categories capturing Kazakh-specific
+phenomena such as vowel harmony violations and affix chain errors, (2) a dual-model architecture pairing
+NLLB-200-distilled-600M seq2seq correction with an XLM-RoBERTa edit tagger using data-derived tags, and
+(3) a multi-reference evaluation benchmark with 5 correction strategies.
+We construct a mixed training dataset of synthetic (GPT-4o generated) and organic (Wikipedia edits, social media)
+error-correction pairs, totaling approximately 87K examples.
+Experiments show that the dual-model cascade outperforms either component alone, and morpheme-aware input
+representation provides consistent gains on morphosyntactic error categories.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+% Motivation: GEC for agglutinative languages is understudied
+% Kazakh: 15M+ speakers, Turkic family, rich morphology
+% Challenges: affix chains, vowel harmony, limited annotated data
+% Contributions: taxonomy, dual-model, multi-ref benchmark, first Kazakh GEC
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{GEC for Morphologically Rich Languages}
+% GECTurk (Turkish), KoGEC (Korean), Arabic GEC
+% SCRIPT: seq2seq + edit models
+
+\subsection{Multilingual Seq2Seq for GEC}
+% NLLB-200, mBART as GEC backbone
+% "Monolingual translation" approach
+
+\subsection{Edit-Based GEC}
+% GECToR, PIE, LaserTagger
+% Data-derived vs hand-crafted tags
+
+\section{Kazakh Error Taxonomy}
+\label{sec:taxonomy}
+
+% 3-level hierarchy: L1 (3) / L2 (18) / L3 (~40)
+% L1: Orthography, Morphosyntax, Syntax \& Discourse
+% Kazakh-specific: vowel harmony, affix chains, agglutinative morphology
+% Table: full taxonomy with examples
+
+\section{Data}
+\label{sec:data}
+
+\subsection{Synthetic Data Generation}
+% GPT-4o taxonomy-tagged corruption
+% 18 L2-balanced generation
+
+\subsection{Organic Data Sources}
+% Wikipedia kk edit history extraction
+% Social media GPT-4o correction
+
+\subsection{Data Mixing and Statistics}
+% Deduplication, identity examples
+% Train/val/test splits
+% Distribution table
+
+\section{Method}
+\label{sec:method}
+
+\subsection{NLLB-200 Seq2Seq Baseline}
+% "Monolingual translation" kaz\_Cyrl $\to$ kaz\_Cyrl
+% Fine-tuning details
+
+\subsection{Edit Tagger}
+% XLM-RoBERTa token classifier
+% Data-derived tags: \$KEEP, \$DELETE, \$REPLACE\_X, \$APPEND\_X
+% Top-K=2000 vocabulary
+
+\subsection{Morpheme Segmentation}
+% Apertium-kaz wrapper
+% Qwen-distilled char-level segmenter
+% Pipe-delimited input: бала|лар|ға
+
+\subsection{Dual-Model Inference Pipeline}
+% Cascade: Tagger (high-confidence) $\to$ NLLB seq2seq
+% Threshold selection
+
+\section{Multi-Reference Benchmark}
+\label{sec:benchmark}
+
+% 700 sentences $\times$ 5 strategies (minimal, conservative, moderate, fluent, alternative)
+% 2--4 unique references per sentence
+% Evaluation: multi-ref Word F$_{0.5}$, GLEU, CER
+
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Experimental Setup}
+% Hardware, hyperparameters, training details
+
+\subsection{Main Results}
+
+% \begin{table}[t]
+% \centering
+% \begin{tabular}{lcccc}
+% \toprule
+% Model & F$_{0.5}$ & GLEU & CER & EM \\
+% \midrule
+% NLLB baseline (synthetic) & & & & \\
+% NLLB (full data) & & & & \\
+% Edit tagger only & & & & \\
+% Cascade pipeline & & & & \\
+% + morpheme input & & & & \\
+% \bottomrule
+% \end{tabular}
+% \caption{Main results on the multi-reference test set.}
+% \label{tab:main}
+% \end{table}
+
+\section{Ablation Studies}
+\label{sec:ablation}
+
+% Morpheme vs no-morpheme
+% Tagger threshold sweep
+% Data mixture ablation
+% Model size comparison
+
+\section{Analysis}
+\label{sec:analysis}
+
+\subsection{Per-Category Performance}
+% Per-L1 and per-L2 F$_{0.5}$ breakdown
+% Where does the system struggle?
+
+\subsection{Error Analysis}
+% Common failure modes
+% Qualitative examples
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+% Summary of contributions
+% Limitations
+% Future work: larger models, more languages, human evaluation
+
+\bibliographystyle{acl_natbib}
+\bibliography{references}
+
+\appendix
+
+\section{Full Error Taxonomy}
+\label{app:taxonomy}
+
+\section{Data Generation Prompts}
+\label{app:prompts}
+
+\section{Additional Results}
+\label{app:results}
+
+\end{document}

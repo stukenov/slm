@@ -1,0 +1,14 @@
+model_name: xlm-roberta-base
+data_path: data/mixed/train.jsonl
+output_dir: outputs/round2_tagger
+top_k_tags: 2000
+num_train_epochs: 5
+batch_size: 32
+learning_rate: 5e-5
+warmup_ratio: 0.1
+weight_decay: 0.01
+bf16: true
+max_length: 256
+logging_steps: 50
+save_steps: 500
+report_to: wandb
