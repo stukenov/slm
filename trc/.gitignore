@@ -1,0 +1,4 @@
+# Never commit credentials!
+credentials/
+*.json
+!package.json

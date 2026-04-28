@@ -1,0 +1,32 @@
+{
+  "base_model": "TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T",
+  "dataset": "kz-transformers/multidomain-kazakh-dataset",
+  "original_vocab_size": 32000,
+  "sp_new_vocab_size": 20000,
+  "new_pieces_added": 10000,
+  "final_vocab_size": 42048,
+  "padded_to": 42048,
+  "init_method": "subword_mean_eeve",
+  "tokens_initialized_subword": 10000,
+  "tokens_initialized_mean": 48,
+  "fertility": {
+    "kaz": {
+      "before": 4.0,
+      "after": 1.17,
+      "tokens_before": 24,
+      "tokens_after": 7
+    },
+    "rus": {
+      "before": 2.0,
+      "after": 1.29,
+      "tokens_before": 14,
+      "tokens_after": 9
+    },
+    "eng": {
+      "before": 1.22,
+      "after": 1.0,
+      "tokens_before": 11,
+      "tokens_after": 9
+    }
+  }
+}

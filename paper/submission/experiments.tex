@@ -1,0 +1,77 @@
+\section{Experiments}
+\label{sec:experiments}
+
+We evaluate the SozKZ models and a set of multilingual competitors on
+three Kazakh benchmarks covering question answering, reading comprehension,
+and topic classification. All evaluations are conducted in a zero-shot setting.
+
+% ---------------------------------------------------------------------------
+\subsection{Benchmarks}
+\label{sec:benchmarks}
+
+\paragraph{MC QA.}
+Multiple-choice question answering on the \texttt{kk-socio-cultural-bench-mc}
+dataset (7,111 questions across 18 categories of Kazakh culture, history, and
+traditions). Each question has 4~answer choices. We score using full answer text
+likelihood---the sum of log-probabilities over all tokens in each candidate
+answer, length-normalized---rather than single-token logit comparison, which
+would be biased by tokenizer vocabulary alignment. Random baseline: 25\%.
+
+\paragraph{Belebele.}
+Reading comprehension from the Belebele benchmark~\citep{bandarkar2023belebele}
+(\texttt{kaz\_Cyrl} subset). Each item presents a passage and a question with
+4~multiple-choice answers. Scoring uses full answer text likelihood as in MC~QA.
+Random baseline: 25\%.
+
+\paragraph{SIB-200.}
+Topic classification on the Kazakh subset of the SIB-200
+benchmark~\citep{adelani2024sib200}. Each text is assigned to one of 7~topic
+categories. Scoring uses logit-based classification with Kazakh topic labels.
+Random baseline: 14.3\%.
+
+% ---------------------------------------------------------------------------
+\subsection{Models}
+\label{sec:models}
+
+We evaluate 9~models organized into two groups.
+
+\paragraph{SozKZ family (ours).}
+Four Kazakh-only models trained from scratch on ${\sim}9.0$B~Kazakh tokens,
+as described in \Cref{sec:methodology}: SozKZ-50M, SozKZ-150M,
+SozKZ-300M, and SozKZ-600M. These models range from 50M to 587M
+parameters and use a dedicated Kazakh BPE tokenizer with 50K vocabulary.
+
+\paragraph{Multilingual competitors.}
+Five general-purpose multilingual models that include Kazakh in their training
+mixture but are not specialized for it:
+\begin{itemize}
+  \item Qwen-2.5 (0.5B, 1.5B)~\citep{bai2023qwen},
+  \item Llama-3.2 (1B, 3B)~\citep{touvron2023llama2},
+  \item Gemma-2 (2B)~\citep{team2024gemma}.
+\end{itemize}
+All competitor models are base (not instruction-tuned) variants evaluated using
+their native tokenizers and default configurations. We deliberately compare
+against models up to 3B parameters---the range where a dedicated 600M model
+could plausibly compete---rather than 7B+ models where the parameter advantage
+becomes overwhelming.
+
+% ---------------------------------------------------------------------------
+\subsection{Evaluation Protocol}
+\label{sec:protocol}
+
+All evaluations use the same pipeline (\texttt{scripts/eval/}) to ensure
+consistency. Key protocol details:
+
+\begin{itemize}
+  \item \textbf{Logit-based scoring} for all tasks. No text generation is
+        required, which eliminates sensitivity to decoding hyperparameters
+        and enables fair comparison across base models.
+  \item \textbf{Full answer likelihood} for multiple-choice tasks: each
+        candidate answer is scored by the sum of its token log-probabilities
+        conditioned on the question, normalized by token count.
+  \item \textbf{Zero-shot} evaluation for all tasks and models---no in-context
+        examples or task-specific fine-tuning.
+  \item \textbf{Base models only}: both SozKZ and competitor models are
+        evaluated in their pretrained form, ensuring the comparison
+        reflects pretraining quality rather than fine-tuning strategies.
+\end{itemize}

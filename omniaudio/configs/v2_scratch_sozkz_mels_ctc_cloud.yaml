@@ -1,0 +1,27 @@
+# Stage 1: CTC Pre-train Encoder (cloud, resume from kaznu checkpoint)
+inherits: v2_base
+experiment_name: omniaudio_v2_ctc_cloud
+model_type: scratch
+stage: ctc_pretrain
+dataset_name: sozkz_mels
+init_from: ./checkpoints/ctc_pretrain_best
+audio_d_model: 256
+audio_n_heads: 4
+audio_n_layers: 6
+audio_n_conv: 2
+decoder_d_model: 512
+decoder_n_heads: 8
+decoder_n_layers: 8
+ctc_weight: 1.0
+max_audio_len: 10.0
+per_device_train_batch_size: 64
+gradient_accumulation_steps: 1
+dataloader_num_workers: 8
+learning_rate: 2e-4
+warmup_ratio: 0.02
+weight_decay: 0.01
+num_train_epochs: 7
+save_steps: 10000
+eval_steps: 10000
+logging_steps: 100
+augment: false

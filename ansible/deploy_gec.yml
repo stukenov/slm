@@ -1,0 +1,58 @@
+---
+- name: Deploy gec-paper to GPU server and train NLLB baseline
+  hosts: gpu_servers
+  vars:
+    gec_dir: "{{ project_dir }}/gec-paper"
+    venv_path: "{{ gec_dir }}/.venv"
+
+  tasks:
+    - name: Sync gec-paper files to server
+      synchronize:
+        src: "{{ playbook_dir }}/../gec-paper/"
+        dest: "{{ gec_dir }}/"
+        rsync_opts:
+          - "--exclude=.git"
+          - "--exclude=.venv"
+          - "--exclude=__pycache__"
+          - "--exclude=*.egg-info"
+          - "--exclude=*.pyc"
+          - "--exclude=outputs"
+          - "--exclude=.pytest_cache"
+        delete: false
+
+    - name: Create venv for gec-paper
+      command: python3 -m venv {{ venv_path }}
+      args:
+        creates: "{{ venv_path }}/bin/activate"
+
+    - name: Upgrade pip
+      command: "{{ venv_path }}/bin/pip install --upgrade pip"
+
+    - name: Install gec-paper with deps
+      command: "{{ venv_path }}/bin/pip install -e '.[dev]'"
+      args:
+        chdir: "{{ gec_dir }}"
+
+    - name: Install extra training deps
+      command: "{{ venv_path }}/bin/pip install pyyaml accelerate wandb"
+      args:
+        chdir: "{{ gec_dir }}"
+
+    - name: Create output dirs
+      file:
+        path: "{{ gec_dir }}/{{ item }}"
+        state: directory
+      loop:
+        - outputs
+        - logs
+        - data
+
+    - name: Run tests
+      command: "{{ venv_path }}/bin/python -m pytest tests/ -v"
+      args:
+        chdir: "{{ gec_dir }}"
+      register: test_result
+
+    - name: Show test results
+      debug:
+        var: test_result.stdout_lines

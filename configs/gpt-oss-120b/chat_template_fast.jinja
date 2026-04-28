@@ -1,0 +1,12 @@
+{%- for message in messages %}
+{%- if message.role == 'system' %}
+<|start|>system<|message|>{{ message.content }}<|end|>
+{%- elif message.role == 'user' %}
+<|start|>user<|message|>{{ message.content }}<|end|>
+{%- elif message.role == 'assistant' %}
+<|start|>assistant<|channel|>final<|message|>{{ message.content }}<|end|>
+{%- endif %}
+{%- endfor %}
+{%- if add_generation_prompt %}
+<|start|>assistant<|channel|>final<|message|>
+{%- endif %}

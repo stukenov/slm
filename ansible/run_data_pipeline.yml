@@ -1,0 +1,151 @@
+---
+- name: "exp028: Full data cleaning pipeline (filter + PPL score + tokenize)"
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+    log_dir: "{{ project_dir }}/logs"
+    filter_script: "{{ project_dir }}/scripts/data/filter_foreign_chars.py"
+    ppl_script: "{{ project_dir }}/scripts/data/ppl_score_dataset.py"
+    tokenize_script: "{{ project_dir }}/scripts/tokenizer/tokenize_dataset.py"
+
+    # Output repos
+    kk_filtered: "stukenov/sozkz-corpus-clean-kk-text-v4"
+    enkk_filtered: "stukenov/sozkz-corpus-clean-enkk-fineweb-edu-v2"
+    kk_ppl_filtered: "stukenov/sozkz-corpus-clean-kk-text-v5"
+    enkk_ppl_filtered: "stukenov/sozkz-corpus-clean-enkk-fineweb-edu-v3"
+    kk_tokenized: "stukenov/sozkz-corpus-tokenized-kk-llama50k-v4"
+    enkk_tokenized: "stukenov/sozkz-corpus-tokenized-enkk-fineweb-edu-v2"
+    tokenizer_name: "stukenov/sozkz-core-gpt2-50k-kk-base-v1"
+
+  tasks:
+    # --- Step 0: Sync code ---
+    - name: Sync project scripts
+      synchronize:
+        src: "{{ playbook_dir }}/../scripts/"
+        dest: "{{ project_dir }}/scripts/"
+        rsync_opts:
+          - "--exclude=__pycache__"
+
+    - name: Create log directory
+      file:
+        path: "{{ log_dir }}"
+        state: directory
+
+    # --- Step 1: Filter foreign chars + encoding + latin + repetition ---
+    - name: "Step 1a: Filter KK dataset (latin>5%, encoding, foreign chars, repetition)"
+      shell: >
+        {{ python }} {{ filter_script }} --run --dataset kk
+        --output-kk {{ kk_filtered }}
+        2>&1 | tee {{ log_dir }}/filter_kk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 14400
+      poll: 60
+      register: filter_kk
+
+    - name: Show KK filter results
+      debug:
+        msg: "{{ filter_kk.stdout_lines[-10:] }}"
+
+    - name: "Step 1b: Filter ENKK dataset"
+      shell: >
+        {{ python }} {{ filter_script }} --run --dataset enkk
+        --output-enkk {{ enkk_filtered }}
+        2>&1 | tee {{ log_dir }}/filter_enkk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 14400
+      poll: 60
+      register: filter_enkk
+
+    - name: Show ENKK filter results
+      debug:
+        msg: "{{ filter_enkk.stdout_lines[-10:] }}"
+
+    # --- Step 2: PPL scoring + filter P90 ---
+    - name: "Step 2a: PPL score + filter KK (keep P90)"
+      shell: >
+        {{ python }} {{ ppl_script }} --run --dataset kk
+        --dataset-name {{ kk_filtered }}
+        --percentile 90 --output {{ kk_ppl_filtered }}
+        2>&1 | tee {{ log_dir }}/ppl_filter_kk.log
+      args:
+        chdir: "{{ project_dir }}"
+      environment:
+        HF_DATASETS_CACHE: "/root/.cache/huggingface/datasets"
+      async: 43200
+      poll: 120
+      register: ppl_kk
+
+    - name: Show KK PPL filter results
+      debug:
+        msg: "{{ ppl_kk.stdout_lines[-10:] }}"
+
+    - name: "Step 2b: PPL score + filter ENKK (keep P90)"
+      shell: >
+        {{ python }} {{ ppl_script }} --run --dataset enkk
+        --dataset-name {{ enkk_filtered }}
+        --percentile 90 --output {{ enkk_ppl_filtered }}
+        2>&1 | tee {{ log_dir }}/ppl_filter_enkk.log
+      args:
+        chdir: "{{ project_dir }}"
+      environment:
+        HF_DATASETS_CACHE: "/root/.cache/huggingface/datasets"
+      async: 43200
+      poll: 120
+      register: ppl_enkk
+
+    - name: Show ENKK PPL filter results
+      debug:
+        msg: "{{ ppl_enkk.stdout_lines[-10:] }}"
+
+    # --- Step 3: Tokenize ---
+    - name: "Step 3a: Tokenize KK dataset (BPE 50K, block_size=1024)"
+      shell: >
+        {{ python }} {{ tokenize_script }}
+        --dataset {{ kk_ppl_filtered }}
+        --tokenizer {{ tokenizer_name }}
+        --output {{ kk_tokenized }}
+        --block-size 1024 --num-proc 8
+        2>&1 | tee {{ log_dir }}/tokenize_kk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 120
+      register: tok_kk
+
+    - name: Show KK tokenization results
+      debug:
+        msg: "{{ tok_kk.stdout_lines[-10:] }}"
+
+    - name: "Step 3b: Tokenize ENKK dataset"
+      shell: >
+        {{ python }} {{ tokenize_script }}
+        --dataset {{ enkk_ppl_filtered }}
+        --tokenizer {{ tokenizer_name }}
+        --output {{ enkk_tokenized }}
+        --text-column "text_en,text_kk"
+        --block-size 1024 --num-proc 8
+        2>&1 | tee {{ log_dir }}/tokenize_enkk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 120
+      register: tok_enkk
+
+    - name: Show ENKK tokenization results
+      debug:
+        msg: "{{ tok_enkk.stdout_lines[-10:] }}"
+
+    - name: Pipeline complete summary
+      debug:
+        msg: |
+          ============================================================
+          DATA PIPELINE COMPLETE
+          ============================================================
+          Step 1 - Char filter:  KK → {{ kk_filtered }}, ENKK → {{ enkk_filtered }}
+          Step 2 - PPL filter:   KK → {{ kk_ppl_filtered }}, ENKK → {{ enkk_ppl_filtered }}
+          Step 3 - Tokenized:    KK → {{ kk_tokenized }}, ENKK → {{ enkk_tokenized }}
+          ============================================================
+          Ready for training exp028!

@@ -1,0 +1,203 @@
+# name: str
+#     model_name: str
+#     endpoints: default to null
+#         - api_base: str
+#           api_key: str optional (required if no api_key_ENV)
+#           api_key_ENV: str optional (ENV name to store the token secret)
+#           api_version: str optional (only for azure)
+#     api_type: str
+#     tokenizer: str optional (to optimize token limits)
+#     parallel: int
+
+gpt-4-1106-preview:
+    model_name: gpt-4-1106-preview
+    endpoints:
+        - api_base: https://cgiaura-openai-trainning.openai.azure.com
+          api_key_ENV: GPT_4_TOKEN
+          api_version: 2024-02-15-preview
+    api_type: azure
+    parallel: 5
+
+gpt-3.5-turbo-0125:
+    model_name: gpt-3.5-turbo-0125
+    endpoints:
+        - api_base: https://api.openai.com/v1/
+          api_key_ENV: GPT_3_TOKEN
+    api_type: openai
+    parallel: 6
+
+gpt-3.5-turbo-0125-ru-sys:
+    model_name: gpt-3.5-turbo-0125
+    endpoints:
+        - api_base: https://api.openai.com/v1/
+          api_key_ENV: GPT_3_TOKEN
+    system_prompt: You are a helpful assistant. Answer on Russian.
+    api_type: openai
+    parallel: 6
+
+yandex_gpt_pro:
+    model_name: yandexgpt
+    endpoints:
+        - catalog_id: b1gk1i41eeb97a5s68c7
+          iam_token_ENV: YANDEX_GPT_TOKEN
+    api_type: yandex
+    parallel: 2
+
+gigachat_lite:
+    model_name: GigaChat
+    endpoints:
+          auth_token_ENV: GIGACHAT_GPT_TOKEN
+    api_type: gigachat
+    parallel: 1
+
+gigachat_pro:
+    model_name: GigaChat-Pro
+    endpoints:
+          auth_token_ENV: GIGACHAT_GPT_TOKEN
+    api_type: gigachat
+    parallel: 1
+
+meta-llama-3-70b-instruct-gptq:
+    model_name: MaziyarPanahi/Meta-Llama-3-70B-Instruct-GPTQ
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+snorkel-mistral-pairrm-dpo:
+    model_name: snorkelai/Snorkel-Mistral-PairRM-DPO
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+sfr-iterative-dpo-llama-3-8b-r:
+    model_name: Salesforce/SFR-Iterative-DPO-LLaMA-3-8B-R
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+openchat-3.5-0106:
+    model_name: openchat/openchat-3.5-0106
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+mixtral-8x7b-instruct-v0.1:
+    model_name: LoneStriker/Mixtral-8x7B-Instruct-v0.1-HF
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 4
+
+neural-chat-7b-v3-3:
+    model_name: Intel/neural-chat-7b-v3-3
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+meta-llama-3-8b-instruct:
+    model_name: meta-llama/Meta-Llama-3-8B-Instruct
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+saiga_llama3_8b:
+    model_name: IlyaGusev/saiga_llama3_8b
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+hermes-2-pro-llama-3-8b:
+    model_name: NousResearch/Hermes-2-Pro-Llama-3-8B
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+dpopenhermes-7b:
+    model_name: openaccess-ai-collective/DPOpenHermes-7B
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+llama3-chatqa-1.5-8b:
+    model_name: nvidia/Llama3-ChatQA-1.5-8B
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+hermes-2-pro-mistral-7b:
+    model_name: NousResearch/Hermes-2-Pro-Mistral-7B
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+suzume-llama-3-8b-multilingual:
+    model_name: lightblue/suzume-llama-3-8B-multilingual
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+vikhr-7b-instruct_0.4:
+    model_name: Vikhrmodels/Vikhr-7B-instruct_0.4
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+vikhr-it-5.2-fp16-cp:
+    model_name: Vikhrmodels/it-5.2-fp16-cp
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    system_prompt: Ты — Вихрь, русскоязычный ассистент.
+    parallel: 6
+
+starling-lm-7b-beta:
+    model_name: Nexusflow/Starling-LM-7B-beta
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+c4ai-command-r-v01:
+    model_name: CohereForAI/c4ai-command-r-v01
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 6
+
+starcoder2-15b-instruct-v0.1:
+    model_name: bigcode/starcoder2-15b-instruct-v0.1
+    endpoints:
+        - api_base: http://localhost:8000/v1
+          api_key: token-abc123
+    api_type: openai
+    parallel: 3

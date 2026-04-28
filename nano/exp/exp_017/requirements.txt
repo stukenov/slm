@@ -1,0 +1,6 @@
+tokenizers>=0.20.0
+transformers>=4.45.0
+datasets>=3.0.0
+morfessor>=2.0.6
+apertium-streamparser>=6.0.0
+tqdm

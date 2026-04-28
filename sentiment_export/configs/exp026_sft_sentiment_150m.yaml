@@ -1,0 +1,46 @@
+# ============================================================================
+# exp026: Sentiment Classification SFT for Llama 150M
+# Task: Binary sentiment (positive/negative) using <sentiment> tag
+# Init: stukenov/sozkz-core-llama-150m-kk-base-v1
+# Dataset: stukenov/sozkz-corpus-kazsandra-sentiment-v1 (from issai/kazsandra)
+# Format: <sentiment>text</sentiment>\n → positive/negative
+# Goal: Smaller sentiment model, compare with 600M (exp025)
+# ============================================================================
+inherits: base
+
+experiment_name: exp026_sft_sentiment_150m
+task: sft
+
+init_from: stukenov/sozkz-core-llama-150m-kk-base-v1
+tokenizer_path: stukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+sft_dataset: stukenov/sozkz-corpus-kazsandra-sentiment-v1
+sft_format: classify
+classify_tag: sentiment
+max_length: 512
+
+# 4x RTX 4090 (24GB each), 150M model — fits easily
+# Effective batch: 16 × 4 × 2 = 128
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 2
+dataloader_num_workers: 8
+dataloader_pin_memory: true
+
+learning_rate: 2e-5
+weight_decay: 0.01
+num_train_epochs: 3
+warmup_ratio: 0.03
+lr_scheduler_type: cosine
+max_grad_norm: 1.0
+
+# Minimal IO overhead
+eval_steps: 300
+save_steps: 300
+logging_steps: 50
+save_total_limit: 2
+
+bf16: true
+
+# HF publish
+hf_repo: stukenov/sozkz-core-llama-150m-kk-sentiment-v1

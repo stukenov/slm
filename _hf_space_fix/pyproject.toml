@@ -1,0 +1,54 @@
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
+ignore=["I","EM","FBT","TRY003","S101","D101","D102","D103","D104","D105","G004","D107","FA102"]
+fixable=["ALL"]
+select=["ALL"]
+
+[tool.ruff.lint]
+select = ["E", "F"]
+fixable = ["ALL"]
+ignore = ["E501"] # line too long (black is taking care of this)
+
+[tool.isort]
+profile = "black"
+line_length = 119
+
+[tool.black]
+line-length = 119
+
+[tool.poetry]
+package-mode = false
+name = "open-llm-leaderboard"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.1"
+apscheduler = "3.10.1"
+black = "23.11.0"
+click = "8.1.3"
+datasets = "2.14.5"
+huggingface-hub = ">=0.18.0"
+matplotlib = "3.8.4"
+numpy = "1.26.0"
+pandas = "2.2.2"
+plotly = "5.14.1"
+python-dateutil = "2.8.2"
+requests = "2.28.2"
+sentencepiece = "^0.2.0"
+tqdm = "4.65.0"
+transformers = "4.40.0"
+tokenizers = ">=0.15.0"
+gradio-space-ci = {git = "https://huggingface.co/spaces/Wauplin/gradio-space-ci", rev = "0.2.3"}
+gradio = " 4.20.0"
+isort = "^5.13.2"
+ruff = "^0.3.5"
+gradio-leaderboard = "0.0.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

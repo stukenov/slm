@@ -1,0 +1,33 @@
+---
+- name: Run SFT 1B instruct fine-tuning
+  hosts: kaznu
+  gather_facts: false
+  vars:
+    ansible_ssh_common_args: '-o ConnectTimeout=180'
+  tasks:
+    - name: Copy SFT script
+      copy:
+        src: ../autoresearch/sft_1b.py
+        dest: /root/slm/autoresearch/sft_1b.py
+
+    - name: Install deps
+      pip:
+        name:
+          - datasets
+          - accelerate
+        virtualenv: /root/slm/.venv
+        state: present
+
+    - name: Run SFT in screen
+      shell: |
+        cd /root/slm
+        source .venv/bin/activate
+        export HF_TOKEN=$(cat ~/.cache/huggingface/token)
+        screen -dmS sft bash -c 'cd /root/slm && source .venv/bin/activate && export HF_TOKEN=$(cat ~/.cache/huggingface/token) && python3 autoresearch/sft_1b.py --base-revision step-16000 --epochs 3 --lr 2e-5 --batch-size 2 --grad-accum 16 2>&1 | tee /tmp/sft.log'
+        sleep 5
+        screen -ls
+      register: screen_out
+
+    - name: Show screen output
+      debug:
+        var: screen_out.stdout_lines

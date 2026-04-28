@@ -1,0 +1,13 @@
+{
+  "updated_at": "2026-04-12T11:39:40.240658+00:00",
+  "reason": "inventory_complete",
+  "target_chunk_count": 5500,
+  "stats": {
+    "selected_videos": 113,
+    "processed_videos": 0,
+    "rejected_videos": 0,
+    "uploaded_chunks": 0,
+    "uploaded_shards": 0,
+    "seen_videos": 0
+  }
+}

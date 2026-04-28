@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+
+% --- Encoding & Language ---
+\usepackage{fontspec}
+\usepackage[english,russian]{babel}
+
+% --- Layout ---
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+
+% --- Math ---
+\usepackage{amsmath,amssymb}
+
+% --- Figures & Tables ---
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{xcolor}
+
+% --- References ---
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% --- Auto-generated macros (Phase 2) ---
+% Regenerate with: cd .. && PYTHONPATH=. python scripts/analysis/generate_all.py
+\input{macros}
+
+% --- Custom commands ---
+\newcommand{\sozkz}{\textsc{SozKZ}}
+\newcommand{\modelname}[1]{\textsc{#1}}
+
+\graphicspath{{figures/}}
+
+\title{\sozkz{}: Training Efficient Small Language Models\\for Kazakh from Scratch}
+\author{Saken Tukenov\\Independent Researcher\\\texttt{saken@tukenov.kz}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\input{abstract}
+\input{introduction}
+\input{related}
+\input{methodology}
+\input{experiments}
+\input{results}
+\input{conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

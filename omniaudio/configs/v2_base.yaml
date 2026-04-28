@@ -15,3 +15,11 @@ bf16: true
 dataloader_num_workers: 4
 max_grad_norm: 1.0
 label_smoothing: 0.1
+text_lowercase: false
+text_strip_punctuation: false
+text_collapse_whitespace: true
+decode_repetition_penalty: 1.15
+decode_no_repeat_ngram_size: 3
+chunked_inference: false
+chunk_audio_len: 15.0
+chunk_overlap_sec: 3.0

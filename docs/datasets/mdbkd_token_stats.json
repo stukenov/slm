@@ -1,0 +1,58 @@
+{
+  "dataset": "kz-transformers/multidomain-kazakh-dataset",
+  "tokenizer": "TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T",
+  "vocab_size": 32000,
+  "seed": 42,
+  "total_rows": 24883808,
+  "total_tokens": 6173131446,
+  "total_tokens_billions": 6.173,
+  "elapsed_seconds": 2944.8,
+  "per_language": {
+    "kaz": {
+      "rows": 21940051,
+      "rows_pct": 88.17,
+      "tokens": 3682298071,
+      "tokens_billions": 3.682,
+      "tokens_pct": 59.65,
+      "chars": 6325777578,
+      "avg_tokens_per_row": 167.8,
+      "avg_chars_per_row": 288.3,
+      "tokens_per_char": 0.582,
+      "length_p50": 46,
+      "length_p95": 363,
+      "length_p99": 1363
+    },
+    "rus": {
+      "rows": 2943757,
+      "rows_pct": 11.83,
+      "tokens": 2490833375,
+      "tokens_billions": 2.491,
+      "tokens_pct": 40.35,
+      "chars": 6825927806,
+      "avg_tokens_per_row": 846.1,
+      "avg_chars_per_row": 2318.8,
+      "tokens_per_char": 0.365,
+      "length_p50": 488,
+      "length_p95": 2158,
+      "length_p99": 4662
+    }
+  },
+  "fertility_kaz": {
+    "text": "Қазақстан Республикасы — Орталық Азиядағы мемлекет",
+    "words": 6,
+    "tokens": 24,
+    "fertility": 4.0
+  },
+  "fertility_rus": {
+    "text": "Республика Казахстан — государство в Центральной Азии",
+    "words": 7,
+    "tokens": 14,
+    "fertility": 2.0
+  },
+  "fertility_eng": {
+    "text": "Republic of Kazakhstan — a state in Central Asia",
+    "words": 9,
+    "tokens": 11,
+    "fertility": 1.22
+  }
+}

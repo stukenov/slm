@@ -29,6 +29,20 @@ dev = [
 cloud = [
     "vastai>=0.2",
 ]
+audio_collect = [
+    "yt-dlp>=2024.0.0",
+    "demucs>=4.0",
+    "faster-whisper>=1.1",
+    "silero-vad>=5.1",
+    "soundfile>=0.12",
+    "noisereduce>=3.0",
+    "numpy>=1.24",
+]
+review = [
+    "streamlit>=1.35",
+    "soundfile>=0.12",
+    "numpy>=1.24",
+]
 
 [build-system]
 requires = ["hatchling"]

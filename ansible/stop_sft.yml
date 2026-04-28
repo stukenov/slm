@@ -1,0 +1,18 @@
+---
+- name: Stop SFT on kaznu
+  hosts: kaznu
+  gather_facts: false
+  vars:
+    ansible_ssh_common_args: '-o ConnectTimeout=180'
+  tasks:
+    - name: Kill SFT screen
+      shell: screen -S sft -X quit 2>/dev/null; pkill -f sft_1b.py || true
+      register: kill_out
+
+    - name: Verify stopped
+      shell: ps aux | grep sft_1b | grep -v grep | wc -l
+      register: proc_out
+
+    - name: Show
+      debug:
+        msg: "SFT processes remaining: {{ proc_out.stdout }}"

@@ -13,6 +13,7 @@ dependencies = [
     "transformers>=5.0",
     "safetensors>=0.4",
     "requests>=2.31",
+    "runpod>=1.7",
 ]
 
 [tool.uv.sources]

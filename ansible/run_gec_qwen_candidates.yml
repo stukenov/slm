@@ -1,0 +1,100 @@
+---
+- name: Run synthetic Kazakh GEC candidate generation on kaznu
+  hosts: kaznu
+  gather_facts: false
+  vars:
+    work_dir: /root/slm
+    venv: /root/slm/.venv
+    screen_name: gec_qwen_candidates
+    output_dir: /root/gec_qwen_candidates_prod
+    seed_file_local: /tmp/gec_seeds_repo_local_kk.txt
+    seed_file_remote: /root/gec_seeds_repo_local_kk.txt
+    cloudrift_key_local: "{{ lookup('env', 'HOME') }}/.config/cloudrift/api_key"
+    cloudrift_key_remote: /root/.config/cloudrift/api_key
+    target_pairs: 30000
+    concurrency: 4
+    min_interval: 0.8
+    budget_usd: 0
+    action: start
+
+  tasks:
+    - name: Ensure remote directories exist
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: "0755"
+      loop:
+        - "{{ work_dir }}/scripts/data"
+        - "{{ work_dir }}/logs"
+        - /root/.config/cloudrift
+      when: action == "start"
+
+    - name: Upload generator script
+      copy:
+        src: ../scripts/data/gec_generate_qwen_cloudrift.py
+        dest: "{{ work_dir }}/scripts/data/gec_generate_qwen_cloudrift.py"
+        mode: "0755"
+      when: action == "start"
+
+    - name: Upload seed file
+      copy:
+        src: "{{ seed_file_local }}"
+        dest: "{{ seed_file_remote }}"
+        mode: "0644"
+      when: action == "start"
+
+    - name: Upload CloudRift API key
+      copy:
+        src: "{{ cloudrift_key_local }}"
+        dest: "{{ cloudrift_key_remote }}"
+        mode: "0600"
+      when: action == "start"
+
+    - name: Stop previous screen session
+      shell: |
+        screen -S {{ screen_name }} -X quit 2>/dev/null || true
+        pkill -f 'gec_generate_qwen_cloudrift.py.*{{ output_dir }}' 2>/dev/null || true
+        sleep 1
+      failed_when: false
+      when: action == "start"
+
+    - name: Start generation in screen
+      shell: |
+        screen -dmS {{ screen_name }} bash -lc '
+          cd {{ work_dir }} &&
+          source {{ venv }}/bin/activate &&
+          python3 scripts/data/gec_generate_qwen_cloudrift.py \
+            --output_dir {{ output_dir }} \
+            --seeds_file {{ seed_file_remote }} \
+            --target_pairs {{ target_pairs }} \
+            --concurrency {{ concurrency }} \
+            --min-interval {{ min_interval }} \
+            --budget_usd {{ budget_usd }} \
+            2>&1 | tee {{ work_dir }}/logs/{{ screen_name }}.log
+        '
+      when: action == "start"
+
+    - name: Wait for startup
+      pause:
+        seconds: 5
+      when: action == "start"
+
+    - name: Show startup log
+      shell: "tail -30 {{ work_dir }}/logs/{{ screen_name }}.log 2>/dev/null || echo 'No log yet'"
+      register: log_out
+      when: action in ['start', 'logs']
+
+    - name: Print startup log
+      debug:
+        msg: "{{ log_out.stdout_lines }}"
+      when: action in ['start', 'logs']
+
+    - name: Check status
+      shell: "screen -ls | grep {{ screen_name }} || echo 'No session'"
+      register: status_out
+      when: action in ['start', 'status']
+
+    - name: Print status
+      debug:
+        msg: "{{ status_out.stdout }}"
+      when: action in ['start', 'status']

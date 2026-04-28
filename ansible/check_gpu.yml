@@ -1,0 +1,16 @@
+---
+- name: Check GPU status on kaznu
+  hosts: gpu_servers
+  tasks:
+    - name: nvidia-smi
+      shell: nvidia-smi
+      register: smi
+    - name: Show GPU
+      debug:
+        msg: "{{ smi.stdout_lines }}"
+    - name: Check GPU processes
+      shell: "nvidia-smi --query-compute-apps=pid,name,used_gpu_memory --format=csv,noheader 2>/dev/null || echo 'No processes'"
+      register: procs
+    - name: Show processes
+      debug:
+        msg: "{{ procs.stdout_lines }}"

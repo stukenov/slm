@@ -1,0 +1,57 @@
+---
+- name: Deploy and run exp027 annotation pipeline
+  hosts: exp027
+  vars:
+    hf_token: "REDACTED_HF_TOKEN"
+    work_dir: /workspace
+    scripts:
+      - scripts/exp027/annotate_kk_dataset.py
+      - scripts/exp027/add_russian_and_parallel.py
+      - scripts/exp027/run_annotate.sh
+
+  tasks:
+    - name: Install Python dependencies
+      shell: python3 -m pip install datasets tokenizers huggingface_hub fasttext-wheel numpy tqdm datasketch pyarrow
+
+    - name: Create work directory
+      file:
+        path: "{{ work_dir }}/exp027"
+        state: directory
+
+    - name: Copy scripts to pod
+      copy:
+        src: "{{ playbook_dir }}/../{{ item }}"
+        dest: "{{ work_dir }}/{{ item | basename }}"
+        mode: "0755"
+      loop: "{{ scripts }}"
+
+    - name: Login to HuggingFace
+      shell: |
+        huggingface-cli login --token {{ hf_token }} --add-to-git-credential
+      environment:
+        HF_TOKEN: "{{ hf_token }}"
+      ignore_errors: true
+
+    - name: Kill any existing annotation processes
+      shell: pkill -f 'annotate_kk\|run_annotate\|add_russian' || true
+
+    - name: Start annotation pipeline (nohup)
+      shell: |
+        cd {{ work_dir }} && \
+        nohup bash -c 'export HF_TOKEN={{ hf_token }} && bash {{ work_dir }}/run_annotate.sh' \
+        > {{ work_dir }}/exp027.log 2>&1 &
+        sleep 2
+        echo "PID: $(pgrep -f run_annotate)"
+      register: launch_result
+
+    - name: Show launch result
+      debug:
+        msg: "{{ launch_result.stdout }}"
+
+    - name: Show first log lines
+      shell: head -15 {{ work_dir }}/exp027.log 2>/dev/null || echo "Log not ready"
+      register: log_head
+
+    - name: Display log
+      debug:
+        msg: "{{ log_head.stdout_lines }}"

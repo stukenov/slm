@@ -1,0 +1,9 @@
+{
+  "pod_id": "n0woexygp2hy2x",
+  "host": "216.243.220.230",
+  "port": 10109,
+  "cost": 2.69,
+  "gpu": "H100 SXM 80GB",
+  "purpose": "exp034 translation training",
+  "ssh": "ssh -i ~/.runpod/ssh/RunPod-Key-Go root@216.243.220.230 -p 10109"
+}

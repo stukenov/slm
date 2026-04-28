@@ -1,0 +1,150 @@
+[2026-04-05 19:47:11 UTC] MONITOR: Pod zu064i6qf1huvt alive. Token counting in progress. Process PID 658 at 146% CPU, 2.9GB RAM. Cache 41GB. No JSON yet. ETA: dataset loaded, tokenization in progress.
+[2026-04-05 19:53:06 UTC] TICK: Pod alive. PID 658 running (119% CPU, 6.3GB RAM). Dataset loaded, tokenization in progress. No JSON yet. Waiting.
+[2026-04-05 20:03:43 UTC] TICK: Process crashed (None values in text column). Fixed script, redeployed, relaunched. Screen PID 5852. Dataset will reload from cache (~5min).
+[2026-04-05 20:12:56 UTC] TICK: Process alive PID 5855 (100% CPU, 10.4GB RAM). Tokenizing 24.9M rows. No crash. ETA ~15-30min.
+[2026-04-05 20:23:06 UTC] TICK: Tokenizing 22.1% (5.5M/24.9M rows). 1.36B tokens so far. 9.4K rows/s. ETA ~34min. 179% CPU, 56GB RAM. Healthy.
+[2026-04-05 20:32:55 UTC] TICK: 42.2% (10.5M/24.9M). 2.6B tokens. 9K rows/s. ETA ~27min (~20:59 UTC). Healthy.
+[2026-04-05 20:43:04 UTC] TICK: 62.3% (15.5M/24.9M). 3.84B tokens. 8.7K rows/s. ETA ~18min (~21:00 UTC). Healthy.
+[2026-04-05 20:52:56 UTC] TICK: 82.4% (20.5M/24.9M). 5.08B tokens. ETA ~9min. Almost done.
+[2026-04-05 21:04:08 UTC] TICK: TOKEN COUNTING COMPLETE!
+  Total: 24.9M rows, 6.17B tokens
+  Kazakh: 3.68B tokens (59.6%), 21.9M rows, fertility 4.0 tok/word
+  Russian: 2.49B tokens (40.4%), 2.9M rows, fertility 2.0 tok/word
+  English fertility (baseline): 1.22 tok/word
+  Results saved to docs/datasets/mdbkd_token_stats.json
+  Whitepaper TBD fields filled in docs/papers/kazakh-llm-adaptation.md
+  NEXT: Start tokenizer extension + training code on the same pod.
+[2026-04-05 21:14:25 UTC] TICK: Token counting DONE. Pod idle -> launched tokenizer extension (exp032_extend_tokenizer.py). Screen: exp032_tok. Loading base model + will train BPE on corpus + merge + subword mean init.
+[2026-04-05 21:22:57 UTC] TICK: Tokenizer extension running. Dumping corpus: 10M/24.9M rows. ~10min left for dump, then BPE training.
+[2026-04-05 21:32:58 UTC] TICK: Corpus dump done. BPE training running (267% CPU, 31GB RAM). Fast Rust tokenizer trainer — ETA ~5-15 min.
+[2026-04-05 21:44:48 UTC] TICK: v1 tokenizer extension had bug (add_tokens doesn't update BPE merges, fertility unchanged). Deployed v2 with proper SentencePiece protobuf merge (Chinese-LLaMA method). Screen: exp032_tok2. Reusing cached corpus.
+
+=== BUG REPORT: Tokenizer Extension v1 vs v2 ===
+
+PROBLEM (v1):
+  Used HuggingFace `tokenizer.add_tokens()` to add 10K new tokens.
+  This adds tokens to the vocabulary table but does NOT update BPE merge rules.
+  Result: tokenizer never produces new tokens during encoding.
+  Fertility stayed at 4.0 tok/word for Kazakh (zero improvement).
+
+ROOT CAUSE:
+  add_tokens() is designed for adding special tokens (like <mask>, <sep>)
+  that appear literally in text. It's not meant for extending BPE vocabulary.
+  BPE tokenizers need merge rules to know HOW to produce a token from characters.
+
+FIX (v2):
+  Proper SentencePiece protobuf merge (Chinese-LLaMA method):
+  1. Train new SentencePiece BPE on target corpus (learns Kazakh/Russian merge rules)
+  2. Parse both .model files as protobuf
+  3. Add new pieces (with scores/rules) from new SP into base SP
+  4. Save merged protobuf as new tokenizer.model
+  This preserves ALL original tokenization while adding new merge rules for target language.
+
+REFERENCE: Chinese-LLaMA-Alpaca-2/scripts/merge_tokenizer/merge_tokenizers.py
+[2026-04-05 21:53:03 UTC] TICK: v2 SentencePiece training in progress. 396% CPU, 12GB RAM. Preprocessed 10M sentences, training BPE merges. ETA ~5-10 min.
+[2026-04-05 22:04:22 UTC] TICK: v2 had type filter bug (skipping type=1 NORMAL pieces → 0 added). Fixed + bad LlamaTokenizer loading. Relaunched v2 fixed. SP model cached, should finish fast.
+[2026-04-05 22:13:01 UTC] TICK: v2 fixed running. Retraining SP model (v2 dir was cleaned). Corpus cached. ETA ~10min for SP + merge.
+[2026-04-05 22:26:02 UTC] TICK: TOKENIZER EXTENSION COMPLETE!
+  Vocab: 32000 -> 42048 (+10000 pieces)
+  Kazakh fertility: 4.00 -> 1.17 (3.4x improvement!)
+  Russian fertility: 2.00 -> 1.29
+  English fertility: 1.22 -> 1.00
+  Init: 10000 embeddings via subword mean
+  Bugs fixed: type filter, SameFileError, tokenizer.json precedence
+  NEXT: Write Stage 1 training script and launch.
+[2026-04-05 22:35:39 UTC] TICK: STAGE 1 TRAINING LAUNCHED!
+  W&B: https://wandb.ai/saken/exp032-kazakh-adapt/runs/t9kwvskj
+  Config: embed_tokens only, LR=2e-4, 100M tokens, warmup=500
+  Model: exp032_extended_model_v2 (42048 vocab)
+  Screen: exp032_s1
+[2026-04-05 22:43:02 UTC] TICK: Stage 1 running. Model loaded (42048 vocab, 1.14B total, 86M trainable 7.55%). Tokenizing 24.9M rows now. GPU idle (waiting for tokenization). W&B active.
+[2026-04-05 22:53:08 UTC] TICK: Stage 1 TRAINING ACTIVE. GPU 100%, 34GB VRAM. Loss: 5.73->5.24 (dropping). LR warming up. Max 1525 steps. Baseline gen = garbage (expected).
+[2026-04-05 23:05:14 UTC] TICK: STAGE 1 COMPLETE (1500/1525 steps, disk full at end — used checkpoint-1500).
+  Loss: 5.73 -> 4.85
+  W&B: https://wandb.ai/saken/exp032-kazakh-adapt/runs/t9kwvskj
+  Cleaned 67GB (removed v1 model, old checkpoints, HF cache).
+  STAGE 2 LAUNCHED: embed_tokens + lm_head, LR=2e-4, 200M tokens.
+[2026-04-05 23:13:10 UTC] TICK: Stage 2 running. Model loaded (172M trainable 15.09% = embed+lm_head). Tokenizing dataset. GPU idle (waiting). Disk 41GB free.
+[2026-04-05 23:22:56 UTC] TICK: Stage 2 training. GPU 98%, 26GB. Step ~118/3051 (3.8%). 3051 steps for 200M tokens. ETA ~30min.
+[2026-04-05 23:33:00 UTC] TICK: Stage 2 training. Step 1108/3051 (36%). Loss ~3.2. GPU 46%, 34GB. Disk 76% (25GB free) — watch for space. ETA ~20min.
+[2026-04-05 23:43:17 UTC] TICK: Stage 2 step 2100/3051 (69%). Loss 2.97. Cleaned old checkpoints (5.6GB freed, 27GB free now). ETA ~10min.
+[2026-04-05 23:55:05 UTC] TICK: STAGE 2 COMPLETE!
+  Steps: 3051/3051. Loss: 3.2 -> 2.91
+  Russian generation now coherent: 'Образование — это не только социальное, но и политическое событие...'
+  Cleaned old files, 30GB free.
+  STAGE 3 LAUNCHED: Embeddings + LoRA(Q,K,V) r=16, LR=1e-4, 500M tokens.
+[2026-04-06 00:02:57 UTC] TICK: Stage 3 running. LoRA(QKV r=16) applied, 175M trainable (15.32%). Tokenizing dataset. GPU idle (waiting). 7629 steps for 500M tokens.
+[2026-04-06 00:13:56 UTC] TICK: Stage 3 training. GPU 99%, 38GB. Step 500/7629 (6.5%). Loss 2.54 (improved from S2's 2.91). Freed 4GB cache, 19GB free. ETA ~70min.
+[2026-04-06 00:23:08 UTC] TICK: Stage 3 step 1289/7629 (17%). Loss 2.80. LoRA ckpts only 697MB each (small!). Disk 83%, ok. ETA ~60min.
+[2026-04-06 00:32:55 UTC] TICK: Stage 3 step 2015/7629 (26%). Loss 2.78. ~1.3 it/s. ETA ~70min.
+[2026-04-06 00:43:08 UTC] TICK: Stage 3 step 2833/7629 (37%). Loss 2.85. Disk 18GB free (stable). ETA ~50min.
+[2026-04-06 00:53:06 UTC] TICK: Stage 3 step 3558/7629 (47%). Loss 2.76. Disk 19GB free. ETA ~40min.
+[2026-04-06 01:03:00 UTC] TICK: Stage 3 step 4407/7629 (58%). Loss 2.78. ETA ~30min.
+[2026-04-06 01:13:01 UTC] TICK: Stage 3 step 5125/7629 (67%). Loss 2.71 (declining well). ETA ~25min.
+[2026-04-06 01:23:04 UTC] TICK: Stage 3 step 5967/7629 (78%). Loss 2.69. ETA ~15min.
+[2026-04-06 01:33:02 UTC] TICK: Stage 3 step 6688/7629 (88%). Loss 2.75. LR 7e-6 (cooling). ETA ~10min.
+[2026-04-06 01:46:15 UTC] TICK: Stage 3 step 7500+/7629 (98%+). Loss 2.68. Training done, generating final samples + saving. Process alive (91% CPU). Disk 18GB free.
+[2026-04-06 01:53:28 UTC] TICK: STAGE 3 COMPLETE!
+  Steps: 7629/7629. Loss: 2.54 -> 2.68
+  Kazakh gen: coherent sentences with real words
+  Russian gen: fluent with world knowledge
+  Cleaned Stage 2 output, 22GB free.
+  STAGE 4 LAUNCHED: LoRA(QKVO+MLP) r=16, LR=1e-4, 500M tokens.
+  Progress so far: S1(5.73->4.85) S2(3.2->2.91) S3(2.54->2.68)
+[2026-04-06 02:04:26 UTC] TICK: Stage 4 crashed — LoRA adapter pointed to deleted Stage 2 dir.
+  FIX: Patched adapter_config.json -> extended_model_v2, merged LoRA into base weights.
+  Saved merged model to /root/exp032_stage3_merged.
+  STAGE 4 RELAUNCHED from merged model. 20GB free.
+[2026-04-06 02:13:08 UTC] TICK: Stage 4 running. LoRA(QKVO+MLP r=16), 184.8M trainable (16.02%). Tokenizing dataset. GPU waiting. W&B active.
+[2026-04-06 02:23:33 UTC] TICK: Stage 4 step 431/7629. GPU 100%, 37GB VRAM. DISK EMERGENCY: was 4.9GB free (96%) — cleaned old caches + stage3_merged. Now 36GB free (65%). Training continues.
+[2026-04-06 02:33:07 UTC] TICK: Stage 4 step 1000/7629 (13%). Loss 3.59. Disk 35GB free (stable). ETA ~65min.
+[2026-04-06 02:42:59 UTC] TICK: Stage 4 step 1500/7629 (20%). Loss 3.10 (down from 3.59). Disk stable 35GB.
+[2026-04-06 02:52:54 UTC] TICK: Stage 4 step 2086/7629 (27%). Loss 2.92. Disk 35GB (stable).
+[2026-04-06 03:11:05 UTC] TICK: Stage 4 step 3131/7629 (41%). Loss 2.83. ETA ~45min. Stages567 script ready on pod.
+[2026-04-06 03:21:03 UTC] TICK: Stage 4 step 3731/7629 (49%). Loss 2.74. ETA ~40min.
+[2026-04-06 03:31:20 UTC] TICK: Stage 4 step 4350/7629 (57%). Loss 2.74. ETA ~30min.
+[2026-04-06 03:41:01 UTC] TICK: Stage 4 step 4915/7629 (64%). Loss 2.83. ETA ~25min.
+[2026-04-06 03:51:04 UTC] TICK: Stage 4 step 5500/7629 (72%). Loss 2.60 (good decline). ETA ~20min.
+[2026-04-06 04:01:06 UTC] TICK: Stage 4 step 6000/7629 (79%). Loss 2.61. LR cooling. ETA ~15min.
+[2026-04-06 04:11:06 UTC] TICK: Stage 4 step 6586/7629 (86%). ETA ~10min.
+[2026-04-06 04:26:50 UTC] TICK: Stage 4 step 7195+/7629 (94%+). Loss 2.61. Training done, running final eval/gen/save (eval on 10K val is slow). Process alive.
+[2026-04-06 04:32:27 UTC] TICK: STAGE 4 COMPLETE! Loss 2.61.
+  Merged LoRA into base -> /root/exp032_stage4_merged
+  STAGES 5-6-7 LAUNCHED (optimized single script, dataset loads once).
+  Batch size 8 (doubled), ~1.5h for all 3 stages.
+  Progress: S1(5.73->4.85) S2(3.2->2.91) S3(2.54->2.68) S4(3.59->2.61)
+[2026-04-06 04:41:02 UTC] TICK: Stages 5-6-7 script running. Loading dataset (18.5M/24.9M). One-time load for all 3 stages. GPU idle (waiting).
+[2026-04-06 04:51:12 UTC] TICK: Stage 5 STARTED. 657M trainable (57.5%, top 50% layers). Dataset loaded once (700s). Max 7629 steps. Generating baseline, training imminent.
+[2026-04-06 05:01:50 UTC] TICK: Stage 5 crashed — model on CPU, generate tried CUDA. Fixed: added model.to(device) after load. Relaunched.
+[2026-04-06 05:11:07 UTC] TICK: Stage 5 training. GPU 83%, 58GB. Step 991/7629 (13%). Loss 3.02. ~1.7 it/s. ETA ~65min for S5, then S6+S7 auto.
+[2026-04-06 05:21:06 UTC] TICK: Stage 5 step 2000/7629 (26%). Loss 2.79. Disk cleaned.
+[2026-04-06 05:30:59 UTC] TICK: Stage 5 step 3000/7629 (39%). Loss 2.71. ETA ~40min.
+[2026-04-06 05:40:58 UTC] TICK: Stage 5 step 4000/7629 (52%). Loss 2.67. Disk 15GB. ETA ~30min.
+[2026-04-06 05:50:57 UTC] TICK: Stage 5 step 5000/7629 (66%). Loss 2.62. ETA ~25min.
+[2026-04-06 06:01:06 UTC] TICK: Stage 5 step 6000/7629 (79%). Loss 2.60. LR 6.2e-6 (cooling). ETA ~15min then auto S6.
+[2026-04-06 06:11:06 UTC] TICK: Stage 5 step 7000/7629 (92%). Loss 2.61. ~5min to finish -> auto Stage 6.
+[2026-04-06 06:21:05 UTC] TICK: STAGE 5 COMPLETE (loss 2.61). STAGE 6 auto-started (full fine-tune, all params). Step 333/7629. Loss 2.66.
+[2026-04-06 06:32:06 UTC] TICK: Stage 6 step 1263/7629 (17%). Loss 2.63. Full fine-tune (100% params). Disk 90% -> cleaned S5+S4merged. ETA ~50min.
+[2026-04-06 06:41:01 UTC] TICK: Stage 6 step 2191/7629 (29%). Loss 2.44 (new best!). Full fine-tune. Disk 15GB stable. ETA ~45min.
+[2026-04-06 06:51:01 UTC] TICK: Stage 6 step 3121/7629 (41%). Loss 2.47. Disk 15GB stable. ETA ~35min.
+[2026-04-06 07:00:59 UTC] TICK: Stage 6 step 4083/7629 (54%). Loss 2.52. ETA ~30min.
+[2026-04-06 07:38:18 UTC] TICK: Stage 7 (cooldown) step 821/1250 (66%). Loss 2.56. ~5min to ALL DONE!
+[2026-04-06 07:54:16 UTC] TICK: All 7 stages training done. Stage 7 saving final model (process alive 101% CPU). Waiting for save to complete.
+[2026-04-06 08:01:58 UTC] TICK: Stage 7 step 2203/3051 (72%). Loss 2.24 (best ever!). Max steps=3051 not 1250. ETA ~8min.
+[2026-04-06 08:02:31 UTC] TICK: Stage 7 step 2266/3051 (74%). Loss 2.24. ETA ~10min.
+[2026-04-06 08:13:32 UTC] === ALL 7 STAGES COMPLETE! ===
+  Final model: /root/exp032_stage7_out (2.2GB safetensors)
+  Loss progression: S1(5.73->4.85) S2(3.2->2.91) S3(2.54->2.68) S4(3.59->2.61) S5(3.02->2.61) S6(2.63->2.44) S7(~2.24)
+  Final Kazakh gen: fluent, natural, with real Kazakh vocabulary
+  Final Russian gen: fluent, coherent, with Kazakhstan context
+  Pod zu064i6qf1huvt still alive — NOT destroying (waiting for user).
+  Total GPU time: ~5 hours on 1xH100.
+  W&B: https://wandb.ai/saken/exp032-kazakh-adapt
+[2026-04-06 08:32:41 UTC] === EXPERIMENT 032 FULLY COMPLETE ===
+  Model: https://huggingface.co/stukenov/sozkz-core-tinyllama-1b-kk-ru-v1
+  Perplexity: kaz=25.41, rus=19.14, eng=8.91
+  Fertility: kaz 4.0->1.17, rus 2.0->1.29
+  Fresh pod verification: ALL CHECKS PASSED
+  Both pods destroyed.
+  W&B: https://wandb.ai/saken/exp032-kazakh-adapt
+  Paper: docs/papers/kazakh-llm-adaptation.md

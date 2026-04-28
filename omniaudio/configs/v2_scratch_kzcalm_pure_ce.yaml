@@ -1,0 +1,26 @@
+# OmniAudio v2: Pure CE (no CTC), very low LR, from best checkpoint
+inherits: v2_base
+experiment_name: omniaudio_v2_scratch_kzcalm_pure_ce
+model_type: scratch
+stage: e2e
+dataset_name: kzcalm
+audio_d_model: 256
+audio_n_heads: 4
+audio_n_layers: 6
+audio_n_conv: 2
+decoder_d_model: 512
+decoder_n_heads: 8
+decoder_n_layers: 8
+ctc_weight: 0.0
+init_from: ./outputs/omniaudio_v2_scratch_kzcalm_e2e_eos/checkpoint-2000
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 8
+max_audio_len: 10.0
+learning_rate: 5e-6
+warmup_ratio: 0.01
+weight_decay: 0.01
+num_train_epochs: 1
+save_steps: 1000
+eval_steps: 1000
+logging_steps: 100
+label_smoothing: 0.05

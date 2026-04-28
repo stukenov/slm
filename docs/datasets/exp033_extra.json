@@ -1,0 +1,159 @@
+{
+  "sozkz_600m": {
+    "name": "SozKZ-Llama-600M",
+    "repo": "stukenov/sozkz-core-llama-600m-kk-base-v1",
+    "params_B": 0.587,
+    "vocab_size": 50257,
+    "ppl_kaz": 10.15,
+    "ppl_rus": 11.68,
+    "ppl_eng": 8.91,
+    "gen_Қазақстан ": "Қазақстан — бұл ортақ шаңырағымыз!\nАспанымыз ашық, еліміз тыныш болсын деп бүгінгі тәрбие сағатымызды аяқтаймыз.\nТолько до конца зимы! Скидка 60% для педагогов на ДИПЛОМЫ от Столичного учебного центра",
+    "gen_Казахстан ": "Казахстан — это город, который расположен по улице «Окан», где находится два крупного предприятия.\nПозволяет нам продавать и заботиться о наших предпринимателях проходят торговли людьми в сети интерне"
+  },
+  "compression": [
+    {
+      "name": "Qwen2.5-0.5B",
+      "vocab": 151665,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 239,
+      "eng_tokens": 83,
+      "kaz_tok_per_word": 4.27,
+      "eng_tok_per_word": 1.3,
+      "kaz_bytes_per_tok": 3.05,
+      "eng_bytes_per_tok": 4.47,
+      "kaz_vs_eng": 3.28
+    },
+    {
+      "name": "Qwen2.5-1.5B",
+      "vocab": 151665,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 239,
+      "eng_tokens": 83,
+      "kaz_tok_per_word": 4.27,
+      "eng_tok_per_word": 1.3,
+      "kaz_bytes_per_tok": 3.05,
+      "eng_bytes_per_tok": 4.47,
+      "kaz_vs_eng": 3.28
+    },
+    {
+      "name": "Qwen2.5-3B",
+      "vocab": 151665,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 239,
+      "eng_tokens": 83,
+      "kaz_tok_per_word": 4.27,
+      "eng_tok_per_word": 1.3,
+      "kaz_bytes_per_tok": 3.05,
+      "eng_bytes_per_tok": 4.47,
+      "kaz_vs_eng": 3.28
+    },
+    {
+      "name": "LLaMA-3.2-1B",
+      "vocab": 128256,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 226,
+      "eng_tokens": 80,
+      "kaz_tok_per_word": 4.04,
+      "eng_tok_per_word": 1.25,
+      "kaz_bytes_per_tok": 3.22,
+      "eng_bytes_per_tok": 4.64,
+      "kaz_vs_eng": 3.23
+    },
+    {
+      "name": "LLaMA-3.2-3B",
+      "vocab": 128256,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 226,
+      "eng_tokens": 80,
+      "kaz_tok_per_word": 4.04,
+      "eng_tok_per_word": 1.25,
+      "kaz_bytes_per_tok": 3.22,
+      "eng_bytes_per_tok": 4.64,
+      "kaz_vs_eng": 3.23
+    },
+    {
+      "name": "Gemma-2-2B",
+      "vocab": 256000,
+      "kaz_chars": "18/18",
+      "kaz_tokens": 175,
+      "eng_tokens": 82,
+      "kaz_tok_per_word": 3.12,
+      "eng_tok_per_word": 1.28,
+      "kaz_bytes_per_tok": 4.16,
+      "eng_bytes_per_tok": 4.52,
+      "kaz_vs_eng": 2.44
+    },
+    {
+      "name": "SmolLM2-360M",
+      "vocab": 49152,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 357,
+      "eng_tokens": 82,
+      "kaz_tok_per_word": 6.38,
+      "eng_tok_per_word": 1.28,
+      "kaz_bytes_per_tok": 2.04,
+      "eng_bytes_per_tok": 4.52,
+      "kaz_vs_eng": 4.98
+    },
+    {
+      "name": "SmolLM2-1.7B",
+      "vocab": 49152,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 357,
+      "eng_tokens": 82,
+      "kaz_tok_per_word": 6.38,
+      "eng_tok_per_word": 1.28,
+      "kaz_bytes_per_tok": 2.04,
+      "eng_bytes_per_tok": 4.52,
+      "kaz_vs_eng": 4.98
+    },
+    {
+      "name": "TinyLlama-1.1B",
+      "vocab": 32000,
+      "kaz_chars": "10/18",
+      "kaz_tokens": 223,
+      "eng_tokens": 89,
+      "kaz_tok_per_word": 3.98,
+      "eng_tok_per_word": 1.39,
+      "kaz_bytes_per_tok": 3.26,
+      "eng_bytes_per_tok": 4.17,
+      "kaz_vs_eng": 2.86
+    },
+    {
+      "name": "SozKZ-TinyLlama-kk",
+      "vocab": 42048,
+      "kaz_chars": "15/18",
+      "kaz_tokens": 112,
+      "eng_tokens": 84,
+      "kaz_tok_per_word": 2.0,
+      "eng_tok_per_word": 1.31,
+      "kaz_bytes_per_tok": 6.5,
+      "eng_bytes_per_tok": 4.42,
+      "kaz_vs_eng": 1.53
+    },
+    {
+      "name": "StableLM-2-1.6B",
+      "vocab": 100289,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 287,
+      "eng_tokens": 83,
+      "kaz_tok_per_word": 5.12,
+      "eng_tok_per_word": 1.3,
+      "kaz_bytes_per_tok": 2.54,
+      "eng_bytes_per_tok": 4.47,
+      "kaz_vs_eng": 3.94
+    },
+    {
+      "name": "SozKZ-Llama-600M",
+      "vocab": 50257,
+      "kaz_chars": "0/18",
+      "kaz_tokens": 69,
+      "eng_tokens": 130,
+      "kaz_tok_per_word": 1.23,
+      "eng_tok_per_word": 2.03,
+      "kaz_bytes_per_tok": 10.55,
+      "eng_bytes_per_tok": 2.85,
+      "kaz_vs_eng": 0.61
+    }
+  ]
+}

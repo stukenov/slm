@@ -1,0 +1,29 @@
+# OmniAudio v2 Stage 2: E2E Fine-tune with pre-trained encoder
+# init_from Stage 1 best checkpoint, train all params
+# Goal: WER < 50% on kzcalm test
+inherits: v2_base
+experiment_name: omniaudio_v2_e2e_from_ctc
+model_type: scratch
+stage: e2e
+dataset_name: sozkz_mels
+init_from: ./outputs/omniaudio_v2_ctc_pretrain/checkpoint-best
+audio_d_model: 256
+audio_n_heads: 4
+audio_n_layers: 6
+audio_n_conv: 2
+decoder_d_model: 512
+decoder_n_heads: 8
+decoder_n_layers: 8
+ctc_weight: 0.3
+max_audio_len: 10.0
+per_device_train_batch_size: 32
+gradient_accumulation_steps: 1
+dataloader_num_workers: 8
+learning_rate: 1e-4
+warmup_ratio: 0.05
+weight_decay: 0.01
+num_train_epochs: 10
+save_steps: 10000
+eval_steps: 10000
+logging_steps: 100
+label_smoothing: 0.1

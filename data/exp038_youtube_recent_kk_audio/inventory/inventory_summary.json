@@ -1,0 +1,14 @@
+{
+  "target_video_count": 220,
+  "selected_video_count": 113,
+  "selected_by_channel": {
+    "qazaqstan_tv": 102,
+    "aqparatkz": 11
+  },
+  "rejected_by_reason": {
+    "missing_allow_keyword": 1107,
+    "deny_keyword": 216,
+    "too_short": 15,
+    "too_long": 4
+  }
+}

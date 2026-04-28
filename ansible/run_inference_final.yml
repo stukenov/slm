@@ -1,0 +1,45 @@
+---
+- name: Run inference for final 1.08B model
+  hosts: kaznu
+  gather_facts: no
+  vars:
+    script_src: /tmp/inference_kazakh.py
+    script_dst: /root/slm/inference_kazakh.py
+    log_file: /tmp/inference_kazakh.log
+
+  tasks:
+    - name: Copy inference script
+      copy:
+        src: "{{ script_src }}"
+        dest: "{{ script_dst }}"
+        mode: "0755"
+
+    - name: Run inference in screen
+      shell: |
+        screen -dmS inference bash -c '
+          cd /root/slm
+          source .venv/bin/activate
+          python3 inference_kazakh.py 2>&1 | tee {{ log_file }}
+        '
+      args:
+        executable: /bin/bash
+
+    - name: Wait for inference to complete
+      shell: |
+        for i in $(seq 1 60); do
+          if ! screen -ls | grep -q inference; then
+            echo "DONE"
+            cat {{ log_file }}
+            exit 0
+          fi
+          sleep 10
+        done
+        echo "TIMEOUT - still running"
+        tail -20 {{ log_file }}
+      args:
+        executable: /bin/bash
+      register: result
+
+    - name: Show results
+      debug:
+        var: result.stdout_lines

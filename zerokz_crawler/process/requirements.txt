@@ -1,0 +1,8 @@
+trafilatura>=1.12
+markdownify>=0.13
+beautifulsoup4>=4.12
+lingua-language-detector>=2.0
+pandas>=2.0
+pyarrow>=14.0
+huggingface_hub>=0.23
+docling

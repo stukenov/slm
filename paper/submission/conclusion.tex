@@ -1,0 +1,46 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have presented SozKZ, a family of small language models trained
+from scratch exclusively on Kazakh text at four parameter scales
+(50M, 150M, 300M, and 600M).  Our results demonstrate that dedicated
+monolingual models, paired with a purpose-built tokenizer, can achieve
+competitive performance on Kazakh language tasks while requiring
+significantly fewer parameters than multilingual alternatives.
+
+On topic classification (SIB-200), SozKZ models surpass all evaluated
+multilingual models up to 2B parameters, with even the 50M model
+(\accSibTwoHundredSozKZFiftyM{}) outperforming Gemma-2B, Qwen-0.5B,
+and Qwen-1.5B.  On multiple-choice QA, SozKZ-600M
+(\accMcQaSozKZSixHundredM{}) approaches Llama-3.2-1B
+(\accMcQaLlamaThreeOneB{}) despite having 40\% fewer parameters.
+The consistent scaling from 50M to 600M on MC~QA (22.8\% to 30.3\%)
+with no sign of saturation suggests that further scaling would yield
+additional gains.
+
+\paragraph{Limitations.}
+Our models are not yet competitive with the best multilingual models
+on knowledge-intensive tasks.  MC~QA accuracy at 600M
+(\accMcQaSozKZSixHundredM{}) remains below Qwen-1.5B
+(\accMcQaQwenOneFiveB{}) and Llama-3.2-3B (\accMcQaLlamaThreeThreeB{}).
+Belebele reading comprehension clusters near the random baseline for
+all models at this scale, indicating that this benchmark requires either
+larger models or instruction tuning to achieve meaningful performance.
+Additionally, our training data is limited to publicly available
+Kazakh web text, which constrains domain coverage and factual knowledge.
+
+\paragraph{Future Work.}
+Several directions merit investigation.  First, scaling beyond 600M
+to the 1--3B range would test whether the efficiency advantages persist
+at larger scales and close the gap on MC~QA.  Second, instruction tuning
+of the base models could unlock practical applications in dialogue and
+improve benchmark performance.  Third, extending BPB evaluation with
+an appropriate external corpus would quantify the tokenizer efficiency
+advantage more precisely.  Finally, applying our approach to other
+Turkic languages (Turkish, Uzbek, Kyrgyz) could leverage shared
+morphological structure.
+
+We release all SozKZ models and the tokenizer under open
+licenses\footnote{Models available at
+\url{https://huggingface.co/stukenov}} to support further research
+on efficient language modeling for underserved languages.

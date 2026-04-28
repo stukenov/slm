@@ -1,0 +1,72 @@
+# ============================================================================
+# exp029: Llama 1.08B on TPU v6e — retrain of exp028 (HF-compatible)
+# Architecture: Llama ~1.08B (2048h, 22L, 16heads, 4KV GQA, SwiGLU), vocab 50257
+# NO QK-Norm, NO embedding scaling — exp028 lesson ($205 lost)
+# Tokenizer: sozkz-core-gpt2-50k-kk-base-v1
+# Dataset: cleaned kk-v4 (~8.4B) + cleaned fineweb-edu-v2 (~7.8B) ≈ 16.2B tokens
+# Hardware: TPU v6e (Google TRC Grant, spot)
+# Goal: Reproduce exp028 training on TPU, fully HF-compatible output
+# ============================================================================
+inherits: base
+experiment_name: exp029_llama_1b_tpu
+
+model_name: custom-llama-1080m
+from_scratch: true
+
+model_config:
+  model_type: llama
+  vocab_size: 50257
+  hidden_size: 2048
+  intermediate_size: 5504       # ~2.69 × hidden (256-aligned)
+  num_hidden_layers: 22
+  num_attention_heads: 16
+  num_key_value_heads: 4        # GQA (4 KV heads) — HF-compatible
+  max_position_embeddings: 2048
+  tie_word_embeddings: true
+  bos_token_id: 0
+  eos_token_id: 0
+  pad_token_id: 1
+
+# Pre-tokenized datasets
+pretokenized_dataset: stukenov/sozkz-corpus-tokenized-kk-llama50k-v6-part1
+extra_pretokenized_datasets:
+  - stukenov/sozkz-corpus-tokenized-enkk-fineweb-edu-v2
+
+# Tokenizer
+tokenizer_path: saken-tukenov/sozkz-core-gpt2-50k-kk-base-v1
+tokenizer_mode: pretrained
+
+# Training hyperparameters
+learning_rate: 2e-4
+weight_decay: 0.1
+num_train_epochs: 1
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 4
+# TPU v6e-4: 4 chips × 16 BS × 4 accum × 1024 seq = 262,144 tok/step
+# TPU v6e-64: 64 chips × 16 BS × 1 accum × 1024 seq = 1,048,576 tok/step
+
+# Schedule
+warmup_steps: 1000
+max_grad_norm: 1.0
+lr_scheduler_type: cosine
+
+# Eval/Save
+eval_steps: 2000
+save_steps: 500
+logging_steps: 25
+save_total_limit: 3
+block_size: 1024
+
+# Performance
+bf16: true
+dataloader_num_workers: 4
+torch_compile: false  # XLA handles compilation natively
+
+# TPU-specific
+tpu: true
+z_loss_coeff: 1e-4
+gcs_checkpoint_bucket: gs://sozkz-trc-checkpoints/exp029
+
+# TPU zone allocation (TRC Grant)
+# Preferred: v6e spot europe-west4-a (confirmed working)
+# Fallback:  v5e spot us-central1-a, v4 on-demand us-central2-b

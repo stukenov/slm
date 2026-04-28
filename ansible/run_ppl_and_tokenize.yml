@@ -1,0 +1,101 @@
+---
+- name: "exp028: PPL scoring + tokenization (steps 2-3)"
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+    log_dir: "{{ project_dir }}/logs"
+    ppl_script: "{{ project_dir }}/scripts/data/ppl_score_dataset.py"
+    tokenize_script: "{{ project_dir }}/scripts/tokenizer/tokenize_dataset.py"
+
+    kk_filtered: "stukenov/sozkz-corpus-clean-kk-text-v4"
+    enkk_filtered: "stukenov/sozkz-corpus-clean-enkk-fineweb-edu-v2"
+    kk_ppl_filtered: "stukenov/sozkz-corpus-clean-kk-text-v5"
+    enkk_ppl_filtered: "stukenov/sozkz-corpus-clean-enkk-fineweb-edu-v3"
+    kk_tokenized: "stukenov/sozkz-corpus-tokenized-kk-llama50k-v4"
+    enkk_tokenized: "stukenov/sozkz-corpus-tokenized-enkk-fineweb-edu-v2"
+    tokenizer_name: "stukenov/sozkz-core-gpt2-50k-kk-base-v1"
+
+  tasks:
+    - name: Sync scripts
+      synchronize:
+        src: "{{ playbook_dir }}/../scripts/"
+        dest: "{{ project_dir }}/scripts/"
+        rsync_opts:
+          - "--exclude=__pycache__"
+
+    # Use cuda:1 — GPU 0 has another process
+    - name: "Step 2a: PPL score KK on GPU 1"
+      shell: >
+        {{ python }} {{ ppl_script }} --run --dataset kk
+        --dataset-name {{ kk_filtered }}
+        --percentile 90 --output {{ kk_ppl_filtered }}
+        --device cuda:1
+        2>&1 | tee {{ log_dir }}/ppl_kk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 120
+      register: ppl_kk
+
+    - name: KK PPL results
+      debug:
+        msg: "{{ ppl_kk.stdout_lines[-15:] }}"
+
+    - name: "Step 2b: PPL score ENKK on GPU 1"
+      shell: >
+        {{ python }} {{ ppl_script }} --run --dataset enkk
+        --dataset-name {{ enkk_filtered }}
+        --percentile 90 --output {{ enkk_ppl_filtered }}
+        --device cuda:1
+        2>&1 | tee {{ log_dir }}/ppl_enkk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 120
+      register: ppl_enkk
+
+    - name: ENKK PPL results
+      debug:
+        msg: "{{ ppl_enkk.stdout_lines[-15:] }}"
+
+    - name: "Step 3a: Tokenize KK"
+      shell: >
+        {{ python }} {{ tokenize_script }}
+        --dataset {{ kk_ppl_filtered }}
+        --tokenizer {{ tokenizer_name }}
+        --output {{ kk_tokenized }}
+        --block-size 1024 --num-proc 8
+        2>&1 | tee {{ log_dir }}/tokenize_kk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 120
+      register: tok_kk
+
+    - name: KK tokenize results
+      debug:
+        msg: "{{ tok_kk.stdout_lines[-10:] }}"
+
+    - name: "Step 3b: Tokenize ENKK"
+      shell: >
+        {{ python }} {{ tokenize_script }}
+        --dataset {{ enkk_ppl_filtered }}
+        --tokenizer {{ tokenizer_name }}
+        --output {{ enkk_tokenized }}
+        --text-column "text_en,text_kk"
+        --block-size 1024 --num-proc 8
+        2>&1 | tee {{ log_dir }}/tokenize_enkk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 120
+      register: tok_enkk
+
+    - name: ENKK tokenize results
+      debug:
+        msg: "{{ tok_enkk.stdout_lines[-10:] }}"
+
+    - name: Done
+      debug:
+        msg: "Pipeline complete! KK={{ kk_tokenized }}, ENKK={{ enkk_tokenized }}"

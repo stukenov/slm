@@ -1,0 +1,18 @@
+---
+- name: Kill stale PPL process and check GPU
+  hosts: gpu_servers
+  tasks:
+    - name: Check what process 3543836 is
+      shell: "ps -p 3543836 -o pid,cmd --no-headers 2>/dev/null || echo 'Process already dead'"
+      register: proc_info
+    - name: Show process
+      debug:
+        msg: "{{ proc_info.stdout }}"
+    - name: Kill stale PPL scoring process (20.9GB on GPU 0)
+      shell: "kill 3543836 2>/dev/null; sleep 2; kill -9 3543836 2>/dev/null; echo done"
+    - name: Check GPU after kill
+      shell: nvidia-smi
+      register: smi
+    - name: Show GPU
+      debug:
+        msg: "{{ smi.stdout_lines }}"

@@ -1,0 +1,243 @@
+[
+  {
+    "name": "Qwen2.5-0.5B",
+    "repo": "Qwen/Qwen2.5-0.5B",
+    "error": null,
+    "vocab_size": 151665,
+    "kaz_chars": "0/18",
+    "fert_kaz": 4.33,
+    "fert_rus": 2.71,
+    "fert_eng": 1.0,
+    "params_B": 0.494,
+    "ppl_kaz": 17.81,
+    "ppl_rus": 5.73,
+    "ppl_eng": 7.65,
+    "gen": {
+      "kaz_1": "Қазақстан — бұл өзінде және дүндеген ең көпірдіруының орынғанды жасалғанда болады. Осы шамарттарға, кейсинг-келг",
+      "kaz_2": "Қазақ тілінің тарихы орналасқан көрсеткен емес арасалады. Бұрыш 1596-2007 жоғалауның түсіндіру атаушылды, және бас",
+      "kaz_3": "Бүгін ауа райыны қалай, бейтет алды. Осы денеге саранж ең төмеле болады.\nКазахстанты - кавказдарлығы\nҚазакамен санағы және жас",
+      "rus_1": "Казахстан — это страна, которая ведет себя такими, как она хочет. Организация поддержки проектов в Казахстане с низким инициативным ставком — это одна из самых важных для нас в этой сфере.\nВ 2",
+      "eng_1": "Kazakhstan is the world’s largest landlocked country. It borders Russia and Turkmenistan on its north, Kyrgyzstan to its east and Uzbekistan in the south and southwest.\nThe people of Kazakhstan are a mix of ethnic groups including Russians, Ukrainians, Tatars (a mixture of Greeks, Armenians"
+    }
+  },
+  {
+    "name": "Qwen2.5-1.5B",
+    "repo": "Qwen/Qwen2.5-1.5B",
+    "error": null,
+    "vocab_size": 151665,
+    "kaz_chars": "0/18",
+    "fert_kaz": 4.33,
+    "fert_rus": 2.71,
+    "fert_eng": 1.0,
+    "params_B": 1.544,
+    "ppl_kaz": 8.98,
+    "ppl_rus": 4.28,
+    "ppl_eng": 6.4,
+    "gen": {
+      "kaz_1": "Қазақстан — бұл әдісде алғашқы көрсету, ажыартаушылығында жинаулардың толықтырау үшін. Оны ойлаудан мекензег",
+      "kaz_2": "Қазақ тілінің тарихы\n\n## Оқушы-оған және оқшаулық үшіндегі кезде алмаштырыладым.\n\nОйлаулган, арналған мұраматтарды дейінгі",
+      "kaz_3": "Бүгін ауа райы\n\nБүгін Айла-Архар өздеріне жаттығулмайдаңыз. Дұрыс билемділерге танымдыру келесі сонылдармен болады",
+      "rus_1": "Казахстан — это страна, где не бывает беззаботных и гламурных девчонок. Среди них есть и настоящие красавицы.\nЭти женщины отличаются сексуальностью и непринужденной красотой. В их жизни нет",
+      "eng_1": "Kazakhstan is one of the most interesting and exciting places to visit in Central Asia. It’s also a country with some great ski resorts for those who want to take advantage of its mountainous terrain.\nThe capital, Astana (formerly Nur-Sultan), has become more popular as an international city thanks to Kazakhstan being"
+    }
+  },
+  {
+    "name": "Qwen2.5-3B",
+    "repo": "Qwen/Qwen2.5-3B",
+    "error": null,
+    "vocab_size": 151665,
+    "kaz_chars": "0/18",
+    "fert_kaz": 4.33,
+    "fert_rus": 2.71,
+    "fert_eng": 1.0,
+    "params_B": 3.086,
+    "ppl_kaz": 6.71,
+    "ppl_rus": 3.37,
+    "ppl_eng": 5.89,
+    "gen": {
+      "kaz_1": "Қазақстан — бұл өріс түскен оңын. Берілеттік және айналады. Толғанда, кейбіреулердегі мемлеекте болатындарды сипат",
+      "kaz_2": "Қазақ тілінің тарихының атауы «әйелдеген жүз» 1925 жылы Жан Сакиров синьшысына басталады. Демонстративдық, эстетикалық, п",
+      "kaz_3": "Бүгін ауа райы бастадым. Тәжкір жасамыз.\nПоток, сияқты төмендегі кезеңдерге ұсынылады:\n1) Керектіліктесетті болаты",
+      "rus_1": "Казахстан — это страна, где я счастлива. Я здесь очень хорошо себя чувствую и мне комфортно в этом городе\nКак работает АО «Западный нефтегазовый буровой комплекс»?\nНаше предприятие является единственным производителем д",
+      "eng_1": "Kazakhstan is one of the world's largest countries and has vast oil, gas and mineral resources. The country also contains a variety of landscapes which include deserts such as Kyzylkum desert, mountains like Altai Mountains and Tian Shan mountain range.\nThe Kazakhs are an ethnic group in Central Asia"
+    }
+  },
+  {
+    "name": "LLaMA-3.2-1B",
+    "repo": "meta-llama/Llama-3.2-1B",
+    "error": null,
+    "vocab_size": 128256,
+    "kaz_chars": "0/18",
+    "fert_kaz": 4.17,
+    "fert_rus": 2.14,
+    "fert_eng": 1.0,
+    "params_B": 1.236,
+    "ppl_kaz": 4.37,
+    "ppl_rus": 7.45,
+    "ppl_eng": 6.8,
+    "gen": {
+      "kaz_1": "Қазақстан — бұлары үзіндік? (2023)\nKazakhstan – Are these its own?\nThe Kazakh language has been used by different peoples for many centuries, and it was first written down in the 14th century. In addition to this is a rich history of literature which",
+      "kaz_2": "Қазақ тілінің тарихы, көне ғылымдар. 3-4 томда\nКазахстанский язык: история и научные труды (т.1)\nСобрание трудов Казахского филологического института им. М.Абая Н",
+      "kaz_3": "Бүгін ауа райында байгаатай нэртэй орчнылсан ойлон, шилжихэн тулд яваад мөнгийн уугамж эргэх зарим нь хоёр дахин 50",
+      "rus_1": "Казахстан — это страна, которая находит себя в зоне влияния двух миров. В этом случае нельзя не учитывать ее географию и особенности экономического развития страны.\nСегодня в Казахстане есть несколько проблем: высокий уровень безработицы (25%), низкий темп рост",
+      "eng_1": "Kazakhstan is a country that has seen the rise of cryptocurrency in recent years. With its vast resources, Kazakhstan offers an ideal environment for digital assets to flourish.\nThe Kazakh Central Bank (KBK) recently announced it would launch a central bank Digital Currency (CBDC). This CBDC will be based on blockchain"
+    }
+  },
+  {
+    "name": "LLaMA-3.2-3B",
+    "repo": "meta-llama/Llama-3.2-3B",
+    "error": null,
+    "vocab_size": 128256,
+    "kaz_chars": "0/18",
+    "fert_kaz": 4.17,
+    "fert_rus": 2.14,
+    "fert_eng": 1.0,
+    "params_B": 3.213,
+    "ppl_kaz": 3.53,
+    "ppl_rus": 6.39,
+    "ppl_eng": 6.84,
+    "gen": {
+      "kaz_1": "Қазақстан — бұл еліміз. Мен және үйіміздің ыстығымды мекені, сауатымыздың маңдайы.\nМен шетелге кіргенде, немес",
+      "kaz_2": "Қазақ тілінің тарихының негізгі жағдайлары. II бөлім\nТегін үйірісу мен орысша мектеп ескерткіштерін ашып, сондай-ақ,",
+      "kaz_3": "Бүгін ауа райы: 25°C, ямандардын саны: 0\nСәтті келісімшарттарының жалпы қысқаша тұжырымына сай реттеу жүргіз",
+      "rus_1": "Казахстан — это страна, где культура и традиции сливаются в одну. Именно поэтому каждый праздник является не просто ритуалом, а настоящим мероприятием: люди одевают национальную одежду, танцуют традиционные песни на музыкальных инструмента",
+      "eng_1": "Kazakhstan is the ninth largest country in the world and one of six former Soviet republics that make up Central Asia. Its capital, Astana, was formerly known as Akmola (Aqtobe) until 1998.\nKazakhstani citizens have lived on this territory since ancient times; however"
+    }
+  },
+  {
+    "name": "Gemma-2-2B",
+    "repo": "google/gemma-2-2b",
+    "error": null,
+    "vocab_size": 256000,
+    "kaz_chars": "18/18",
+    "fert_kaz": 3.0,
+    "fert_rus": 1.71,
+    "fert_eng": 1.0,
+    "params_B": 2.614,
+    "ppl_kaz": 7.22,
+    "ppl_rus": 11.45,
+    "ppl_eng": 8.21,
+    "gen": {
+      "kaz_1": "Қазақстан — бұл қысқы жылдың ортасындағы бастау, шілде мен тамыз айларында жайылымдар. Осы кезеңдердің түбіндегі су көпшілікке жеткен соң, Қара",
+      "kaz_2": "Қазақ тілінің тарихы мен қолдануын есепке алуды көзделген 36 оқулықтарының бірі – «Адамдар көзі», түсініктемелеріндегі жазба-келтірлердің басына ке",
+      "kaz_3": "Бүгін ауа райы менен қарулы жолдағы өмірге жеткен қазақ халықтарының ішінен, адамзаттың турасына үлкен орын бергенімен байланысты көптеген мәдениеттік-",
+      "rus_1": "Казахстан — это страна, в которой нет ни одного человека, который не хотел бы жить здесь. Наш государство славится своей красотой и богатством природы: горы Тянь-Шань, Алтайские степи и просторы Казахстана всегда были местом отдыха для всех желающих отдохнуть",
+      "eng_1": "Kazakhstan is a vast country that borders China, Russia and Uzbekistan. It's one of the world's largest countries by size with more than 120 million people living in it!\n\nThere are two main cities you should visit on your Kazakhstan tour: Astana (the capital) and Almaty"
+    }
+  },
+  {
+    "name": "SmolLM2-360M",
+    "repo": "HuggingFaceTB/SmolLM2-360M",
+    "error": null,
+    "vocab_size": 49152,
+    "kaz_chars": "0/18",
+    "fert_kaz": 7.5,
+    "fert_rus": 6.29,
+    "fert_eng": 1.0,
+    "params_B": 0.362,
+    "ppl_kaz": 11.81,
+    "ppl_rus": 4.28,
+    "ppl_eng": 6.76,
+    "gen": {
+      "kaz_1": "Қазақстан — бұлын шумдж облак техничер. Относительный производственный компетенция, нагревательная ст",
+      "kaz_2": "Қазақ тілінің тарихы сайманджы жарлаяпсуд мекөт болан шүчгони дирағат, или күвен ангэҷұ ост",
+      "kaz_3": "Бүгін ауа райыптос\nПоддрэстан генеричных перемещеников",
+      "rus_1": "Казахстан — это красный сельский город, имеющий околожение в нашем меру Средневечно-лицензировых поглаб",
+      "eng_1": "Kazakhstan is a country that has been shaped by many events. This includes the Great Game, which was an attempt to dominate Central Asia and China during 18th-20th centuries; after its independence in 1991 it faced several economic crises including hyperinflation (see below), inflation caused"
+    }
+  },
+  {
+    "name": "SmolLM2-1.7B",
+    "repo": "HuggingFaceTB/SmolLM2-1.7B",
+    "error": null,
+    "vocab_size": 49152,
+    "kaz_chars": "0/18",
+    "fert_kaz": 7.5,
+    "fert_rus": 6.29,
+    "fert_eng": 1.0,
+    "params_B": 1.711,
+    "ppl_kaz": 6.97,
+    "ppl_rus": 2.64,
+    "ppl_eng": 6.25,
+    "gen": {
+      "kaz_1": "Қазақстан — бұлыгді жоспор, ународу деревянке отработкашүла кетмен татолов.\nСэр! Систематическ",
+      "kaz_2": "Қазақ тілінің тарихы босуштарламандығы. Рәб 2014-Нұй оны астаты семиге,\nСаволокчия мен держ",
+      "kaz_3": "Бүгін ауа райыс болох. Мен оршилдан тек дэмжта, көпчеремелетеген мекав саяналариний мъзайтул",
+      "rus_1": "Казахстан — это суперлокация. Не все, насколько многие идиоты знают о том, критично подгоренный регион",
+      "eng_1": "Kazakhstan is located in the central part of Asia, bordering China to its east and Russia on all other sides. The country covers an area about 2730 km² (1056 sq mi), with a population density of around three people per square kilometre (8 per sq mile). Kazakhstan"
+    }
+  },
+  {
+    "name": "mGPT-1.3B",
+    "repo": "ai-forever/mGPT",
+    "error": "Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.go",
+    "vocab_size": 100000,
+    "kaz_chars": "0/18",
+    "fert_kaz": 4.0,
+    "fert_rus": 1.29,
+    "fert_eng": 1.11
+  },
+  {
+    "name": "TinyLlama-1.1B",
+    "repo": "TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T",
+    "error": null,
+    "vocab_size": 32000,
+    "kaz_chars": "10/18",
+    "fert_kaz": 4.0,
+    "fert_rus": 2.0,
+    "fert_eng": 1.22,
+    "params_B": 1.1,
+    "ppl_kaz": 26.19,
+    "ppl_rus": 11.38,
+    "ppl_eng": 11.37,
+    "gen": {
+      "kaz_1": "Қазақстан — бұл көрсеткі (Bulletin of the Central Asian Institute)\n\n1987 births\nLiving people\nPeople from Aktau\nUzbekistani journalists",
+      "kaz_2": "Қазақ тілінің тарихы, көрсеткі қарағанды кайтарында арылген бағытты керек.\n-   «Кишинебек», жакип, кизилгі барыныш жә",
+      "kaz_3": "Бүгін ауа райын, 2014 г.\nНаименование: Възходът на дявола (русский)\nАвтор: Олекса́ндр Алексее́нко; Пособие для учителей языка и литературы",
+      "rus_1": "Казахстан — это демонстрация гражданского масштаба в стране, который не очень хочет уведомить общественность об этом.\nМы уже говорили, что наши инициативные группы смогут распространять информацию",
+      "eng_1": "Kazakhstan is a nation of 17 million people and an independent, sovereign state located in Central Asia. Kazakhstan has the world's fourth largest oil reserves. The country's capital city of Astana (formerly known as Almaty) was recently renamed to commemorate"
+    }
+  },
+  {
+    "name": "SozKZ-TinyLlama-kk",
+    "repo": "stukenov/sozkz-core-tinyllama-1b-kk-ru-v1",
+    "error": null,
+    "vocab_size": 42048,
+    "kaz_chars": "15/18",
+    "fert_kaz": 1.17,
+    "fert_rus": 1.29,
+    "fert_eng": 1.0,
+    "params_B": 1.141,
+    "ppl_kaz": 15.37,
+    "ppl_rus": 19.35,
+    "ppl_eng": 8.93,
+    "gen": {
+      "kaz_1": "Қазақстан — бұл халықтық термин. Ұлыбританияның сопы, қазақ тіліндегі терминдер де бірлестігі болып табылатын Британдіктер (1790) деген анықтама бар. Ол терминінің латын әліпбиіне көшуі үшін енген",
+      "kaz_2": "Қазақ тілінің тарихы (6-сынып) – Әдістемелік құрал - Презентация на казахском языке. Скачать бiзде: www.Saz-Alemi.kz . Каталог файлов - презентациялар, постнакладки,",
+      "kaz_3": "Бүгін ауа райы 14.02.2018 жыл Алматы қаласында өтіп жатқан «Балалар арасындағы спорт» тақырыбында өткен республикалық спорттық-сауық орденімен марапатталды. Жиынға облыс әкімінің орын",
+      "rus_1": "Казахстан — это не только столица, но и центр Казахстана. Мы должна быть в курсе того, что мы работают на благо страны, чтобы сделать ее лучшей. Я приветствую ваше предложение о сотрудничестве между нашей стране и Евросоюзом. С этой стороны,",
+      "eng_1": "Kazakhstan is on course to becoming a major global energy hub Source: zh.ru Kazakhstani President Nursultan Nazarbayev has signed the decree regarding creation of the Commission for Energy and Natural Resources Development, Kazinform reports. The decree provides for formation of the commission under the president"
+    }
+  },
+  {
+    "name": "StableLM-2-1.6B",
+    "repo": "stabilityai/stablelm-2-1_6b",
+    "error": null,
+    "vocab_size": 100289,
+    "kaz_chars": "0/18",
+    "fert_kaz": 5.67,
+    "fert_rus": 4.0,
+    "fert_eng": 1.0,
+    "params_B": 1.645,
+    "ppl_kaz": 10.11,
+    "ppl_rus": 2.38,
+    "ppl_eng": 6.02,
+    "gen": {
+      "kaz_1": "Қазақстан — бұлік кабарымалды турган, 1945-2013.",
+      "kaz_2": "Қазақ тілінің тарихы: 1. Толуясына көрсерген еткі байнашыла озатырактырып, 2. Адам Жалғи жасыны созиретин а",
+      "kaz_3": "Бүгін ауа райыс (, ) — улус Баранчинского кожууне Тывы. Административный центр и единственная находящаяся в 10 км от границы с К",
+      "rus_1": "Казахстан — это суверенная республика, которая находится в Центральной Азии. Казахское государство составляет 60% территорий Монголии и",
+      "eng_1": "Kazakhstan is a vast country with great natural resources, and it's also home to the largest number of ethnic Russians outside Russia. However, this doesn't seem to be enough for President Nursultan Nazarbayev: he has set his sights on China.\nIn an interview last week at the United Nations General Assembly"
+    }
+  }
+]

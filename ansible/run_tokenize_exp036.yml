@@ -1,0 +1,38 @@
+---
+- name: "exp036: Tokenize KK dataset with morphbpe-100k"
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+    log_dir: "{{ project_dir }}/logs"
+    tokenize_script: "{{ project_dir }}/scripts/tokenizer/tokenize_dataset.py"
+
+  tasks:
+    - name: Sync scripts
+      synchronize:
+        src: "{{ playbook_dir }}/../scripts/"
+        dest: "{{ project_dir }}/scripts/"
+        rsync_opts:
+          - "--exclude=__pycache__"
+
+    - name: "Tokenize KK with morphbpe-100k (block_size=2048)"
+      shell: >
+        {{ python }} {{ tokenize_script }}
+        --dataset kz-transformers/multidomain-kazakh-dataset
+        --tokenizer stukenov/sozkz-morphbpe-100k-kk-v1
+        --output stukenov/sozkz-corpus-tokenized-kk-morphbpe100k-v1
+        --block-size 2048 --num-proc 16
+        2>&1 | tee {{ log_dir }}/tokenize_exp036_kk_v2.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 60
+      register: tok_kk
+
+    - name: KK results
+      debug:
+        msg: "{{ tok_kk.stdout_lines[-10:] }}"
+
+    - name: Done
+      debug:
+        msg: "exp036 tokenization complete! Dataset: stukenov/sozkz-corpus-tokenized-kk-morphbpe100k-v1"

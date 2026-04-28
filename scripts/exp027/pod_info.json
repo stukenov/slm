@@ -1,0 +1,21 @@
+{
+  "pod_id": "m6ycq762my7jw2",
+  "host": "103.207.149.70",
+  "port": 14877,
+  "gpu": "8x NVIDIA H100 80GB HBM3",
+  "stage": "all_complete",
+  "current_size": "600m",
+  "pipeline": ["123m", "300m", "600m"],
+  "completed": {
+    "123m": {"loss": 3.0748, "bpb": 4.436, "hours": 3.8, "params_M": 124.7, "hf": "stukenov/ekitil-core-qwen3-123m-kkru-base-v1"},
+    "300m": {"loss": 2.925, "bpb": 4.220, "hours": 6.63, "params_M": 245.9, "hf": "stukenov/ekitil-core-qwen3-300m-kkru-base-v1"},
+    "600m": {"loss": 3.326, "bpb": 4.800, "hours": 5.8, "params_M": 673.8, "hf": "stukenov/ekitil-core-qwen3-600m-kkru-base-v1", "steps": 4500, "epochs": 2.87}
+  },
+  "hf_model": "stukenov/ekitil-core-qwen3-600m-kkru-base-v1",
+  "launched_at": "2026-04-06 08:19",
+  "finished_at": "2026-04-06 14:06",
+  "last_check_step": 4500,
+  "actual_params_M": 673.8,
+  "total_steps": 4500,
+  "pod_destroyed": true
+}

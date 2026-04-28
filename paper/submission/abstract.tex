@@ -1,0 +1,24 @@
+\begin{abstract}
+Kazakh, a Turkic language spoken by over 22 million people, remains
+underserved by existing multilingual language models, which allocate
+minimal capacity to low-resource languages and employ tokenizers
+ill-suited to agglutinative morphology.  We present \textsc{SozKZ}, a
+family of Llama-architecture language models (50M--600M parameters)
+trained entirely from scratch on 9 billion tokens of Kazakh text with
+a dedicated 50K BPE tokenizer.  We evaluate all models on three Kazakh
+benchmarks---multiple-choice cultural QA, reading comprehension
+(Belebele), and topic classification (SIB-200)---alongside five
+multilingual baselines ranging from 500M to 3B parameters.  Our 600M
+model achieves \accMcQaSozKZSixHundredM{} accuracy on Kazakh cultural
+QA, approaching the \accMcQaLlamaThreeOneB{} of Llama-3.2-1B
+(2$\times$ larger), and \accSibTwoHundredSozKZSixHundredM{} on
+SIB-200 topic classification, surpassing all evaluated multilingual
+models up to 2B parameters.  We observe consistent scaling from 50M to
+600M, with MC~QA accuracy rising from 22.8\% to 30.3\%, suggesting
+that further scaling remains beneficial.  These results demonstrate
+that small, dedicated models trained from scratch with a
+language-appropriate tokenizer offer a viable path for low-resource
+language technology, achieving competitive performance at a fraction
+of the computational cost.  All models and the tokenizer are released
+under open licenses.
+\end{abstract}

@@ -1,0 +1,16 @@
+{
+  "model": "gpt-4o",
+  "synthetic": 7000,
+  "identity": 2395,
+  "total": 9395,
+  "failures": {
+    "too_far": 18,
+    "identity": 32,
+    "low_overlap": 6,
+    "negation_shift": 44,
+    "len_shift": 7,
+    "api_fail": 9
+  },
+  "stats": "req=14948 err=4 in=2,712,220 out=686,748 cost=$13.6480",
+  "cost_usd": 13.648
+}

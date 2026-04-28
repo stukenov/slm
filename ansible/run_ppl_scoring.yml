@@ -1,0 +1,51 @@
+---
+- name: Run PPL scoring on Kazakh datasets
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+    script: "{{ project_dir }}/scripts/data/ppl_score_dataset.py"
+    log_dir: "{{ project_dir }}/logs"
+
+  tasks:
+    - name: Sync scripts to server
+      synchronize:
+        src: "{{ playbook_dir }}/../scripts/data/"
+        dest: "{{ project_dir }}/scripts/data/"
+        rsync_opts:
+          - "--exclude=__pycache__"
+
+    - name: Create log directory
+      file:
+        path: "{{ log_dir }}"
+        state: directory
+
+    - name: Run PPL sample on KK dataset (10K texts)
+      shell: >
+        {{ python }} {{ script }}
+        --dataset kk --sample 10000
+        2>&1 | tee {{ log_dir }}/ppl_score_kk_sample.log
+      args:
+        chdir: "{{ project_dir }}"
+      register: ppl_kk_result
+      async: 1800
+      poll: 30
+
+    - name: Show KK scoring results
+      debug:
+        msg: "{{ ppl_kk_result.stdout_lines[-60:] }}"
+
+    - name: Run PPL sample on ENKK dataset (10K texts)
+      shell: >
+        {{ python }} {{ script }}
+        --dataset enkk --sample 10000
+        2>&1 | tee {{ log_dir }}/ppl_score_enkk_sample.log
+      args:
+        chdir: "{{ project_dir }}"
+      register: ppl_enkk_result
+      async: 1800
+      poll: 30
+
+    - name: Show ENKK scoring results
+      debug:
+        msg: "{{ ppl_enkk_result.stdout_lines[-60:] }}"

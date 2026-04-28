@@ -1,0 +1,36 @@
+---
+- name: Check exp027 pipeline status
+  hosts: exp027
+
+  tasks:
+    - name: Check if process is running
+      shell: ps aux | grep -E 'annotate_kk|add_russian|run_annotate' | grep -v grep || echo "NOT RUNNING"
+      register: proc
+
+    - name: Process status
+      debug:
+        msg: "{{ proc.stdout_lines }}"
+
+    - name: Last 30 lines of log
+      shell: tail -30 /workspace/exp027.log 2>/dev/null || echo "No log"
+      register: log_tail
+
+    - name: Log output
+      debug:
+        msg: "{{ log_tail.stdout_lines }}"
+
+    - name: Disk usage
+      shell: df -h /workspace | tail -1
+      register: disk
+
+    - name: Disk
+      debug:
+        msg: "{{ disk.stdout }}"
+
+    - name: Checkpoint status
+      shell: ls -lh /workspace/exp027/checkpoints/*.parquet 2>/dev/null | tail -5 || echo "No checkpoints yet"
+      register: ckpt
+
+    - name: Checkpoints
+      debug:
+        msg: "{{ ckpt.stdout_lines }}"

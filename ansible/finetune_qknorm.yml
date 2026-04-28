@@ -1,0 +1,31 @@
+---
+- name: "exp028: Fine-tune QK-Norm weights (5632 params, ~10 min)"
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+
+  tasks:
+    - name: Deploy finetune script
+      copy:
+        src: "{{ playbook_dir }}/../scripts/inference/finetune_qknorm.py"
+        dest: "{{ project_dir }}/scripts/inference/finetune_qknorm.py"
+
+    - name: Ensure results dir
+      file:
+        path: "{{ project_dir }}/results/exp028_1b_recovered"
+        state: directory
+
+    - name: Fine-tune QK-Norm
+      shell: >
+        {{ python }} {{ project_dir }}/scripts/inference/finetune_qknorm.py
+        2>&1 | tee {{ project_dir }}/logs/finetune_qknorm.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 3600
+      poll: 30
+      register: result
+
+    - name: Show results
+      debug:
+        msg: "{{ result.stdout_lines }}"

@@ -1,0 +1,99 @@
+---
+- name: Run PPL scoring (Qwen 500M, multi-GPU) on CloudRift
+  hosts: cloudrift
+  vars:
+    project_dir: /home/riftuser/slm
+    python: python3
+    script: "{{ project_dir }}/scripts/data/ppl_score_corpus.py"
+    log_dir: "{{ project_dir }}/logs"
+    screen_name: ppl_scoring_v2
+    hf_output: stukenov/sozkz-corpus-scored-kk-v1
+
+  tasks:
+    - name: Install system packages
+      become: true
+      apt:
+        name: [python3-pip, python3-venv, screen]
+        state: present
+        update_cache: true
+
+    - name: Sync scoring script
+      synchronize:
+        src: "{{ playbook_dir }}/../scripts/data/"
+        dest: "{{ project_dir }}/scripts/data/"
+        rsync_opts:
+          - "--exclude=__pycache__"
+
+    - name: Create directories
+      file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - "{{ log_dir }}"
+        - "{{ project_dir }}/ppl_shards"
+
+    - name: Copy HF token
+      copy:
+        src: "~/.cache/huggingface/token"
+        dest: "/home/riftuser/.cache/huggingface/token"
+        mode: "0600"
+
+    - name: Install PyTorch with CUDA
+      shell: >
+        {{ python }} -m pip install --break-system-packages
+        torch --index-url https://download.pytorch.org/whl/cu128
+        2>&1 | tail -3
+      register: torch_install
+      async: 1800
+      poll: 30
+
+    - name: Install ML dependencies
+      shell: >
+        {{ python }} -m pip install --break-system-packages
+        transformers datasets huggingface_hub pyarrow numpy accelerate
+        2>&1 | tail -3
+      register: deps_install
+      async: 1800
+      poll: 30
+
+    - name: Verify GPU and model
+      shell: |
+        {{ python }} -c "import torch; n=torch.cuda.device_count(); print('GPUs:', n); [print(i, torch.cuda.get_device_name(i)) for i in range(n)]"
+        {{ python }} -c "from huggingface_hub import HfApi; print('HF:', HfApi().whoami()['name'])"
+      register: verify_result
+
+    - name: Show verification
+      debug:
+        msg: "{{ verify_result.stdout_lines }}"
+
+    - name: Run sample (1K texts, sanity check)
+      shell: >
+        {{ python }} {{ script }} --sample 1000
+        2>&1 | tee {{ log_dir }}/ppl_score_v2_sample.log
+      args:
+        chdir: "{{ project_dir }}"
+      register: sample_result
+      async: 1800
+      poll: 30
+
+    - name: Show sample results
+      debug:
+        msg: "{{ sample_result.stdout_lines[-20:] }}"
+
+    - name: Launch full scoring in screen
+      shell: >
+        screen -dmS {{ screen_name }} bash -lc '
+        {{ python }} {{ script }} --run --output {{ hf_output }}
+        2>&1 | tee {{ log_dir }}/ppl_score_v2_full.log'
+      args:
+        chdir: "{{ project_dir }}"
+
+    - name: Verify screen session started
+      shell: screen -ls | grep {{ screen_name }}
+      register: screen_check
+
+    - name: Show status
+      debug:
+        msg: >
+          Scoring launched in screen '{{ screen_name }}'.
+          Monitor: ssh riftuser@{{ ansible_host }} "tail -f {{ log_dir }}/ppl_score_v2_full.log"

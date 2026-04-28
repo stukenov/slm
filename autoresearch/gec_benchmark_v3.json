@@ -1,0 +1,1100 @@
+{
+  "model": "stukenov/sozkz-fix-qwen-500m-kk-gec-v3",
+  "pipeline": "emle_pre + model + emle_post",
+  "total": "82/100",
+  "total_pct": 82.0,
+  "avg_latency_ms": 335,
+  "categories": {
+    "emle": {
+      "correct": 28,
+      "total": 30,
+      "pct": 93.33333333333333
+    },
+    "grammar": {
+      "correct": 16,
+      "total": 20,
+      "pct": 80.0
+    },
+    "punctuation": {
+      "correct": 8,
+      "total": 15,
+      "pct": 53.333333333333336
+    },
+    "mixed": {
+      "correct": 15,
+      "total": 20,
+      "pct": 75.0
+    },
+    "identity": {
+      "correct": 15,
+      "total": 15,
+      "pct": 100.0
+    }
+  },
+  "failures": [
+    {
+      "id": 15,
+      "category": "emle",
+      "input": "Тусініктеме жаз",
+      "expected": "Түсініктеме жаз",
+      "output": "Түсініктеме жаз:\nТүсініктеме жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс",
+      "status": "FAIL",
+      "latency_ms": 1915.2
+    },
+    {
+      "id": 19,
+      "category": "emle",
+      "input": "Менің атым Арман",
+      "expected": "Менің атым Арман",
+      "output": "Менің атым Арман!",
+      "status": "FAIL",
+      "latency_ms": 302.4
+    },
+    {
+      "id": 33,
+      "category": "grammar",
+      "input": "Ол кітапты оқып шықты жене маған берді.",
+      "expected": "Ол кітапты оқып шықты және маған берді.",
+      "output": "Ол кітапты оқып шықты жеңе маған берді.",
+      "status": "FAIL",
+      "latency_ms": 363.4
+    },
+    {
+      "id": 35,
+      "category": "grammar",
+      "input": "Мен оған телефон шалдым.",
+      "expected": "Мен оған телефон соқтым.",
+      "output": "Мен оған телефон шалдым.",
+      "status": "FAIL",
+      "latency_ms": 267.1
+    },
+    {
+      "id": 40,
+      "category": "grammar",
+      "input": "Біз кинога баратін болдық.",
+      "expected": "Біз кинога баратын болдық.",
+      "output": "Біз киноға баратын болдық.",
+      "status": "FAIL",
+      "latency_ms": 328.7
+    },
+    {
+      "id": 41,
+      "category": "grammar",
+      "input": "Ол кітапты оқығанна кейін маған берді.",
+      "expected": "Ол кітапты оқығаннан кейін маған берді.",
+      "output": "Ол кітапты оқығанна кейін маған берді.",
+      "status": "FAIL",
+      "latency_ms": 331.0
+    },
+    {
+      "id": 52,
+      "category": "punctuation",
+      "input": "Ол кеше келіп бүгін кетті",
+      "expected": "Ол кеше келіп, бүгін кетті.",
+      "output": "Ол кеше келіп бүгін кетті.",
+      "status": "FAIL",
+      "latency_ms": 298.4
+    },
+    {
+      "id": 54,
+      "category": "punctuation",
+      "input": "Иә мен келемін",
+      "expected": "Иә, мен келемін.",
+      "output": "Иә мен келемін.",
+      "status": "FAIL",
+      "latency_ms": 237.3
+    },
+    {
+      "id": 55,
+      "category": "punctuation",
+      "input": "Ол бүгін ертең және бірсыпыра күн жұмыс істейді",
+      "expected": "Ол бүгін, ертең және бірсыпыра күн жұмыс істейді.",
+      "output": "Ол бүгін ертең және бірсыпыра күн жұмыс істейді.",
+      "status": "FAIL",
+      "latency_ms": 365.3
+    },
+    {
+      "id": 56,
+      "category": "punctuation",
+      "input": "Біз кеше кинога бардық.",
+      "expected": "Біз кеше кинога бардық.",
+      "output": "Біз кеше киноға бардық.",
+      "status": "FAIL",
+      "latency_ms": 268.4
+    },
+    {
+      "id": 57,
+      "category": "punctuation",
+      "input": "Мен жұмысқа бардым ол үйде қалды",
+      "expected": "Мен жұмысқа бардым, ол үйде қалды.",
+      "output": "Мен жұмысқа бардым ол үйде қалды.",
+      "status": "FAIL",
+      "latency_ms": 362.8
+    },
+    {
+      "id": 59,
+      "category": "punctuation",
+      "input": "Ол айтты мен келемін деп",
+      "expected": "Ол айтты: \"Мен келемін\" деп.",
+      "output": "Ол айтты мен келемін деп",
+      "status": "FAIL",
+      "latency_ms": 269.2
+    },
+    {
+      "id": 65,
+      "category": "punctuation",
+      "input": "Жаңбыр жауды біз үйде отырдық",
+      "expected": "Жаңбыр жауды, біз үйде отырдық.",
+      "output": "Жаңбыр жауды біз үйде отырдық.",
+      "status": "FAIL",
+      "latency_ms": 329.6
+    },
+    {
+      "id": 66,
+      "category": "mixed",
+      "input": "Казакстанда тумыс деңгейі жоғары",
+      "expected": "Қазақстанда тұрмыс деңгейі жоғары",
+      "output": "Қазақстанда тумыс деңгейі жоғары.",
+      "status": "FAIL",
+      "latency_ms": 299.2
+    },
+    {
+      "id": 67,
+      "category": "mixed",
+      "input": "Бугінгі танда технология адам омірінде манызды роль аткарады",
+      "expected": "Бүгінгі таңда технология адам өмірінде маңызды рөл атқарады",
+      "output": "Бүгінгі таңда технология адам өмірінде маңызды роль атқарады.",
+      "status": "FAIL",
+      "latency_ms": 367.9
+    },
+    {
+      "id": 68,
+      "category": "mixed",
+      "input": "Мугалім окушыларга тапсырма берді олар орындады",
+      "expected": "Мұғалім оқушыларға тапсырма берді, олар орындады",
+      "output": "Мұғалім оқушыларға тапсырма берді олар орындады.",
+      "status": "FAIL",
+      "latency_ms": 365.7
+    },
+    {
+      "id": 80,
+      "category": "mixed",
+      "input": "Кунде саат жетіде турамын",
+      "expected": "Күнде сағат жетіде тұрамын",
+      "output": "Күнде саат жетіде тұрамын.",
+      "status": "FAIL",
+      "latency_ms": 299.9
+    },
+    {
+      "id": 81,
+      "category": "mixed",
+      "input": "Ауылда турмыс баска калада баска",
+      "expected": "Ауылда тұрмыс басқа, қалада басқа",
+      "output": "Ауылда тұрмыс басқа қалада басқа.",
+      "status": "FAIL",
+      "latency_ms": 270.1
+    }
+  ],
+  "all_results": [
+    {
+      "id": 1,
+      "category": "emle",
+      "input": "Мен бугін мектепке бардым",
+      "expected": "Мен бүгін мектепке бардым",
+      "output": "Мен бүгін мектепке бардым.",
+      "status": "PASS",
+      "latency_ms": 272.5
+    },
+    {
+      "id": 2,
+      "category": "emle",
+      "input": "Анам тамак пісірді",
+      "expected": "Анам тамақ пісірді",
+      "output": "Анам тамақ пісірді.",
+      "status": "PASS",
+      "latency_ms": 204.7
+    },
+    {
+      "id": 3,
+      "category": "emle",
+      "input": "Мен кешке дукенге барамын",
+      "expected": "Мен кешке дүкенге барамын",
+      "output": "Мен кешке дүкенге барамын.",
+      "status": "PASS",
+      "latency_ms": 301.4
+    },
+    {
+      "id": 4,
+      "category": "emle",
+      "input": "Бала бакшага барады",
+      "expected": "Бала бақшаға барады",
+      "output": "Бала бақшаға барады.",
+      "status": "PASS",
+      "latency_ms": 207.5
+    },
+    {
+      "id": 5,
+      "category": "emle",
+      "input": "Ол кітапты оқыды жане маған айтты",
+      "expected": "Ол кітапты оқыды және маған айтты",
+      "output": "Ол кітапты оқыды және маған айтты.",
+      "status": "PASS",
+      "latency_ms": 361.8
+    },
+    {
+      "id": 6,
+      "category": "emle",
+      "input": "Біздің мектеп ен жаксы мектеп",
+      "expected": "Біздің мектеп ең жақсы мектеп",
+      "output": "Біздің мектеп ең жақсы мектеп.",
+      "status": "PASS",
+      "latency_ms": 332.9
+    },
+    {
+      "id": 7,
+      "category": "emle",
+      "input": "Кун жылы болды",
+      "expected": "Күн жылы болды",
+      "output": "Күн жылы болды.",
+      "status": "PASS",
+      "latency_ms": 174.6
+    },
+    {
+      "id": 8,
+      "category": "emle",
+      "input": "Бул кітап өте қызық",
+      "expected": "Бұл кітап өте қызық",
+      "output": "Бұл кітап өте қызық.",
+      "status": "PASS",
+      "latency_ms": 267.4
+    },
+    {
+      "id": 9,
+      "category": "emle",
+      "input": "Ол озінің жумысын жаксы істейді",
+      "expected": "Ол өзінің жұмысын жақсы істейді",
+      "output": "Ол өзінің жұмысын жақсы істейді.",
+      "status": "PASS",
+      "latency_ms": 298.9
+    },
+    {
+      "id": 10,
+      "category": "emle",
+      "input": "Суык кун болды",
+      "expected": "Суық күн болды",
+      "output": "Суық күн болды.",
+      "status": "PASS",
+      "latency_ms": 177.0
+    },
+    {
+      "id": 11,
+      "category": "emle",
+      "input": "Мугалім сабақты тусіндірді",
+      "expected": "Мұғалім сабақты түсіндірді",
+      "output": "Мұғалім сабақты түсіндірді.",
+      "status": "PASS",
+      "latency_ms": 238.0
+    },
+    {
+      "id": 12,
+      "category": "emle",
+      "input": "Мен бугін жумыска бардым",
+      "expected": "Мен бүгін жұмысқа бардым",
+      "output": "Мен бүгін жұмысқа бардым.",
+      "status": "PASS",
+      "latency_ms": 268.5
+    },
+    {
+      "id": 13,
+      "category": "emle",
+      "input": "Устаз окушыларга тапсырма берді",
+      "expected": "Ұстаз оқушыларға тапсырма берді",
+      "output": "Ұстаз оқушыларға тапсырма берді.",
+      "status": "PASS",
+      "latency_ms": 239.4
+    },
+    {
+      "id": 14,
+      "category": "emle",
+      "input": "Курбан ага келді",
+      "expected": "Құрбан аға келді",
+      "output": "Құрбан аға келді.",
+      "status": "PASS",
+      "latency_ms": 206.8
+    },
+    {
+      "id": 15,
+      "category": "emle",
+      "input": "Тусініктеме жаз",
+      "expected": "Түсініктеме жаз",
+      "output": "Түсініктеме жаз:\nТүсініктеме жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс жаз:\nҰсыныс",
+      "status": "FAIL",
+      "latency_ms": 1915.2
+    },
+    {
+      "id": 16,
+      "category": "emle",
+      "input": "Мен мектепке бардым",
+      "expected": "Мен мектепке бардым",
+      "output": "Мен мектепке бардым.",
+      "status": "PASS",
+      "latency_ms": 237.9
+    },
+    {
+      "id": 17,
+      "category": "emle",
+      "input": "Ол кеше келді",
+      "expected": "Ол кеше келді",
+      "output": "Ол кеше келді.",
+      "status": "PASS",
+      "latency_ms": 238.1
+    },
+    {
+      "id": 18,
+      "category": "emle",
+      "input": "Біз бүгін саябаққа барамыз",
+      "expected": "Біз бүгін саябаққа барамыз",
+      "output": "Біз бүгін саябаққа барамыз.",
+      "status": "PASS",
+      "latency_ms": 270.8
+    },
+    {
+      "id": 19,
+      "category": "emle",
+      "input": "Менің атым Арман",
+      "expected": "Менің атым Арман",
+      "output": "Менің атым Арман!",
+      "status": "FAIL",
+      "latency_ms": 302.4
+    },
+    {
+      "id": 20,
+      "category": "emle",
+      "input": "Қала орталығында тұрамыз",
+      "expected": "Қала орталығында тұрамыз",
+      "output": "Қала орталығында тұрамыз.",
+      "status": "PASS",
+      "latency_ms": 238.2
+    },
+    {
+      "id": 21,
+      "category": "emle",
+      "input": "Мен оны жақсы көремін",
+      "expected": "Мен оны жақсы көремін",
+      "output": "Мен оны жақсы көремін.",
+      "status": "PASS",
+      "latency_ms": 237.7
+    },
+    {
+      "id": 22,
+      "category": "emle",
+      "input": "Ол маған хат жазды",
+      "expected": "Ол маған хат жазды",
+      "output": "Ол маған хат жазды.",
+      "status": "PASS",
+      "latency_ms": 237.5
+    },
+    {
+      "id": 23,
+      "category": "emle",
+      "input": "Бүгін ауа райы жақсы",
+      "expected": "Бүгін ауа райы жақсы",
+      "output": "Бүгін ауа райы жақсы.",
+      "status": "PASS",
+      "latency_ms": 2001.6
+    },
+    {
+      "id": 24,
+      "category": "emle",
+      "input": "Казакстан Орталык Азиядагы ен ірі мемлекет",
+      "expected": "Қазақстан Орталық Азиядағы ең ірі мемлекет",
+      "output": "Қазақстан Орталық Азиядағы ең ірі мемлекет.",
+      "status": "PASS",
+      "latency_ms": 395.3
+    },
+    {
+      "id": 25,
+      "category": "emle",
+      "input": "Кун сайын мектепке журемін",
+      "expected": "Күн сайын мектепке жүремін",
+      "output": "Күн сайын мектепке жүремін.",
+      "status": "PASS",
+      "latency_ms": 270.4
+    },
+    {
+      "id": 26,
+      "category": "emle",
+      "input": "Атам ауылда турады",
+      "expected": "Атам ауылда тұрады",
+      "output": "Атам ауылда тұрады.",
+      "status": "PASS",
+      "latency_ms": 176.5
+    },
+    {
+      "id": 27,
+      "category": "emle",
+      "input": "Біз жана уйге кошеміз",
+      "expected": "Біз жаңа үйге көшеміз",
+      "output": "Біз жаңа үйге көшеміз.",
+      "status": "PASS",
+      "latency_ms": 268.3
+    },
+    {
+      "id": 28,
+      "category": "emle",
+      "input": "Онын айтканы дурыс болды",
+      "expected": "Оның айтқаны дұрыс болды",
+      "output": "Оның айтқаны дұрыс болды.",
+      "status": "PASS",
+      "latency_ms": 360.4
+    },
+    {
+      "id": 29,
+      "category": "emle",
+      "input": "Бул мектептін окушысы",
+      "expected": "Бұл мектептің оқушысы",
+      "output": "Бұл мектептің оқушысы.",
+      "status": "PASS",
+      "latency_ms": 237.8
+    },
+    {
+      "id": 30,
+      "category": "emle",
+      "input": "Олар жумысты аяктады",
+      "expected": "Олар жұмысты аяқтады",
+      "output": "Олар жұмысты аяқтады.",
+      "status": "PASS",
+      "latency_ms": 238.5
+    },
+    {
+      "id": 31,
+      "category": "grammar",
+      "input": "Қазақстан Орталық Азиядағы ең ірі мемлекет болап табылады.",
+      "expected": "Қазақстан Орталық Азиядағы ең ірі мемлекет болып табылады.",
+      "output": "Қазақстан Орталық Азиядағы ең ірі мемлекет болып табылады.",
+      "status": "PASS",
+      "latency_ms": 399.5
+    },
+    {
+      "id": 32,
+      "category": "grammar",
+      "input": "Мұғалім балаларға жаңа тақрыпты түсіндіріп берді.",
+      "expected": "Мұғалім балаларға жаңа тақырыпты түсіндіріп берді.",
+      "output": "Мұғалім балаларға жаңа тақырыпты түсіндіріп берді.",
+      "status": "PASS",
+      "latency_ms": 456.9
+    },
+    {
+      "id": 33,
+      "category": "grammar",
+      "input": "Ол кітапты оқып шықты жене маған берді.",
+      "expected": "Ол кітапты оқып шықты және маған берді.",
+      "output": "Ол кітапты оқып шықты жеңе маған берді.",
+      "status": "FAIL",
+      "latency_ms": 363.4
+    },
+    {
+      "id": 34,
+      "category": "grammar",
+      "input": "Бала анасынан сурады.",
+      "expected": "Бала анасынан сұрады.",
+      "output": "Бала анасынан сұрады.",
+      "status": "PASS",
+      "latency_ms": 268.1
+    },
+    {
+      "id": 35,
+      "category": "grammar",
+      "input": "Мен оған телефон шалдым.",
+      "expected": "Мен оған телефон соқтым.",
+      "output": "Мен оған телефон шалдым.",
+      "status": "FAIL",
+      "latency_ms": 267.1
+    },
+    {
+      "id": 36,
+      "category": "grammar",
+      "input": "Ол бүгін мектепке келмеді себебі ауырды.",
+      "expected": "Ол бүгін мектепке келмеді, себебі ауырды.",
+      "output": "Ол бүгін мектепке келмеді, себебі ауырды.",
+      "status": "PASS",
+      "latency_ms": 424.4
+    },
+    {
+      "id": 37,
+      "category": "grammar",
+      "input": "Ата-ана балаларын мектепке апарады.",
+      "expected": "Ата-ана балаларын мектепке апарады.",
+      "output": "Ата-ана балаларын мектепке апарады.",
+      "status": "PASS",
+      "latency_ms": 363.6
+    },
+    {
+      "id": 38,
+      "category": "grammar",
+      "input": "Олар ертең келетін болады.",
+      "expected": "Олар ертең келетін болады.",
+      "output": "Олар ертең келетін болады.",
+      "status": "PASS",
+      "latency_ms": 237.3
+    },
+    {
+      "id": 39,
+      "category": "grammar",
+      "input": "Мұғалім оқушылардан сұрақ қойды.",
+      "expected": "Мұғалім оқушылардан сұрақ қойды.",
+      "output": "Мұғалім оқушылардан сұрақ қойды.",
+      "status": "PASS",
+      "latency_ms": 269.0
+    },
+    {
+      "id": 40,
+      "category": "grammar",
+      "input": "Біз кинога баратін болдық.",
+      "expected": "Біз кинога баратын болдық.",
+      "output": "Біз киноға баратын болдық.",
+      "status": "FAIL",
+      "latency_ms": 328.7
+    },
+    {
+      "id": 41,
+      "category": "grammar",
+      "input": "Ол кітапты оқығанна кейін маған берді.",
+      "expected": "Ол кітапты оқығаннан кейін маған берді.",
+      "output": "Ол кітапты оқығанна кейін маған берді.",
+      "status": "FAIL",
+      "latency_ms": 331.0
+    },
+    {
+      "id": 42,
+      "category": "grammar",
+      "input": "Бала жылап жібері.",
+      "expected": "Бала жылап жіберді.",
+      "output": "Бала жылап жіберді.",
+      "status": "PASS",
+      "latency_ms": 206.7
+    },
+    {
+      "id": 43,
+      "category": "grammar",
+      "input": "Мен ертен келемін.",
+      "expected": "Мен ертең келемін.",
+      "output": "Мен ертең келемін.",
+      "status": "PASS",
+      "latency_ms": 205.7
+    },
+    {
+      "id": 44,
+      "category": "grammar",
+      "input": "Олар жакында келеді.",
+      "expected": "Олар жақында келеді.",
+      "output": "Олар жақында келеді.",
+      "status": "PASS",
+      "latency_ms": 207.3
+    },
+    {
+      "id": 45,
+      "category": "grammar",
+      "input": "Менің інім мектепті бітіреді.",
+      "expected": "Менің інім мектепті бітіреді.",
+      "output": "Менің інім мектепті бітіреді.",
+      "status": "PASS",
+      "latency_ms": 269.3
+    },
+    {
+      "id": 46,
+      "category": "grammar",
+      "input": "Мен сені жаксы коремін.",
+      "expected": "Мен сені жақсы көремін.",
+      "output": "Мен сені жақсы көремін.",
+      "status": "PASS",
+      "latency_ms": 266.6
+    },
+    {
+      "id": 47,
+      "category": "grammar",
+      "input": "Ол менен уйге кетті.",
+      "expected": "Ол менен үйге кетті.",
+      "output": "Ол менен үйге кетті.",
+      "status": "PASS",
+      "latency_ms": 297.5
+    },
+    {
+      "id": 48,
+      "category": "grammar",
+      "input": "Бүгінгі сабак кызыкты болды.",
+      "expected": "Бүгінгі сабақ қызықты болды.",
+      "output": "Бүгінгі сабақ қызықты болды.",
+      "status": "PASS",
+      "latency_ms": 208.1
+    },
+    {
+      "id": 49,
+      "category": "grammar",
+      "input": "Менің досым кеше келді.",
+      "expected": "Менің досым кеше келді.",
+      "output": "Менің досым кеше келді.",
+      "status": "PASS",
+      "latency_ms": 237.5
+    },
+    {
+      "id": 50,
+      "category": "grammar",
+      "input": "Балалар далада ойнайды.",
+      "expected": "Балалар далада ойнайды.",
+      "output": "Балалар далада ойнайды.",
+      "status": "PASS",
+      "latency_ms": 237.7
+    },
+    {
+      "id": 51,
+      "category": "punctuation",
+      "input": "Мен бүгін мектепке бардым",
+      "expected": "Мен бүгін мектепке бардым.",
+      "output": "Мен бүгін мектепке бардым.",
+      "status": "PASS",
+      "latency_ms": 266.9
+    },
+    {
+      "id": 52,
+      "category": "punctuation",
+      "input": "Ол кеше келіп бүгін кетті",
+      "expected": "Ол кеше келіп, бүгін кетті.",
+      "output": "Ол кеше келіп бүгін кетті.",
+      "status": "FAIL",
+      "latency_ms": 298.4
+    },
+    {
+      "id": 53,
+      "category": "punctuation",
+      "input": "Менің досым келді",
+      "expected": "Менің досым келді.",
+      "output": "Менің досым келді.",
+      "status": "PASS",
+      "latency_ms": 178.3
+    },
+    {
+      "id": 54,
+      "category": "punctuation",
+      "input": "Иә мен келемін",
+      "expected": "Иә, мен келемін.",
+      "output": "Иә мен келемін.",
+      "status": "FAIL",
+      "latency_ms": 237.3
+    },
+    {
+      "id": 55,
+      "category": "punctuation",
+      "input": "Ол бүгін ертең және бірсыпыра күн жұмыс істейді",
+      "expected": "Ол бүгін, ертең және бірсыпыра күн жұмыс істейді.",
+      "output": "Ол бүгін ертең және бірсыпыра күн жұмыс істейді.",
+      "status": "FAIL",
+      "latency_ms": 365.3
+    },
+    {
+      "id": 56,
+      "category": "punctuation",
+      "input": "Біз кеше кинога бардық.",
+      "expected": "Біз кеше кинога бардық.",
+      "output": "Біз кеше киноға бардық.",
+      "status": "FAIL",
+      "latency_ms": 268.4
+    },
+    {
+      "id": 57,
+      "category": "punctuation",
+      "input": "Мен жұмысқа бардым ол үйде қалды",
+      "expected": "Мен жұмысқа бардым, ол үйде қалды.",
+      "output": "Мен жұмысқа бардым ол үйде қалды.",
+      "status": "FAIL",
+      "latency_ms": 362.8
+    },
+    {
+      "id": 58,
+      "category": "punctuation",
+      "input": "Кітапты оқы — пайдалы болады.",
+      "expected": "Кітапты оқы — пайдалы болады.",
+      "output": "Кітапты оқы — пайдалы болады.",
+      "status": "PASS",
+      "latency_ms": 272.4
+    },
+    {
+      "id": 59,
+      "category": "punctuation",
+      "input": "Ол айтты мен келемін деп",
+      "expected": "Ол айтты: \"Мен келемін\" деп.",
+      "output": "Ол айтты мен келемін деп",
+      "status": "FAIL",
+      "latency_ms": 269.2
+    },
+    {
+      "id": 60,
+      "category": "punctuation",
+      "input": "Бүгін дүйсенбі",
+      "expected": "Бүгін дүйсенбі.",
+      "output": "Бүгін дүйсенбі.",
+      "status": "PASS",
+      "latency_ms": 268.7
+    },
+    {
+      "id": 61,
+      "category": "punctuation",
+      "input": "Мен бүгін саған хат жаздым.",
+      "expected": "Мен бүгін саған хат жаздым.",
+      "output": "Мен бүгін саған хат жаздым.",
+      "status": "PASS",
+      "latency_ms": 269.3
+    },
+    {
+      "id": 62,
+      "category": "punctuation",
+      "input": "Оның аты Айгүл.",
+      "expected": "Оның аты Айгүл.",
+      "output": "Оның аты Айгүл.",
+      "status": "PASS",
+      "latency_ms": 206.2
+    },
+    {
+      "id": 63,
+      "category": "punctuation",
+      "input": "Ол келді және біз бірге жұмыс істедік.",
+      "expected": "Ол келді және біз бірге жұмыс істедік.",
+      "output": "Ол келді және біз бірге жұмыс істедік.",
+      "status": "PASS",
+      "latency_ms": 333.9
+    },
+    {
+      "id": 64,
+      "category": "punctuation",
+      "input": "Мен де сені көргім келді",
+      "expected": "Мен де сені көргім келді.",
+      "output": "Мен де сені көргім келді.",
+      "status": "PASS",
+      "latency_ms": 268.7
+    },
+    {
+      "id": 65,
+      "category": "punctuation",
+      "input": "Жаңбыр жауды біз үйде отырдық",
+      "expected": "Жаңбыр жауды, біз үйде отырдық.",
+      "output": "Жаңбыр жауды біз үйде отырдық.",
+      "status": "FAIL",
+      "latency_ms": 329.6
+    },
+    {
+      "id": 66,
+      "category": "mixed",
+      "input": "Казакстанда тумыс деңгейі жоғары",
+      "expected": "Қазақстанда тұрмыс деңгейі жоғары",
+      "output": "Қазақстанда тумыс деңгейі жоғары.",
+      "status": "FAIL",
+      "latency_ms": 299.2
+    },
+    {
+      "id": 67,
+      "category": "mixed",
+      "input": "Бугінгі танда технология адам омірінде манызды роль аткарады",
+      "expected": "Бүгінгі таңда технология адам өмірінде маңызды рөл атқарады",
+      "output": "Бүгінгі таңда технология адам өмірінде маңызды роль атқарады.",
+      "status": "FAIL",
+      "latency_ms": 367.9
+    },
+    {
+      "id": 68,
+      "category": "mixed",
+      "input": "Мугалім окушыларга тапсырма берді олар орындады",
+      "expected": "Мұғалім оқушыларға тапсырма берді, олар орындады",
+      "output": "Мұғалім оқушыларға тапсырма берді олар орындады.",
+      "status": "FAIL",
+      "latency_ms": 365.7
+    },
+    {
+      "id": 69,
+      "category": "mixed",
+      "input": "Біздін мемлекетіміз тауелсіздік алганына коп жыл болды",
+      "expected": "Біздің мемлекетіміз тәуелсіздік алғанына көп жыл болды",
+      "output": "Біздің мемлекетіміз тәуелсіздік алғанына көп жыл болды.",
+      "status": "PASS",
+      "latency_ms": 397.5
+    },
+    {
+      "id": 70,
+      "category": "mixed",
+      "input": "Бугін ауа райы жаксы болады деп ойлаймын",
+      "expected": "Бүгін ауа райы жақсы болады деп ойлаймын",
+      "output": "Бүгін ауа райы жақсы болады деп ойлаймын.",
+      "status": "PASS",
+      "latency_ms": 332.4
+    },
+    {
+      "id": 71,
+      "category": "mixed",
+      "input": "Мен устазыма рахмет айттым",
+      "expected": "Мен ұстазыма рахмет айттым",
+      "output": "Мен ұстазыма рахмет айттым.",
+      "status": "PASS",
+      "latency_ms": 268.5
+    },
+    {
+      "id": 72,
+      "category": "mixed",
+      "input": "Ол кітапханага кітап алуга барды",
+      "expected": "Ол кітапханаға кітап алуға барды",
+      "output": "Ол кітапханаға кітап алуға барды.",
+      "status": "PASS",
+      "latency_ms": 333.3
+    },
+    {
+      "id": 73,
+      "category": "mixed",
+      "input": "Жумыстан кейін уйге келдім",
+      "expected": "Жұмыстан кейін үйге келдім",
+      "output": "Жұмыстан кейін үйге келдім.",
+      "status": "PASS",
+      "latency_ms": 268.1
+    },
+    {
+      "id": 74,
+      "category": "mixed",
+      "input": "Казак тілін уйрену манызды",
+      "expected": "Қазақ тілін үйрену маңызды",
+      "output": "Қазақ тілін үйрену маңызды.",
+      "status": "PASS",
+      "latency_ms": 362.7
+    },
+    {
+      "id": 75,
+      "category": "mixed",
+      "input": "Біздін калада жана мектеп ашылды",
+      "expected": "Біздің қалада жаңа мектеп ашылды",
+      "output": "Біздің қалада жаңа мектеп ашылды.",
+      "status": "PASS",
+      "latency_ms": 299.9
+    },
+    {
+      "id": 76,
+      "category": "mixed",
+      "input": "Мен бугін достарыммен кездестім",
+      "expected": "Мен бүгін достарыммен кездестім",
+      "output": "Мен бүгін достарыммен кездестім.",
+      "status": "PASS",
+      "latency_ms": 299.6
+    },
+    {
+      "id": 77,
+      "category": "mixed",
+      "input": "Ол жаксы адам жане маган комектеседі",
+      "expected": "Ол жақсы адам және маған көмектеседі",
+      "output": "Ол жақсы адам және маған көмектеседі.",
+      "status": "PASS",
+      "latency_ms": 300.7
+    },
+    {
+      "id": 78,
+      "category": "mixed",
+      "input": "Бул жолы емтиханды жаксы тапсырдым",
+      "expected": "Бұл жолы емтиханды жақсы тапсырдым",
+      "output": "Бұл жолы емтиханды жақсы тапсырдым.",
+      "status": "PASS",
+      "latency_ms": 393.4
+    },
+    {
+      "id": 79,
+      "category": "mixed",
+      "input": "Менін агам дарігер болып жумыс істейді",
+      "expected": "Менің ағам дәрігер болып жұмыс істейді",
+      "output": "Менің ағам дәрігер болып жұмыс істейді.",
+      "status": "PASS",
+      "latency_ms": 270.5
+    },
+    {
+      "id": 80,
+      "category": "mixed",
+      "input": "Кунде саат жетіде турамын",
+      "expected": "Күнде сағат жетіде тұрамын",
+      "output": "Күнде саат жетіде тұрамын.",
+      "status": "FAIL",
+      "latency_ms": 299.9
+    },
+    {
+      "id": 81,
+      "category": "mixed",
+      "input": "Ауылда турмыс баска калада баска",
+      "expected": "Ауылда тұрмыс басқа, қалада басқа",
+      "output": "Ауылда тұрмыс басқа қалада басқа.",
+      "status": "FAIL",
+      "latency_ms": 270.1
+    },
+    {
+      "id": 82,
+      "category": "mixed",
+      "input": "Мен жана кітап сатып алдым",
+      "expected": "Мен жаңа кітап сатып алдым",
+      "output": "Мен жаңа кітап сатып алдым.",
+      "status": "PASS",
+      "latency_ms": 268.1
+    },
+    {
+      "id": 83,
+      "category": "mixed",
+      "input": "Бугін кешке шай ішеміз",
+      "expected": "Бүгін кешке шай ішеміз",
+      "output": "Бүгін кешке шай ішеміз.",
+      "status": "PASS",
+      "latency_ms": 267.6
+    },
+    {
+      "id": 84,
+      "category": "mixed",
+      "input": "Ол бізге комектескені ушін рахмет",
+      "expected": "Ол бізге көмектескені үшін рахмет",
+      "output": "Ол бізге көмектескені үшін рахмет.",
+      "status": "PASS",
+      "latency_ms": 363.2
+    },
+    {
+      "id": 85,
+      "category": "mixed",
+      "input": "Устаздын айтканын тындау керек",
+      "expected": "Ұстаздың айтқанын тыңдау керек",
+      "output": "Ұстаздың айтқанын тыңдау керек.",
+      "status": "PASS",
+      "latency_ms": 392.9
+    },
+    {
+      "id": 86,
+      "category": "identity",
+      "input": "Қала орталығында заманауи сауда орталығы ашылды.",
+      "expected": "(unchanged)",
+      "output": "Қала орталығында заманауи сауда орталығы ашылды.",
+      "status": "PASS",
+      "latency_ms": 366.8
+    },
+    {
+      "id": 87,
+      "category": "identity",
+      "input": "Менің досым кеше келді.",
+      "expected": "(unchanged)",
+      "output": "Менің досым кеше келді.",
+      "status": "PASS",
+      "latency_ms": 237.9
+    },
+    {
+      "id": 88,
+      "category": "identity",
+      "input": "Біз бүгін мектепке бардық.",
+      "expected": "(unchanged)",
+      "output": "Біз бүгін мектепке бардық.",
+      "status": "PASS",
+      "latency_ms": 270.4
+    },
+    {
+      "id": 89,
+      "category": "identity",
+      "input": "Ол кітапты оқып шықты.",
+      "expected": "(unchanged)",
+      "output": "Ол кітапты оқып шықты.",
+      "status": "PASS",
+      "latency_ms": 236.7
+    },
+    {
+      "id": 90,
+      "category": "identity",
+      "input": "Қазақстан тәуелсіз мемлекет.",
+      "expected": "(unchanged)",
+      "output": "Қазақстан тәуелсіз мемлекет.",
+      "status": "PASS",
+      "latency_ms": 362.9
+    },
+    {
+      "id": 91,
+      "category": "identity",
+      "input": "Мұғалім сабақты түсіндірді.",
+      "expected": "(unchanged)",
+      "output": "Мұғалім сабақты түсіндірді.",
+      "status": "PASS",
+      "latency_ms": 334.8
+    },
+    {
+      "id": 92,
+      "category": "identity",
+      "input": "Ауа райы бүгін жылы.",
+      "expected": "(unchanged)",
+      "output": "Ауа райы бүгін жылы.",
+      "status": "PASS",
+      "latency_ms": 235.8
+    },
+    {
+      "id": 93,
+      "category": "identity",
+      "input": "Біз жаңа үйге көштік.",
+      "expected": "(unchanged)",
+      "output": "Біз жаңа үйге көштік.",
+      "status": "PASS",
+      "latency_ms": 268.6
+    },
+    {
+      "id": 94,
+      "category": "identity",
+      "input": "Олар ертең келеді.",
+      "expected": "(unchanged)",
+      "output": "Олар ертең келеді.",
+      "status": "PASS",
+      "latency_ms": 175.9
+    },
+    {
+      "id": 95,
+      "category": "identity",
+      "input": "Мен ұстазыма рахмет айттым.",
+      "expected": "(unchanged)",
+      "output": "Мен ұстазыма рахмет айттым.",
+      "status": "PASS",
+      "latency_ms": 268.5
+    },
+    {
+      "id": 96,
+      "category": "identity",
+      "input": "Бүгінгі таңда технология маңызды.",
+      "expected": "(unchanged)",
+      "output": "Бүгінгі таңда технология маңызды.",
+      "status": "PASS",
+      "latency_ms": 209.2
+    },
+    {
+      "id": 97,
+      "category": "identity",
+      "input": "Балалар далада ойнап жүр.",
+      "expected": "(unchanged)",
+      "output": "Балалар далада ойнап жүр.",
+      "status": "PASS",
+      "latency_ms": 422.4
+    },
+    {
+      "id": 98,
+      "category": "identity",
+      "input": "Менің атым Арман.",
+      "expected": "(unchanged)",
+      "output": "Менің атым Арман.",
+      "status": "PASS",
+      "latency_ms": 1972.1
+    },
+    {
+      "id": 99,
+      "category": "identity",
+      "input": "Ол маған хат жазды.",
+      "expected": "(unchanged)",
+      "output": "Ол маған хат жазды.",
+      "status": "PASS",
+      "latency_ms": 236.9
+    },
+    {
+      "id": 100,
+      "category": "identity",
+      "input": "Жақсы адам жақсы іс істейді.",
+      "expected": "(unchanged)",
+      "output": "Жақсы адам жақсы іс істейді.",
+      "status": "PASS",
+      "latency_ms": 238.0
+    }
+  ]
+}

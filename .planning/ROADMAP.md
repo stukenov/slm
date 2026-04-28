@@ -78,10 +78,10 @@ Plans:
   1. Abstract is rewritten to reflect final results (not placeholder claims)
   2. The paper PDF meets arXiv formatting requirements and compiles without errors
   3. Paper is submitted to arXiv and a preprint URL exists
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 04-01: TBD
+- [ ] 04-01-PLAN.md — Abstract rewrite with results, pdflatex compilation, arXiv submission tarball
 
 ## Progress
 

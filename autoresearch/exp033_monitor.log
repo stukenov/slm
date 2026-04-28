@@ -1,0 +1,22 @@
+[2026-04-06 10:04:26 UTC] 10B TICK: 2/11 done. Qwen2.5-7B PPL_kk=4.9, LLaMA-3.1-8B PPL_kk=3.2 (new best!). Gemma-2-9B loading.
+[2026-04-06 10:16:37 UTC] 10B BATCH COMPLETE. Results:
+  LLaMA-3.1-8B: PPL kk=3.2 (BEST)
+  Gemma-2-9B: PPL kk=4.8
+  Qwen2.5-7B: PPL kk=4.9
+  Yi-1.5-9B: PPL kk=7.5
+  Yi-1.5-6B: PPL kk=8.9
+  OLMo-2-7B: PPL kk=9.6
+  Mistral-7B: PPL kk=13.9
+  Phi-3.5: inf (instruct format)
+  Falcon/OLMoE/DeepSeek: FAILED (download/disk)
+  20B BATCH LAUNCHED: 14 models (InternLM, Baichuan, XGLM, mGPT-13B, Bloom, Aya, Jais, SEA-LION, Mixtral, Qwen-MoE, DBRX, etc)
+[2026-04-06 10:18:24 UTC] 20B TICK: InternLM/Baichuan FAILED (missing einops/bitsandbytes — installed now). XGLM done, mGPT-13B loading. 4 failed, ~10 remaining. Installed missing deps for potential rerun.
+[2026-04-06 10:25:15 UTC] 20B TICK: Many failures:
+  InternLM2: einops missing (installed)
+  Baichuan2: bitsandbytes missing (installed) 
+  mGPT-13B/CroissantLLM/XGLM: torch.load vulnerability (needs torch>=2.6)
+  Jais-13B/Aya-23: gated repo
+  SEA-LION: invalid repo ID
+  Bloom-7B: SUCCESS PPL kk=35.3
+  Mixtral-8x7B: downloading (~90GB)
+  Still running: Mixtral, Qwen-MoE, DBRX

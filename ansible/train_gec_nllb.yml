@@ -1,0 +1,50 @@
+---
+- name: Train NLLB GEC model on GPU server
+  hosts: gpu_servers
+  vars:
+    gec_dir: "{{ project_dir }}/gec-paper"
+    venv_path: "{{ gec_dir }}/.venv"
+    config: "{{ gec_config | default('configs/round1_nllb_baseline.yaml') }}"
+    screen_name: "gec_nllb_train"
+
+  tasks:
+    - name: Upload data files
+      synchronize:
+        src: "{{ playbook_dir }}/../gec-paper/data/"
+        dest: "{{ gec_dir }}/data/"
+        rsync_opts:
+          - "--include=*.jsonl"
+          - "--exclude=*"
+      ignore_errors: true
+
+    - name: Check data file exists
+      stat:
+        path: "{{ gec_dir }}/data/synthetic.jsonl"
+      register: data_file
+
+    - name: Show data file status
+      debug:
+        msg: "Data file exists: {{ data_file.stat.exists }}, size: {{ data_file.stat.size | default(0) }} bytes"
+
+    - name: Check for existing screen session
+      shell: screen -ls | grep {{ screen_name }} || true
+      register: screen_check
+
+    - name: Launch training in screen
+      shell: |
+        screen -dmS {{ screen_name }} bash -c '
+          cd {{ gec_dir }} && \
+          source {{ venv_path }}/bin/activate && \
+          PYTHONPATH=src python scripts/train_nllb.py --config {{ config }} \
+            2>&1 | tee logs/train_nllb_$(date +%Y%m%d_%H%M%S).log
+        '
+      when: screen_check.stdout.find(screen_name) == -1
+
+    - name: Confirm training started
+      shell: screen -ls | grep {{ screen_name }}
+      register: confirm
+      ignore_errors: true
+
+    - name: Show status
+      debug:
+        var: confirm.stdout

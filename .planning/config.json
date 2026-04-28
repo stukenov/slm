@@ -1,8 +1,8 @@
 {
-  "mode": "yolo",
-  "granularity": "fine",
-  "parallelization": true,
-  "commit_docs": true,
+  "mode": "interactive",
+  "granularity": "coarse",
+  "parallelization": false,
+  "commit_docs": false,
   "model_profile": "quality",
   "workflow": {
     "research": true,

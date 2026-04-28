@@ -41,7 +41,8 @@
       shell: |
         screen -dmS {{ screen_name }} bash -c '
           cd {{ work_dir }} &&
-          CUDA_VISIBLE_DEVICES=1 {{ venv }}/bin/python -m omniaudio.train_v2 \
+          {{ venv }}/bin/torchrun --nproc_per_node={{ num_gpus | default(1) }} \
+            -m omniaudio.train_v2 \
             --config omniaudio/configs/{{ config }}.yaml \
             2>&1 | tee logs/{{ screen_name }}.log
         '

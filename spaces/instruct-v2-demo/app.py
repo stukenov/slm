@@ -3,6 +3,7 @@ SozKZ — Kazakh Language Model Demo
 Multi-model: 150M and 300M instruct models
 """
 
+import os
 import spaces
 import gradio as gr
 import torch
@@ -11,9 +12,22 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from huggingface_hub import login
+
+HF_TOKEN = os.environ.get("HF_TOKEN")
+if HF_TOKEN:
+    login(token=HF_TOKEN)
 
 # ── Models ─────────────────────────────────────────────
 MODELS = {
+    "Llama 1B Instruct": {
+        "model_id": "stukenov/sozkz-core-llama-1b-kk-instruct-v2",
+        "tokenizer_id": "stukenov/sozkz-core-gpt2-50k-kk-base-v1",
+    },
+    "Llama 600M Instruct": {
+        "model_id": "stukenov/sozkz-core-llama-600m-kk-instruct-v1",
+        "tokenizer_id": "stukenov/sozkz-core-gpt2-50k-kk-base-v1",
+    },
     "Llama 300M Instruct": {
         "model_id": "stukenov/sozkz-core-llama-300m-kk-instruct-v1",
         "tokenizer_id": "stukenov/sozkz-core-gpt2-50k-kk-base-v1",
@@ -38,7 +52,7 @@ for name, cfg in MODELS.items():
     params = sum(p.numel() for p in loaded_models[name].parameters()) / 1e6
     print(f"  {name}: {params:.0f}M params")
 
-DEFAULT_MODEL = "Llama 300M Instruct"
+DEFAULT_MODEL = "Llama 600M Instruct"
 print("All models loaded.")
 
 # ── Logging ────────────────────────────────────────────
@@ -647,7 +661,10 @@ with gr.Blocks(css=CSS, theme=theme, js=JS, title="SozKZ — Қазақша AI")
         <h1>SozKZ</h1>
         <p class="sub">Қазақ тіліндегі тілдік модель</p>
         <div class="tags">
-            <span class="tag">Llama</span>
+            <span class="tag">Llama 1B</span>
+            <span class="tag">Llama 600M</span>
+            <span class="tag">Llama 300M</span>
+            <span class="tag">Llama 150M</span>
             <span class="tag">Instruction-tuned</span>
             <span class="tag">Қазақша</span>
         </div>
@@ -686,10 +703,12 @@ with gr.Blocks(css=CSS, theme=theme, js=JS, title="SozKZ — Қазақша AI")
 
     gr.HTML("""
     <div id="sozkz-footer">
+        <a href="https://huggingface.co/stukenov/sozkz-core-llama-600m-kk-instruct-v1">600M</a>&ensp;·&ensp;
         <a href="https://huggingface.co/stukenov/sozkz-core-llama-300m-kk-instruct-v1">300M</a>&ensp;·&ensp;
         <a href="https://huggingface.co/stukenov/sozkz-core-llama-150m-kk-instruct-v1">150M</a>&ensp;·&ensp;
-        <a href="https://huggingface.co/stukenov">stukenov</a>&ensp;·&ensp;
-        Research preview
+        <a href="https://huggingface.co/stukenov/sozkz-core-llama-1b-kk-base-v1">Base 1B</a>&ensp;·&ensp;
+        <a href="https://huggingface.co/spaces/stukenov/sozkz-kazakh-asr-demo">ASR</a>&ensp;·&ensp;
+        <a href="https://huggingface.co/stukenov">stukenov</a>
     </div>
     """)
 

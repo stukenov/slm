@@ -1,0 +1,7 @@
+APScheduler==3.10.1
+huggingface-hub>=0.28.0,<2.0.0
+numpy>=1.26.0
+pandas==2.2.2
+plotly==5.14.1
+tqdm==4.65.0
+gradio>=5.0

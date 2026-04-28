@@ -1,0 +1,60 @@
+\section{Introduction}
+
+Kazakh is a Turkic language spoken by approximately 22 million people,
+primarily in Kazakhstan and neighboring countries.  As an agglutinative
+language with rich morphology, Kazakh poses particular challenges for
+natural language processing: words carry extensive inflectional and
+derivational suffixes, leading to a large effective vocabulary that
+general-purpose multilingual tokenizers handle poorly.  Despite a
+growing body of NLP research for Kazakh~\citep{yeshpanov2022kaznerd,
+yeshpanov2024kazqad}, the language remains underserved by the current
+generation of large language models, which typically allocate only a
+fraction of their capacity to low-resource languages.
+
+Modern multilingual models such as Llama~3~\citep{touvron2023llama},
+Gemma~\citep{team2024gemma}, Qwen~2.5~\citep{bai2023qwen}, and
+Mistral~\citep{jiang2023mistral} are trained on corpora dominated by
+English and other high-resource languages.  When applied to Kazakh,
+these models face two compounding inefficiencies.  First, their
+tokenizers fragment Kazakh text into disproportionately many subword
+tokens---a phenomenon quantified by \emph{fertility}, the average
+number of tokens per word.  Second, the vast majority of model
+parameters encode knowledge about languages other than Kazakh, yielding
+a poor ratio of useful capacity to total model size.
+
+We argue that \textbf{small, dedicated models can achieve competitive
+performance with much larger multilingual models on Kazakh language
+tasks at a fraction of the computational cost}.  To test this thesis, we train
+\sozkz{}, a family of Llama-architecture causal language models at four
+parameter scales---50M, 150M, 300M, and 600M---entirely from scratch on
+a curated Kazakh corpus of approximately 9 billion tokens.
+
+Our contributions are as follows:
+\begin{enumerate}
+  \item We present an end-to-end pipeline for training Kazakh language
+    models from scratch at four scales (50M--600M parameters), including
+    data collection, cleaning, and pre-tokenization.
+  \item We design a dedicated ByteLevel BPE tokenizer with a 50K
+    vocabulary\footnote{\url{https://huggingface.co/stukenov/kazakh-bpe-32k}}
+    that achieves a 2--3$\times$ fertility advantage over
+    multilingual tokenizers on Kazakh text.
+  \item We evaluate SozKZ models against five multilingual baselines
+    (Qwen, Llama~3, Gemma) spanning 0.5B--3B parameters on three
+    Kazakh benchmarks, showing competitive performance and a clear
+    advantage on topic classification.
+  \item We report empirical scaling curves for Kazakh language modeling,
+    identifying the efficiency sweet spot where dedicated small models
+    offer the best performance-per-parameter trade-off.
+  \item We release all models, the tokenizer, and the training pipeline
+    under open licenses to support further research on Kazakh NLP.
+\end{enumerate}
+
+The rest of this paper is organized as follows.
+\Cref{sec:related} surveys related work on Kazakh NLP, low-resource
+language modeling, scaling laws, and tokenizer design.
+\Cref{sec:methodology} describes our data pipeline, tokenizer,
+model architectures, and training procedure.
+\Cref{sec:experiments} details the benchmark suite and evaluation
+protocol.  \Cref{sec:results} presents and analyzes results.
+\Cref{sec:conclusion} summarizes our findings and outlines future
+directions.

@@ -1,0 +1,70 @@
+---
+- name: exp034 — EkiTil Translate Training
+  hosts: translate
+  gather_facts: false
+  vars:
+    workspace: /workspace
+    train_script: "{{ workspace }}/train_fast.py"
+    log_file: "{{ workspace }}/train.log"
+    screen_name: translate
+
+  tasks:
+    - name: Kill any existing training
+      shell: |
+        screen -S {{ screen_name }} -X quit 2>/dev/null || true
+        pkill -9 -f train_fast 2>/dev/null || true
+        sleep 1
+      ignore_errors: true
+
+    - name: Upload training script
+      copy:
+        src: ../scripts/exp034/train_fast.py
+        dest: "{{ train_script }}"
+        mode: "0755"
+
+    - name: Verify cache exists
+      stat:
+        path: "{{ workspace }}/cache/data.pkl"
+      register: cache_file
+
+    - name: Fail if no cache
+      fail:
+        msg: "Cache not found! Run pretokenize first."
+      when: not cache_file.stat.exists
+
+    - name: Show cache size
+      shell: "ls -lh {{ workspace }}/cache/data.pkl"
+      register: cache_info
+
+    - name: Print cache info
+      debug:
+        msg: "{{ cache_info.stdout }}"
+
+    - name: Clean old checkpoints
+      file:
+        path: "{{ workspace }}/checkpoints/translate"
+        state: absent
+
+    - name: Launch training in screen
+      shell: |
+        screen -dmS {{ screen_name }} python3 -u {{ train_script }} \
+          --bs 256 \
+          --accum 1 \
+          --epochs 2 \
+          --lr 2e-5 \
+          --warmup 500 \
+          --compile
+      args:
+        chdir: "{{ workspace }}"
+
+    - name: Wait for training to start
+      pause:
+        seconds: 10
+
+    - name: Verify training is running
+      shell: "screen -ls; echo '---'; nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv,noheader | head -1"
+      register: status
+
+    - name: Print status
+      debug:
+        msg: "{{ status.stdout }}"

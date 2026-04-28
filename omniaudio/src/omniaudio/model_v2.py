@@ -154,6 +154,8 @@ class OmniAudioV2Model(nn.Module):
         if llm_name:
             from transformers import LlamaForCausalLM
             self.llm = LlamaForCausalLM.from_pretrained(llm_name)
+            if self.llm.get_input_embeddings().num_embeddings != vocab_size:
+                self.llm.resize_token_embeddings(vocab_size)
             for p in self.llm.parameters():
                 p.requires_grad = False
         else:
@@ -203,7 +205,8 @@ class OmniAudioV2Model(nn.Module):
 
     @torch.no_grad()
     def generate(self, mel: torch.Tensor, max_new_tokens: int = 200,
-                 eos_token_id: int = 0) -> list[int]:
+                 eos_token_id: int = 0, repetition_penalty: float = 1.15,
+                 no_repeat_ngram_size: int = 3) -> list[int]:
         assert self.llm is not None, "LLM required for generation"
         self.llm.eval()
 
@@ -224,7 +227,27 @@ class OmniAudioV2Model(nn.Module):
             outputs = self.llm(inputs_embeds=token_embeds, past_key_values=past_key_values,
                                use_cache=True)
             past_key_values = outputs.past_key_values
-            next_token_id = outputs.logits[:, -1, :].argmax(dim=-1)
+            logits = outputs.logits[:, -1, :].squeeze(0)
+
+            if repetition_penalty != 1.0 and generated:
+                for prev_token in set(generated):
+                    if logits[prev_token] < 0:
+                        logits[prev_token] *= repetition_penalty
+                    else:
+                        logits[prev_token] /= repetition_penalty
+
+            if no_repeat_ngram_size > 1 and len(generated) >= no_repeat_ngram_size - 1:
+                prefix = tuple(generated[-(no_repeat_ngram_size - 1):])
+                blocked = set()
+                for i in range(len(generated) - no_repeat_ngram_size + 1):
+                    ngram = generated[i:i + no_repeat_ngram_size]
+                    if tuple(ngram[:-1]) == prefix:
+                        blocked.add(ngram[-1])
+                if blocked:
+                    blocked_tokens = torch.tensor(list(blocked), device=logits.device, dtype=torch.long)
+                    logits[blocked_tokens] = float("-inf")
+
+            next_token_id = logits.argmax(dim=-1).view(1)
             generated.append(next_token_id.item())
 
         return generated
@@ -315,10 +338,16 @@ class OmniAudioScratchModel(nn.Module):
         return F.ctc_loss(log_probs, targets, input_lengths, target_lengths,
                           blank=0, zero_infinity=True)
 
-    def forward(self, mel: torch.Tensor, text_ids: torch.Tensor,
+    def forward(self, mel: torch.Tensor, text_ids: torch.Tensor | None = None,
                 ctc_weight: float = 0.0, ctc_targets: torch.Tensor | None = None,
-                ctc_target_lengths: torch.Tensor | None = None) -> torch.Tensor:
-        """Forward: encode audio, concat with text embeddings, decode causally."""
+                ctc_target_lengths: torch.Tensor | None = None,
+                ctc_only: bool = False) -> torch.Tensor:
+        """Forward: encode audio, concat with text embeddings, decode causally.
+        If ctc_only=True, only run CTC loss (for DDP-compatible CTC pretrain).
+        """
+        if ctc_only:
+            return self.forward_ctc(mel, ctc_targets, ctc_target_lengths)
+
         enc_out = self.encoder(mel)
         audio_embeds = self.projector(enc_out)  # (B, T_audio, dec_dim)
 

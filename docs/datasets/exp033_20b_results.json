@@ -1,0 +1,164 @@
+[
+  {
+    "name": "InternLM2.5-7B",
+    "repo": "internlm/internlm2_5-7b",
+    "error": "This modeling file requires the following packages that were not found in your environment: einops. Run `pip install einops`",
+    "vocab_size": 92544,
+    "kaz_chars": "2/18",
+    "fert_kaz": 9.09,
+    "fert_eng": 1.21,
+    "kk_en_ratio": 7.51
+  },
+  {
+    "name": "InternLM2-20B",
+    "repo": "internlm/internlm2-20b",
+    "error": "This modeling file requires the following packages that were not found in your environment: einops. Run `pip install einops`",
+    "vocab_size": 92544,
+    "kaz_chars": "2/18",
+    "fert_kaz": 9.09,
+    "fert_eng": 1.21,
+    "kk_en_ratio": 7.51
+  },
+  {
+    "name": "Baichuan2-7B",
+    "repo": "baichuan-inc/Baichuan2-7B-Base",
+    "error": "This modeling file requires the following packages that were not found in your environment: bitsandbytes. Run `pip install bitsandbytes`",
+    "vocab_size": 125696,
+    "kaz_chars": "18/18",
+    "fert_kaz": 5.36,
+    "fert_eng": 1.11,
+    "kk_en_ratio": 4.83
+  },
+  {
+    "name": "Baichuan2-13B",
+    "repo": "baichuan-inc/Baichuan2-13B-Base",
+    "error": "This modeling file requires the following packages that were not found in your environment: bitsandbytes. Run `pip install bitsandbytes`",
+    "vocab_size": 125696,
+    "kaz_chars": "18/18",
+    "fert_kaz": 5.36,
+    "fert_eng": 1.11,
+    "kk_en_ratio": 4.83
+  },
+  {
+    "name": "XGLM-7.5B",
+    "repo": "facebook/xglm-7.5B",
+    "error": "Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.go",
+    "vocab_size": 256008,
+    "kaz_chars": "17/18",
+    "fert_kaz": 1.73,
+    "fert_eng": 1.21,
+    "kk_en_ratio": 1.43
+  },
+  {
+    "name": "mGPT-13B",
+    "repo": "ai-forever/mGPT-13B",
+    "error": "Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.go",
+    "vocab_size": 100000,
+    "kaz_chars": "0/18",
+    "fert_kaz": 4.73,
+    "fert_eng": 1.11,
+    "kk_en_ratio": 4.26
+  },
+  {
+    "name": "Bloom-7B",
+    "repo": "bigscience/bloom-7b1",
+    "error": null,
+    "vocab_size": 250680,
+    "kaz_chars": "0/18",
+    "fert_kaz": 4.91,
+    "fert_eng": 1.11,
+    "kk_en_ratio": 4.42,
+    "params_B": 7.069,
+    "vram_gb": 14.1,
+    "ppl_kaz": 35.27,
+    "ppl_rus": 9.94,
+    "ppl_eng": 10.88,
+    "gen": [
+      {
+        "prompt": "Қазақстан — бұл",
+        "output": "Қазақстан — бұл қалыптау менің тексерімен, [[{{MediaWiki:Policy-url}}|саңғы жардамаларын]] осы нҰтикін.',\n'actioncomplete'            => 'Әрекет келдірген',\n'deletedtext'               => '\"<"
+      },
+      {
+        "prompt": "Қазақ тілі — түркі тілдерінің",
+        "output": "Қазақ тілі — түркі тілдерінің басалында қос, һуғартпа және орналады.\nБұны соңғы өзгерістер болса сондықты '''Һотарып шығу''' алусыз.\",\n'protectedpagewarning'             => \"'''�"
+      },
+      {
+        "prompt": "Алматы қаласында бүгін",
+        "output": "Алматы қаласында бүгін.',\n'missingcommentheader'       => \"'''Қушыу:''' Өзір өткен/сонық жазбасы келесіз.\nБасқа {{PLURAL:$1|жазба|жазбалерді}} уәдей астымен бастаудан ғана с"
+      },
+      {
+        "prompt": "Білім беру саласында",
+        "output": "Білім беру саласында қараңыз',\n'tog-watchlisthideown' => 'Сирот жетістіру тізімінде мені көремді ашылған үлесіне дегенге салдырып каталып шыныт',\n'tog-watch"
+      },
+      {
+        "prompt": "Абай Құнанбайұлы — ұлы",
+        "output": "Абай Құнанбайұлы — ұлыбас хошилай, берлик мүмкин.',\n'tog-watchlisthideown' => 'Сизгинниң жижилгариштан спискагизде кечиге киргенлерине чыгаруу',\n'tog-watchlisthidebots' =>"
+      },
+      {
+        "prompt": "Наурыз мейрамы — қазақ халқының",
+        "output": "Наурыз мейрамы — қазақ халқының өшірілген мағынатын жою аласыз.',\n'sp-contributions-blocklogentry' => '«[[$1]]» деп бар келтірілді',\n'sp-newimages-showfrom' => '$2, $1 сайтагыдан бастақ файл"
+      },
+      {
+        "prompt": "Қазақстан экономикасы",
+        "output": "Қазақстан экономикасын қарап шығу',\n'tog-ccmeonemails' => 'Басқа хаттарды янылмаган барлык кіргендерді мүмкін, осы хаттарын жөнелтеме итей.',\n\n# Groups\n'group-sysop"
+      },
+      {
+        "prompt": "Ұлттық тағамдар арасында",
+        "output": "Ұлттық тағамдар арасында, мысаллай.\nТаңба: {{ns:template}} файлына кеші қолдану үшін және [[{{MediaWiki:Helppage}}|ярдыңғы талбар]] бетін ұмытпаңыз.',\n'mainpage'             => '�"
+      },
+      {
+        "prompt": "Қазақ мәдениеті мен өнері",
+        "output": "Қазақ мәдениеті мен өнерік шығартылады',\n'tog-enotifrevealaddr'        => 'Боны қатесіне тек хат жайсына салуғанда, е-пошта болудан аша келтірмеген.',\n'tog-shownumberswatching'     => 'Ө"
+      },
+      {
+        "prompt": "Жастарға арналған",
+        "output": "Жастарға арналған беттерді',\n'deletedrevision-files'  => 'Қотарылуыш қөп $1 тақырыбыларды жойылған.',\n\n# Rollback\n'rollback_short'   => 'Басалмау',\n'rollbacklink'     => 'басалмау',\n'cantrollback"
+      }
+    ]
+  },
+  {
+    "name": "CroissantLLM-1.3B",
+    "repo": "croissantllm/CroissantLLMBase",
+    "error": "Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.go",
+    "vocab_size": 32000,
+    "kaz_chars": "2/18",
+    "fert_kaz": 5.45,
+    "fert_eng": 1.21,
+    "kk_en_ratio": 4.5
+  },
+  {
+    "name": "Aya-23-8B",
+    "repo": "CohereForAI/aya-23-8B",
+    "error": "You are trying to access a gated repo.\nMake sure to have access to it at https://huggingface.co/CohereForAI/aya-23-8B.\n403 Client Error. (Request ID: Root=1-69d38950-16a0ad6d28909a45107326be;655fe737-3629-4311-9437-aebb750a8449)\n\nCannot access gated repo for url https://huggingface.co/CohereForAI/ay"
+  },
+  {
+    "name": "Jais-13B",
+    "repo": "inceptionai/jais-13b",
+    "error": "You are trying to access a gated repo.\nMake sure to have access to it at https://huggingface.co/inceptionai/jais-13b.\n403 Client Error. (Request ID: Root=1-69d38950-5229a26703c55e7947d9dd26;1c33f197-3b5f-4025-8c8d-7901ff230653)\n\nCannot access gated repo for url https://huggingface.co/inceptionai/jai"
+  },
+  {
+    "name": "SEA-LION-v3-7B",
+    "repo": "aisingapore/llama3-8b-cpt-sea-lionv3-base",
+    "error": "aisingapore/llama3-8b-cpt-sea-lionv3-base is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your"
+  },
+  {
+    "name": "Mixtral-8x7B",
+    "repo": "mistralai/Mixtral-8x7B-v0.1",
+    "error": "Data processing error: File reconstruction error: Internal Writer Error: Background writer channel closed",
+    "vocab_size": 32000,
+    "kaz_chars": "11/18",
+    "fert_kaz": 4.82,
+    "fert_eng": 1.26,
+    "kk_en_ratio": 3.83
+  },
+  {
+    "name": "Qwen1.5-MoE-A2.7B",
+    "repo": "Qwen/Qwen1.5-MoE-A2.7B",
+    "error": "[Errno 28] No space left on device"
+  },
+  {
+    "name": "DBRX-base",
+    "repo": "databricks/dbrx-base",
+    "error": "databricks/dbrx-base is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`"
+  }
+]

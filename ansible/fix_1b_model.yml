@@ -1,0 +1,26 @@
+---
+- name: "exp028: Fix embedding scaling in HF model"
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+
+  tasks:
+    - name: Deploy fix script
+      copy:
+        src: "{{ playbook_dir }}/../scripts/inference/fix_1b_embeddings.py"
+        dest: "{{ project_dir }}/scripts/inference/fix_1b_embeddings.py"
+
+    - name: Run fix
+      shell: >
+        {{ python }} {{ project_dir }}/scripts/inference/fix_1b_embeddings.py
+        2>&1 | tee {{ project_dir }}/logs/fix_1b.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 1800
+      poll: 30
+      register: fix_result
+
+    - name: Show results
+      debug:
+        msg: "{{ fix_result.stdout_lines }}"

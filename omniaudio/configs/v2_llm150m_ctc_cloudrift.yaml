@@ -1,0 +1,23 @@
+# OmniAudio v2: CTC pretrain 150M — CloudRift (RTX 4090/5090, single GPU)
+inherits: v2_base
+experiment_name: omniaudio_v2_llm150m_ctc
+model_type: pretrained
+stage: ctc_pretrain
+dataset_name: sozkz_mels
+audio_d_model: 512
+audio_n_heads: 8
+audio_n_layers: 12
+audio_n_conv: 2
+max_audio_len: 10.0
+per_device_train_batch_size: 64
+gradient_accumulation_steps: 1
+dataloader_num_workers: 8
+learning_rate: 3e-4
+warmup_ratio: 0.05
+weight_decay: 0.01
+num_train_epochs: 2
+save_steps: 5000
+logging_steps: 50
+bf16: true
+torch_compile: true
+hf_repo_id: stukenov/sozkz-core-omniaudio-150m-kk-ctc-v1

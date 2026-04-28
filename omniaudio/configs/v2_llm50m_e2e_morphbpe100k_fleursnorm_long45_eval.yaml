@@ -1,0 +1,4 @@
+# OmniAudio v2: 50M MorphBPE 100k eval/inference config with full FLEURS-length window
+inherits: v2_llm50m_e2e_morphbpe100k_fleursnorm_long15_cloudrift
+experiment_name: omniaudio_v2_llm50m_morphbpe100k_fleursnorm_long45_eval
+max_audio_len: 45.0

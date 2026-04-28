@@ -1,0 +1,77 @@
+\section{Results}
+\label{sec:results}
+
+We evaluate the SozKZ model family (50M--600M parameters) against five multilingual baselines (Qwen-0.5B to Llama-3.2-3B) on three Kazakh benchmarks.
+Our results reveal that a dedicated 600M model trained from scratch achieves competitive performance with multilingual models 2--5$\times$ larger, with a clear advantage on topic classification where the dedicated tokenizer proves most beneficial.
+
+\subsection{Overall Comparison}
+\label{sec:comparison}
+
+\begin{table}[t]
+\centering
+\caption{Accuracy (\%) on three Kazakh benchmarks. Best values per column are \textbf{bold}. Random baselines: MC~QA = 25\% (4-choice), Belebele = 25\% (4-choice), SIB-200 = 14.3\% (7-class).}
+\label{tab:comparison}
+\input{tables/comparison}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{comparison_bar}
+\caption{Task-level performance comparison across model families.
+  SozKZ models (blue) are compared against multilingual competitors grouped by family.}
+\label{fig:comparison}
+\end{figure}
+
+\Cref{tab:comparison} presents the full results and \Cref{fig:comparison} visualizes the comparison.
+
+\paragraph{Multiple-choice QA.}
+On the Kazakh socio-cultural MC~QA benchmark (7,111 questions across 18 categories), SozKZ-600M achieves \accMcQaSozKZSixHundredM{} accuracy, above the 25\% random baseline and approaching Llama-3.2-1B (\accMcQaLlamaThreeOneB{}) and Qwen-0.5B (\accMcQaQwenZeroFiveB{}).
+Qwen-1.5B leads with \accMcQaQwenOneFiveB{}, and Llama-3.2-3B reaches \accMcQaLlamaThreeThreeB{}.
+The gap between SozKZ-600M and comparably-sized Qwen-0.5B is only 1.2 percentage points, despite Qwen having been trained on orders of magnitude more multilingual data.
+
+\paragraph{Reading comprehension (Belebele).}
+On the Belebele Kazakh subset, all models cluster between 27\% and 32\%, indicating that reading comprehension in Kazakh remains challenging for both dedicated and multilingual models at this scale.
+SozKZ-600M achieves \accBelebeleSozKZSixHundredM{}, comparable to Llama-3.2-1B (\accBelebeleLlamaThreeOneB{}).
+The modest spread suggests that this benchmark may be near the floor of what base models can achieve without explicit instruction tuning.
+
+\paragraph{Topic classification (SIB-200).}
+SIB-200 topic classification reveals the clearest advantage for the SozKZ family.
+SozKZ-600M achieves \accSibTwoHundredSozKZSixHundredM{}, \emph{surpassing} Gemma-2B (\accSibTwoHundredGemmaTwoB{}), Llama-3.2-1B (\accSibTwoHundredLlamaThreeOneB{}), Qwen-0.5B (\accSibTwoHundredQwenZeroFiveB{}), and Qwen-1.5B (\accSibTwoHundredQwenOneFiveB{}).
+Notably, Qwen-1.5B scores only \accSibTwoHundredQwenOneFiveB{}---below the SozKZ-50M model---despite being 30$\times$ larger.
+Even SozKZ-50M (\accSibTwoHundredSozKZFiftyM{}) outperforms all multilingual models except Llama-3.2-3B (\accSibTwoHundredLlamaThreeThreeB{}).
+
+This pattern is consistent with the tokenizer hypothesis: topic classification relies on recognizing Kazakh content words and their morphological variants.
+A tokenizer trained on Kazakh preserves word boundaries and suffix structure, giving the model direct access to topic-relevant lexical signals that multilingual tokenizers fragment.
+
+\subsection{Scaling Analysis}
+\label{sec:scaling}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{scaling_own}
+\caption{Scaling behavior of SozKZ models (50M--600M parameters) across three benchmarks.
+  MC~QA accuracy scales consistently from 22.8\% to 30.3\%, with no sign of saturation.}
+\label{fig:scaling-own}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{scaling_all}
+\caption{Performance vs.\ model size across all evaluated models.
+  SozKZ models (blue circles) are plotted alongside multilingual competitors.}
+\label{fig:scaling-all}
+\end{figure}
+
+\Cref{fig:scaling-own} shows the scaling behavior across our four model sizes.
+MC~QA accuracy improves consistently from 22.8\% (50M) to \accMcQaSozKZSixHundredM{} (600M), a 7.5 percentage point gain with a 12$\times$ increase in parameters.
+The improvement from 300M (\accMcQaSozKZThreeHundredM{}) to 600M (\accMcQaSozKZSixHundredM{}) is 2.0 points, suggesting that the model has not yet saturated and further scaling would yield additional gains.
+
+SIB-200 accuracy is remarkably stable across model sizes (25.5\% for all SozKZ models), suggesting that the dedicated tokenizer provides sufficient topic discrimination even at 50M parameters.
+Belebele shows modest improvement from \accBelebeleSozKZFiftyM{} (50M) to \accBelebeleSozKZThreeHundredM{} (300M).
+
+\Cref{fig:scaling-all} places SozKZ models in context.
+On MC~QA, SozKZ-600M is positioned between Qwen-0.5B and Llama-3.2-1B---models with comparable or slightly larger parameter counts.
+On SIB-200, SozKZ models consistently outperform multilingual competitors of similar or larger size, confirming the tokenizer advantage on lexical tasks.
+
+From a Chinchilla-optimal perspective~\citep{hoffmann2022chinchilla}, our 600M model was trained on approximately 9B tokens, yielding a tokens-to-parameters ratio of 15:1.
+The Chinchilla-optimal ratio is approximately 20:1, suggesting that the model is slightly undertrained and additional data would improve performance further.

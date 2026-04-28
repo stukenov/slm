@@ -1,0 +1,26 @@
+---
+- name: "exp028v2: Smoke test — full round-trip verification"
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+
+  tasks:
+    - name: Deploy smoke test script
+      copy:
+        src: "{{ playbook_dir }}/../scripts/inference/smoke_test_roundtrip.py"
+        dest: "{{ project_dir }}/scripts/inference/smoke_test_roundtrip.py"
+
+    - name: Run smoke test
+      shell: >
+        {{ python }} {{ project_dir }}/scripts/inference/smoke_test_roundtrip.py
+        2>&1 | tee {{ project_dir }}/logs/smoke_test_roundtrip.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 600
+      poll: 15
+      register: result
+
+    - name: Show results
+      debug:
+        msg: "{{ result.stdout_lines }}"

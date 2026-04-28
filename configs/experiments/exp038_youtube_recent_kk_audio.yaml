@@ -1,0 +1,59 @@
+# ============================================================================
+# exp038: Recent-only Kazakh speech bootstrap from YouTube news/talk channels
+# Goal: build 5K+ unlabeled speech chunks for audio encoder pretraining
+# Strategy: metadata-first triage -> audio download -> vocal isolation -> KK gate
+#           -> VAD chunking (<=30s) -> rolling shard upload to HF
+# Constraint: never crawl full channels; aqparatkz contributes <=10% of corpus
+# ============================================================================
+inherits: base
+experiment_name: exp038_youtube_recent_kk_audio
+
+audio_collection:
+  output_root: ./data/exp038_youtube_recent_kk_audio
+  inventory_subdir: inventory
+  selected_manifest: selected_videos.jsonl
+  processed_manifest: processed_videos.jsonl
+  rejected_manifest: rejected_videos.jsonl
+
+  target_duration_hours: 5000
+  inventory_cache_days: 7  # reuse HF-cached channel inventory if younger than this
+
+  channels:
+    - name: qazaqstan_tv
+      url: https://www.youtube.com/@QazaqstanTV/videos
+      weight: 0.92
+      priority: 1
+      max_share: 0.95
+    - name: aqparatkz
+      url: https://www.youtube.com/@aqparatkz/videos
+      weight: 0.08
+      priority: 2
+      max_share: 0.10
+
+  processing:
+    audio_sample_rate: 16000
+    separator_backend: demucs
+    separator_model: htdemucs
+    separator_required: false
+    enhancer_backend: none  # demucs htdemucs is sufficient; noisereduce is CPU-bound on long files
+
+    skip_language_gate: true  # trust that QazaqstanTV/aqparatkz is Kazakh
+
+    vad_backend: silero_vad
+    min_chunk_seconds: 2.5
+    max_chunk_seconds: 30.0
+    max_merge_gap_seconds: 0.5
+    min_silence_duration_ms: 250
+    speech_pad_ms: 0
+    threshold: 0.5
+
+  upload:
+    enabled: true
+    repo_id: stukenov/sozkz-corpus-raw-kk-youtube-speech-v1
+    repo_type: dataset
+    private: true
+    shard_size_chunks: 500
+    path_in_repo: shards
+    status_path: state
+    sync_state_from_hub: true
+    upload_state_every_videos: 5

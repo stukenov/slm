@@ -1,0 +1,70 @@
+---
+- name: "exp028: Kill PPL, tokenize filtered datasets"
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+    log_dir: "{{ project_dir }}/logs"
+    tokenize_script: "{{ project_dir }}/scripts/tokenizer/tokenize_dataset.py"
+
+    kk_filtered: "stukenov/sozkz-corpus-clean-kk-text-v4"
+    enkk_filtered: "stukenov/sozkz-corpus-clean-enkk-fineweb-edu-v2"
+    kk_tokenized: "stukenov/sozkz-corpus-tokenized-kk-llama50k-v4"
+    enkk_tokenized: "stukenov/sozkz-corpus-tokenized-enkk-fineweb-edu-v2"
+    tokenizer_name: "stukenov/sozkz-core-gpt2-50k-kk-base-v1"
+
+  tasks:
+    - name: Kill running PPL scoring process
+      shell: "ps aux | grep ppl_score_dataset | grep -v grep | awk '{print $2}' | xargs -r kill 2>/dev/null; true"
+
+    - name: Wait for GPU to free
+      pause:
+        seconds: 5
+
+    - name: Sync scripts
+      synchronize:
+        src: "{{ playbook_dir }}/../scripts/"
+        dest: "{{ project_dir }}/scripts/"
+        rsync_opts:
+          - "--exclude=__pycache__"
+
+    - name: "Tokenize KK (block_size=1024)"
+      shell: >
+        {{ python }} {{ tokenize_script }}
+        --dataset {{ kk_filtered }}
+        --tokenizer {{ tokenizer_name }}
+        --output {{ kk_tokenized }}
+        --block-size 1024 --num-proc 8
+        2>&1 | tee {{ log_dir }}/tokenize_kk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 60
+      register: tok_kk
+
+    - name: KK tokenize results
+      debug:
+        msg: "{{ tok_kk.stdout_lines[-10:] }}"
+
+    - name: "Tokenize ENKK (block_size=1024)"
+      shell: >
+        {{ python }} {{ tokenize_script }}
+        --dataset {{ enkk_filtered }}
+        --tokenizer {{ tokenizer_name }}
+        --output {{ enkk_tokenized }}
+        --text-column "text_en,text_kk"
+        --block-size 1024 --num-proc 8
+        2>&1 | tee {{ log_dir }}/tokenize_enkk.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 43200
+      poll: 60
+      register: tok_enkk
+
+    - name: ENKK tokenize results
+      debug:
+        msg: "{{ tok_enkk.stdout_lines[-10:] }}"
+
+    - name: Done
+      debug:
+        msg: "Tokenization complete! KK={{ kk_tokenized }}, ENKK={{ enkk_tokenized }}"

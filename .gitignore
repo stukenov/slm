@@ -62,3 +62,4 @@ translation-demo/model_ct2/
 # Generated audio results
 results/cosyvoice_kk/
 results/mms_tts_kk/
+.planning/

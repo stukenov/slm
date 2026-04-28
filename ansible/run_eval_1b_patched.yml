@@ -1,0 +1,26 @@
+---
+- name: "exp028: Inference with patched QK-Norm"
+  hosts: gpu_servers
+  vars:
+    venv_path: "{{ project_dir }}/.venv"
+    python: "{{ venv_path }}/bin/python3"
+
+  tasks:
+    - name: Deploy patched eval script
+      copy:
+        src: "{{ playbook_dir }}/../scripts/inference/eval_1b_patched.py"
+        dest: "{{ project_dir }}/scripts/inference/eval_1b_patched.py"
+
+    - name: Run patched inference
+      shell: >
+        {{ python }} {{ project_dir }}/scripts/inference/eval_1b_patched.py
+        2>&1 | tee {{ project_dir }}/logs/eval_1b_patched.log
+      args:
+        chdir: "{{ project_dir }}"
+      async: 1800
+      poll: 30
+      register: result
+
+    - name: Show results
+      debug:
+        msg: "{{ result.stdout_lines }}"

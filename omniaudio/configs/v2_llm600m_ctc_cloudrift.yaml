@@ -1,0 +1,23 @@
+# OmniAudio v2: CTC pretrain 600M — CloudRift (RTX 5090 32GB, single GPU)
+inherits: v2_base
+experiment_name: omniaudio_v2_llm600m_ctc
+model_type: pretrained
+stage: ctc_pretrain
+dataset_name: sozkz_mels
+audio_d_model: 768
+audio_n_heads: 12
+audio_n_layers: 16
+audio_n_conv: 2
+max_audio_len: 10.0
+per_device_train_batch_size: 24
+gradient_accumulation_steps: 1
+dataloader_num_workers: 4
+learning_rate: 3e-4
+warmup_ratio: 0.05
+weight_decay: 0.01
+num_train_epochs: 2
+save_steps: 5000
+logging_steps: 50
+bf16: true
+torch_compile: false
+hf_repo_id: stukenov/sozkz-core-omniaudio-600m-kk-ctc-v1

@@ -51,7 +51,7 @@ class NLLBGECCollator:
             return_tensors="pt",
         )
 
-        self.tokenizer.src_lang = LANG_CODE
+        self.tokenizer.tgt_lang = LANG_CODE
         labels = self.tokenizer(
             text_target=targets,
             max_length=self.max_target_length,
@@ -109,6 +109,7 @@ def train_nllb_gec(config: dict) -> Path:
         save_total_limit=2,
         load_best_model_at_end=True,
         metric_for_best_model="eval_loss",
+        remove_unused_columns=False,
     )
 
     trainer = Seq2SeqTrainer(

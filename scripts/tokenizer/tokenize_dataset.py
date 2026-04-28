@@ -26,7 +26,8 @@ import time
 from itertools import chain
 
 from datasets import DatasetDict, load_dataset
-from transformers import AutoTokenizer
+from transformers import PreTrainedTokenizerFast
+from huggingface_hub import hf_hub_download
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
@@ -62,9 +63,10 @@ def tokenize_and_upload(
 
     logger.info("Dataset size: %d rows", len(raw))
 
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
+    tok_file = hf_hub_download(tokenizer_name, "tokenizer.json")
+    tokenizer = PreTrainedTokenizerFast(tokenizer_file=tok_file)
+    tokenizer.pad_token_id = 1
+    tokenizer.pad_token = tokenizer.convert_ids_to_tokens(1)
 
     # Support multiple text columns (comma-separated) — merge into single "text" column
     text_columns = [c.strip() for c in text_column.split(",")]

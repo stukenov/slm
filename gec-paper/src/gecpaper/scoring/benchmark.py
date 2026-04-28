@@ -69,7 +69,7 @@ def run_assessment(
         total_gleu += gleu
 
         tag = item.get("error_tag", "")
-        if tag:
+        if tag and "/" in tag:
             ann = parse_annotation(tag)
             per_l1[ann.l1.value].append(f05)
             per_l2[ann.l2.value].append(f05)

@@ -1,0 +1,180 @@
+---
+# Optimize GPT-OSS-120B inference on kaznu for GEC/instruct generation
+#
+# Usage:
+#   ansible-playbook ansible/optimize_gptoss.yml -i ansible/inventory.ini
+#   ansible-playbook ansible/optimize_gptoss.yml -i ansible/inventory.ini -e mode=generate
+#   ansible-playbook ansible/optimize_gptoss.yml -i ansible/inventory.ini -e mode=instruct
+#
+# Modes:
+#   restart  - just restart server with optimized config (default)
+#   generate - restart + launch GEC v3 generation
+#   instruct - restart + launch instruct generation
+
+- name: Optimize GPT-OSS-120B on kaznu
+  hosts: kaznu
+  vars:
+    mode: "restart"
+    server_port: 15127
+    gec_output: "/root/gec_v2.jsonl"
+    seeds_file: "/root/gec_seeds.txt"
+    max_seeds: 2000
+    batch_size: 5
+    workers: 2
+  tasks:
+    # ── Step 1: Check current state ──────────────────────────────────
+    - name: Check GPU state
+      shell: nvidia-smi --query-gpu=memory.used,memory.total,utilization.gpu --format=csv,noheader
+      register: gpu_state
+
+    - name: Show GPU state
+      debug:
+        msg: "{{ gpu_state.stdout_lines }}"
+
+    - name: Check existing output
+      shell: wc -l {{ gec_output }} 2>/dev/null || echo "0 (no file)"
+      register: existing_output
+
+    - name: Show existing output
+      debug:
+        msg: "Existing GEC pairs: {{ existing_output.stdout }}"
+
+    - name: Check running screens
+      shell: screen -ls 2>/dev/null || true
+      register: screens
+
+    - name: Show screens
+      debug:
+        msg: "{{ screens.stdout }}"
+
+    # ── Step 2: Kill old server ──────────────────────────────────────
+    - name: Kill old gpt_infer screen
+      shell: screen -X -S gpt_infer quit 2>/dev/null || true
+
+    - name: Kill old gec_gen screen
+      shell: screen -X -S gec_gen quit 2>/dev/null || true
+
+    - name: Wait for cleanup
+      pause:
+        seconds: 3
+
+    # ── Step 3: Upload optimized scripts ─────────────────────────────
+    - name: Upload gec_generate_v3.py
+      copy:
+        src: ../scripts/data/gec_generate_v3.py
+        dest: /root/gec_generate_v3.py
+        mode: "0755"
+
+    - name: Upload instruct_generate_kk.py
+      copy:
+        src: ../scripts/data/instruct_generate_kk.py
+        dest: /root/instruct_generate_kk.py
+        mode: "0755"
+
+    # ── Step 4: Start optimized server ───────────────────────────────
+    - name: Start optimized llama-server
+      shell: |
+        screen -dmS gpt_infer bash -c "
+        export PATH=/usr/local/cuda-12.1/bin:\$PATH
+        export LD_LIBRARY_PATH=/usr/local/cuda-12.1/lib64:\$LD_LIBRARY_PATH
+        /root/llama.cpp/build/bin/llama-server \
+          -m /root/models/gpt-oss-120b/gpt-oss-120b-mxfp4-00001-of-00003.gguf \
+          --alias 'GPT-OSS-120B' \
+          -fa 1 -ncmoe 24 -ngl 99 --tensor-split 0.5,0.5 -fit off \
+          -t 44 -ctk q4_0 -ctv q4_0 \
+          -ub 2048 -b 2048 -c 4096 \
+          -np {{ workers }} \
+          --host 0.0.0.0 --port {{ server_port }} \
+          2>&1 | tee /root/gpt_infer.log
+        exec bash"
+
+    - name: Wait for server to start
+      shell: |
+        for i in $(seq 1 60); do
+          if curl -s http://localhost:{{ server_port }}/health > /dev/null 2>&1; then
+            echo "READY after ${i}0s"
+            exit 0
+          fi
+          sleep 10
+        done
+        echo "TIMEOUT"
+        exit 1
+      register: server_status
+
+    - name: Show server status
+      debug:
+        msg: "{{ server_status.stdout }}"
+
+    # ── Step 5: Quick benchmark ──────────────────────────────────────
+    - name: Quick speed test
+      shell: |
+        T0=$(date +%s%N)
+        curl -s http://localhost:{{ server_port }}/v1/chat/completions \
+          -H "Content-Type: application/json" \
+          -d '{"model":"GPT-OSS-120B","messages":[{"role":"user","content":"Салем! 2+2 нешеге тең?"}],"max_tokens":50}' \
+          > /tmp/bench_result.json
+        T1=$(date +%s%N)
+        MS=$(( (T1-T0)/1000000 ))
+        echo "Latency: ${MS}ms"
+        python3 -c "
+        import json
+        r = json.load(open('/tmp/bench_result.json'))
+        u = r.get('usage', {})
+        print(f'Prompt tokens: {u.get(\"prompt_tokens\",\"?\")}, Completion: {u.get(\"completion_tokens\",\"?\")}')" 2>/dev/null || true
+      register: bench
+      when: server_status.stdout is search("READY")
+
+    - name: Show benchmark
+      debug:
+        msg: "{{ bench.stdout_lines }}"
+      when: bench is defined
+
+    # ── Step 6: Launch generation (conditional) ──────────────────────
+    - name: Launch GEC v3 generation
+      shell: |
+        screen -dmS gec_gen bash -c "
+        python3 /root/gec_generate_v3.py \
+          --url http://localhost:{{ server_port }} \
+          --output {{ gec_output }} \
+          --seeds_file {{ seeds_file }} \
+          --batch_size {{ batch_size }} \
+          --workers {{ workers }} \
+          --max_seeds {{ max_seeds }} \
+          --resume \
+          2>&1 | tee /root/gec_generate_v3.log
+        exec bash"
+        echo "GEC v3 generation launched in screen gec_gen"
+      when: mode == "generate"
+
+    - name: Launch instruct generation
+      shell: |
+        screen -dmS instruct_gen bash -c "
+        python3 /root/instruct_generate_kk.py \
+          --api_url http://localhost:{{ server_port }} \
+          --output_dir /root/instruct_kk \
+          --resume \
+          2>&1 | tee /root/instruct_generate.log
+        exec bash"
+        echo "Instruct generation launched in screen instruct_gen"
+      when: mode == "instruct"
+
+    - name: Final status
+      shell: |
+        echo "=== Server Config ==="
+        echo "  ncmoe: 24 (was 30)"
+        echo "  context: 4K (was 128K)"
+        echo "  slots: {{ workers }} (was 1)"
+        echo "  no reasoning (was medium)"
+        echo ""
+        echo "=== Expected Speed ==="
+        echo "  ~42 t/s per slot (was ~37 t/s)"
+        echo "  ~300 tok/req (was ~5000 tok/req)"
+        echo "  {{ workers }} parallel requests"
+        echo "  Estimated: 5-10x faster than v2"
+        echo ""
+        screen -ls 2>/dev/null || true
+      register: final
+
+    - name: Done
+      debug:
+        msg: "{{ final.stdout_lines }}"
