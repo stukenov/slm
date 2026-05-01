@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kazakh Language Benchmark — Amazon Bedrock 2026</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A1628;
+    --card: #141E30;
+    --card-alt: #1A2740;
+    --border: #243044;
+    --gold: #FFD700;
+    --cyan: #00D4FF;
+    --coral: #FF6B6B;
+    --green: #4ADE80;
+    --silver: #C0C0C0;
+    --bronze: #CD7F32;
+    --yellow: #FACC15;
+    --red: #EF4444;
+    --text: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-dim: #64748B;
+    --purple: #A78BFA;
+    --orange: #FB923C;
+    --teal: #2DD4BF;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  html {
+    font-size: 10px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 18mm 15mm;
+    position: relative;
+    background: var(--bg);
+    page-break-after: always;
+  }
+
+  .page:last-child { page-break-after: auto; }
+
+  @media print {
+    body { background: var(--bg); }
+    .page {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      min-height: auto;
+      max-height: none;
+    }
+  }
+
+  /* ── Typography ── */
+  .title-huge { font-size: 3.2rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+  .title-large { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+  .title-medium { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.01em; }
+  .title-small { font-size: 1.4rem; font-weight: 600; }
+  .body-large { font-size: 1.2rem; line-height: 1.5; }
+  .body { font-size: 1.1rem; line-height: 1.45; }
+  .body-small { font-size: 1.0rem; line-height: 1.4; }
+  .caption { font-size: 0.85rem; line-height: 1.35; color: var(--text-secondary); }
+  .mono { font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', monospace; }
+
+  /* ── Card ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+
+  .card-alt {
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  /* ── Utility ── */
+  .text-gold { color: var(--gold); }
+  .text-cyan { color: var(--cyan); }
+  .text-coral { color: var(--coral); }
+  .text-green { color: var(--green); }
+  .text-silver { color: var(--silver); }
+  .text-bronze { color: var(--bronze); }
+  .text-yellow { color: var(--yellow); }
+  .text-red { color: var(--red); }
+  .text-purple { color: var(--purple); }
+  .text-dim { color: var(--text-dim); }
+  .text-secondary { color: var(--text-secondary); }
+
+  .bg-gold { background: var(--gold); }
+  .bg-cyan { background: var(--cyan); }
+  .bg-coral { background: var(--coral); }
+
+  .flex { display: flex; }
+  .flex-col { flex-direction: column; }
+  .items-center { align-items: center; }
+  .justify-between { justify-content: space-between; }
+  .gap-4 { gap: 4px; }
+  .gap-6 { gap: 6px; }
+  .gap-8 { gap: 8px; }
+  .gap-10 { gap: 10px; }
+  .gap-12 { gap: 12px; }
+  .gap-16 { gap: 16px; }
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .fw-700 { font-weight: 700; }
+  .fw-600 { font-weight: 600; }
+  .mt-4 { margin-top: 4px; }
+  .mt-8 { margin-top: 8px; }
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+
+  /* ── Grid ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+
+  /* ── Circular Gauge ── */
+  .gauge {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .gauge-inner {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .gauge-sm {
+    width: 56px;
+    height: 56px;
+  }
+  .gauge-sm .gauge-inner {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* ── Horizontal Bar ── */
+  .bar-track {
+    height: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
+  .bar-thin .bar-track { height: 5px; }
+  .bar-thin .bar-fill { height: 5px; }
+
+  /* ── Table ── */
+  .lb-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  .lb-table th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 3px 4px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .lb-table td {
+    padding: 2.5px 4px;
+    border-bottom: 1px solid rgba(36,48,68,0.5);
+    vertical-align: middle;
+  }
+  .lb-table tr:hover { background: rgba(255,255,255,0.02); }
+
+  .tier-gold td:first-child { border-left: 3px solid var(--gold); }
+  .tier-silver td:first-child { border-left: 3px solid var(--silver); }
+  .tier-bronze td:first-child { border-left: 3px solid var(--bronze); }
+  .tier-green td:first-child { border-left: 3px solid var(--green); }
+  .tier-yellow td:first-child { border-left: 3px solid var(--yellow); }
+  .tier-red td:first-child { border-left: 3px solid var(--red); }
+
+  /* ── Inline Bar (in table cells) ── */
+  .inline-bar {
+    display: inline-block;
+    height: 4px;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+
+  /* ── Section header line ── */
+  .section-line {
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan), var(--gold), var(--coral));
+    border-radius: 1px;
+    margin-bottom: 14px;
+  }
+
+  /* ── Tag / Pill ── */
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* ── Heatmap Cell ── */
+  .heat-cell {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 3px;
+    min-height: 18px;
+  }
+
+  /* ── Provider bar ── */
+  .provider-bar {
+    display: grid;
+    grid-template-columns: 100px 1fr 50px;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(36,48,68,0.5);
+  }
+
+  /* ── Callout ── */
+  .callout {
+    background: var(--card);
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 14px;
+  }
+
+  /* ── Insight Card ── */
+  .insight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .insight-icon {
+    font-size: 2.0rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  /* ── Axis Bar (for 3-axis) ── */
+  .axis-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 40px;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 0;
+  }
+
+  /* ── Page footer ── */
+  .page-footer {
+    position: absolute;
+    bottom: 15mm;
+    left: 15mm;
+    right: 15mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    padding-top: 6px;
+  }
+
+  /* ── Radar / Triangle chart (CSS) ── */
+  .radar-container {
+    position: relative;
+    width: 130px;
+    height: 115px;
+    margin: 0 auto;
+  }
+  .radar-bg {
+    position: absolute;
+    width: 130px;
+    height: 115px;
+  }
+  .radar-label {
+    position: absolute;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .radar-label.top { top: -2px; left: 50%; transform: translateX(-50%); }
+  .radar-label.bl { bottom: -2px; left: -6px; }
+  .radar-label.br { bottom: -2px; right: -6px; }
+
+  /* ── Stat pill ── */
+  .stat-pill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-pill .stat-value {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  .stat-pill .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* ── Legend Dot ── */
+  .legend-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /* ── Methodology axis icon ── */
+  .axis-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  /* ── Small table for Page 3 ── */
+  .lb-table-sm { font-size: 0.78rem; }
+  .lb-table-sm th { font-size: 0.68rem; padding: 2px 3px; }
+  .lb-table-sm td { padding: 2px 3px; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE 1 — Title + Executive Summary
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-1">
+  <!-- Header badge -->
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+    <div>
+      <span class="tag" style="background:var(--cyan); color:var(--bg);">RESEARCH REPORT</span>
+      <span class="tag" style="background:var(--border); color:var(--text-secondary); margin-left:6px;">April 29, 2026</span>
+    </div>
+    <div style="font-size:0.8rem; color:var(--text-dim);">Amazon Bedrock Platform</div>
+  </div>
+
+  <!-- Title block -->
+  <div style="margin-bottom:16px;">
+    <div class="title-huge text-gold" style="margin-bottom:4px;">Kazakh Language<br>Support Benchmark</div>
+    <div style="font-size:1.5rem; color:var(--text-secondary); font-weight:400; margin-bottom:6px;">
+      Qazaq tilın qoldaw benchmarkı &mdash; Amazon Bedrock 2026
+    </div>
+    <div style="height:3px; width:120px; background:linear-gradient(90deg, var(--gold), var(--cyan)); border-radius:2px;"></div>
+  </div>
+
+  <!-- Key stats row -->
+  <div class="grid-4" style="margin-bottom:16px;">
+    <div class="stat-pill">
+      <div class="stat-value text-cyan">53</div>
+      <div class="stat-label">Models Tested</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-value text-gold">20</div>
+      <div class="stat-label">Questions</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-value text-coral">1,060</div>
+      <div class="stat-label">Responses Scored</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-value text-green">12</div>
+      <div class="stat-label">Providers</div>
+    </div>
+  </div>
+
+  <!-- Top 3 Models -->
+  <div style="margin-bottom:14px;">
+    <div class="title-small" style="margin-bottom:10px;">Top 3 Models</div>
+    <div class="grid-3">
+      <!-- #1 -->
+      <div class="card" style="text-align:center; border-color:var(--gold);">
+        <div style="font-size:0.75rem; color:var(--gold); font-weight:700; margin-bottom:6px;">#1 GOLD</div>
+        <div class="gauge" style="margin:0 auto 8px; background:conic-gradient(var(--gold) 0% 96%, rgba(255,255,255,0.06) 96% 100%);">
+          <div class="gauge-inner">
+            <div style="font-size:1.6rem; font-weight:700; color:var(--gold);">96.0</div>
+            <div style="font-size:0.65rem; color:var(--text-dim);">%</div>
+          </div>
+        </div>
+        <div class="mono" style="font-size:0.85rem; font-weight:600;">Claude Opus 4.6</div>
+        <div class="caption">Anthropic &middot; 576/600</div>
+      </div>
+      <!-- #2 -->
+      <div class="card" style="text-align:center; border-color:var(--silver);">
+        <div style="font-size:0.75rem; color:var(--silver); font-weight:700; margin-bottom:6px;">#2 SILVER</div>
+        <div class="gauge" style="margin:0 auto 8px; background:conic-gradient(var(--silver) 0% 94.3%, rgba(255,255,255,0.06) 94.3% 100%);">
+          <div class="gauge-inner">
+            <div style="font-size:1.6rem; font-weight:700; color:var(--silver);">94.3</div>
+            <div style="font-size:0.65rem; color:var(--text-dim);">%</div>
+          </div>
+        </div>
+        <div class="mono" style="font-size:0.85rem; font-weight:600;">Claude Opus 4.1</div>
+        <div class="caption">Anthropic &middot; 566/600</div>
+      </div>
+      <!-- #3 -->
+      <div class="card" style="text-align:center; border-color:var(--bronze);">
+        <div style="font-size:0.75rem; color:var(--bronze); font-weight:700; margin-bottom:6px;">#3 BRONZE</div>
+        <div class="gauge" style="margin:0 auto 8px; background:conic-gradient(var(--bronze) 0% 91.7%, rgba(255,255,255,0.06) 91.7% 100%);">
+          <div class="gauge-inner">
+            <div style="font-size:1.6rem; font-weight:700; color:var(--bronze);">91.7</div>
+            <div style="font-size:0.65rem; color:var(--text-dim);">%</div>
+          </div>
+        </div>
+        <div class="mono" style="font-size:0.85rem; font-weight:600;">Claude Opus 4.5</div>
+        <div class="caption">Anthropic &middot; 550/600</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Methodology -->
+  <div class="card" style="margin-bottom:14px;">
+    <div class="title-small" style="margin-bottom:10px;">Methodology</div>
+    <div class="grid-3" style="gap:10px;">
+      <div class="flex gap-8 items-center">
+        <div class="axis-icon" style="background:rgba(0,212,255,0.15);">
+          <span style="color:var(--cyan);">&#x1F4D6;</span>
+        </div>
+        <div>
+          <div style="font-size:0.95rem; font-weight:600;">Understanding</div>
+          <div class="caption">Can the model comprehend Kazakh text? (0-10 per question)</div>
+        </div>
+      </div>
+      <div class="flex gap-8 items-center">
+        <div class="axis-icon" style="background:rgba(255,215,0,0.15);">
+          <span style="color:var(--gold);">&#x270D;</span>
+        </div>
+        <div>
+          <div style="font-size:0.95rem; font-weight:600;">Kazakh Quality</div>
+          <div class="caption">Fluency, grammar, and naturalness of Kazakh output (0-10)</div>
+        </div>
+      </div>
+      <div class="flex gap-8 items-center">
+        <div class="axis-icon" style="background:rgba(255,107,107,0.15);">
+          <span style="color:var(--coral);">&#x2714;</span>
+        </div>
+        <div>
+          <div style="font-size:0.95rem; font-weight:600;">Correctness</div>
+          <div class="caption">Factual accuracy and task completion (0-10)</div>
+        </div>
+      </div>
+    </div>
+    <div class="caption mt-8" style="border-top:1px solid var(--border); padding-top:8px;">
+      Each model answered 20 questions spanning 20 categories (linguistics, grammar, translation, culture, math, creative writing, etc). Each response was scored on all 3 axes (0-10) by <span class="mono" style="color:var(--cyan);">Claude Sonnet 4.6</span> as an automated judge. Maximum possible score: 600 points (20 questions &times; 3 axes &times; 10 max).
+    </div>
+  </div>
+
+  <!-- Quick insight row -->
+  <div class="grid-2">
+    <div class="card-alt flex gap-10 items-center">
+      <div style="font-size:2rem;">&#x1F3C6;</div>
+      <div>
+        <div style="font-size:0.95rem; font-weight:600;">Anthropic dominates the top 6</div>
+        <div class="caption">All Claude models rank in the Gold/Silver tier</div>
+      </div>
+    </div>
+    <div class="card-alt flex gap-10 items-center">
+      <div style="font-size:2rem;">&#x1F30F;</div>
+      <div>
+        <div style="font-size:0.95rem; font-weight:600;">12 providers from 6 countries</div>
+        <div class="caption">US, China, France, Israel, UAE, UK</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Kazakh Language Benchmark &mdash; Amazon Bedrock 2026</span>
+    <span>Page 1 of 7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE 2 — Full Ranking Leaderboard
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-2" style="padding:14mm 12mm;">
+  <div class="flex justify-between items-center" style="margin-bottom:8px;">
+    <div class="title-medium">Full Model Ranking</div>
+    <div class="flex gap-8">
+      <span class="caption"><span class="legend-dot" style="background:var(--gold);"></span>90%+</span>
+      <span class="caption"><span class="legend-dot" style="background:var(--silver);"></span>80-89%</span>
+      <span class="caption"><span class="legend-dot" style="background:var(--bronze);"></span>70-79%</span>
+      <span class="caption"><span class="legend-dot" style="background:var(--green);"></span>60-69%</span>
+      <span class="caption"><span class="legend-dot" style="background:var(--yellow);"></span>40-59%</span>
+      <span class="caption"><span class="legend-dot" style="background:var(--red);"></span>&lt;40%</span>
+    </div>
+  </div>
+  <div class="section-line"></div>
+
+  <table class="lb-table" style="font-size:0.72rem;">
+    <thead>
+      <tr>
+        <th style="width:22px;">#</th>
+        <th style="width:70px;">Provider</th>
+        <th>Model</th>
+        <th style="width:48px; text-align:right;">Score</th>
+        <th style="width:34px; text-align:right;">%</th>
+        <th style="width:28px; text-align:right;">Und</th>
+        <th style="width:28px; text-align:right;">KzQ</th>
+        <th style="width:28px; text-align:right;">Cor</th>
+        <th style="width:100px;">Distribution</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tier-gold"><td>1</td><td>Anthropic</td><td class="mono">claude-opus-4-6-v1</td><td class="text-right fw-700">576</td><td class="text-right text-gold fw-700">96.0</td><td class="text-right">200</td><td class="text-right">190</td><td class="text-right">186</td><td><div class="bar-track"><div class="bar-fill" style="width:96%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-gold"><td>2</td><td>Anthropic</td><td class="mono">claude-opus-4-1</td><td class="text-right fw-700">566</td><td class="text-right text-gold fw-700">94.3</td><td class="text-right">198</td><td class="text-right">186</td><td class="text-right">182</td><td><div class="bar-track"><div class="bar-fill" style="width:94.3%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-gold"><td>3</td><td>Anthropic</td><td class="mono">claude-opus-4-5</td><td class="text-right fw-700">550</td><td class="text-right text-gold fw-700">91.7</td><td class="text-right">189</td><td class="text-right">180</td><td class="text-right">181</td><td><div class="bar-track"><div class="bar-fill" style="width:91.7%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-gold"><td>4</td><td>Anthropic</td><td class="mono">claude-sonnet-4-6</td><td class="text-right fw-700">548</td><td class="text-right text-gold fw-700">91.3</td><td class="text-right">189</td><td class="text-right">180</td><td class="text-right">179</td><td><div class="bar-track"><div class="bar-fill" style="width:91.3%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-gold"><td>4</td><td>Z.AI</td><td class="mono">glm-5</td><td class="text-right fw-700">548</td><td class="text-right text-gold fw-700">91.3</td><td class="text-right">196</td><td class="text-right">180</td><td class="text-right">172</td><td><div class="bar-track"><div class="bar-fill" style="width:91.3%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-gold"><td>6</td><td>Anthropic</td><td class="mono">claude-sonnet-4-5</td><td class="text-right fw-700">543</td><td class="text-right text-gold fw-700">90.5</td><td class="text-right">189</td><td class="text-right">178</td><td class="text-right">176</td><td><div class="bar-track"><div class="bar-fill" style="width:90.5%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-silver"><td>7</td><td>Meta</td><td class="mono">llama4-scout-17b</td><td class="text-right fw-600">538</td><td class="text-right text-silver">89.7</td><td class="text-right">196</td><td class="text-right">174</td><td class="text-right">168</td><td><div class="bar-track"><div class="bar-fill" style="width:89.7%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>8</td><td>Mistral AI</td><td class="mono">mistral-large-3-675b</td><td class="text-right fw-600">536</td><td class="text-right text-silver">89.3</td><td class="text-right">194</td><td class="text-right">173</td><td class="text-right">169</td><td><div class="bar-track"><div class="bar-fill" style="width:89.3%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>9</td><td>Moonshot AI</td><td class="mono">kimi-k2.5</td><td class="text-right fw-600">530</td><td class="text-right text-silver">88.3</td><td class="text-right">187</td><td class="text-right">174</td><td class="text-right">169</td><td><div class="bar-track"><div class="bar-fill" style="width:88.3%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>10</td><td>DeepSeek</td><td class="mono">v3.2</td><td class="text-right fw-600">528</td><td class="text-right text-silver">88.0</td><td class="text-right">191</td><td class="text-right">174</td><td class="text-right">163</td><td><div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>11</td><td>Qwen</td><td class="mono">qwen3-vl-235b</td><td class="text-right fw-600">520</td><td class="text-right text-silver">86.7</td><td class="text-right">190</td><td class="text-right">170</td><td class="text-right">160</td><td><div class="bar-track"><div class="bar-fill" style="width:86.7%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>12</td><td>Mistral AI</td><td class="mono">devstral-2-123b</td><td class="text-right fw-600">519</td><td class="text-right text-silver">86.5</td><td class="text-right">188</td><td class="text-right">173</td><td class="text-right">158</td><td><div class="bar-track"><div class="bar-fill" style="width:86.5%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>13</td><td>Amazon</td><td class="mono">nova-pro</td><td class="text-right fw-600">518</td><td class="text-right text-silver">86.3</td><td class="text-right">193</td><td class="text-right">171</td><td class="text-right">154</td><td><div class="bar-track"><div class="bar-fill" style="width:86.3%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>14</td><td>Z.AI</td><td class="mono">glm-4.7</td><td class="text-right fw-600">517</td><td class="text-right text-silver">86.2</td><td class="text-right">185</td><td class="text-right">172</td><td class="text-right">160</td><td><div class="bar-track"><div class="bar-fill" style="width:86.2%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>15</td><td>Meta</td><td class="mono">llama4-maverick-17b</td><td class="text-right fw-600">511</td><td class="text-right text-silver">85.2</td><td class="text-right">178</td><td class="text-right">168</td><td class="text-right">165</td><td><div class="bar-track"><div class="bar-fill" style="width:85.2%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>16</td><td>Qwen</td><td class="mono">qwen3-next-80b</td><td class="text-right fw-600">509</td><td class="text-right text-silver">84.8</td><td class="text-right">189</td><td class="text-right">168</td><td class="text-right">152</td><td><div class="bar-track"><div class="bar-fill" style="width:84.8%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>17</td><td>Writer</td><td class="mono">palmyra-x5</td><td class="text-right fw-600">509</td><td class="text-right text-silver">84.8</td><td class="text-right">187</td><td class="text-right">166</td><td class="text-right">156</td><td><div class="bar-track"><div class="bar-fill" style="width:84.8%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>18</td><td>Google</td><td class="mono">gemma-3-27b</td><td class="text-right fw-600">489</td><td class="text-right text-silver">81.5</td><td class="text-right">175</td><td class="text-right">166</td><td class="text-right">148</td><td><div class="bar-track"><div class="bar-fill" style="width:81.5%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>19</td><td>Mistral AI</td><td class="mono">magistral-small</td><td class="text-right fw-600">486</td><td class="text-right text-silver">81.0</td><td class="text-right">186</td><td class="text-right">161</td><td class="text-right">139</td><td><div class="bar-track"><div class="bar-fill" style="width:81%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>20</td><td>Meta</td><td class="mono">llama3-3-70b</td><td class="text-right fw-600">483</td><td class="text-right text-silver">80.5</td><td class="text-right">178</td><td class="text-right">157</td><td class="text-right">148</td><td><div class="bar-track"><div class="bar-fill" style="width:80.5%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>21</td><td>Qwen</td><td class="mono">qwen3-32b</td><td class="text-right">467</td><td class="text-right text-bronze">77.8</td><td class="text-right">182</td><td class="text-right">153</td><td class="text-right">132</td><td><div class="bar-track"><div class="bar-fill" style="width:77.8%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>22</td><td>Mistral AI</td><td class="mono">voxtral-small-24b</td><td class="text-right">467</td><td class="text-right text-bronze">77.8</td><td class="text-right">176</td><td class="text-right">153</td><td class="text-right">138</td><td><div class="bar-track"><div class="bar-fill" style="width:77.8%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>23</td><td>Mistral AI</td><td class="mono">ministral-3-14b</td><td class="text-right">464</td><td class="text-right text-bronze">77.3</td><td class="text-right">177</td><td class="text-right">148</td><td class="text-right">139</td><td><div class="bar-track"><div class="bar-fill" style="width:77.3%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>24</td><td>Mistral AI</td><td class="mono">pixtral-large</td><td class="text-right">461</td><td class="text-right text-bronze">76.8</td><td class="text-right">173</td><td class="text-right">151</td><td class="text-right">137</td><td><div class="bar-track"><div class="bar-fill" style="width:76.8%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>25</td><td>Qwen</td><td class="mono">qwen3-coder-next</td><td class="text-right">460</td><td class="text-right text-bronze">76.7</td><td class="text-right">179</td><td class="text-right">148</td><td class="text-right">133</td><td><div class="bar-track"><div class="bar-fill" style="width:76.7%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>26</td><td>Meta</td><td class="mono">llama3-70b</td><td class="text-right">446</td><td class="text-right text-bronze">74.3</td><td class="text-right">168</td><td class="text-right">142</td><td class="text-right">136</td><td><div class="bar-track"><div class="bar-fill" style="width:74.3%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>27</td><td>Anthropic</td><td class="mono">claude-haiku-4.5</td><td class="text-right">439</td><td class="text-right text-bronze">73.2</td><td class="text-right">170</td><td class="text-right">138</td><td class="text-right">131</td><td><div class="bar-track"><div class="bar-fill" style="width:73.2%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>28</td><td>Google</td><td class="mono">gemma-3-12b</td><td class="text-right">436</td><td class="text-right text-bronze">72.7</td><td class="text-right">163</td><td class="text-right">145</td><td class="text-right">128</td><td><div class="bar-track"><div class="bar-fill" style="width:72.7%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>29</td><td>Amazon</td><td class="mono">nova-micro</td><td class="text-right">433</td><td class="text-right text-bronze">72.2</td><td class="text-right">176</td><td class="text-right">139</td><td class="text-right">118</td><td><div class="bar-track"><div class="bar-fill" style="width:72.2%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>30</td><td>Meta</td><td class="mono">llama3-1-70b</td><td class="text-right">423</td><td class="text-right text-bronze">70.5</td><td class="text-right">168</td><td class="text-right">138</td><td class="text-right">117</td><td><div class="bar-track"><div class="bar-fill" style="width:70.5%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-green"><td>31</td><td>Amazon</td><td class="mono">nova-lite</td><td class="text-right">417</td><td class="text-right text-green">69.5</td><td class="text-right">157</td><td class="text-right">136</td><td class="text-right">124</td><td><div class="bar-track"><div class="bar-fill" style="width:69.5%;background:var(--green);"></div></div></td></tr>
+      <tr class="tier-green"><td>32</td><td>Amazon</td><td class="mono">nova-2-lite</td><td class="text-right">396</td><td class="text-right text-green">66.0</td><td class="text-right">152</td><td class="text-right">125</td><td class="text-right">119</td><td><div class="bar-track"><div class="bar-fill" style="width:66%;background:var(--green);"></div></div></td></tr>
+      <tr class="tier-green"><td>33</td><td>Z.AI</td><td class="mono">glm-4.7-flash</td><td class="text-right">367</td><td class="text-right text-green">61.2</td><td class="text-right">146</td><td class="text-right">119</td><td class="text-right">102</td><td><div class="bar-track"><div class="bar-fill" style="width:61.2%;background:var(--green);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>34</td><td>Mistral AI</td><td class="mono">ministral-3-8b</td><td class="text-right">359</td><td class="text-right text-yellow">59.8</td><td class="text-right">146</td><td class="text-right">116</td><td class="text-right">97</td><td><div class="bar-track"><div class="bar-fill" style="width:59.8%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>35</td><td>Qwen</td><td class="mono">qwen3-coder-30b</td><td class="text-right">346</td><td class="text-right text-yellow">57.7</td><td class="text-right">139</td><td class="text-right">107</td><td class="text-right">100</td><td><div class="bar-track"><div class="bar-fill" style="width:57.7%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>36</td><td>NVIDIA</td><td class="mono">nemotron-super-3-120b</td><td class="text-right">324</td><td class="text-right text-yellow">54.0</td><td class="text-right">125</td><td class="text-right">104</td><td class="text-right">95</td><td><div class="bar-track"><div class="bar-fill" style="width:54%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>37</td><td>Mistral AI</td><td class="mono">ministral-3-3b</td><td class="text-right">317</td><td class="text-right text-yellow">52.8</td><td class="text-right">137</td><td class="text-right">105</td><td class="text-right">75</td><td><div class="bar-track"><div class="bar-fill" style="width:52.8%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>38</td><td>Writer</td><td class="mono">palmyra-x4</td><td class="text-right">314</td><td class="text-right text-yellow">52.3</td><td class="text-right">126</td><td class="text-right">94</td><td class="text-right">94</td><td><div class="bar-track"><div class="bar-fill" style="width:52.3%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>39</td><td>Meta</td><td class="mono">llama3-8b</td><td class="text-right">311</td><td class="text-right text-yellow">51.8</td><td class="text-right">136</td><td class="text-right">89</td><td class="text-right">86</td><td><div class="bar-track"><div class="bar-fill" style="width:51.8%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>40</td><td>AI21 Labs</td><td class="mono">jamba-1-5-large</td><td class="text-right">308</td><td class="text-right text-yellow">51.3</td><td class="text-right">128</td><td class="text-right">97</td><td class="text-right">83</td><td><div class="bar-track"><div class="bar-fill" style="width:51.3%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>41</td><td>Google</td><td class="mono">gemma-3-4b</td><td class="text-right">303</td><td class="text-right text-yellow">50.5</td><td class="text-right">132</td><td class="text-right">99</td><td class="text-right">72</td><td><div class="bar-track"><div class="bar-fill" style="width:50.5%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>42</td><td>Meta</td><td class="mono">llama3-1-8b</td><td class="text-right">274</td><td class="text-right text-yellow">45.7</td><td class="text-right">115</td><td class="text-right">90</td><td class="text-right">69</td><td><div class="bar-track"><div class="bar-fill" style="width:45.7%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-red"><td>43</td><td>Mistral AI</td><td class="mono">mistral-small-2402</td><td class="text-right">198</td><td class="text-right text-red">33.0</td><td class="text-right">94</td><td class="text-right">36</td><td class="text-right">68</td><td><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>44</td><td>Mistral AI</td><td class="mono">mistral-large-2402</td><td class="text-right">193</td><td class="text-right text-red">32.2</td><td class="text-right">91</td><td class="text-right">52</td><td class="text-right">50</td><td><div class="bar-track"><div class="bar-fill" style="width:32.2%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>45</td><td>Mistral AI</td><td class="mono">voxtral-mini-3b</td><td class="text-right">186</td><td class="text-right text-red">31.0</td><td class="text-right">78</td><td class="text-right">74</td><td class="text-right">34</td><td><div class="bar-track"><div class="bar-fill" style="width:31%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>46</td><td>AI21 Labs</td><td class="mono">jamba-1-5-mini</td><td class="text-right">170</td><td class="text-right text-red">28.3</td><td class="text-right">76</td><td class="text-right">59</td><td class="text-right">35</td><td><div class="bar-track"><div class="bar-fill" style="width:28.3%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>47</td><td>NVIDIA</td><td class="mono">nemotron-nano-3-30b</td><td class="text-right">169</td><td class="text-right text-red">28.2</td><td class="text-right">85</td><td class="text-right">49</td><td class="text-right">35</td><td><div class="bar-track"><div class="bar-fill" style="width:28.2%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>48</td><td>Mistral AI</td><td class="mono">mixtral-8x7b</td><td class="text-right">161</td><td class="text-right text-red">26.8</td><td class="text-right">75</td><td class="text-right">50</td><td class="text-right">36</td><td><div class="bar-track"><div class="bar-fill" style="width:26.8%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>49</td><td>NVIDIA</td><td class="mono">nemotron-nano-9b</td><td class="text-right">114</td><td class="text-right text-red">19.0</td><td class="text-right">64</td><td class="text-right">27</td><td class="text-right">23</td><td><div class="bar-track"><div class="bar-fill" style="width:19%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>50</td><td>NVIDIA</td><td class="mono">nemotron-nano-12b</td><td class="text-right">106</td><td class="text-right text-red">17.7</td><td class="text-right">56</td><td class="text-right">35</td><td class="text-right">15</td><td><div class="bar-track"><div class="bar-fill" style="width:17.7%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>51</td><td>Writer</td><td class="mono">palmyra-vision-7b</td><td class="text-right">93</td><td class="text-right text-red">15.5</td><td class="text-right">46</td><td class="text-right">27</td><td class="text-right">20</td><td><div class="bar-track"><div class="bar-fill" style="width:15.5%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-gold" style="background:rgba(255,215,0,0.04);"><td>52</td><td>DeepSeek</td><td class="mono">r1 <span class="caption">(3Q)</span></td><td class="text-right fw-600">81/90</td><td class="text-right text-gold fw-600">90.0</td><td class="text-right">29</td><td class="text-right">27</td><td class="text-right">25</td><td><div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-red"><td>53</td><td>Mistral AI</td><td class="mono">mistral-7b</td><td class="text-right">76</td><td class="text-right text-red">12.7</td><td class="text-right">41</td><td class="text-right">17</td><td class="text-right">18</td><td><div class="bar-track"><div class="bar-fill" style="width:12.7%;background:var(--red);"></div></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>Kazakh Language Benchmark &mdash; Amazon Bedrock 2026</span>
+    <span>Page 2 of 7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE 3 — Open-Source Models Only
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-3" style="padding:14mm 12mm;">
+  <div class="flex justify-between items-center" style="margin-bottom:6px;">
+    <div>
+      <div class="title-medium">Open-Source Model Ranking</div>
+      <div class="caption mt-4">Excludes proprietary models: Anthropic Claude, Amazon Nova, Writer Palmyra, Moonshot Kimi</div>
+    </div>
+    <span class="tag" style="background:rgba(0,212,255,0.15); color:var(--cyan);">OPEN-SOURCE</span>
+  </div>
+  <div class="section-line"></div>
+
+  <!-- Comparison cards -->
+  <div class="grid-2" style="margin-bottom:10px;">
+    <div class="card-alt flex items-center gap-10">
+      <div class="gauge gauge-sm" style="background:conic-gradient(var(--cyan) 0% 67.3%, rgba(255,255,255,0.06) 67.3% 100%);">
+        <div class="gauge-inner" style="width:42px;height:42px;">
+          <div style="font-size:1.1rem; font-weight:700; color:var(--cyan);">67.3</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:0.9rem; font-weight:600;">Open-Source Average</div>
+        <div class="caption">35 models &middot; 403.5/600 avg</div>
+      </div>
+    </div>
+    <div class="card-alt flex items-center gap-10">
+      <div class="gauge gauge-sm" style="background:conic-gradient(var(--gold) 0% 83.6%, rgba(255,255,255,0.06) 83.6% 100%);">
+        <div class="gauge-inner" style="width:42px;height:42px;">
+          <div style="font-size:1.1rem; font-weight:700; color:var(--gold);">83.6</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:0.9rem; font-weight:600;">Proprietary Average</div>
+        <div class="caption">18 models &middot; 501.6/600 avg</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="lb-table lb-table-sm">
+    <thead>
+      <tr>
+        <th style="width:22px;">#</th>
+        <th style="width:68px;">Provider</th>
+        <th>Model</th>
+        <th style="width:48px; text-align:right;">Score</th>
+        <th style="width:34px; text-align:right;">%</th>
+        <th style="width:26px; text-align:right;">Und</th>
+        <th style="width:26px; text-align:right;">KzQ</th>
+        <th style="width:26px; text-align:right;">Cor</th>
+        <th style="width:100px;">Distribution</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tier-gold"><td>1</td><td>Z.AI</td><td class="mono">glm-5</td><td class="text-right fw-700">548</td><td class="text-right text-gold fw-700">91.3</td><td class="text-right">196</td><td class="text-right">180</td><td class="text-right">172</td><td><div class="bar-track"><div class="bar-fill" style="width:91.3%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-gold"><td>2</td><td>DeepSeek</td><td class="mono">r1 <span class="caption">(3Q)</span></td><td class="text-right fw-700">81/90</td><td class="text-right text-gold fw-700">90.0</td><td class="text-right">29</td><td class="text-right">27</td><td class="text-right">25</td><td><div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--gold);"></div></div></td></tr>
+      <tr class="tier-silver"><td>3</td><td>Meta</td><td class="mono">llama4-scout-17b</td><td class="text-right fw-600">538</td><td class="text-right text-silver">89.7</td><td class="text-right">196</td><td class="text-right">174</td><td class="text-right">168</td><td><div class="bar-track"><div class="bar-fill" style="width:89.7%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>4</td><td>Mistral AI</td><td class="mono">mistral-large-3-675b</td><td class="text-right fw-600">536</td><td class="text-right text-silver">89.3</td><td class="text-right">194</td><td class="text-right">173</td><td class="text-right">169</td><td><div class="bar-track"><div class="bar-fill" style="width:89.3%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>5</td><td>DeepSeek</td><td class="mono">v3.2</td><td class="text-right fw-600">528</td><td class="text-right text-silver">88.0</td><td class="text-right">191</td><td class="text-right">174</td><td class="text-right">163</td><td><div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>6</td><td>Qwen</td><td class="mono">qwen3-vl-235b</td><td class="text-right fw-600">520</td><td class="text-right text-silver">86.7</td><td class="text-right">190</td><td class="text-right">170</td><td class="text-right">160</td><td><div class="bar-track"><div class="bar-fill" style="width:86.7%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>7</td><td>Mistral AI</td><td class="mono">devstral-2-123b</td><td class="text-right fw-600">519</td><td class="text-right text-silver">86.5</td><td class="text-right">188</td><td class="text-right">173</td><td class="text-right">158</td><td><div class="bar-track"><div class="bar-fill" style="width:86.5%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>8</td><td>Z.AI</td><td class="mono">glm-4.7</td><td class="text-right fw-600">517</td><td class="text-right text-silver">86.2</td><td class="text-right">185</td><td class="text-right">172</td><td class="text-right">160</td><td><div class="bar-track"><div class="bar-fill" style="width:86.2%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>9</td><td>Meta</td><td class="mono">llama4-maverick-17b</td><td class="text-right fw-600">511</td><td class="text-right text-silver">85.2</td><td class="text-right">178</td><td class="text-right">168</td><td class="text-right">165</td><td><div class="bar-track"><div class="bar-fill" style="width:85.2%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>10</td><td>Qwen</td><td class="mono">qwen3-next-80b</td><td class="text-right fw-600">509</td><td class="text-right text-silver">84.8</td><td class="text-right">189</td><td class="text-right">168</td><td class="text-right">152</td><td><div class="bar-track"><div class="bar-fill" style="width:84.8%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>11</td><td>Google</td><td class="mono">gemma-3-27b</td><td class="text-right fw-600">489</td><td class="text-right text-silver">81.5</td><td class="text-right">175</td><td class="text-right">166</td><td class="text-right">148</td><td><div class="bar-track"><div class="bar-fill" style="width:81.5%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>12</td><td>Mistral AI</td><td class="mono">magistral-small</td><td class="text-right fw-600">486</td><td class="text-right text-silver">81.0</td><td class="text-right">186</td><td class="text-right">161</td><td class="text-right">139</td><td><div class="bar-track"><div class="bar-fill" style="width:81%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-silver"><td>13</td><td>Meta</td><td class="mono">llama3-3-70b</td><td class="text-right fw-600">483</td><td class="text-right text-silver">80.5</td><td class="text-right">178</td><td class="text-right">157</td><td class="text-right">148</td><td><div class="bar-track"><div class="bar-fill" style="width:80.5%;background:var(--silver);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>14</td><td>Qwen</td><td class="mono">qwen3-32b</td><td class="text-right">467</td><td class="text-right text-bronze">77.8</td><td class="text-right">182</td><td class="text-right">153</td><td class="text-right">132</td><td><div class="bar-track"><div class="bar-fill" style="width:77.8%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>15</td><td>Mistral AI</td><td class="mono">voxtral-small-24b</td><td class="text-right">467</td><td class="text-right text-bronze">77.8</td><td class="text-right">176</td><td class="text-right">153</td><td class="text-right">138</td><td><div class="bar-track"><div class="bar-fill" style="width:77.8%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>16</td><td>Mistral AI</td><td class="mono">ministral-3-14b</td><td class="text-right">464</td><td class="text-right text-bronze">77.3</td><td class="text-right">177</td><td class="text-right">148</td><td class="text-right">139</td><td><div class="bar-track"><div class="bar-fill" style="width:77.3%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>17</td><td>Mistral AI</td><td class="mono">pixtral-large</td><td class="text-right">461</td><td class="text-right text-bronze">76.8</td><td class="text-right">173</td><td class="text-right">151</td><td class="text-right">137</td><td><div class="bar-track"><div class="bar-fill" style="width:76.8%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>18</td><td>Qwen</td><td class="mono">qwen3-coder-next</td><td class="text-right">460</td><td class="text-right text-bronze">76.7</td><td class="text-right">179</td><td class="text-right">148</td><td class="text-right">133</td><td><div class="bar-track"><div class="bar-fill" style="width:76.7%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>19</td><td>Meta</td><td class="mono">llama3-70b</td><td class="text-right">446</td><td class="text-right text-bronze">74.3</td><td class="text-right">168</td><td class="text-right">142</td><td class="text-right">136</td><td><div class="bar-track"><div class="bar-fill" style="width:74.3%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>20</td><td>Google</td><td class="mono">gemma-3-12b</td><td class="text-right">436</td><td class="text-right text-bronze">72.7</td><td class="text-right">163</td><td class="text-right">145</td><td class="text-right">128</td><td><div class="bar-track"><div class="bar-fill" style="width:72.7%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-bronze"><td>21</td><td>Meta</td><td class="mono">llama3-1-70b</td><td class="text-right">423</td><td class="text-right text-bronze">70.5</td><td class="text-right">168</td><td class="text-right">138</td><td class="text-right">117</td><td><div class="bar-track"><div class="bar-fill" style="width:70.5%;background:var(--bronze);"></div></div></td></tr>
+      <tr class="tier-green"><td>22</td><td>Z.AI</td><td class="mono">glm-4.7-flash</td><td class="text-right">367</td><td class="text-right text-green">61.2</td><td class="text-right">146</td><td class="text-right">119</td><td class="text-right">102</td><td><div class="bar-track"><div class="bar-fill" style="width:61.2%;background:var(--green);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>23</td><td>Mistral AI</td><td class="mono">ministral-3-8b</td><td class="text-right">359</td><td class="text-right text-yellow">59.8</td><td class="text-right">146</td><td class="text-right">116</td><td class="text-right">97</td><td><div class="bar-track"><div class="bar-fill" style="width:59.8%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>24</td><td>Qwen</td><td class="mono">qwen3-coder-30b</td><td class="text-right">346</td><td class="text-right text-yellow">57.7</td><td class="text-right">139</td><td class="text-right">107</td><td class="text-right">100</td><td><div class="bar-track"><div class="bar-fill" style="width:57.7%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>25</td><td>NVIDIA</td><td class="mono">nemotron-super-3-120b</td><td class="text-right">324</td><td class="text-right text-yellow">54.0</td><td class="text-right">125</td><td class="text-right">104</td><td class="text-right">95</td><td><div class="bar-track"><div class="bar-fill" style="width:54%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>26</td><td>Mistral AI</td><td class="mono">ministral-3-3b</td><td class="text-right">317</td><td class="text-right text-yellow">52.8</td><td class="text-right">137</td><td class="text-right">105</td><td class="text-right">75</td><td><div class="bar-track"><div class="bar-fill" style="width:52.8%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>27</td><td>Meta</td><td class="mono">llama3-8b</td><td class="text-right">311</td><td class="text-right text-yellow">51.8</td><td class="text-right">136</td><td class="text-right">89</td><td class="text-right">86</td><td><div class="bar-track"><div class="bar-fill" style="width:51.8%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>28</td><td>AI21 Labs</td><td class="mono">jamba-1-5-large</td><td class="text-right">308</td><td class="text-right text-yellow">51.3</td><td class="text-right">128</td><td class="text-right">97</td><td class="text-right">83</td><td><div class="bar-track"><div class="bar-fill" style="width:51.3%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>29</td><td>Google</td><td class="mono">gemma-3-4b</td><td class="text-right">303</td><td class="text-right text-yellow">50.5</td><td class="text-right">132</td><td class="text-right">99</td><td class="text-right">72</td><td><div class="bar-track"><div class="bar-fill" style="width:50.5%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-yellow"><td>30</td><td>Meta</td><td class="mono">llama3-1-8b</td><td class="text-right">274</td><td class="text-right text-yellow">45.7</td><td class="text-right">115</td><td class="text-right">90</td><td class="text-right">69</td><td><div class="bar-track"><div class="bar-fill" style="width:45.7%;background:var(--yellow);"></div></div></td></tr>
+      <tr class="tier-red"><td>31</td><td>Mistral AI</td><td class="mono">mistral-small-2402</td><td class="text-right">198</td><td class="text-right text-red">33.0</td><td class="text-right">94</td><td class="text-right">36</td><td class="text-right">68</td><td><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>32</td><td>Mistral AI</td><td class="mono">mistral-large-2402</td><td class="text-right">193</td><td class="text-right text-red">32.2</td><td class="text-right">91</td><td class="text-right">52</td><td class="text-right">50</td><td><div class="bar-track"><div class="bar-fill" style="width:32.2%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>33</td><td>Mistral AI</td><td class="mono">voxtral-mini-3b</td><td class="text-right">186</td><td class="text-right text-red">31.0</td><td class="text-right">78</td><td class="text-right">74</td><td class="text-right">34</td><td><div class="bar-track"><div class="bar-fill" style="width:31%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>34</td><td>AI21 Labs</td><td class="mono">jamba-1-5-mini</td><td class="text-right">170</td><td class="text-right text-red">28.3</td><td class="text-right">76</td><td class="text-right">59</td><td class="text-right">35</td><td><div class="bar-track"><div class="bar-fill" style="width:28.3%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>35</td><td>NVIDIA</td><td class="mono">nemotron-nano-3-30b</td><td class="text-right">169</td><td class="text-right text-red">28.2</td><td class="text-right">85</td><td class="text-right">49</td><td class="text-right">35</td><td><div class="bar-track"><div class="bar-fill" style="width:28.2%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>36</td><td>Mistral AI</td><td class="mono">mixtral-8x7b</td><td class="text-right">161</td><td class="text-right text-red">26.8</td><td class="text-right">75</td><td class="text-right">50</td><td class="text-right">36</td><td><div class="bar-track"><div class="bar-fill" style="width:26.8%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>37</td><td>NVIDIA</td><td class="mono">nemotron-nano-9b</td><td class="text-right">114</td><td class="text-right text-red">19.0</td><td class="text-right">64</td><td class="text-right">27</td><td class="text-right">23</td><td><div class="bar-track"><div class="bar-fill" style="width:19%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>38</td><td>NVIDIA</td><td class="mono">nemotron-nano-12b</td><td class="text-right">106</td><td class="text-right text-red">17.7</td><td class="text-right">56</td><td class="text-right">35</td><td class="text-right">15</td><td><div class="bar-track"><div class="bar-fill" style="width:17.7%;background:var(--red);"></div></div></td></tr>
+      <tr class="tier-red"><td>39</td><td>Mistral AI</td><td class="mono">mistral-7b</td><td class="text-right">76</td><td class="text-right text-red">12.7</td><td class="text-right">41</td><td class="text-right">17</td><td class="text-right">18</td><td><div class="bar-track"><div class="bar-fill" style="width:12.7%;background:var(--red);"></div></div></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Summary strip -->
+  <div style="margin-top:8px;" class="grid-3">
+    <div class="card-alt text-center">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--cyan);">2</div>
+      <div class="caption">Gold tier (90%+)</div>
+    </div>
+    <div class="card-alt text-center">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--silver);">11</div>
+      <div class="caption">Silver tier (80-89%)</div>
+    </div>
+    <div class="card-alt text-center">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--red);">9</div>
+      <div class="caption">Red tier (&lt;40%)</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Kazakh Language Benchmark &mdash; Amazon Bedrock 2026</span>
+    <span>Page 3 of 7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE 4 — Category Analysis Heatmap
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-4" style="padding:12mm 10mm;">
+  <div class="flex justify-between items-center" style="margin-bottom:6px;">
+    <div class="title-medium">Category Difficulty Analysis</div>
+    <div class="flex gap-6">
+      <span class="caption" style="display:flex;align-items:center;gap:3px;"><span style="display:inline-block;width:12px;height:8px;background:#7f1d1d;border-radius:2px;"></span>Hard</span>
+      <span class="caption" style="display:flex;align-items:center;gap:3px;"><span style="display:inline-block;width:12px;height:8px;background:#854d0e;border-radius:2px;"></span>Medium</span>
+      <span class="caption" style="display:flex;align-items:center;gap:3px;"><span style="display:inline-block;width:12px;height:8px;background:#166534;border-radius:2px;"></span>Easy</span>
+    </div>
+  </div>
+  <div class="section-line"></div>
+
+  <!-- Category difficulty bar chart -->
+  <div style="margin-bottom:14px;">
+    <div class="title-small" style="margin-bottom:8px;">Average Score by Category (out of 30)</div>
+    <div style="display:grid; grid-template-columns:110px 1fr 36px; gap:2px; font-size:0.78rem;">
+      <div class="caption fw-600" style="padding:2px 0;">linguistics</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:40%;background:linear-gradient(90deg,#dc2626,#ef4444);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-coral">12.0</div>
+      <div class="caption fw-600" style="padding:2px 0;">grammar_deep</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:41%;background:linear-gradient(90deg,#dc2626,#ef4444);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-coral">12.3</div>
+      <div class="caption fw-600" style="padding:2px 0;">culture</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:44.7%;background:linear-gradient(90deg,#ea580c,#f97316);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-orange">13.4</div>
+      <div class="caption fw-600" style="padding:2px 0;">culture_deep</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:51.3%;background:linear-gradient(90deg,#ea580c,#f97316);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-orange">15.4</div>
+      <div class="caption fw-600" style="padding:2px 0;">translation_en_kk</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:54%;background:linear-gradient(90deg,#d97706,#eab308);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-yellow">16.2</div>
+      <div class="caption fw-600" style="padding:2px 0;">proverb</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:61.3%;background:linear-gradient(90deg,#65a30d,#84cc16);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-green">18.4</div>
+      <div class="caption fw-600" style="padding:2px 0;">comparison</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:63.7%;background:linear-gradient(90deg,#65a30d,#84cc16);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-green">19.1</div>
+      <div class="caption fw-600" style="padding:2px 0;">generation</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:64%;background:linear-gradient(90deg,#65a30d,#84cc16);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-green">19.2</div>
+      <div class="caption fw-600" style="padding:2px 0;">literature</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:64.7%;background:linear-gradient(90deg,#65a30d,#84cc16);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-green">19.4</div>
+      <div class="caption fw-600" style="padding:2px 0;">grammar</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:66%;background:linear-gradient(90deg,#16a34a,#22c55e);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-green">19.8</div>
+      <div class="caption fw-600" style="padding:2px 0;">creative</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:66.3%;background:linear-gradient(90deg,#16a34a,#22c55e);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-green">19.9</div>
+      <div class="caption fw-600" style="padding:2px 0;">story</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:67.3%;background:linear-gradient(90deg,#16a34a,#22c55e);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-green">20.2</div>
+      <div class="caption fw-600" style="padding:2px 0;">vocabulary</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:67.7%;background:linear-gradient(90deg,#16a34a,#22c55e);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-green">20.3</div>
+      <div class="caption fw-600" style="padding:2px 0;">conversation</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:73%;background:linear-gradient(90deg,#0d9488,#14b8a6);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-teal">21.9</div>
+      <div class="caption fw-600" style="padding:2px 0;">counting</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:77%;background:linear-gradient(90deg,#0d9488,#14b8a6);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-teal">23.1</div>
+      <div class="caption fw-600" style="padding:2px 0;">translation_kk_ru</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:78%;background:linear-gradient(90deg,#0d9488,#14b8a6);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-teal">23.4</div>
+      <div class="caption fw-600" style="padding:2px 0;">math</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:81.3%;background:linear-gradient(90deg,#0891b2,#06b6d4);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-cyan">24.4</div>
+      <div class="caption fw-600" style="padding:2px 0;">factual</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:82%;background:linear-gradient(90deg,#0891b2,#06b6d4);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-cyan">24.6</div>
+      <div class="caption fw-600" style="padding:2px 0;">translation_kk_en</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:85%;background:linear-gradient(90deg,#0891b2,#06b6d4);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-cyan">25.5</div>
+      <div class="caption fw-600" style="padding:2px 0;">summarization</div><div><div class="bar-track" style="height:14px;"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#0891b2,#06b6d4);height:14px;border-radius:4px;"></div></div></div><div class="text-right fw-700 text-cyan">26.4</div>
+    </div>
+  </div>
+
+  <!-- Insights row -->
+  <div class="grid-2" style="margin-bottom:12px;">
+    <div class="callout" style="border-left-color:var(--coral);">
+      <div class="title-small" style="margin-bottom:4px;">Hardest: Linguistics</div>
+      <div class="body-small text-secondary">Kazakh phonetics and phonological rules. Average just 12.0/30 &mdash; even top models struggle with morphophonemic alternation and vowel harmony nuances.</div>
+    </div>
+    <div class="callout" style="border-left-color:var(--cyan);">
+      <div class="title-small" style="margin-bottom:4px;">Easiest: Summarization</div>
+      <div class="body-small text-secondary">Text comprehension and condensation. Average 26.4/30. Models can extract key ideas even when Kazakh grammar generation is weak.</div>
+    </div>
+  </div>
+
+  <!-- Translation asymmetry -->
+  <div class="card" style="margin-bottom:10px;">
+    <div class="title-small" style="margin-bottom:8px;">Translation Direction Asymmetry</div>
+    <div class="grid-3" style="gap:8px;">
+      <div class="card-alt text-center">
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:4px;">EN &#x2192; KK</div>
+        <div style="font-size:2.0rem; font-weight:700; color:var(--coral);">16.2</div>
+        <div class="caption">Hardest direction</div>
+      </div>
+      <div class="card-alt text-center">
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:4px;">KK &#x2192; RU</div>
+        <div style="font-size:2.0rem; font-weight:700; color:var(--yellow);">23.4</div>
+        <div class="caption">Related language</div>
+      </div>
+      <div class="card-alt text-center">
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:4px;">KK &#x2192; EN</div>
+        <div style="font-size:2.0rem; font-weight:700; color:var(--cyan);">25.5</div>
+        <div class="caption">Easiest direction</div>
+      </div>
+    </div>
+    <div class="caption mt-8">Translating INTO Kazakh (EN&#x2192;KK: 16.2) is 57% harder than translating FROM Kazakh (KK&#x2192;EN: 25.5). This reflects the agglutinative morphology challenge: models must generate correct suffix chains, vowel harmony, and case agreement.</div>
+  </div>
+
+  <!-- Difficulty tiers -->
+  <div class="grid-3" style="gap:8px;">
+    <div class="card-alt">
+      <div style="font-size:0.8rem; font-weight:600; color:var(--coral); margin-bottom:4px;">&#x2BC6; Hard Tier (avg &lt;16)</div>
+      <div class="caption">linguistics, grammar_deep, culture, culture_deep, translation_en_kk</div>
+      <div class="caption mt-4">These require deep morphological knowledge and Kazakh cultural competence.</div>
+    </div>
+    <div class="card-alt">
+      <div style="font-size:0.8rem; font-weight:600; color:var(--yellow); margin-bottom:4px;">&#x25C6; Medium Tier (16-22)</div>
+      <div class="caption">proverb, comparison, generation, literature, grammar, creative, story, vocabulary, conversation</div>
+      <div class="caption mt-4">9 categories in the middle band. Distinguishes good models from great ones.</div>
+    </div>
+    <div class="card-alt">
+      <div style="font-size:0.8rem; font-weight:600; color:var(--cyan); margin-bottom:4px;">&#x2BC5; Easy Tier (22+)</div>
+      <div class="caption">counting, translation_kk_ru, math, factual, translation_kk_en, summarization</div>
+      <div class="caption mt-4">Universal reasoning tasks. Even weaker models perform adequately.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Kazakh Language Benchmark &mdash; Amazon Bedrock 2026</span>
+    <span>Page 4 of 7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE 5 — Provider Comparison
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-5" style="padding:14mm 12mm;">
+  <div class="flex justify-between items-center" style="margin-bottom:6px;">
+    <div class="title-medium">Provider Comparison</div>
+    <span class="tag" style="background:rgba(255,215,0,0.15); color:var(--gold);">12 PROVIDERS</span>
+  </div>
+  <div class="section-line"></div>
+
+  <!-- Provider ranking bars -->
+  <div style="margin-bottom:14px;">
+    <div style="font-size:0.72rem; color:var(--text-dim); display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; padding:0 0 4px 0; border-bottom:1px solid var(--border); margin-bottom:4px;">
+      <span>PROVIDER</span><span>AVERAGE SCORE</span><span>AVG %</span><span style="text-align:right;">BEST MODEL</span><span class="text-right">N</span>
+    </div>
+
+    <!-- Anthropic -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Anthropic</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:89.5%;background:linear-gradient(90deg,var(--gold),#FFA500);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--gold);">89.5%</span>
+      <span class="mono caption text-right">opus-4-6 (96.0%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">6</span>
+    </div>
+    <!-- DeepSeek -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">DeepSeek</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:89%;background:linear-gradient(90deg,var(--gold),#FFA500);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--gold);">89.0%</span>
+      <span class="mono caption text-right">r1 (90.0%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">2</span>
+    </div>
+    <!-- Moonshot -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Moonshot AI</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:88.3%;background:linear-gradient(90deg,var(--silver),#a0a0a0);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--silver);">88.3%</span>
+      <span class="mono caption text-right">kimi-k2.5 (88.3%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">1</span>
+    </div>
+    <!-- Z.AI -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Z.AI</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:79.6%;background:linear-gradient(90deg,var(--bronze),#a0724a);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--bronze);">79.6%</span>
+      <span class="mono caption text-right">glm-5 (91.3%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">3</span>
+    </div>
+    <!-- Qwen -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Qwen</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:76.7%;background:linear-gradient(90deg,var(--bronze),#a0724a);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--bronze);">76.7%</span>
+      <span class="mono caption text-right">qwen3-vl-235b (86.7%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">5</span>
+    </div>
+    <!-- Amazon -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Amazon</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:73.5%;background:linear-gradient(90deg,var(--green),#22c55e);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--green);">73.5%</span>
+      <span class="mono caption text-right">nova-pro (86.3%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">4</span>
+    </div>
+    <!-- Meta -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Meta</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:71.1%;background:linear-gradient(90deg,var(--green),#22c55e);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--green);">71.1%</span>
+      <span class="mono caption text-right">scout-17b (89.7%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">7</span>
+    </div>
+    <!-- Google -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Google</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:68.2%;background:linear-gradient(90deg,var(--green),#22c55e);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--green);">68.2%</span>
+      <span class="mono caption text-right">gemma-3-27b (81.5%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">3</span>
+    </div>
+    <!-- Mistral -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Mistral AI</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:56.7%;background:linear-gradient(90deg,var(--yellow),#ca8a04);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--yellow);">56.7%</span>
+      <span class="mono caption text-right">large-3-675b (89.3%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">13</span>
+    </div>
+    <!-- Writer -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">Writer</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:50.9%;background:linear-gradient(90deg,var(--yellow),#ca8a04);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--yellow);">50.9%</span>
+      <span class="mono caption text-right">palmyra-x5 (84.8%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">3</span>
+    </div>
+    <!-- AI21 -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid rgba(36,48,68,0.5);">
+      <span style="font-size:0.88rem; font-weight:700;">AI21 Labs</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:39.8%;background:linear-gradient(90deg,var(--red),#b91c1c);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--red);">39.8%</span>
+      <span class="mono caption text-right">jamba-large (51.3%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">2</span>
+    </div>
+    <!-- NVIDIA -->
+    <div style="display:grid; grid-template-columns:100px 1fr 50px 130px 36px; gap:8px; align-items:center; padding:6px 0;">
+      <span style="font-size:0.88rem; font-weight:700;">NVIDIA</span>
+      <div class="bar-track" style="height:18px;"><div class="bar-fill" style="width:29.7%;background:linear-gradient(90deg,var(--red),#b91c1c);height:18px;border-radius:4px;"></div></div>
+      <span style="font-size:0.95rem; font-weight:700; color:var(--red);">29.7%</span>
+      <span class="mono caption text-right">super-120b (54.0%)</span>
+      <span class="text-right fw-600" style="font-size:0.9rem;">4</span>
+    </div>
+  </div>
+
+  <!-- Provider insights -->
+  <div class="grid-2" style="margin-bottom:10px;">
+    <div class="card">
+      <div class="title-small text-gold" style="margin-bottom:6px;">Consistency Leaders</div>
+      <div class="body-small text-secondary" style="margin-bottom:6px;">Anthropic shows the tightest spread: all 6 models between 73-96%. DeepSeek and Moonshot each field 1-2 models but all score 88%+.</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.78rem;">
+        <div class="card-alt text-center">
+          <div class="text-gold fw-700" style="font-size:1.2rem;">23pp</div>
+          <div class="caption">Anthropic spread</div>
+        </div>
+        <div class="card-alt text-center">
+          <div class="text-cyan fw-700" style="font-size:1.2rem;">2pp</div>
+          <div class="caption">DeepSeek spread</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="title-small text-coral" style="margin-bottom:6px;">Highest Variance</div>
+      <div class="body-small text-secondary" style="margin-bottom:6px;">Mistral AI fields 13 models with a massive 77pp spread (12.7% to 89.3%). Their flagship competes with the best; their legacy models trail badly.</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.78rem;">
+        <div class="card-alt text-center">
+          <div class="text-coral fw-700" style="font-size:1.2rem;">77pp</div>
+          <div class="caption">Mistral spread</div>
+        </div>
+        <div class="card-alt text-center">
+          <div class="text-yellow fw-700" style="font-size:1.2rem;">39pp</div>
+          <div class="caption">Writer spread</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key provider takeaway -->
+  <div class="callout">
+    <div class="body-small"><strong>Key takeaway:</strong> Provider average is heavily influenced by legacy models. Mistral's average (56.7%) masks the fact that their best model (675B) scores 89.3%. When selecting models for Kazakh tasks, choose the specific model &mdash; not the provider brand.</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Kazakh Language Benchmark &mdash; Amazon Bedrock 2026</span>
+    <span>Page 5 of 7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE 6 — Three Axes Deep Dive
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-6" style="padding:14mm 12mm;">
+  <div class="flex justify-between items-center" style="margin-bottom:6px;">
+    <div class="title-medium">Three Axes Deep Dive</div>
+    <div class="flex gap-12">
+      <span class="caption"><span class="legend-dot" style="background:var(--cyan);"></span>Understanding</span>
+      <span class="caption"><span class="legend-dot" style="background:var(--gold);"></span>KZ Quality</span>
+      <span class="caption"><span class="legend-dot" style="background:var(--coral);"></span>Correctness</span>
+    </div>
+  </div>
+  <div class="section-line"></div>
+
+  <!-- Top 10 models - 3 axis breakdown -->
+  <div style="margin-bottom:14px;">
+    <div class="title-small" style="margin-bottom:8px;">Top 10 Models &mdash; Axis Breakdown (max 200 each)</div>
+
+    <!-- Header -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; font-size:0.68rem; color:var(--text-dim); padding-bottom:4px; border-bottom:1px solid var(--border); text-transform:uppercase; letter-spacing:0.05em;">
+      <span>#</span><span>Model</span><span>Understanding /200</span><span>KZ Quality /200</span><span>Correctness /200</span>
+    </div>
+
+    <!-- 1. Opus 4.6 -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem; color:var(--gold);">1</span>
+      <span class="mono" style="font-size:0.78rem;">claude-opus-4-6</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:100%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">200</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:95%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">190</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:93%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">186</span></div>
+    </div>
+
+    <!-- 2. Opus 4.1 -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem;">2</span>
+      <span class="mono" style="font-size:0.78rem;">claude-opus-4-1</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:99%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">198</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:93%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">186</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:91%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">182</span></div>
+    </div>
+
+    <!-- 3. Opus 4.5 -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem;">3</span>
+      <span class="mono" style="font-size:0.78rem;">claude-opus-4-5</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:94.5%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">189</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:90%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">180</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:90.5%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">181</span></div>
+    </div>
+
+    <!-- 4. Sonnet 4.6 -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem;">4</span>
+      <span class="mono" style="font-size:0.78rem;">claude-sonnet-4-6</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:94.5%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">189</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:90%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">180</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:89.5%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">179</span></div>
+    </div>
+
+    <!-- 4. GLM-5 -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem;">4</span>
+      <span class="mono" style="font-size:0.78rem;">glm-5</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:98%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">196</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:90%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">180</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:86%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">172</span></div>
+    </div>
+
+    <!-- 6. Sonnet 4.5 -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem;">6</span>
+      <span class="mono" style="font-size:0.78rem;">claude-sonnet-4-5</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:94.5%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">189</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:89%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">178</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:88%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">176</span></div>
+    </div>
+
+    <!-- 7. Scout -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem;">7</span>
+      <span class="mono" style="font-size:0.78rem;">llama4-scout-17b</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:98%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">196</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:87%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">174</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:84%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">168</span></div>
+    </div>
+
+    <!-- 8. Mistral Large 3 -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem;">8</span>
+      <span class="mono" style="font-size:0.78rem;">mistral-large-3-675b</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:97%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">194</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:86.5%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">173</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:84.5%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">169</span></div>
+    </div>
+
+    <!-- 9. Kimi -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0; border-bottom:1px solid rgba(36,48,68,0.4);">
+      <span class="fw-700" style="font-size:0.8rem;">9</span>
+      <span class="mono" style="font-size:0.78rem;">kimi-k2.5</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:93.5%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">187</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:87%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">174</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:84.5%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">169</span></div>
+    </div>
+
+    <!-- 10. DeepSeek -->
+    <div style="display:grid; grid-template-columns:24px 140px 1fr 1fr 1fr; gap:4px; align-items:center; padding:5px 0;">
+      <span class="fw-700" style="font-size:0.8rem;">10</span>
+      <span class="mono" style="font-size:0.78rem;">deepseek-v3.2</span>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:95.5%;background:var(--cyan);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">191</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:87%;background:var(--gold);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">174</span></div>
+      <div class="flex items-center gap-4"><div class="bar-track" style="height:10px; flex:1;"><div class="bar-fill" style="width:81.5%;background:var(--coral);height:10px;border-radius:4px;"></div></div><span style="font-size:0.75rem; width:26px; text-align:right;">163</span></div>
+    </div>
+  </div>
+
+  <!-- Axis aggregate analysis -->
+  <div class="card" style="margin-bottom:12px;">
+    <div class="title-small" style="margin-bottom:8px;">Cross-Model Axis Analysis (all 53 models)</div>
+    <div class="grid-3" style="gap:10px;">
+      <div class="card-alt text-center" style="border-top:3px solid var(--cyan);">
+        <div style="font-size:2.0rem; font-weight:700; color:var(--cyan);">Understanding</div>
+        <div style="font-size:1.2rem; color:var(--text-secondary); margin-top:4px;">Strongest axis across all models</div>
+        <div style="font-size:0.82rem; color:var(--text-dim); margin-top:6px;">Even weak models partially understand Kazakh. Average: 143/200 (71.5%)</div>
+      </div>
+      <div class="card-alt text-center" style="border-top:3px solid var(--gold);">
+        <div style="font-size:2.0rem; font-weight:700; color:var(--gold);">KZ Quality</div>
+        <div style="font-size:1.2rem; color:var(--text-secondary); margin-top:4px;">Middle axis &mdash; generation is harder</div>
+        <div style="font-size:0.82rem; color:var(--text-dim); margin-top:6px;">Quality of generated Kazakh text drops faster than comprehension. Average: 121/200 (60.5%)</div>
+      </div>
+      <div class="card-alt text-center" style="border-top:3px solid var(--coral);">
+        <div style="font-size:2.0rem; font-weight:700; color:var(--coral);">Correctness</div>
+        <div style="font-size:1.2rem; color:var(--text-secondary); margin-top:4px;">Weakest axis &mdash; accuracy lags</div>
+        <div style="font-size:0.82rem; color:var(--text-dim); margin-top:6px;">Factual accuracy consistently trails other axes. Average: 107/200 (53.5%)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pattern insight -->
+  <div class="grid-2">
+    <div class="callout" style="border-left-color:var(--purple);">
+      <div class="title-small" style="margin-bottom:4px;">The Understanding-Correctness Gap</div>
+      <div class="body-small text-secondary">Across all 53 models, Understanding averages 18 percentage points higher than Correctness. Models can parse Kazakh far better than they can produce accurate answers in it. This gap widens dramatically in bottom-tier models &mdash; they understand fragments but hallucinate answers.</div>
+    </div>
+    <div class="callout" style="border-left-color:var(--teal);">
+      <div class="title-small" style="margin-bottom:4px;">GLM-5's Understanding Edge</div>
+      <div class="body-small text-secondary">GLM-5 and LLaMA 4 Scout both scored 196/200 on Understanding &mdash; matching or exceeding Claude. The differentiator was Kazakh output quality and factual accuracy, where Claude maintained its lead. Chinese models' Kazakh comprehension benefits from shared Turkic linguistic features.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Kazakh Language Benchmark &mdash; Amazon Bedrock 2026</span>
+    <span>Page 6 of 7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE 7 — Key Findings & Insights
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-7" style="padding:14mm 12mm;">
+  <div class="title-medium" style="margin-bottom:6px;">Key Findings &amp; Insights</div>
+  <div class="section-line"></div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+    <!-- Insight 1 -->
+    <div class="insight-card" style="border-color:var(--gold);">
+      <div class="insight-icon">&#x1F31F;</div>
+      <div>
+        <div style="font-size:0.95rem; font-weight:700; color:var(--gold); margin-bottom:3px;">Surprise: GLM-5 Ties Claude Sonnet</div>
+        <div class="body-small text-secondary">Z.AI's GLM-5 (Chinese company) scored 91.3%, tying with Claude Sonnet 4.6. A Chinese model matching Anthropic's on Kazakh suggests that Turkic language knowledge transfers from Chinese training corpora that include Central Asian content.</div>
+      </div>
+    </div>
+
+    <!-- Insight 2 -->
+    <div class="insight-card" style="border-color:var(--cyan);">
+      <div class="insight-icon">&#x26A1;</div>
+      <div>
+        <div style="font-size:0.95rem; font-weight:700; color:var(--cyan); margin-bottom:3px;">Size Isn't Everything</div>
+        <div class="body-small text-secondary">LLaMA 4 Scout 17B (89.7%) beats many models 10x its size. Mistral's 675B flagship barely edges DeepSeek V3.2 (89.3% vs 88.0%). Architecture and training data quality matter more than raw parameter count for low-resource languages.</div>
+      </div>
+    </div>
+
+    <!-- Insight 3 -->
+    <div class="insight-card" style="border-color:var(--coral);">
+      <div class="insight-icon">&#x1F4DA;</div>
+      <div>
+        <div style="font-size:0.95rem; font-weight:700; color:var(--coral); margin-bottom:3px;">Linguistics is the Litmus Test</div>
+        <div class="body-small text-secondary">Average score of just 12.0/30 on linguistics questions (phonetics, morphophonemic rules). This category alone separates models with genuine Kazakh competence from those relying on surface-level pattern matching.</div>
+      </div>
+    </div>
+
+    <!-- Insight 4 -->
+    <div class="insight-card" style="border-color:var(--green);">
+      <div class="insight-icon">&#x1F504;</div>
+      <div>
+        <div style="font-size:0.95rem; font-weight:700; color:var(--green); margin-bottom:3px;">Translation Asymmetry: 57% Harder</div>
+        <div class="body-small text-secondary">EN&#x2192;KK translation (16.2/30) is dramatically harder than KK&#x2192;EN (25.5/30). Generating correct Kazakh requires mastery of agglutinative morphology, vowel harmony, and case suffixing that comprehension-only tasks don't demand.</div>
+      </div>
+    </div>
+
+    <!-- Insight 5 -->
+    <div class="insight-card" style="border-color:var(--purple);">
+      <div class="insight-icon">&#x1F3AD;</div>
+      <div>
+        <div style="font-size:0.95rem; font-weight:700; color:var(--purple); margin-bottom:3px;">Culture as Differentiator</div>
+        <div class="body-small text-secondary">Cultural knowledge (13.4/30) and deep cultural understanding (15.4/30) are key separators. Models that rank Gold on grammar but fail culture reveal a gap between language fluency and cultural competence &mdash; a critical distinction for real-world deployment.</div>
+      </div>
+    </div>
+
+    <!-- Insight 6 -->
+    <div class="insight-card" style="border-color:var(--orange);">
+      <div class="insight-icon">&#x26A0;</div>
+      <div>
+        <div style="font-size:0.95rem; font-weight:700; color:var(--orange); margin-bottom:3px;">DeepSeek R1: Asterisk Required</div>
+        <div class="body-small text-secondary">DeepSeek R1 scored 90.0% but only answered 3 of 20 questions (17 errors, likely rate limits). Its per-question quality is exceptional, but the sample size is too small for a definitive ranking. Included with a caveat.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom row: stats + NVIDIA + access -->
+  <div class="grid-3" style="gap:10px; margin-bottom:10px;">
+    <div class="card" style="border-top:3px solid var(--red);">
+      <div style="font-size:0.85rem; font-weight:700; color:var(--red); margin-bottom:4px;">&#x274C; NVIDIA Nemotron: Consistent Failure</div>
+      <div class="body-small text-secondary">All 4 NVIDIA Nemotron models scored below 54%, with nano variants under 20%. Despite large parameter counts (up to 120B), these models lack meaningful Kazakh language data in their training mix. Provider average: 29.7%.</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--text-dim);">
+      <div style="font-size:0.85rem; font-weight:700; color:var(--text-secondary); margin-bottom:4px;">&#x1F512; 20 Models Inaccessible</div>
+      <div class="body-small text-secondary">20 additional models on Bedrock were not testable &mdash; they require explicit enablement in the AWS console. This includes several Google, Cohere, and Stability AI models that may have ranked well.</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--teal);">
+      <div style="font-size:0.85rem; font-weight:700; color:var(--teal); margin-bottom:4px;">&#x1F4CA; Scout 17B &gt; Maverick 17B</div>
+      <div class="body-small text-secondary">Among same-generation LLaMA 4 models, Scout outperforms Maverick by 4.5 percentage points (89.7% vs 85.2%). Both are 17B parameter MoE architectures, but Scout's expert routing appears better suited to low-resource language tasks.</div>
+    </div>
+  </div>
+
+  <!-- Final summary -->
+  <div class="card" style="background:linear-gradient(135deg, #141E30 0%, #1A2740 100%); border-color:var(--gold);">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; text-align:center;">
+      <div>
+        <div style="font-size:2.2rem; font-weight:700; color:var(--gold);">96.0%</div>
+        <div class="caption">Best Score<br><span class="mono" style="font-size:0.7rem;">claude-opus-4-6</span></div>
+      </div>
+      <div>
+        <div style="font-size:2.2rem; font-weight:700; color:var(--coral);">12.7%</div>
+        <div class="caption">Worst Score<br><span class="mono" style="font-size:0.7rem;">mistral-7b</span></div>
+      </div>
+      <div>
+        <div style="font-size:2.2rem; font-weight:700; color:var(--cyan);">7.6x</div>
+        <div class="caption">Best/Worst Ratio<br><span class="caption">Massive quality gap</span></div>
+      </div>
+      <div>
+        <div style="font-size:2.2rem; font-weight:700; color:var(--green);">67.7%</div>
+        <div class="caption">Median Score<br><span class="caption">Rank #27 Haiku</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Kazakh Language Benchmark &mdash; Amazon Bedrock 2026 &middot; Compiled by Saken Tukenov</span>
+    <span>Page 7 of 7</span>
+  </div>
+</div>
+
+</body>
+</html>
