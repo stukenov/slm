@@ -44,7 +44,7 @@ echo "Copying autoresearch files..."
 $SCP -r /Users/sakentukenov/slm/autoresearch/* root@$SSH_IP:/root/autoresearch/
 
 # Set HF token
-$SSH "mkdir -p ~/.cache/huggingface && echo 'REDACTED_HF_TOKEN' > ~/.cache/huggingface/token"
+$SSH "mkdir -p ~/.cache/huggingface && echo "$HF_TOKEN" > ~/.cache/huggingface/token"
 
 # Start training in detached screen
 echo "Starting training in screen..."

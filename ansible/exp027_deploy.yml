@@ -2,7 +2,7 @@
 - name: Deploy and run exp027 annotation pipeline
   hosts: exp027
   vars:
-    hf_token: "REDACTED_HF_TOKEN"
+    hf_token: "{{ lookup('env', 'HF_TOKEN') }}"
     work_dir: /workspace
     scripts:
       - scripts/exp027/annotate_kk_dataset.py

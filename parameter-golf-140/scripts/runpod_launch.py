@@ -21,10 +21,7 @@ except ImportError:
     print("pip install runpod")
     sys.exit(1)
 
-RUNPOD_API_KEY = os.environ.get(
-    "RUNPOD_API_KEY",
-    "REDACTED_RUNPOD_API_KEY",
-)
+RUNPOD_API_KEY = os.environ["RUNPOD_API_KEY"]
 runpod.api_key = RUNPOD_API_KEY
 
 DOCKER_IMAGE = "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel"

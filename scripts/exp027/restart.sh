@@ -1,7 +1,7 @@
 #!/bin/bash
 # Kill old process, set token, restart pipeline
 pkill -f prepare_bilingual || true
-export HF_TOKEN="REDACTED_HF_TOKEN"
+export HF_TOKEN="${HF_TOKEN:?Set HF_TOKEN env var}"
 huggingface-cli login --token "$HF_TOKEN" --add-to-git-credential 2>/dev/null || true
 rm -f /workspace/exp027.log
 nohup python3 /workspace/prepare_bilingual_data.py --step all > /workspace/exp027.log 2>&1 &

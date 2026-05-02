@@ -48,7 +48,7 @@ echo "Installing dependencies..."
 $SSH "pip install -q torch transformers datasets huggingface-hub safetensors accelerate peft 2>&1 | tail -5"
 
 # Set HF token
-$SSH "mkdir -p ~/.cache/huggingface && echo 'REDACTED_HF_TOKEN' > ~/.cache/huggingface/token"
+$SSH "mkdir -p ~/.cache/huggingface && echo "$HF_TOKEN" > ~/.cache/huggingface/token"
 
 # Verify
 echo "Verifying setup..."

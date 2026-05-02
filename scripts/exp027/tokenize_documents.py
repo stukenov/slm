@@ -38,7 +38,7 @@ HF_TOKENIZER = "stukenov/ekitil-vocab-bpe-64k-kkru-v1"
 HF_OUTPUT = "stukenov/ekitil-corpus-tokenized-kkru-v1"
 WORK_DIR = Path(os.environ.get("WORK_DIR", "/root/exp027"))
 
-TG_BOT_TOKEN = "REDACTED_TG_BOT_TOKEN"
+TG_BOT_TOKEN = os.environ["TG_BOT_TOKEN"]
 TG_CHAT_ID = "47474471"
 
 RE_SENT_SPLIT = re.compile(r'(?<=[.!?…])\s+')

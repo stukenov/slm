@@ -8,7 +8,7 @@ echo "=== exp027: setup ==="
 pip install -q datasets tokenizers huggingface_hub fasttext-wheel numpy tqdm datasketch
 
 # HF token
-export HF_TOKEN="${HF_TOKEN:-REDACTED_HF_TOKEN}"
+export HF_TOKEN="${HF_TOKEN:?Set HF_TOKEN env var}"
 
 # Huggingface login
 huggingface-cli login --token "$HF_TOKEN" --add-to-git-credential 2>/dev/null || true

@@ -2,7 +2,7 @@
 set -euo pipefail
 pkill -f annotate_kk 2>/dev/null || true
 pkill -f add_russian 2>/dev/null || true
-export HF_TOKEN="REDACTED_HF_TOKEN"
+export HF_TOKEN="${HF_TOKEN:?Set HF_TOKEN env var}"
 
 echo "=== Phase 1: Annotate Kazakh dataset ==="
 python3 /workspace/annotate_kk_dataset.py 2>&1 | tee /workspace/exp027/phase1.log

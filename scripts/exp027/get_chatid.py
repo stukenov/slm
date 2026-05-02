@@ -1,5 +1,5 @@
 import urllib.request, json
-url = "https://api.telegram.org/botREDACTED_TG_BOT_TOKEN/getUpdates"
+url = "https://api.telegram.org/bot'" + os.environ["TG_BOT_TOKEN"] + "'/getUpdates"
 resp = urllib.request.urlopen(url)
 data = json.loads(resp.read())
 for r in data.get("result", []):

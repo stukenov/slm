@@ -32,7 +32,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 logger = logging.getLogger(__name__)
 
 HF_TOKEN = os.environ.get("HF_TOKEN", "")
-TG_BOT_TOKEN = "REDACTED_TG_BOT_TOKEN"
+TG_BOT_TOKEN = os.environ["TG_BOT_TOKEN"]
 TG_CHAT_ID = "47474471"
 HF_KK_ANNOTATED = "stukenov/ekitil-corpus-annotated-kk-v1"
 HF_OUTPUT = "stukenov/ekitil-corpus-annotated-v1"

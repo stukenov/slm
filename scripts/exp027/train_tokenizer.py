@@ -35,7 +35,7 @@ HF_TOKENIZER = "stukenov/ekitil-vocab-bpe-64k-kkru-v1"
 WORK_DIR = Path("/root/slm/exp027")
 CACHE_DIR = str(WORK_DIR / "cache")
 
-TG_BOT_TOKEN = "REDACTED_TG_BOT_TOKEN"
+TG_BOT_TOKEN = os.environ["TG_BOT_TOKEN"]
 TG_CHAT_ID = "47474471"
 
 

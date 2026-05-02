@@ -59,7 +59,7 @@ KK_CONF_THRESHOLD = 0.5
 CHECKPOINT_EVERY = 50_000  # save checkpoint every N docs
 
 # Telegram notifications
-TG_BOT_TOKEN = "REDACTED_TG_BOT_TOKEN"
+TG_BOT_TOKEN = os.environ["TG_BOT_TOKEN"]
 TG_CHAT_ID = "47474471"
 TG_NOTIFY_EVERY = 500_000  # notify every N docs
 

@@ -3,7 +3,7 @@
 # Runs unattended in screen.
 set -euo pipefail
 
-export HF_TOKEN="REDACTED_HF_TOKEN"
+export HF_TOKEN="${HF_TOKEN:?Set HF_TOKEN env var}"
 cd /root/slm
 
 echo "=== Auto Pipeline: waiting for tokenizer training ==="
@@ -26,7 +26,7 @@ else
     # Send telegram about failure
     python3 -c "
 import urllib.request, urllib.parse
-url = 'https://api.telegram.org/botREDACTED_TG_BOT_TOKEN/sendMessage?chat_id=47474471&text=' + urllib.parse.quote('❌ Tokenizer training failed! Check logs.')
+url = 'https://api.telegram.org/bot'$TG_BOT_TOKEN'/sendMessage?chat_id=47474471&text=' + urllib.parse.quote('❌ Tokenizer training failed! Check logs.')
 try: urllib.request.urlopen(url, timeout=10)
 except: pass
 "
