@@ -1,6 +1,10 @@
 # SLM — Small Language Models for Kazakh
 
-Training small language models for Kazakh from scratch: from 14M parameter pilots to 600M production models, with custom tokenizers, MoE architectures, and SFT pipelines.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-stukenov-orange.svg)](https://huggingface.co/stukenov)
+
+Open Kazakh small language models, trained from scratch — from 14M parameter pilots to 600M production models, with custom tokenizers, MoE architectures, and SFT pipelines.
 
 ## Published Models (HuggingFace)
 
@@ -15,6 +19,20 @@ All models follow the **SozKZ** naming standard under [`stukenov/`](https://hugg
 | Llama 50M base | 50.3M | Pretrained | [stukenov/sozkz-core-llama-50m-kk-base-v1](https://huggingface.co/stukenov/sozkz-core-llama-50m-kk-base-v1) |
 | MoE 3B init | ~3B | MoE (shared router) | [stukenov/sozkz-moe-mix-3b-kk-base-v1-init](https://huggingface.co/stukenov/sozkz-moe-mix-3b-kk-base-v1-init) |
 | Kazakh BPE 50K | — | Tokenizer | [stukenov/sozkz-vocab-bpe-50k-kk-v3](https://huggingface.co/stukenov/sozkz-vocab-bpe-50k-kk-v3) |
+
+## Model Architectures
+
+From-scratch Llama configs (vocab 50257, tied embeddings), as defined in `configs/experiments/`:
+
+| Config | Params | Hidden | Layers | Heads | Context |
+|--------|--------|--------|--------|-------|---------|
+| `exp004_scratch_14m` | 14M | Pythia-14M arch (from scratch) | | | |
+| `exp013_llama_50m_9b` | ~50M | 576 | 8 | 8 | 1024 |
+| `exp014_llama_150m_9b` | 151.9M | 768 | 16 | 12 | 1024 |
+| `exp020_llama_300m` | ~300M | 1024 | 18 | 16 | 2048 |
+| `exp023_llama_600m` | 587M | 1280 | 22 | 20 | 2048 |
+
+See [WHITEPAPER.md](WHITEPAPER.md) for the full experiment log (exp001–exp026).
 
 ## Dataset
 
@@ -94,6 +112,15 @@ docs/              Model cards, papers, planning docs
 - **Pre-tokenized datasets** on HF Hub for fast training
 - **Automated cloud pipeline**: vast.ai GPU selection, training, HF upload, self-destruct
 - **SozKZ naming standard** for all HuggingFace publications
+
+## Related projects
+
+`slm` is part of a broader Kazakh-language AI stack:
+
+- [kazakh-nlp-toolkit](https://github.com/stukenov/kazakh-nlp-toolkit) — Kazakh NLP utilities
+- [turkic-tts](https://github.com/stukenov/turkic-tts) — text-to-speech for Turkic languages
+- [kazakh-speech-pipeline](https://github.com/stukenov/kazakh-speech-pipeline) — Kazakh speech processing pipeline
+- [qazlang](https://github.com/stukenov/qazlang) — Kazakh language tooling
 
 ## License
 
