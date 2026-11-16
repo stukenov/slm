@@ -17,8 +17,6 @@ All models follow the **SozKZ** naming standard under [`stukenov/`](https://hugg
 | Llama 150M base | 151.9M | Pretrained | [stukenov/sozkz-core-llama-150m-kk-base-v1](https://huggingface.co/stukenov/sozkz-core-llama-150m-kk-base-v1) |
 | Llama 150M instruct | 151.9M | SFT ChatML | [stukenov/sozkz-core-llama-150m-kk-instruct-v2](https://huggingface.co/stukenov/sozkz-core-llama-150m-kk-instruct-v2) |
 | Llama 50M base | 50.3M | Pretrained | [stukenov/sozkz-core-llama-50m-kk-base-v1](https://huggingface.co/stukenov/sozkz-core-llama-50m-kk-base-v1) |
-| MoE 3B init | ~3B | MoE (shared router) | [stukenov/sozkz-moe-mix-3b-kk-base-v1-init](https://huggingface.co/stukenov/sozkz-moe-mix-3b-kk-base-v1-init) |
-| Kazakh BPE 50K | — | Tokenizer | [stukenov/sozkz-vocab-bpe-50k-kk-v3](https://huggingface.co/stukenov/sozkz-vocab-bpe-50k-kk-v3) |
 
 ## Model Architectures
 
@@ -42,7 +40,6 @@ Training corpus: **~9B tokens** of Kazakh text, deduplicated from multiple publi
 |---------|-------------|
 | [kz-transformers/multidomain-kazakh-dataset](https://huggingface.co/datasets/kz-transformers/multidomain-kazakh-dataset) | 23.6M samples, multi-domain |
 | [stukenov/sozkz-corpus-dedup-kk-web-v1](https://huggingface.co/datasets/stukenov/sozkz-corpus-dedup-kk-web-v1) | Deduplicated web corpus |
-| [stukenov/sozkz-corpus-tokenized-kk-llama50k-v3](https://huggingface.co/datasets/stukenov/sozkz-corpus-tokenized-kk-llama50k-v3) | Pre-tokenized (BPE 50K) |
 
 ## Quick Start
 
